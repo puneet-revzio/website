@@ -24,6 +24,22 @@ section.why-choose .section-eyebrow {
   margin-bottom: 12px;
 }
 
+#how-it-works .section-heading--lead {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  max-width: 920px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: #fafaf7 !important;
+}
+
+#how-it-works .section-header-compact {
+  margin-bottom: 8px;
+}
+
 section.why-choose .why-choose-intro,
 section.stats .stats-intro {
   font-size: 1rem;
@@ -85,6 +101,10 @@ section.cta p {
     font-size: 1.25rem;
     margin-bottom: 24px;
   }
+
+  #how-it-works .section-heading--lead {
+    font-size: 1.5rem;
+  }
 }
 
 .why-card--cap {
@@ -140,8 +160,8 @@ section.cta p {
 }
 
 .integration-grid .int-logo.int-logo--brand {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
 }
 
 .integration-grid .int-logo.int-logo--brand .int-logo__img {

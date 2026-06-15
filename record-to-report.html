@@ -96,6 +96,24 @@
       background: #fff;
       overflow: hidden;
     }
+    .compare-col--before {
+      border-color: rgba(180, 35, 24, 0.22);
+    }
+    .compare-col--after {
+      border-color: rgba(15, 107, 78, 0.22);
+    }
+    .compare-col,
+    .compare-head,
+    .compare-row {
+      background: #fff !important;
+    }
+    .compare-head h3,
+    .compare-row strong {
+      color: var(--ink) !important;
+    }
+    .compare-row div {
+      color: var(--ink-soft) !important;
+    }
     .compare-head {
       padding: 18px 18px;
       border-bottom: 1px solid var(--line);
@@ -103,6 +121,7 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 12px;
+      background: #fff;
     }
     .compare-head h3 {
       font-family: 'Fraunces', serif;
@@ -118,6 +137,7 @@
       border-bottom: 1px solid var(--line);
       font-size: 14.5px;
       color: var(--ink-soft);
+      background: #fff;
     }
     .compare-row strong { color: var(--ink); font-weight: 750; }
     .compare-row:last-child { border-bottom: 0; }
@@ -310,26 +330,26 @@
     </div>
 
     <div class="compare reveal-on-scroll" aria-label="Before and after comparison">
-      <div class="compare-col" style="border-color: rgba(180, 35, 24, 0.22); background: linear-gradient(180deg, rgba(180, 35, 24, 0.06), #fff 55%);">
+      <div class="compare-col compare-col--before">
         <div class="compare-head">
           <h3>THE OLD WAY</h3>
           <div style="color: rgba(180, 35, 24, 0.72); font-weight: 800;">Before</div>
         </div>
         <div class="compare-row"><strong>Reconciliation cycle</strong><div>3–5 days manual</div></div>
         <div class="compare-row"><strong>Month-end close</strong><div>10–12 days</div></div>
-        <div class="compare-row"><strong>JE preparation</strong><div>2 days manual rekeying</div></div>
+        <div class="compare-row"><strong>JE preparation</strong><div>2 days manual entry</div></div>
         <div class="compare-row"><strong>Audit prep</strong><div>3–4 weeks</div></div>
         <div class="compare-row"><strong>Unexplained breaks</strong><div>Discovered at month-end</div></div>
         <div class="compare-row"><strong>Team satisfaction</strong><div>Weekend work common</div></div>
       </div>
 
-      <div class="compare-col" style="border-color: rgba(15, 107, 78, 0.22); background: linear-gradient(180deg, rgba(15, 107, 78, 0.06), #fff 55%);">
+      <div class="compare-col compare-col--after">
         <div class="compare-head">
           <h3>THE ORION WAY</h3>
           <div style="color: rgba(15, 107, 78, 0.78); font-weight: 800;">After Orion</div>
         </div>
         <div class="compare-row"><strong>Reconciliation cycle</strong><div>Same-day, continuous</div></div>
-        <div class="compare-row"><strong>Month-end close</strong><div>3–5 days</div></div>
+        <div class="compare-row"><strong>Month-end close</strong><div>2 days</div></div>
         <div class="compare-row"><strong>JE preparation</strong><div>Auto-generated overnight</div></div>
         <div class="compare-row"><strong>Audit prep</strong><div>Already done (continuous)</div></div>
         <div class="compare-row"><strong>Unexplained breaks</strong><div>Surface in hours</div></div>
@@ -344,13 +364,13 @@
     <div class="reveal-on-scroll">
       <div class="section-eyebrow">CHART</div>
       <h2>Close cycle duration improves over time.</h2>
-      <p class="section-sub">Orion deployed at month 3. Close duration falls as automation and exception routing improve each cycle.</p>
+      <p class="section-sub">Orion deployed at month 3. Baseline close duration through month 2, then improvement each cycle as automation and exception routing take hold.</p>
     </div>
 
     <div class="chart-card reveal-on-scroll">
       <div class="chart-title">Close Cycle Duration Over Time With Orion</div>
       <div style="height: 320px;">
-        <canvas id="r2rLine" aria-label="Close cycle line chart" role="img"></canvas>
+        <canvas id="r2rLine" aria-label="Close cycle duration chart: 12 days before Orion in months 1–2, then 8, 6, 4, and 3 days with Orion in months 3–6" role="img"></canvas>
       </div>
       <div class="chart-caption">Average close cycle data from Orion Record-to-Report customers.</div>
     </div>
@@ -468,7 +488,6 @@
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Xero</span>
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Workday</span>
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Stripe</span>
-      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Chargebee</span>
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Snowflake</span>
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">BigQuery</span>
       <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Gusto</span>
@@ -558,34 +577,65 @@
         datasets: [
           {
             label: 'Before Orion',
-            data: [12, 12, 11, 10, null, null],
+            data: [12, 12, null, null, null, null],
             borderColor: 'rgba(30,41,59,0.55)',
             backgroundColor: 'rgba(30,41,59,0.12)',
             borderDash: [6, 6],
-            spanGaps: true,
-            tension: 0.35
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: 'rgba(30,41,59,0.55)',
+            pointBorderWidth: 2,
+            spanGaps: false,
+            tension: 0.2
           },
           {
             label: 'With Orion',
             data: [null, null, 8, 6, 4, 3],
             borderColor: 'rgba(15,107,78,0.95)',
             backgroundColor: 'rgba(15,107,78,0.12)',
-            spanGaps: true,
-            tension: 0.35
+            borderWidth: 2.5,
+            pointRadius: 4,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: 'rgba(15,107,78,0.95)',
+            pointBorderWidth: 2,
+            spanGaps: false,
+            tension: 0.2
           }
         ]
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: false },
-          tooltip: { enabled: true }
+          legend: {
+            display: true,
+            position: 'bottom',
+            align: 'start',
+            labels: {
+              color: '#4B5563',
+              font: { family: 'Inter, system-ui, sans-serif', size: 13 },
+              usePointStyle: false,
+              boxWidth: 28,
+              boxHeight: 2,
+              padding: 18
+            }
+          },
+          tooltip: {
+            enabled: true,
+            callbacks: {
+              title: (items) => items[0]?.label || '',
+              label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y} days`
+            }
+          }
         },
         scales: {
           y: {
-            title: { display: true, text: 'Days to close' },
+            min: 0,
+            max: 14,
+            title: { display: true, text: 'Days to close', color: '#4B5563', font: { family: 'Inter, system-ui, sans-serif', size: 12 } },
             grid: { color: 'rgba(10,15,12,0.06)' },
-            ticks: { color: '#4B5563' }
+            ticks: { color: '#4B5563', stepSize: 2 }
           },
           x: {
             grid: { display: false },

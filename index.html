@@ -212,8 +212,15 @@
     color: var(--hero-mint);
   }
   .product-showcase__sound-icon {
-    font-size: 15px;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+  .product-showcase__sound-icon img {
+    display: block;
+    width: 18px;
+    height: 18px;
   }
 
   /* LOGO STRIP */
@@ -1224,7 +1231,7 @@
             <source src="media/hero-demo.mp4" type="video/mp4">
           </video>
           <button type="button" class="product-showcase__sound" id="hero-video-sound" aria-pressed="false" aria-label="Unmute video">
-            <span class="product-showcase__sound-icon" aria-hidden="true">🔇</span>
+            <span class="product-showcase__sound-icon" aria-hidden="true"><img src="assets/icons/agent/volume-off.svg" alt="" width="18" height="18" decoding="async"></span>
             <span class="product-showcase__sound-label">Unmute</span>
           </button>
         </div>
@@ -1240,24 +1247,24 @@
   <div class="logo-marquee">
     <div class="logo-marquee-track">
       <div class="logo-marquee-group">
-        <div class="logo-item italic">Cadence</div>
-        <div class="logo-item upper">Veltra</div>
-        <div class="logo-item">Lumière</div>
-        <div class="logo-item upper">Summit Ledger</div>
         <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="CoinDCX" width="120" height="24" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="Pixis.ai" width="118" height="24" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="LimeChat" width="104" height="22" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="Faclon Labs" width="154" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="" width="120" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="" width="118" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="" width="104" height="22" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="" width="154" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
       </div>
       <div class="logo-marquee-group" aria-hidden="true">
-        <div class="logo-item italic">Cadence</div>
-        <div class="logo-item upper">Veltra</div>
-        <div class="logo-item">Lumière</div>
-        <div class="logo-item upper">Summit Ledger</div>
         <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="CoinDCX" width="120" height="24" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="Pixis.ai" width="118" height="24" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="LimeChat" width="104" height="22" loading="lazy" decoding="async"></div>
         <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="Faclon Labs" width="154" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="" width="120" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="" width="118" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="" width="104" height="22" loading="lazy" decoding="async" aria-hidden="true"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="" width="154" height="24" loading="lazy" decoding="async" aria-hidden="true"></div>
       </div>
     </div>
   </div>
@@ -1452,7 +1459,7 @@
       <div class="showcase-card showcase-card--copy">
         <p class="showcase-label">Financial Integrity</p>
         <h3>Trust, built in</h3>
-        <p>revzio is built by seasonal finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
+        <p>revzio is built by seasoned finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
         <a href="book-a-demo.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -1492,7 +1499,7 @@
       <div class="platform-spotlight-copy">
         <p class="platform-label">The revzio Platform</p>
         <h2>Built by Industry Leaders, for the <span class="platform-highlight">Future of the Industry</span></h2>
-        <p class="platform-spotlight-text">revzio is built by seasonal finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
+        <p class="platform-spotlight-text">revzio is built by seasoned finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
         <a href="book-a-demo.html" class="btn-platform">Book a demo</a>
       </div>
       <div class="platform-media">
@@ -1800,7 +1807,8 @@
       heroSoundBtn.setAttribute('aria-pressed', String(!muted));
       heroSoundBtn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
       heroSoundBtn.querySelector('.product-showcase__sound-label').textContent = muted ? 'Unmute' : 'Mute';
-      heroSoundBtn.querySelector('.product-showcase__sound-icon').textContent = muted ? '🔇' : '🔊';
+      const icon = heroSoundBtn.querySelector('.product-showcase__sound-icon img');
+      if (icon) icon.src = muted ? 'assets/icons/agent/volume-off.svg' : 'assets/icons/agent/volume-on.svg';
     };
     heroSoundBtn.addEventListener('click', () => {
       heroVideo.muted = !heroVideo.muted;

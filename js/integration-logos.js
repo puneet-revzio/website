@@ -16,8 +16,6 @@
     xero: 'xero',
     hubspot: 'hubspot',
     snowflake: 'snowflake',
-    chargebee: 'chargebee',
-    bigquery: 'bigquery',
     workday: 'workday',
     avalara: 'avalara',
     okta: 'okta',
