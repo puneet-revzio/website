@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<title>What 'human-in-the-loop' actually means for finance teams — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/brand.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/mega-menu.css">
+  <link rel="stylesheet" href="../css/nav-theme.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dark-global.css">
+  <style>
+    .article-hero {
+      padding: 120px 0 56px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.18), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.12), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+    }
+    .tag-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(127,207,170,0.22);
+      background: rgba(127,207,170,0.12);
+      color: #7fcfaa;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+    .article-meta { color: rgba(250,250,247,0.55); font-size: 13.5px; margin-top: 10px; }
+    .prose { max-width: 860px; margin: 0 auto; }
+    .prose p { margin: 14px 0; }
+    .prose h2 { margin-top: 34px; }
+    .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
+    .backlink:hover { color: #fafaf7; }
+    .checklist {
+      margin: 22px 0;
+      padding: 16px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .checklist li { margin: 10px 0; }
+    .cta {
+      margin-top: 42px;
+      padding: 22px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(127,207,170,0.18);
+      background: rgba(127,207,170,0.07);
+    }
+    .cta a { color: #0a1a2f; background: #7fcfaa; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 800; display: inline-flex; margin-top: 12px; }
+    .cta a:hover { background: #9adfc0; }
+  </style>
+</head>
+<body>
+<nav></nav>
+
+<header class="article-hero" data-nav-theme="dark">
+  <div class="container">
+    <a class="backlink reveal" href="../blog.html">← Back to blog</a>
+    <div class="tag-pill reveal" style="margin-top: 18px;">AI AGENTS</div>
+    <h1 class="hero-title reveal" style="max-width: 980px;">What 'human-in-the-loop' actually means for finance teams</h1>
+    <div class="article-meta reveal">revzio Team · May 2026 · 5 min read</div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <article class="prose reveal">
+      <p>“Full automation” sounds great until you remember what finance is responsible for: accurate statements, defensible judgment calls, and an audit trail that survives scrutiny. In most organizations, the close isn’t slow because people are lazy — it’s slow because the work is high-stakes and error-prone. That’s why finance doesn’t need a black-box autopilot. It needs <strong>human-in-the-loop</strong> automation.</p>
+
+      <h2>Why full automation is the wrong model for finance</h2>
+      <p>Accounting is not a deterministic pipeline. Materiality thresholds change. Policy interpretation matters. New contracts introduce edge cases. And sometimes the “correct” answer depends on context that isn’t in any system field. If a system posts entries automatically with no review, the risk isn’t just a mistake — it’s a mistake that becomes institutionalized and repeated.</p>
+
+      <p>Auditors don’t just ask “is it right?” They ask “how do you know?” A human-in-the-loop model is the practical middle ground: agents do the prep work at machine speed; humans own approval and judgment; the audit trail is produced automatically.</p>
+
+      <h2>What Orion automates vs what humans do</h2>
+      <p>Orion agents automate the heavy lifting: ingesting messy data, normalizing it, proposing matches, generating journal entries, assembling schedules, and drafting variance explanations. That’s the time-consuming part humans shouldn’t be doing in spreadsheets.</p>
+
+      <p>Humans do what they’re uniquely good at: evaluating unusual exceptions, approving policy-sensitive actions, and making judgment calls on materiality. Orion makes that easier by surfacing evidence, rationale, and suggested next actions in plain English.</p>
+
+      <h2>The three checkpoints Orion routes to humans</h2>
+      <ul class="checklist">
+        <li><strong>1) Posting gates:</strong> when an agent prepares something that would write to the ERP (journal entries, adjustments), Orion routes it for approval first.</li>
+        <li><strong>2) Exception resolution:</strong> when matching isn’t high-confidence, Orion flags the break, explains why, and asks a reviewer to decide.</li>
+        <li><strong>3) Close sign-off:</strong> the Close Management Agent coordinates checklist completion and captures approver sign-off with evidence attached.</li>
+      </ul>
+
+      <h2>Why this model fits SOX and audit</h2>
+      <p>Human-in-the-loop isn’t a buzzword — it’s a control design. It enforces segregation of duties, makes approvals explicit, and creates the audit trail automatically. Orion logs who reviewed what, when, and what evidence they saw. That’s how you scale automation without sacrificing governance.</p>
+
+      <div class="cta">
+        <h2 style="margin-top: 0;">Ready to see Orion in action?</h2>
+        <p>Book a demo and we’ll show exactly where Orion automates prep, where humans review, and how the audit trail is captured end-to-end.</p>
+        <a href="../book-a-demo.html">Book a demo →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="revzio home"><img src="../assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>AI agents for finance teams that need to close fast and audit clean.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Agents</h5>
+        <a href="../agent-suite.html">Orion agent suite</a>
+        <a href="../how-it-works.html">How Orion Works</a>
+        <a href="../trust-center.html">Controls</a>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="../integrations.html">Integrations</a>
+        <a href="../security.html">Security</a>
+        <a href="../reporting.html">Reporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="../about.html">About</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="../blog.html">Blog</a>
+        <a href="../guides.html">Guides</a>
+        <a href="../glossary.html">Glossary</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 revzio. All rights reserved.</span>
+      <span>Built for finance teams who'd rather be home by six.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/nav-theme.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/mega-menu.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>
+

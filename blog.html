@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Blog — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .insights-hero {
+      padding: 118px 0 72px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+      color: #FAFAF7;
+    }
+    .insights-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      max-width: 960px;
+      margin-bottom: 18px;
+    }
+    .insights-hero p {
+      color: rgba(250,250,247,0.72);
+      font-size: 18px;
+      max-width: 680px;
+      line-height: 1.55;
+      margin-bottom: 26px;
+    }
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+    }
+    .search {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(250,250,247,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+    .search input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #FAFAF7;
+      font-size: 15px;
+    }
+    .search input::placeholder { color: rgba(250,250,247,0.55); }
+    .featured-card {
+      border-radius: 18px;
+      border: 1px solid rgba(127, 207, 170, 0.22);
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(127, 207, 170, 0.18), transparent 55%),
+        radial-gradient(ellipse at 90% 30%, rgba(90, 150, 210, 0.14), transparent 52%),
+        linear-gradient(180deg, rgba(10, 26, 47, 0.92), rgba(13, 33, 56, 0.92));
+      padding: 26px 26px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .featured-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(127, 207, 170, 0.36);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.4);
+    }
+    .featured-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(127, 207, 170, 0.14);
+      border: 1px solid rgba(127, 207, 170, 0.22);
+      color: var(--hero-mint);
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+    .featured-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      font-size: 34px;
+      line-height: 1.12;
+      margin-bottom: 12px;
+      color: #FAFAF7;
+      max-width: 820px;
+    }
+    .featured-meta {
+      color: rgba(250,250,247,0.68);
+      font-size: 13.5px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: #FAFAF7;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .featured-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+    .grid-6 { margin-top: 36px; }
+    .post-card {
+      border: 1px solid rgba(10, 15, 12, 0.10);
+      border-radius: 14px;
+      background: #fff;
+      padding: 20px 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .post-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(15, 107, 78, 0.08);
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+      width: fit-content;
+    }
+    .post-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .post-meta {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+    .post-link {
+      margin-top: auto;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-link:hover { color: var(--ink); }
+
+    .newsletter {
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 18% 0%, rgba(127, 207, 170, 0.16), transparent 56%),
+        linear-gradient(180deg, var(--hero-bg) 10%, var(--hero-deep) 100%);
+      color: #FAFAF7;
+      padding: 86px 0;
+    }
+    .newsletter h2 { color: #FAFAF7; max-width: 820px; }
+    .newsletter p { color: rgba(250,250,247,0.72); max-width: 620px; }
+    .newsletter-form {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 260px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(250,250,247,0.14);
+      background: rgba(255,255,255,0.06);
+      color: #FAFAF7;
+      outline: none;
+    }
+    .newsletter-form button {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #FAFAF7;
+      color: var(--ink);
+      font-weight: 850;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .newsletter-form button:hover { background: var(--gold); transform: translateY(-1px); }
+    .newsletter-small { margin-top: 10px; color: rgba(250,250,247,0.62); font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .insights-hero { padding: 106px 0 64px; }
+      .featured-title { font-size: 28px; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav></nav>
+
+<header class="insights-hero" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>revzio INSIGHTS</div>
+    </div>
+    <h1 class="reveal-on-scroll">Finance automation intelligence — from the team that's closing the books.</h1>
+    <p class="reveal-on-scroll">Practical guides, agent deep-dives, and CFO perspectives on AI in finance.</p>
+
+    <div class="search-row reveal-on-scroll" aria-label="Search">
+      <div class="search" aria-hidden="true">
+        <span style="color: rgba(250,250,247,0.62);">⌕</span>
+        <input type="text" placeholder="Search articles (coming soon)" disabled />
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="featured-card">
+        <div class="featured-tag">FEATURED · AGENT DEEP-DIVE</div>
+        <div class="featured-title">How Orion's Reconciliation Agent closed 95% of items without human touch</div>
+        <div style="color: rgba(250,250,247,0.72); font-size: 15px; line-height: 1.6; max-width: 860px;">
+          A detailed walkthrough of how the Reconciliation Agent handles multi-source matching, exception flagging, and audit-ready output — end to end.
+        </div>
+        <div class="featured-meta">revzio Team · May 2026 · 8 min read</div>
+        <a class="featured-cta" href="blog/reconciliation-agent-deep-dive.html">Read Article →</a>
+      </div>
+    </div>
+
+    <div class="reveal-on-scroll" style="margin-top: 48px;">
+      <div class="section-eyebrow">LATEST</div>
+      <h2>New posts and playbooks.</h2>
+      <p class="section-sub">Short, practical reads for controllers, CFOs, and finance ops teams deploying agent automation.</p>
+    </div>
+
+    <div class="cards grid-6 reveal-on-scroll" style="grid-template-columns: repeat(3, 1fr);">
+      <a class="post-card" href="blog/3-day-close-playbook.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">CLOSE AUTOMATION</span>
+        <div class="post-title">From 10-day close to 3 days: the CFO playbook</div>
+        <div class="post-meta">revzio Team · Apr 2026 · 6 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+      <a class="post-card" href="blog/human-in-the-loop-finance.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">AI AGENTS</span>
+        <div class="post-title">What 'human-in-the-loop' actually means for finance teams</div>
+        <div class="post-meta">revzio Team · Apr 2026 · 5 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+      <a class="post-card" href="blog/3-week-onboarding.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">IMPLEMENTATION</span>
+        <div class="post-title">3 weeks to go-live: how revzio onboards finance teams</div>
+        <div class="post-meta">revzio Team · Mar 2026 · 4 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+      <a class="post-card" href="blog/revenue-recognition-scale.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">ASC 606</span>
+        <div class="post-title">Revenue recognition at scale: why spreadsheets break at Series B</div>
+        <div class="post-meta">revzio Team · Mar 2026 · 7 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+      <a class="post-card" href="blog/3-way-match-ai.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">AP AUTOMATION</span>
+        <div class="post-title">3-way match explained: how AI eliminates invoice exceptions</div>
+        <div class="post-meta">revzio Team · Feb 2026 · 5 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+      <a class="post-card" href="blog/manual-recon-cost.html" style="text-decoration:none; color:inherit;">
+        <span class="post-tag">CFO PERSPECTIVE</span>
+        <div class="post-title">The hidden cost of manual reconciliation — and how to calculate yours</div>
+        <div class="post-meta">revzio Team · Feb 2026 · 6 min</div>
+        <span class="post-link">Read →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow" style="color: rgba(250,250,247,0.72);">NEWSLETTER</div>
+      <h2>Get finance automation insights in your inbox.</h2>
+      <p>No fluff. One email per week. Unsubscribe anytime.</p>
+      <form class="newsletter-form" action="#" method="POST">
+        <input type="email" placeholder="Work email" aria-label="Email" />
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="newsletter-small">Join 1,200+ finance leaders</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
+

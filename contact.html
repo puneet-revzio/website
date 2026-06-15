@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Contact — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .hero-band {
+      padding: 120px 0 56px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+      color: #FAFAF7;
+    }
+    .hero-band h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(42px, 5.5vw, 70px);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      max-width: 940px;
+      margin-bottom: 14px;
+    }
+    .hero-band p {
+      color: rgba(250,250,247,0.72);
+      font-size: 18px;
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-top: -36px;
+    }
+    .option-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 18px 18px;
+    }
+    .option-card h4 { font-family:'Fraunces', serif; font-size: 20px; margin-bottom: 10px; }
+    .option-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; margin-bottom: 12px; }
+    .option-card a { color: var(--accent); text-decoration:none; font-weight: 800; }
+    .option-card a:hover { color: var(--ink); }
+    .stack { display: grid; gap: 14px; }
+
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 18px 18px;
+    }
+    .field { display: grid; gap: 6px; margin-bottom: 12px; }
+    .field label { font-size: 13px; color: var(--ink-muted); font-weight: 700; }
+    .field input, .field select, .field textarea {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 12px;
+      font-size: 14.5px;
+      outline: none;
+      background: #fff;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .send {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: none;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.2s ease;
+      box-shadow: 0 18px 50px rgba(10,15,12,0.12);
+    }
+    .send:hover { background: var(--accent); transform: translateY(-1px); }
+    .fine { margin-top: 10px; color: var(--ink-muted); font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .contact-grid { grid-template-columns: 1fr; margin-top: 0; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav></nav>
+
+<header class="hero-band" data-nav-theme="dark">
+  <div class="container">
+    <h1 class="reveal-on-scroll">Talk to a finance automation expert.</h1>
+    <p class="reveal-on-scroll">Whether you're evaluating revzio or ready to start, we'll match you with the right conversation.</p>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="stack reveal-on-scroll">
+        <div class="option-card">
+          <div class="option-card-icon" aria-hidden="true"><img src="assets/icons/agent/calendar.svg" alt="" width="20" height="20" decoding="async"></div>
+          <h4>Book a Demo</h4>
+          <p>See Orion agents live in a 30-minute walkthrough tailored to your workflows.</p>
+          <a href="book-a-demo.html">Book now →</a>
+        </div>
+        <div class="option-card">
+          <div class="option-card-icon" aria-hidden="true"><img src="assets/icons/agent/message-circle.svg" alt="" width="20" height="20" decoding="async"></div>
+          <h4>Talk to Sales</h4>
+          <p>Pricing, custom plans, and enterprise procurement — our team has answers.</p>
+          <a href="mailto:sales@revzio.com">Email sales →</a>
+        </div>
+        <div class="option-card">
+          <div class="option-card-icon" aria-hidden="true"><img src="assets/icons/agent/wrench.svg" alt="" width="20" height="20" decoding="async"></div>
+          <h4>Get Support</h4>
+          <p>Already a customer? Reach our team directly.</p>
+          <a href="mailto:support@revzio.com">Open a ticket →</a>
+        </div>
+      </div>
+
+      <div class="form-card reveal-on-scroll">
+        <h4 style="font-family:'Fraunces', serif; font-size: 22px; margin-bottom: 10px;">Send a message</h4>
+        <p style="color: var(--ink-soft); font-size: 14.5px; margin-bottom: 14px;">Tell us what you’re trying to automate. We typically reply within 1 business day.</p>
+        <form action="#" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" />
+          </div>
+          <div class="field">
+            <label for="email">Work Email</label>
+            <input id="email" name="email" type="email" />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" />
+          </div>
+          <div class="field">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option>CFO</option>
+              <option>Controller</option>
+              <option>VP Finance</option>
+              <option>Finance Manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What are you trying to automate?"></textarea>
+          </div>
+          <button class="send" type="submit">Send Message →</button>
+          <div class="fine">We typically reply within 1 business day.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Outlook">
+  <path fill="#0078D4" d="M24 7.5v9l-5.5 3.2-6.2-3.6V24H0V0h12.4l2.1 2.4H24v5.1z"/>
+  <path fill="#28A8EA" d="M12.4 0L9 3.4v17.2l3.4 3.4H24V7.5l-5.5-3.2L12.4 0z"/>
+  <ellipse cx="8" cy="12" rx="5.5" ry="6.5" fill="#0078D4"/>
+</svg>

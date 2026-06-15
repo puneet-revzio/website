@@ -1,0 +1,94 @@
+/* Agent suite page — dark content sections + typography */
+
+.logo-strip {
+  background: rgba(255, 255, 255, 0.015) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.logo-strip-label {
+  color: rgba(250, 250, 247, 0.55) !important;
+}
+
+.showcase-section {
+  background: transparent !important;
+}
+
+.showcase-card--copy {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.showcase-card--visual {
+  background: rgba(127, 207, 170, 0.08) !important;
+}
+
+.bg-alt {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.agent-title,
+.agent-tagline,
+.showcase-link,
+.agent-tabs h2 {
+  color: #fafaf7 !important;
+}
+
+.agent-problem,
+.agent-bullets,
+.agent-bullets li,
+.showcase-label,
+.section-sub,
+.why-choose-intro,
+.stats-intro,
+.agent-tabs .section-sub,
+.agent-tabs p {
+  color: rgba(250, 250, 247, 0.72) !important;
+}
+
+.agent-tabs .section-eyebrow,
+.showcase-card--copy .stat-chip:not(.stat-card--featured .stat-chip) {
+  color: #7fcfaa !important;
+}
+
+#how-orion-works .section-heading--lead {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  max-width: 920px;
+  margin: 0 auto 12px;
+  text-align: center;
+  color: #fafaf7 !important;
+}
+
+#how-orion-works .why-choose-intro {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+#why-orion .why-card h3,
+#how-orion-works .why-card h3 {
+  color: #fafaf7 !important;
+}
+
+#why-orion .why-card p,
+#how-orion-works .why-card p {
+  color: rgba(250, 250, 247, 0.72) !important;
+}
+
+#why-orion h2.section-heading {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  color: #fafaf7 !important;
+}
+
+@media (max-width: 900px) {
+  #how-orion-works .section-heading--lead {
+    font-size: 1.5rem;
+  }
+}

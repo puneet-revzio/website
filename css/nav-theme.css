@@ -1,0 +1,49 @@
+/* Fixed solid navy nav on all pages */
+
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  background: #0a1a2f !important;
+  border-bottom: 1px solid rgba(250, 250, 247, 0.1) !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12) !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+nav .logo {
+  color: #fafaf7 !important;
+}
+
+nav .nav-links a,
+nav .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.82) !important;
+}
+
+nav .nav-links a:hover,
+nav .nav-links .nav-mega-trigger:hover,
+nav .nav-links .nav-mega-trigger.is-active {
+  color: #fafaf7 !important;
+}
+
+nav .btn-primary,
+nav .btn-primary-nav {
+  background: #fafaf7 !important;
+  color: var(--ink, #0a0f0c) !important;
+}
+
+nav .btn-primary:hover,
+nav .btn-primary-nav:hover {
+  background: var(--gold, #c49a4b) !important;
+  color: var(--ink, #0a0f0c) !important;
+}
+
+/* Mega menu open: keep dark bar */
+nav.mega-open {
+  background: #0a1a2f !important;
+  border-bottom-color: rgba(250, 250, 247, 0.1) !important;
+}

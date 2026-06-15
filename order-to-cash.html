@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Order to Cash | revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/solution-pages.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .agent-banner {
+      background: var(--accent-soft);
+      border-bottom: 1px solid rgba(15, 107, 78, 0.14);
+      padding: 28px 0;
+    }
+    .agent-banner-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .agent-banner-copy {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .agent-pills {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .agent-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 13.5px;
+    }
+    .agent-pill:hover { border-color: rgba(15, 107, 78, 0.32); }
+    .trust-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      color: rgba(250, 250, 247, 0.78);
+      font-size: 14px;
+    }
+    .trust-row span { display: inline-flex; align-items: center; gap: 10px; }
+    .trust-row span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--hero-mint);
+      box-shadow: 0 0 18px rgba(127, 207, 170, 0.45);
+    }
+    .workflow-diagram {
+      margin-top: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .workflow-caption {
+      margin-top: 10px;
+      color: rgba(250, 250, 247, 0.68);
+      font-size: 13.5px;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .chart-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 22px 20px;
+    }
+    .chart-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .doughnut-wrap { position: relative; height: 260px; }
+    .doughnut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      font-family: 'Fraunces', serif;
+      font-size: 44px;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .chart-caption {
+      margin-top: 16px;
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+    @media (max-width: 980px) {
+      .agent-banner-inner { grid-template-columns: 1fr; }
+      .chart-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body class="solution-page">
+
+<nav></nav>
+
+<header class="hero" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>ORDER TO CASH · POWERED BY ORION</div>
+    </div>
+    <h1 class="hero-title reveal-on-scroll">Make cash flow predictable with autonomous AR operations.</h1>
+    <p class="hero-sub reveal-on-scroll">From billing event to cash in bank — the Orion AR Agent and Reconciliation Agent automate your entire order-to-cash cycle. No manual matching. No chasing remittances. No unapplied cash sitting in limbo.</p>
+    <div class="hero-ctas reveal-on-scroll">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-ar.html" class="btn btn-ghost">See the AR Agent</a>
+    </div>
+    <div class="trust-row reveal-on-scroll" aria-label="Trust signals">
+      <span>90%+ cash application accuracy</span>
+      <span>20+ days DSO reduction</span>
+      <span>Live in under 3 weeks</span>
+    </div>
+
+    <div class="workflow-diagram reveal-on-scroll" aria-label="Order-to-cash workflow diagram">
+      <svg viewBox="0 0 980 190" width="100%" height="auto" role="img" aria-label="Order to Cash flow with Orion agents highlighted">
+        <defs>
+          <filter id="orionGlow" x="-20%" y="-40%" width="140%" height="180%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feColorMatrix in="blur" type="matrix"
+              values="0 0 0 0 0.50  0 0 0 0 0.95  0 0 0 0 0.75  0 0 0 0.55 0" result="glow"/>
+            <feMerge>
+              <feMergeNode in="glow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <linearGradient id="orionStroke" x1="0" x2="1">
+            <stop offset="0" stop-color="#7FCFAA" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#0F6B4E" stop-opacity="0.9"/>
+          </linearGradient>
+        </defs>
+
+        <g stroke="rgba(250,250,247,0.35)" stroke-width="2" fill="none">
+          <path d="M120 62 H170" />
+          <path d="M280 62 H330" />
+          <path d="M470 62 H510" />
+          <path d="M650 62 H700" />
+          <path d="M820 62 H880" />
+        </g>
+        <g fill="rgba(250,250,247,0.55)">
+          <polygon points="170,62 160,56 160,68"/>
+          <polygon points="330,62 320,56 320,68"/>
+          <polygon points="510,62 500,56 500,68"/>
+          <polygon points="700,62 690,56 690,68"/>
+          <polygon points="880,62 870,56 870,68"/>
+        </g>
+
+        <g font-family="Inter, system-ui, sans-serif" font-size="14" text-anchor="middle">
+          <g>
+            <rect x="20" y="30" rx="12" ry="12" width="100" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="70" y="62" fill="#FAFAF7" font-weight="650">Invoice Sent</text>
+          </g>
+          <g>
+            <rect x="180" y="30" rx="12" ry="12" width="100" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="230" y="62" fill="#FAFAF7" font-weight="650">Payment</text>
+            <text x="230" y="80" fill="rgba(250,250,247,0.74)" font-size="12">Received</text>
+          </g>
+
+          <g filter="url(#orionGlow)">
+            <rect x="330" y="20" rx="14" ry="14" width="140" height="88" fill="rgba(127,207,170,0.10)" stroke="url(#orionStroke)" stroke-width="2"/>
+            <text x="400" y="50" fill="#FAFAF7" font-weight="750" font-size="13">ORION AR</text>
+            <text x="400" y="66" fill="#FAFAF7" font-weight="750" font-size="13">AGENT</text>
+            <text x="400" y="84" fill="rgba(250,250,247,0.74)" font-size="12">Cash application</text>
+            <text x="400" y="100" fill="rgba(250,250,247,0.70)" font-size="10">Automated by Orion</text>
+          </g>
+
+          <g filter="url(#orionGlow)">
+            <rect x="510" y="20" rx="14" ry="14" width="140" height="88" fill="rgba(127,207,170,0.10)" stroke="url(#orionStroke)" stroke-width="2"/>
+            <text x="580" y="54" fill="#FAFAF7" font-weight="750">ORION RECON</text>
+            <text x="580" y="72" fill="rgba(250,250,247,0.74)" font-size="12">GL match</text>
+            <text x="580" y="88" fill="rgba(250,250,247,0.70)" font-size="10">Automated by Orion</text>
+          </g>
+
+          <g>
+            <rect x="700" y="30" rx="12" ry="12" width="120" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="760" y="56" fill="#FAFAF7" font-weight="650">Exception?</text>
+            <text x="760" y="76" fill="rgba(250,250,247,0.74)" font-size="12">Human review</text>
+          </g>
+          <g>
+            <rect x="880" y="30" rx="12" ry="12" width="80" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="920" y="62" fill="#FAFAF7" font-weight="650">Closed</text>
+            <text x="920" y="82" fill="rgba(250,250,247,0.84)" font-size="16">✓</text>
+          </g>
+        </g>
+      </svg>
+      <div class="workflow-caption">From invoice to cash to GL — Orion automates the prep work and routes only exceptions for human review.</div>
+    </div>
+  </div>
+</header>
+
+<section class="agent-banner">
+  <div class="container">
+    <div class="agent-banner-inner reveal-on-scroll">
+      <div>
+        <span class="agent-prepared-badge">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L3 14h7l-1 8 12-16h-7l-1-4z" fill="currentColor"/>
+          </svg>
+          AGENT PREPARED
+        </span>
+      </div>
+      <div>
+        <div class="agent-banner-copy">The Orion AR Agent handles cash application, collections prioritization, and dispute resolution automatically. Your team reviews exceptions — not remittances.</div>
+        <div class="agent-pills">
+          <a class="agent-pill" href="agent-ar.html">AR Agent →</a>
+          <a class="agent-pill" href="agent-reconciliation.html">Reconciliation Agent →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">PAIN POINTS</div>
+      <h2>Where order-to-cash breaks down.</h2>
+      <p class="section-sub">Manual matching and reactive collections create slow cash and distorted AR — even when billing is clean.</p>
+    </div>
+    <div class="cards reveal-on-scroll">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">⏱</div>
+        <h4>Unapplied cash sits for days</h4>
+        <p>Manual remittance matching leaves cash in suspense while your team hunts for backup documentation and customer references.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/trending-down.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h4>Collections teams work blind</h4>
+        <p>Without intelligent prioritization, collectors spend equal time on $500 and $50,000 overdue accounts — DSO suffers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/refresh.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h4>Disputes stall revenue</h4>
+        <p>Unresolved payment disputes and deductions trap revenue and distort your AR balance for weeks or months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">HOW ORION HANDLES O2C</div>
+      <h2>Agent-prepared AR operations in four steps.</h2>
+      <p class="section-sub">Orion automates the prep work end-to-end — matching, prioritizing, routing, and documenting — so your team focuses on exceptions.</p>
+    </div>
+    <div class="steps reveal-on-scroll">
+      <div class="step">
+        <div class="step-num">STEP 01</div>
+        <h4>Invoice to payment matching</h4>
+        <p>Orion AR auto-matches incoming payments to open invoices using remittance data, bank references, and pattern matching. 90%+ accuracy from day one.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 02</div>
+        <h4>Collections prioritization</h4>
+        <p>Open AR ranked by ageing, invoice value, and customer payment history. Collectors always work the highest-impact accounts first.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 03</div>
+        <h4>Automated follow-up sequences</h4>
+        <p>Payment reminders, escalations, and promise-to-pay tracking run on schedule. No manual initiation needed.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 04</div>
+        <h4>Dispute resolution routing</h4>
+        <p>Disputed invoices and deductions routed with full context — amount, aging, prior communications — for faster resolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">CHARTS</div>
+      <h2>Cash automation and DSO improvement.</h2>
+      <p class="section-sub">Based on aggregated data from Orion AR customers. Individual results vary.</p>
+    </div>
+    <div class="chart-grid reveal-on-scroll">
+      <div class="chart-card">
+        <div class="chart-title">Cash Application Automation Rate</div>
+        <div class="doughnut-wrap">
+          <canvas id="o2cDoughnut" aria-label="Cash application automation rate" role="img"></canvas>
+          <div class="doughnut-center">92%</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">DSO Before vs After Orion</div>
+        <div style="height: 260px;">
+          <canvas id="o2cBar" aria-label="DSO before vs after" role="img"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="chart-caption reveal-on-scroll">Based on aggregated data from Orion AR customers. Individual results vary.</div>
+  </div>
+</section>
+
+<section class="solution-metrics">
+  <div class="container">
+    <div class="solution-kpis reveal-on-scroll">
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="90" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Cash application auto-matched by Orion AR Agent</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="20" data-suffix="+">0+</div>
+        <div class="solution-kpi-label">Days DSO reduction in the first quarter</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="50" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Faster dispute resolution with automated routing</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">3 weeks</div>
+        <div class="solution-kpi-label">Average time to go live with Orion AR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">KEY CAPABILITIES</div>
+      <h2>What Orion automates across O2C.</h2>
+      <p class="section-sub">Six capabilities finance teams use to make cash predictable.</p>
+    </div>
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card reveal-on-scroll"><div class="card-icon">◎</div><h4>Automated Cash Application</h4><p>Match 90%+ of payments to invoices automatically using AI and remittance data.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">↗</div><h4>Ageing-Based Prioritization</h4><p>AR worklist ranked by risk, value, and days overdue in real time.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">⟲</div><h4>Collection Sequence Automation</h4><p>Reminders, escalations, and PTPs triggered automatically.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">✓</div><h4>Dispute &amp; Deduction Management</h4><p>Route disputes with full context for faster resolution.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">⚠</div><h4>High-Risk Account Monitoring</h4><p>Alerts on accounts showing payment risk before they age further.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">▤</div><h4>Real-Time DSO Analytics</h4><p>Live visibility into DSO trends, cash forecast, and collection efficiency.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">INTEGRATIONS</div>
+      <h2>Works with your O2C stack:</h2>
+    </div>
+    <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;" class="reveal-on-scroll" aria-label="Integrations">
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Stripe</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Chargebee</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Salesforce</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">HubSpot</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">NetSuite</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">QuickBooks</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Xero</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Snowflake</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">TESTIMONIAL</div>
+      <h2>“We recovered three weeks of unapplied cash in the first month.”</h2>
+      <p class="section-sub">“We recovered three weeks of unapplied cash in the first month. The AR Agent does in minutes what used to take our team two days.”</p>
+      <p style="margin-top: 14px; color: var(--ink-muted);">— VP Finance, B2B SaaS company</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal-on-scroll">
+    <h2>Ready to automate your order-to-cash cycle?</h2>
+    <p>See Orion AR and Reconciliation running on your workflows — with exceptions routed and evidence captured by default.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-ar.html" class="btn btn-ghost">See the AR Agent</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  (function initO2CCharts() {
+    if (!window.Chart) return;
+    const doughnutEl = document.getElementById('o2cDoughnut');
+    const barEl = document.getElementById('o2cBar');
+    if (doughnutEl) {
+      new Chart(doughnutEl, {
+        type: 'doughnut',
+        data: {
+          labels: ['Auto-matched by Orion', 'Requires human review'],
+          datasets: [{
+            data: [92, 8],
+            backgroundColor: ['#10b981', '#1e293b'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          cutout: '72%',
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+    if (barEl) {
+      new Chart(barEl, {
+        type: 'bar',
+        data: {
+          labels: ['Before Orion', 'After Orion (Q1)', 'After Orion (Q2)'],
+          datasets: [{
+            label: 'Days Sales Outstanding',
+            data: [52, 34, 28],
+            backgroundColor: ['rgba(30,41,59,0.65)', 'rgba(15,107,78,0.9)', 'rgba(15,107,78,0.78)'],
+            borderRadius: 10,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              title: { display: true, text: 'Days Sales Outstanding' },
+              grid: { color: 'rgba(10,15,12,0.06)' },
+              ticks: { color: '#4B5563' }
+            },
+            y: {
+              grid: { display: false },
+              ticks: { color: '#0A0F0C', font: { weight: 650 } }
+            }
+          }
+        }
+      });
+    }
+  })();
+</script>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+<script>
+// Fallback CountUp in case animations.js hasn't loaded yet
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-target')) || 0;
+        const suffix = el.getAttribute('data-suffix') || '';
+        const prefix = el.getAttribute('data-prefix') || '';
+        const duration = 1500;
+        const start = performance.now();
+        const isFloat = target % 1 !== 0;
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+          el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
+

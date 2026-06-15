@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<title>3-way match explained: how AI eliminates invoice exceptions — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/brand.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/mega-menu.css">
+  <link rel="stylesheet" href="../css/nav-theme.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dark-global.css">
+  <style>
+    .article-hero {
+      padding: 120px 0 56px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.18), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.12), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+    }
+    .tag-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(127,207,170,0.22);
+      background: rgba(127,207,170,0.12);
+      color: #7fcfaa;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+    .article-meta { color: rgba(250,250,247,0.55); font-size: 13.5px; margin-top: 10px; }
+    .prose { max-width: 860px; margin: 0 auto; }
+    .prose p { margin: 14px 0; }
+    .prose h2 { margin-top: 34px; }
+    .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
+    .backlink:hover { color: #fafaf7; }
+    .cta {
+      margin-top: 42px;
+      padding: 22px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(127,207,170,0.18);
+      background: rgba(127,207,170,0.07);
+    }
+    .cta a { color: #0a1a2f; background: #7fcfaa; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 800; display: inline-flex; margin-top: 12px; }
+    .cta a:hover { background: #9adfc0; }
+  </style>
+</head>
+<body>
+<nav></nav>
+
+<header class="article-hero" data-nav-theme="dark">
+  <div class="container">
+    <a class="backlink reveal" href="../blog.html">← Back to blog</a>
+    <div class="tag-pill reveal" style="margin-top: 18px;">AP AUTOMATION</div>
+    <h1 class="hero-title reveal" style="max-width: 980px;">3-way match explained: how AI eliminates invoice exceptions</h1>
+    <div class="article-meta reveal">revzio Team · May 2026 · 5 min read</div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <article class="prose reveal">
+      <p>3-way match is the heart of AP control: you validate an invoice by matching it to the purchase order (PO) and the receipt (or proof of service). In theory, it’s simple. In practice, it’s where AP teams spend countless hours chasing exceptions that are more “format mismatch” than “real issue.”</p>
+
+      <h2>What 3-way match is (and why it matters)</h2>
+      <p>A clean 3-way match proves that (1) you ordered something, (2) you received it, and (3) the invoice you’re being asked to pay is correct. It prevents duplicate payments, catches pricing errors, and supports audit readiness. It’s also a prime candidate for automation because the logic is consistent — the messy part is the data.</p>
+
+      <h2>Where manual matching breaks</h2>
+      <p>Most “exceptions” happen because reality is messy:</p>
+      <ul>
+        <li><strong>Tolerances:</strong> tax, shipping, and rounding create small differences.</li>
+        <li><strong>Partial receipts:</strong> items arrive in multiple deliveries.</li>
+        <li><strong>Blanket POs:</strong> one PO covers many invoices.</li>
+        <li><strong>Format mismatches:</strong> invoices arrive as PDFs, scans, or inconsistent vendor templates.</li>
+      </ul>
+      <p>Humans end up doing data extraction and normalization work, not accounting work.</p>
+
+      <h2>How Orion’s AP Agent handles it</h2>
+      <p>Orion’s AP Agent combines AI vision extraction with deterministic finance logic. Vision handles the messy input (PDFs, scans, emailed invoices) and converts it into structured line items. Then deterministic matching applies 3-way match rules against PO and receipt data with configurable tolerances.</p>
+
+      <p>When an exception is real — a quantity mismatch, missing receipt, or price discrepancy beyond threshold — Orion routes it to the right approver with context. The audit trail includes what was matched, what was flagged, and who approved the resolution.</p>
+
+      <h2>What 88% automation actually means</h2>
+      <p>When teams see 88% automated processing, it doesn’t mean “88% paid with no review.” It means 88% of invoices are ingested, extracted, and matched without manual touchpoints. Humans focus on the 12% that matter: true discrepancies, policy decisions, and high-risk vendors.</p>
+
+      <div class="cta">
+        <h2 style="margin-top: 0;">Ready to see Orion in action?</h2>
+        <p>Book a demo and we’ll show a real 3-way match flow — including how exceptions are explained and routed for approval.</p>
+        <a href="../book-a-demo.html">Book a demo →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="revzio home"><img src="../assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>AI agents for finance teams that need to close fast and audit clean.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Agents</h5>
+        <a href="../agent-suite.html">Orion agent suite</a>
+        <a href="../agent-ap.html">AP Agent</a>
+        <a href="../agent-reconciliation.html">Reconciliation</a>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="../procure-to-pay.html">Procure to Pay</a>
+        <a href="../integrations.html">Integrations</a>
+        <a href="../trust-center.html">Controls</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="../about.html">About</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="../blog.html">Blog</a>
+        <a href="../guides.html">Guides</a>
+        <a href="../glossary.html">Glossary</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 revzio. All rights reserved.</span>
+      <span>Built for finance teams who'd rather be home by six.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/nav-theme.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/mega-menu.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>
+

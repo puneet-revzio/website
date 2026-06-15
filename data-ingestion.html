@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Data Ingestion | revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/solution-pages.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body class="solution-page">
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div><div class="eyebrow"><span class="eyebrow-dot"></span>ORION DATA LAYER</div></div>
+    <h1 class="hero-title">Power every Orion agent with a unified finance data lake.</h1>
+    <p class="hero-sub">Orion connects to your entire finance stack — ERP, billing, banking, payroll, CRM — and builds a single, continuously-updated source of truth. Every other Orion agent draws from this layer.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="integrations.html" class="btn btn-ghost">View integrations</a>
+    </div>
+  </div>
+</header>
+
+<section class="solution-metrics">
+  <div class="container reveal">
+    <div class="solution-kpis">
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">200+</div>
+        <div class="solution-kpi-label">Connectors across billing, ERP, CRM, and warehouses</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">70%</div>
+        <div class="solution-kpi-label">Faster data collection with scheduled syncs</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">60%</div>
+        <div class="solution-kpi-label">Less rework via normalization + validation</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">1</div>
+        <div class="solution-kpi-label">Source of truth with traceable lineage</div>
+      </div>
+    </div>
+    <div class="solution-kpi" style="grid-column: 1 / -1; margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+      <div style="color: var(--ink-soft); font-size: 14.5px; line-height: 1.5;"><strong style="color: var(--ink); font-weight: 650;">This capability powers:</strong> Orion agent suite</div>
+      <a href="agent-suite.html" class="btn btn-ghost" style="color: var(--ink);">Learn about the Orion Suite</a>
+    </div>
+  </div>
+</section>
+
+<section class="solution-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">Data ingestion</div>
+      <h2>Run ingestion on auto-pilot — so matching stays <em>continuous</em>.</h2>
+      <p class="section-sub">revzio schedules ingestion, validates inputs, and keeps consistent identifiers across systems — so exceptions are real, not artifacts of messy data. Orion's data layer fetches, normalizes, and validates data from every source on a continuous schedule.</p>
+    </div>
+
+    <div class="reveal" data-solution-tabs>
+      <div class="solution-tabs" role="tablist" aria-label="Data ingestion tabs">
+        <button type="button" class="solution-tab is-active" data-solution-tab="ingest" role="tab" aria-selected="true">Ingest</button>
+        <button type="button" class="solution-tab" data-solution-tab="consolidate" role="tab" aria-selected="false">Consolidate</button>
+        <button type="button" class="solution-tab" data-solution-tab="govern" role="tab" aria-selected="false">Govern</button>
+        <button type="button" class="solution-tab" data-solution-tab="insights" role="tab" aria-selected="false">Insights</button>
+      </div>
+
+      <div class="solution-panel" data-solution-panel="ingest" role="tabpanel">
+        <div class="solution-panel-inner">
+          <div class="solution-panel-copy">
+            <h3>Scheduled ingestion across your finance stack</h3>
+            <p>Bring data in from billing, ERP, CRM, banks, and your warehouse — on a cadence that matches your close rhythm.</p>
+            <div class="solution-bullets">
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Connect sources</strong><span>Stripe, NetSuite, Salesforce, Snowflake — plus custom sources via API.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Normalize fields</strong><span>Map once, then keep definitions consistent across entities and streams.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Validate inputs</strong><span>Catch missing values, duplicates, and malformed records before they become exceptions.</span></div></div>
+            </div>
+          </div>
+          <div class="solution-panel-visual" aria-hidden="true">
+            <div class="solution-visual-card">
+              <div class="solution-visual-stat">Same day</div>
+              <div class="solution-visual-sub">Data arrives continuously — not at month-end</div>
+              <div class="solution-visual-quote">“We stopped waiting for exports. Data lands on schedule and matching runs continuously.”</div>
+              <div class="solution-visual-attr">Finance ops</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-panel" data-solution-panel="consolidate" role="tabpanel" hidden>
+        <div class="solution-panel-inner">
+          <div class="solution-panel-copy">
+            <h3>Consolidate and enrich for matching</h3>
+            <p>revzio merges duplicates, reconciles identifiers, and applies business rules so transactions are match-ready. Clean, consistent data is the foundation every Orion agent requires — and Orion maintains it automatically.</p>
+            <div class="solution-bullets">
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Correct inconsistencies</strong><span>Normalize naming and keys across systems to prevent false breaks.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Transform with rules</strong><span>Apply tolerances, mappings, and entity logic aligned to policy.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Prepare for line-item matching</strong><span>Retain the detail needed to reconcile beyond invoice totals.</span></div></div>
+            </div>
+          </div>
+          <div class="solution-panel-visual" aria-hidden="true">
+            <div class="solution-visual-card">
+              <div class="solution-visual-stat">Fewer</div>
+              <div class="solution-visual-sub">False exceptions from data drift</div>
+              <div class="solution-visual-quote">“Our exceptions are now real issues — not mapping problems.”</div>
+              <div class="solution-visual-attr">Controller</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-panel" data-solution-panel="govern" role="tabpanel" hidden>
+        <div class="solution-panel-inner">
+          <div class="solution-panel-copy">
+            <h3>Governance + lineage, built in</h3>
+            <p>Every record stays tied to its source. Every change is versioned. Reviews and approvals happen in-product.</p>
+            <div class="solution-bullets">
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Role-based access</strong><span>Granular permissions for preparers, reviewers, and approvers.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Versioned overrides</strong><span>Who changed what, when, and why — captured automatically.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Audit-ready trails</strong><span>Evidence is one click away when audit arrives.</span></div></div>
+            </div>
+          </div>
+          <div class="solution-panel-visual" aria-hidden="true">
+            <div class="solution-visual-card">
+              <div class="solution-visual-stat">1 click</div>
+              <div class="solution-visual-sub">Evidence for auditors</div>
+              <div class="solution-visual-quote">“External audit spends less time on tie-outs when lineage is built in.”</div>
+              <div class="solution-visual-attr">Audit lead</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-panel" data-solution-panel="insights" role="tabpanel" hidden>
+        <div class="solution-panel-inner">
+          <div class="solution-panel-copy">
+            <h3>Turn reconciled data into reporting inputs</h3>
+            <p>Once data is consistent and matched, revzio can power flux, tie-out, and exception reporting without stale exports. With a unified data layer, every Orion agent report and output is built on the same verified foundation.</p>
+            <div class="solution-bullets">
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Threshold alerts</strong><span>Get notified when key metrics drift or breach policy.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Exception dashboards</strong><span>Rank breaks by materiality and age, with clear owners.</span></div></div>
+              <div class="solution-bullet"><div class="solution-check">✓</div><div><strong>Board-ready packs</strong><span>Generate outputs from reconciled data — not spreadsheets.</span></div></div>
+            </div>
+          </div>
+          <div class="solution-panel-visual" aria-hidden="true">
+            <div class="solution-visual-card">
+              <div class="solution-visual-stat">Hours</div>
+              <div class="solution-visual-sub">Reporting cycles, not weeks</div>
+              <div class="solution-visual-quote">“We publish reporting faster because the data is already reconciled.”</div>
+              <div class="solution-visual-attr">FP&amp;A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-impact reveal">
+      <div class="solution-impact-head">
+        <h3>Automation impact</h3>
+        <p>When ingestion runs continuously, reconciliation and close become confirmation — not discovery.</p>
+      </div>
+      <table class="solution-impact-table" aria-label="Before vs after automation">
+        <thead>
+          <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reconciliation cycle time</td><td>3–5 days</td><td>Same-day</td></tr>
+          <tr><td>Month-end close</td><td>10–12 days</td><td>3–5 days</td></tr>
+          <tr><td>Unexplained breaks</td><td>High</td><td>Near zero</td></tr>
+          <tr><td>Audit prep time</td><td>Weeks</td><td>Hours</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>See ingestion → matching → evidence in <em>one walkthrough</em>.</h2>
+    <p>A 30-minute walkthrough on your billing and ERP stack — with lineage, validations, and reviewer-ready outputs.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="solutions.html" class="btn btn-secondary">Back to solutions</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/subpage.js"></script>
+<script src="js/solution-tabs.js"></script>
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
+

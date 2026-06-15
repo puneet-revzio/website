@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Record to Report | revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/solution-pages.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .agent-banner {
+      background: var(--accent-soft);
+      border-bottom: 1px solid rgba(15, 107, 78, 0.14);
+      padding: 28px 0;
+    }
+    .agent-banner-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .agent-banner-copy {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .agent-pills {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .agent-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 13.5px;
+    }
+    .agent-pill:hover { border-color: rgba(15, 107, 78, 0.32); }
+    .trust-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      color: rgba(250, 250, 247, 0.78);
+      font-size: 14px;
+    }
+    .trust-row span { display: inline-flex; align-items: center; gap: 10px; }
+    .trust-row span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--hero-mint);
+      box-shadow: 0 0 18px rgba(127, 207, 170, 0.45);
+    }
+    .workflow-diagram {
+      margin-top: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .workflow-caption {
+      margin-top: 10px;
+      color: rgba(250, 250, 247, 0.68);
+      font-size: 13.5px;
+    }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .compare-col {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .compare-head {
+      padding: 18px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .compare-head h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14.5px;
+      color: var(--ink-soft);
+    }
+    .compare-row strong { color: var(--ink); font-weight: 750; }
+    .compare-row:last-child { border-bottom: 0; }
+
+    .chart-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 22px 20px;
+      margin-top: 36px;
+    }
+    .chart-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .chart-caption {
+      margin-top: 12px;
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+
+    .tabs {
+      margin-top: 26px;
+      display: inline-flex;
+      gap: 10px;
+      padding: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(10, 15, 12, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      flex-wrap: wrap;
+    }
+    .tab {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+    }
+    .tab.is-active {
+      background: #fff;
+      border-color: rgba(15, 107, 78, 0.18);
+      color: var(--ink);
+      box-shadow: 0 8px 20px rgba(10,15,12,0.06);
+    }
+    .tab-panels { margin-top: 22px; }
+    .tab-panel[hidden] { display: none; }
+
+    @media (max-width: 980px) {
+      .agent-banner-inner { grid-template-columns: 1fr; }
+      .compare { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body class="solution-page">
+
+<nav></nav>
+
+<header class="hero" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>RECORD TO REPORT · POWERED BY ORION</div>
+    </div>
+    <h1 class="hero-title reveal-on-scroll">Close your books continuously — not in a monthly fire drill.</h1>
+    <p class="hero-sub reveal-on-scroll">Orion's Reconciliation, Journal Entry, Accruals, and Close Management agents run your entire record-to-report cycle — continuously, autonomously, and audit-ready from day one.</p>
+    <div class="hero-ctas reveal-on-scroll">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-ghost">Explore the Orion Suite</a>
+    </div>
+    <div class="trust-row reveal-on-scroll" aria-label="Trust signals">
+      <span>70% faster close</span>
+      <span>95% less manual matching</span>
+      <span>100% audit traceability</span>
+    </div>
+
+    <div class="workflow-diagram reveal-on-scroll" aria-label="Record-to-report workflow diagram">
+      <svg viewBox="0 0 1200 190" width="100%" height="auto" role="img" aria-label="Record to Report flow with Orion steps highlighted">
+        <defs>
+          <filter id="r2rGlow" x="-20%" y="-40%" width="140%" height="180%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feColorMatrix in="blur" type="matrix"
+              values="0 0 0 0 0.50  0 0 0 0 0.95  0 0 0 0 0.75  0 0 0 0.55 0" result="glow"/>
+            <feMerge>
+              <feMergeNode in="glow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <linearGradient id="r2rStroke" x1="0" x2="1">
+            <stop offset="0" stop-color="#7FCFAA" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#0F6B4E" stop-opacity="0.9"/>
+          </linearGradient>
+        </defs>
+
+        <g stroke="rgba(250,250,247,0.35)" stroke-width="2" fill="none">
+          <path d="M155 62 H205" />
+          <path d="M345 62 H395" />
+          <path d="M535 62 H585" />
+          <path d="M725 62 H775" />
+          <path d="M915 62 H965" />
+          <path d="M1105 62 H1135" />
+        </g>
+        <g fill="rgba(250,250,247,0.55)">
+          <polygon points="205,62 195,56 195,68"/>
+          <polygon points="395,62 385,56 385,68"/>
+          <polygon points="585,62 575,56 575,68"/>
+          <polygon points="775,62 765,56 765,68"/>
+          <polygon points="965,62 955,56 955,68"/>
+          <polygon points="1135,62 1125,56 1125,68"/>
+        </g>
+
+        <g font-family="Inter, system-ui, sans-serif" font-size="14" text-anchor="middle">
+          <g>
+            <rect x="20" y="30" rx="12" ry="12" width="135" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="87.5" y="62" fill="#FAFAF7" font-weight="650">Data Sources</text>
+          </g>
+          <g filter="url(#r2rGlow)">
+            <rect x="215" y="24" rx="14" ry="14" width="130" height="76" fill="rgba(127,207,170,0.10)" stroke="url(#r2rStroke)" stroke-width="2"/>
+            <text x="280" y="56" fill="#FAFAF7" font-weight="750">ORION</text>
+            <text x="280" y="74" fill="rgba(250,250,247,0.74)" font-size="12">Normalize data</text>
+          </g>
+          <g filter="url(#r2rGlow)">
+            <rect x="405" y="24" rx="14" ry="14" width="130" height="76" fill="rgba(127,207,170,0.10)" stroke="url(#r2rStroke)" stroke-width="2"/>
+            <text x="470" y="56" fill="#FAFAF7" font-weight="750">ORION RECON</text>
+            <text x="470" y="74" fill="rgba(250,250,247,0.74)" font-size="12">Match transactions</text>
+          </g>
+          <g filter="url(#r2rGlow)">
+            <rect x="595" y="24" rx="14" ry="14" width="130" height="76" fill="rgba(127,207,170,0.10)" stroke="url(#r2rStroke)" stroke-width="2"/>
+            <text x="660" y="56" fill="#FAFAF7" font-weight="750">ORION JE</text>
+            <text x="660" y="74" fill="rgba(250,250,247,0.74)" font-size="12">Generate entries</text>
+          </g>
+          <g filter="url(#r2rGlow)">
+            <rect x="785" y="20" rx="14" ry="14" width="130" height="88" fill="rgba(127,207,170,0.10)" stroke="url(#r2rStroke)" stroke-width="2"/>
+            <text x="850" y="52" fill="#FAFAF7" font-weight="750" font-size="13">ORION</text>
+            <text x="850" y="68" fill="#FAFAF7" font-weight="750" font-size="13">ACCRUALS</text>
+            <text x="850" y="86" fill="rgba(250,250,247,0.74)" font-size="12">Period adj.</text>
+          </g>
+          <g filter="url(#r2rGlow)">
+            <rect x="975" y="24" rx="14" ry="14" width="130" height="76" fill="rgba(127,207,170,0.10)" stroke="url(#r2rStroke)" stroke-width="2"/>
+            <text x="1040" y="56" fill="#FAFAF7" font-weight="750">ORION CLOSE</text>
+            <text x="1040" y="74" fill="rgba(250,250,247,0.74)" font-size="12">Review &amp; sign-off</text>
+          </g>
+          <g>
+            <rect x="1135" y="30" rx="12" ry="12" width="52" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="1161" y="66" fill="#FAFAF7" font-weight="650" font-size="18">✓</text>
+          </g>
+        </g>
+      </svg>
+      <div class="workflow-caption">Orion agents share a single data layer and governed workflow — prep work happens continuously, sign-off is captured in-product.</div>
+    </div>
+  </div>
+</header>
+
+<section class="agent-banner">
+  <div class="container">
+    <div class="agent-banner-inner reveal-on-scroll">
+      <div>
+        <span class="agent-prepared-badge">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L3 14h7l-1 8 12-16h-7l-1-4z" fill="currentColor"/>
+          </svg>
+          AGENT PREPARED
+        </span>
+      </div>
+      <div>
+        <div class="agent-banner-copy">Four Orion agents work together across your R2R cycle — so close week becomes close day.</div>
+        <div class="agent-pills">
+          <a class="agent-pill" href="agent-reconciliation.html">Reconciliation Agent →</a>
+          <a class="agent-pill" href="agent-journal-entry.html">Journal Entry Agent →</a>
+          <a class="agent-pill" href="agent-accruals.html">Accruals Agent →</a>
+          <a class="agent-pill" href="agent-close-management.html">Close Management Agent →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">THE OLD WAY VS THE ORION WAY</div>
+      <h2>A finance close that improves every cycle.</h2>
+      <p class="section-sub">Each row is an operational reality — and what changes when Orion prepares the work continuously.</p>
+    </div>
+
+    <div class="compare reveal-on-scroll" aria-label="Before and after comparison">
+      <div class="compare-col" style="border-color: rgba(180, 35, 24, 0.22); background: linear-gradient(180deg, rgba(180, 35, 24, 0.06), #fff 55%);">
+        <div class="compare-head">
+          <h3>THE OLD WAY</h3>
+          <div style="color: rgba(180, 35, 24, 0.72); font-weight: 800;">Before</div>
+        </div>
+        <div class="compare-row"><strong>Reconciliation cycle</strong><div>3–5 days manual</div></div>
+        <div class="compare-row"><strong>Month-end close</strong><div>10–12 days</div></div>
+        <div class="compare-row"><strong>JE preparation</strong><div>2 days manual rekeying</div></div>
+        <div class="compare-row"><strong>Audit prep</strong><div>3–4 weeks</div></div>
+        <div class="compare-row"><strong>Unexplained breaks</strong><div>Discovered at month-end</div></div>
+        <div class="compare-row"><strong>Team satisfaction</strong><div>Weekend work common</div></div>
+      </div>
+
+      <div class="compare-col" style="border-color: rgba(15, 107, 78, 0.22); background: linear-gradient(180deg, rgba(15, 107, 78, 0.06), #fff 55%);">
+        <div class="compare-head">
+          <h3>THE ORION WAY</h3>
+          <div style="color: rgba(15, 107, 78, 0.78); font-weight: 800;">After Orion</div>
+        </div>
+        <div class="compare-row"><strong>Reconciliation cycle</strong><div>Same-day, continuous</div></div>
+        <div class="compare-row"><strong>Month-end close</strong><div>3–5 days</div></div>
+        <div class="compare-row"><strong>JE preparation</strong><div>Auto-generated overnight</div></div>
+        <div class="compare-row"><strong>Audit prep</strong><div>Already done (continuous)</div></div>
+        <div class="compare-row"><strong>Unexplained breaks</strong><div>Surface in hours</div></div>
+        <div class="compare-row"><strong>Team satisfaction</strong><div>Evenings and weekends back</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">CHART</div>
+      <h2>Close cycle duration improves over time.</h2>
+      <p class="section-sub">Orion deployed at month 3. Close duration falls as automation and exception routing improve each cycle.</p>
+    </div>
+
+    <div class="chart-card reveal-on-scroll">
+      <div class="chart-title">Close Cycle Duration Over Time With Orion</div>
+      <div style="height: 320px;">
+        <canvas id="r2rLine" aria-label="Close cycle line chart" role="img"></canvas>
+      </div>
+      <div class="chart-caption">Average close cycle data from Orion Record-to-Report customers.</div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">AGENT DEEP-DIVES</div>
+      <h2>Four agents, one R2R system.</h2>
+      <p class="section-sub">Each agent is specialized, but they share the same data layer, controls, and audit trail.</p>
+    </div>
+
+    <div class="tabs reveal-on-scroll" role="tablist" aria-label="Agent tabs">
+      <button class="tab is-active" type="button" data-tab="recon" role="tab" aria-selected="true">Reconciliation Agent</button>
+      <button class="tab" type="button" data-tab="je" role="tab" aria-selected="false">Journal Entry Agent</button>
+      <button class="tab" type="button" data-tab="accruals" role="tab" aria-selected="false">Accruals Agent</button>
+      <button class="tab" type="button" data-tab="close" role="tab" aria-selected="false">Close Management Agent</button>
+    </div>
+
+    <div class="tab-panels reveal-on-scroll">
+      <div class="tab-panel" data-panel="recon">
+        <div class="cards" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h4>Reconciliation Agent</h4>
+            <p style="margin-top: 8px;">In R2R, reconciliation is the foundation: Orion matches transactions continuously so breaks surface before close week.</p>
+            <ul class="check-list">
+              <li>Auto-match across bank, GL, and subledger with scalable rules</li>
+              <li>Explain exceptions in plain English with suggested resolution</li>
+              <li>Capture immutable evidence for every match, override, and approval</li>
+            </ul>
+            <a href="agent-reconciliation.html" style="color: var(--accent); text-decoration:none; font-weight: 700;">Learn more →</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="je" hidden>
+        <div class="cards" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h4>Journal Entry Agent</h4>
+            <p style="margin-top: 8px;">Orion JE generates entries from source data with lineage reviewers can follow — and routes sign-off before posting.</p>
+            <ul class="check-list">
+              <li>Auto-generate JEs from payroll, billing, bank, and ERP sources</li>
+              <li>Validate against chart of accounts before posting</li>
+              <li>Reviewer workflow with change log and evidence attached</li>
+            </ul>
+            <a href="agent-journal-entry.html" style="color: var(--accent); text-decoration:none; font-weight: 700;">Learn more →</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="accruals" hidden>
+        <div class="cards" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h4>Accruals Agent</h4>
+            <p style="margin-top: 8px;">Period adjustments happen every close. Orion Accruals calculates schedules automatically and flags out-of-policy items for review.</p>
+            <ul class="check-list">
+              <li>Automated schedules for accruals and prepaid amortization</li>
+              <li>Policy thresholds route exceptions to the right reviewer</li>
+              <li>Audit-ready schedules and postings by period</li>
+            </ul>
+            <a href="agent-accruals.html" style="color: var(--accent); text-decoration:none; font-weight: 700;">Learn more →</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="close" hidden>
+        <div class="cards" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h4>Close Management Agent</h4>
+            <p style="margin-top: 8px;">Orion Close orchestrates the checklist, dependencies, approvals, and variance summaries — with sign-off captured end-to-end.</p>
+            <ul class="check-list">
+              <li>Close playbooks with owners, dependencies, and due dates</li>
+              <li>Variance summaries drafted for reviewer sign-off</li>
+              <li>Immutable approval trail — no PDFs, no email threads</li>
+            </ul>
+            <a href="agent-close-management.html" style="color: var(--accent); text-decoration:none; font-weight: 700;">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution-metrics">
+  <div class="container">
+    <div class="solution-kpis reveal-on-scroll">
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="70" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Faster close cycle in the first quarter</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="95" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Transaction matching automated</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="80" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Reduction in JE preparation time</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="100" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Audit traceability on every agent action</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">INTEGRATIONS</div>
+      <h2>Works with your R2R stack:</h2>
+    </div>
+    <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;" class="reveal-on-scroll" aria-label="Integrations">
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">NetSuite</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">QuickBooks</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Xero</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Workday</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Stripe</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Chargebee</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Snowflake</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">BigQuery</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Gusto</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Rippling</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal-on-scroll">
+    <h2>Ready to close your books without the fire drill?</h2>
+    <p>Book a demo and we’ll show the Orion agents running continuously — with audit-ready evidence captured on every action.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="how-it-works.html" class="btn btn-ghost">See how Orion works</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  (function initR2R() {
+    // Tabs
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-panel]'));
+    function setActive(id) {
+      tabs.forEach((t) => {
+        const active = t.getAttribute('data-tab') === id;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      panels.forEach((p) => {
+        const active = p.getAttribute('data-panel') === id;
+        p.hidden = !active;
+      });
+    }
+    tabs.forEach((t) => t.addEventListener('click', () => setActive(t.getAttribute('data-tab'))));
+    setActive('recon');
+
+    // Chart
+    const el = document.getElementById('r2rLine');
+    if (!el || !window.Chart) return;
+    new Chart(el, {
+      type: 'line',
+      data: {
+        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+        datasets: [
+          {
+            label: 'Before Orion',
+            data: [12, 12, 11, 10, null, null],
+            borderColor: 'rgba(30,41,59,0.55)',
+            backgroundColor: 'rgba(30,41,59,0.12)',
+            borderDash: [6, 6],
+            spanGaps: true,
+            tension: 0.35
+          },
+          {
+            label: 'With Orion',
+            data: [null, null, 8, 6, 4, 3],
+            borderColor: 'rgba(15,107,78,0.95)',
+            backgroundColor: 'rgba(15,107,78,0.12)',
+            spanGaps: true,
+            tension: 0.35
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: true }
+        },
+        scales: {
+          y: {
+            title: { display: true, text: 'Days to close' },
+            grid: { color: 'rgba(10,15,12,0.06)' },
+            ticks: { color: '#4B5563' }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: '#0A0F0C' }
+          }
+        }
+      }
+    });
+  })();
+</script>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+<script>
+// Fallback CountUp in case animations.js hasn't loaded yet
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-target')) || 0;
+        const suffix = el.getAttribute('data-suffix') || '';
+        const prefix = el.getAttribute('data-prefix') || '';
+        const duration = 1500;
+        const start = performance.now();
+        const isFloat = target % 1 !== 0;
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+          el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
+

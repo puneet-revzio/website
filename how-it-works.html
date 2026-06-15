@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>How Orion Works — revzio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/subpage.css">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #F4F7F5;
+    --ink: #0A0F0C;
+    --ink-soft: #4B5563;
+    --ink-muted: #6B7280;
+    --line: #E6EAED;
+    --accent: #0F6B4E;
+    --accent-soft: #ECF7F2;
+    --gold: #C49A4B;
+    --hero-bg: #0A1A2F;
+    --hero-deep: #0D2138;
+    --hero-mint: #7FCFAA;
+    --shadow: 0 1px 2px rgba(10,15,12,0.04), 0 8px 28px rgba(10,15,12,0.07);
+    --shadow-lg: 0 4px 16px rgba(10,15,12,0.06), 0 28px 64px rgba(10,15,12,0.09);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--hero-bg); }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV (matches index markup) */
+  nav {
+    position: sticky; top: 0; z-index: 110;
+    background: #0A1A2F;
+    border-bottom: 1px solid rgba(250, 250, 247, 0.1);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500;
+    letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px;
+    color: #FAFAF7; text-decoration: none;
+  }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--hero-mint); display: inline-block; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    color: rgba(250,250,247,0.72);
+    text-decoration: none;
+    font-size: 14.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #FAFAF7; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; border-radius: 100px;
+    font-size: 14.5px; font-weight: 500;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  nav .btn-primary { background: #FAFAF7; color: var(--ink); }
+  nav .btn-primary:hover { background: var(--gold); }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+      radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+      linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+    color: #FAFAF7;
+    padding: 72px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--hero-mint); font-size: 13px; font-weight: 500;
+    background: rgba(127,207,170,0.14);
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(127,207,170,0.22);
+  }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--hero-mint); }
+  h1.hero-title {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(40px, 6.5vw, 78px);
+    line-height: 1.02; letter-spacing: -0.025em;
+    max-width: 900px; margin-bottom: 22px;
+  }
+  .hero-sub {
+    font-size: 20px;
+    color: rgba(250,250,247,0.72);
+    max-width: 720px;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .hero .btn-primary { background: #FAFAF7; color: var(--ink); }
+  .hero .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: rgba(250,250,247,0.9); padding: 8px 0; }
+  .btn-ghost::after { content: '→'; margin-left: 6px; transition: transform 0.2s; }
+  .btn-ghost:hover { color: #FAFAF7; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  /* SECTION */
+  section { padding: 120px 0; }
+  .section-eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4.5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    max-width: 860px;
+  }
+  .section-sub { font-size: 19px; color: var(--ink-soft); max-width: 760px; line-height: 1.55; }
+
+  /* CARDS (platform-style) */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .card {
+    padding: 28px 26px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  .card-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .card p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.55; }
+  .card ul { margin: 12px 0 0 18px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
+  .card li { margin: 6px 0; }
+
+  .flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 52px; }
+  .flow-step { padding: 28px 26px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: var(--shadow); }
+  .flow-step .kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+  .flow-step h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .flow-step p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.6; }
+  .flow-step .detail { margin-top: 12px; color: var(--accent); font-weight: 600; font-size: 14.5px; }
+
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 52px; }
+  .compare-col { border-radius: 16px; border: 1px solid var(--line); padding: 28px 26px; background: #fff; box-shadow: var(--shadow); }
+  .compare-col h3 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .compare-col ul { margin: 10px 0 0 18px; font-size: 15.5px; line-height: 1.6; }
+  .compare-col li { margin: 10px 0; color: var(--ink-soft); }
+
+  .cta { background: var(--ink); color: var(--bg); text-align: center; padding: 120px 0; }
+  .cta h2 { color: var(--bg); margin: 0 auto 24px; }
+  .cta p { color: rgba(250,250,247,0.7); font-size: 18px; max-width: 620px; margin: 0 auto 36px; }
+  .cta .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta .btn-primary:hover { background: var(--gold); color: var(--ink); }
+  .cta .btn-secondary { background: transparent; color: var(--bg); border: 1px solid rgba(255,255,255,0.35); }
+  .cta .btn-secondary:hover { border-color: var(--bg); }
+
+  /* FOOTER (index markup) */
+  footer { padding: 60px 0 40px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand p { color: var(--ink-muted); font-size: 14px; max-width: 280px; margin-top: 12px; line-height: 1.5; }
+  .footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a { display: block; color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 4px 0; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 13px;
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .cards { grid-template-columns: 1fr; margin-top: 40px; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/mega-menu.css">
+<link rel="stylesheet" href="css/nav-theme.css">
+<link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>HOW ORION WORKS</div>
+    </div>
+    <h1 class="hero-title reveal">Agent-prepared. Human-reviewed. Audit-ready.</h1>
+    <p class="hero-sub reveal">Orion agents don't replace your finance team — they do the preparation work so your team can focus on review, judgment, and decisions. Here's exactly how it works.</p>
+    <div class="hero-ctas reveal">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-ghost">Explore all agents</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <h2>The old way vs. the Orion way.</h2>
+      <p class="section-sub">A simple shift: from manual prep and late surprises to continuous signal, governed workflows, and evidence captured automatically.</p>
+    </div>
+    <div class="compare-grid reveal">
+      <div class="compare-col" style="border-color: rgba(180, 35, 24, 0.22); background: linear-gradient(180deg, rgba(180, 35, 24, 0.06), #fff 55%);">
+        <h3>Without Orion</h3>
+        <ul>
+          <li>Data scattered across disconnected systems — exported manually each cycle</li>
+          <li>Reconciliation happens at month-end — breaks discovered too late</li>
+          <li>Journal entries built by hand from multiple source files</li>
+          <li>Close tracked in spreadsheets and email chains</li>
+          <li>Audit prep = reconstruct everything from scratch</li>
+        </ul>
+      </div>
+      <div class="compare-col" style="border-color: rgba(15, 107, 78, 0.25); background: linear-gradient(180deg, rgba(15, 107, 78, 0.06), #fff 55%);">
+        <h3>With Orion</h3>
+        <ul>
+          <li>Unified data layer — all sources connected, always current</li>
+          <li>Reconciliation runs continuously — breaks surface in hours</li>
+          <li>Journal entries generated automatically from source data</li>
+          <li>Close orchestrated by Orion — every task owned and tracked</li>
+          <li>Audit trail writes itself — evidence captured at every step</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">THE ORION WORKFLOW</div>
+      <h2>From raw data to audit-ready output in four steps.</h2>
+      <p class="section-sub">Orion connects your stack, builds a unified data layer, runs agents continuously, and routes decisions to the right reviewers with evidence attached.</p>
+    </div>
+
+    <div class="flow-grid reveal">
+      <div class="flow-step">
+        <div class="kicker">Step 01</div>
+        <h3>Connect your finance stack</h3>
+        <p>Orion connects to your ERP, billing system, bank feeds, payroll, and CRM through 40+ native integrations. Data flows in automatically on a continuous schedule — no CSV exports, no manual uploads, no IT project required.</p>
+        <div class="detail">Typical connection time: under 3 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Step 02</div>
+        <h3>Build your unified data layer</h3>
+        <p>All source data is normalized, enriched, and unified into a single finance data layer. Orion resolves entity names, account mappings, and currency conversions automatically — so every agent operates from the same clean, consistent foundation.</p>
+        <div class="detail">One source of truth across all systems</div>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Step 03</div>
+        <h3>Agents run continuously</h3>
+        <p>Each Orion agent operates autonomously within its domain — matching transactions, generating journal entries, processing invoices, validating revenue — around the clock. Agents flag exceptions, draft explanations, and route work to the right human reviewer.</p>
+        <div class="detail">Human-in-the-loop at every critical decision point</div>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Step 04</div>
+        <h3>Your team reviews and approves</h3>
+        <p>Everything Orion prepares is surfaced for review with full context: source data, agent logic, and a clear recommendation. Reviewers approve, adjust, or escalate. Every decision is logged with evidence — automatically captured for audit.</p>
+        <div class="detail">Sign-off in product. Audit trail writes itself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">WHAT POWERS ORION</div>
+      <h2>Three layers. Built for finance-grade precision.</h2>
+      <p class="section-sub">Orion is engineered for explainability, controls, and continuous outputs across real finance workflows.</p>
+    </div>
+
+    <div class="cards reveal">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">⛁</div>
+        <h3>Finance Data Layer</h3>
+        <p>Orion's data layer unifies every source into a single, continuously-updated model of your financial activity. Entity resolution, account mapping, FX conversion, and data quality checks run automatically — so agents always operate on clean data.</p>
+        <ul>
+          <li>Native integrations</li>
+          <li>Real-time sync</li>
+          <li>Data lineage</li>
+          <li>Master data management</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">⟡</div>
+        <h3>Specialized Agent Engine</h3>
+        <p>Each Orion agent is purpose-built for its finance workflow — not a general-purpose AI model adapted for finance. Reconciliation logic, journal entry generation, AP matching, and revenue validation each require fundamentally different approaches.</p>
+        <ul>
+          <li>7 specialized agents</li>
+          <li>Deterministic logic</li>
+          <li>Continuous validation</li>
+          <li>Exception routing</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/shield.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>Governed Workflow Layer</h3>
+        <p>Every agent operates within a governed workflow layer — policy thresholds, approval routing, role-based access, and immutable audit logging. Orion prepares; your team approves. Nothing posts to your ERP without human sign-off.</p>
+        <ul>
+          <li>Human-in-the-loop</li>
+          <li>Policy-gated</li>
+          <li>SOX-ready</li>
+          <li>Full audit trail</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">GETTING STARTED</div>
+      <h2>Most teams are live in under 3 weeks.</h2>
+      <p class="section-sub">No IT project. No months-long implementation. Orion connects to your existing stack and starts running.</p>
+    </div>
+
+    <div class="flow-grid reveal" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="flow-step">
+        <div class="kicker">Week 1</div>
+        <h3>Connect &amp; configure</h3>
+        <p>Connect your ERP, billing, and banking sources. Configure Orion's matching rules and agent logic to your business.</p>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Week 2</div>
+        <h3>Review &amp; calibrate</h3>
+        <p>Orion runs in observation mode. Your team reviews agent outputs and approves the logic before any automated actions.</p>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Week 3</div>
+        <h3>Go live</h3>
+        <p>Agents run autonomously. Your team reviews exceptions and approvals — not raw data.</p>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Ongoing</div>
+        <h3>Continuously improving</h3>
+        <p>Orion learns from every correction and feedback loop. Match rates and automation rates improve every cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">SECURITY</div>
+      <h2>Enterprise-grade security. Finance-grade controls.</h2>
+    </div>
+
+    <div class="flow-grid reveal" style="grid-template-columns: repeat(3, 1fr); margin-top: 40px;">
+      <div class="flow-step">
+        <div class="kicker">SOC 2 Type II certified</div>
+        <p>Independently audited. Full report available.</p>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Data encrypted in transit and at rest</div>
+        <p>AES-256 encryption across all data flows.</p>
+      </div>
+      <div class="flow-step">
+        <div class="kicker">Role-based access control</div>
+        <p>Preparer, reviewer, approver — enforced by the system.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top: 18px;">
+      <a href="security.html" class="btn btn-ghost" style="color: var(--ink);">View our security documentation</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Ready to see Orion running on your workflows?</h2>
+    <p>Book a 30-minute demo and we'll show all seven agents running in a sandboxed environment built around your stack.</p>
+    <div class="hero-ctas" style="justify-content: center;">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-secondary">Explore the Orion Suite →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+  <script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
+

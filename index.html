@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>revzio — Close the books with confidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #F4F7F5;
+    --ink: #0A0F0C;
+    --ink-soft: #4B5563;
+    --ink-muted: #6B7280;
+    --line: #E6EAED;
+    --accent: #0F6B4E;
+    --accent-soft: #ECF7F2;
+    --gold: #C49A4B;
+    --hero-bg: #0A1A2F;
+    --hero-deep: #0D2138;
+    --hero-mint: #7FCFAA;
+    --shadow: 0 1px 2px rgba(10,15,12,0.04), 0 8px 28px rgba(10,15,12,0.07);
+    --shadow-lg: 0 4px 16px rgba(10,15,12,0.06), 0 28px 64px rgba(10,15,12,0.09);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 110;
+    background: #0A1A2F;
+    border-bottom: 1px solid rgba(250, 250, 247, 0.1);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    color: var(--ink-soft); text-decoration: none; font-size: 14.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; border-radius: 100px;
+    font-size: 14.5px; font-weight: 500;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--bg);
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+  .btn-ghost {
+    background: transparent; color: var(--ink);
+    padding: 8px 0;
+  }
+  .btn-ghost::after {
+    content: '→'; margin-left: 6px; transition: transform 0.2s;
+  }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  /* HERO */
+  .hero { padding: 72px 0 64px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: -40px 0 -80px;
+    background:
+      radial-gradient(ellipse at 30% 18%, rgba(127, 207, 170, 0.18), transparent 55%),
+      radial-gradient(ellipse at 70% 0%, rgba(90, 150, 210, 0.22), transparent 58%);
+    opacity: 0.75;
+    filter: blur(6px);
+    animation: heroGlow 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes heroGlow {
+    0%, 100% { opacity: 0.62; transform: translateY(0); }
+    50% { opacity: 0.9; transform: translateY(-8px); }
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--accent); font-size: 13px; font-weight: 500;
+    background: var(--accent-soft); padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  h1.hero-title {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(40px, 6.5vw, 78px);
+    line-height: 1.02; letter-spacing: -0.025em;
+    max-width: 900px; margin-bottom: 22px;
+  }
+  h1.hero-title em {
+    font-style: italic; color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+  .hero-sub {
+    font-size: 20px; color: var(--ink-soft);
+    max-width: 600px; margin-bottom: 28px; line-height: 1.5;
+  }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; margin-bottom: 36px; }
+
+  /* PRODUCT SHOWCASE — drop your demo in media/ (see media/HOW-TO-REPLACE.txt) */
+  .product-showcase {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: 88px;
+  }
+  .product-showcase__gradient {
+    background: linear-gradient(
+      145deg,
+      rgba(127, 207, 170, 0.28) 0%,
+      rgba(110, 155, 215, 0.38) 45%,
+      rgba(175, 155, 215, 0.32) 100%
+    );
+    border-radius: 18px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+  }
+  .product-showcase__frame {
+    position: relative;
+    background: #0b1525;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  .product-showcase__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    background: #0b1525;
+  }
+  .product-showcase__media::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(10, 26, 47, 0.88));
+  }
+  .product-showcase__sound {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    background: rgba(10, 26, 47, 0.82);
+    color: #fafaf7;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .product-showcase__sound:hover {
+    background: rgba(10, 26, 47, 0.94);
+    border-color: rgba(127, 207, 170, 0.45);
+    transform: translateY(-1px);
+  }
+  .product-showcase__sound[aria-pressed="true"] {
+    border-color: rgba(127, 207, 170, 0.5);
+    color: var(--hero-mint);
+  }
+  .product-showcase__sound-icon {
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  /* LOGO STRIP */
+  .logo-strip {
+    padding: 52px 0 56px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .logo-strip-label {
+    text-align: center; font-size: 13px; color: var(--ink-muted);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 28px;
+  }
+  .logo-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+  .logo-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: logo-marquee 36s linear infinite;
+    will-change: transform;
+  }
+  .logo-marquee:hover .logo-marquee-track,
+  .logo-marquee:focus-within .logo-marquee-track {
+    animation-play-state: paused;
+  }
+  .logo-marquee-group {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+    padding-right: 72px;
+    flex-shrink: 0;
+    opacity: 0.72;
+  }
+  @keyframes logo-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .logo-item {
+    font-family: 'Fraunces', serif; font-size: 19px; color: var(--ink-soft);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .logo-item.bold { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+  .logo-item.italic { font-style: italic; }
+  .logo-item.upper { text-transform: uppercase; font-size: 14px; letter-spacing: 0.18em; font-weight: 500; }
+  .logo-item.condensed { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.03em; }
+  .logo-item--brand {
+    display: inline-flex;
+    align-items: center;
+    color: var(--ink-soft);
+    font-size: 0;
+    line-height: 0;
+  }
+  .logo-item--brand img {
+    display: block;
+    height: 24px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+  }
+  .logo-item--brand.logo-item--wide img {
+    max-width: 120px;
+  }
+  .logo-item--brand.logo-item--limechat {
+    width: 104px;
+    height: 22px;
+    justify-content: center;
+  }
+  .logo-item--brand.logo-item--limechat img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track { animation: none; }
+    .logo-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+    .logo-marquee-track { flex-wrap: wrap; justify-content: center; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .logo-marquee-group[aria-hidden="true"] { display: none; }
+  }
+
+  /* SECTION HEADERS */
+  section { padding: 88px 0; }
+  .section-eyebrow {
+    color: var(--accent); font-size: 13px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 14px; max-width: 52rem;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+  .section-sub {
+    font-size: 17px; color: var(--ink-soft); max-width: 52rem; line-height: 1.5;
+  }
+  .section-heading {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--ink);
+  }
+  .intro-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 8px;
+  }
+
+  /* SHOWCASE (Trullion-style) */
+  .showcase-section {
+    padding: 32px 0 72px;
+    background: #FFFFFF;
+  }
+  .showcase-section .section-header-compact {
+    margin-bottom: 32px;
+  }
+  .showcase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .showcase-row:last-child { margin-bottom: 0; }
+  .showcase-card {
+    border-radius: 14px;
+    min-height: 400px;
+    overflow: hidden;
+  }
+  .showcase-card--visual {
+    background: #E8EFEB;
+    padding: 36px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .showcase-card--copy {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    padding: 52px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .showcase-row--reverse .showcase-card--visual { order: 2; }
+  .showcase-row--reverse .showcase-card--copy { order: 1; }
+  .showcase-label {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+  .showcase-card--copy h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .showcase-card--copy > p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 440px;
+  }
+  .showcase-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .showcase-link:hover { gap: 16px; }
+  .showcase-link-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--hero-bg);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .showcase-link:hover .showcase-link-icon { background: var(--ink); }
+  .showcase-links-dual { display: flex; flex-direction: column; gap: 14px; }
+  .showcase-links-dual .showcase-link { font-size: 14.5px; }
+
+  /* Premium panel shell (Orion AI chat, tables, dashboards) */
+  .mock-panel {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(165deg, #ffffff 0%, #f6faf8 100%);
+    border: 1px solid rgba(10, 26, 47, 0.08);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 24px 56px rgba(10, 26, 47, 0.14),
+      0 8px 20px rgba(10, 26, 47, 0.06);
+  }
+  .mock-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px 13px;
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 0% 0%, rgba(127, 207, 170, 0.18), transparent 55%),
+      linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-deep) 100%);
+    border-bottom: 1px solid rgba(127, 207, 170, 0.15);
+  }
+  .mock-panel-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .mock-panel-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    background: linear-gradient(145deg, rgba(127, 207, 170, 0.35), rgba(90, 150, 210, 0.2));
+    border: 1px solid rgba(127, 207, 170, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .mock-panel-logo::after {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: var(--hero-mint);
+    box-shadow: 0 0 10px rgba(127, 207, 170, 0.65);
+  }
+  .mock-panel-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .mock-panel-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fafaf7;
+    letter-spacing: -0.01em;
+  }
+  .mock-panel-meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(250, 250, 247, 0.55);
+  }
+  .mock-panel-meta--live {
+    color: var(--hero-mint);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .mock-panel-meta--live::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--hero-mint);
+    box-shadow: 0 0 8px rgba(127, 207, 170, 0.8);
+  }
+  .mock-panel-window-controls {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .mock-panel-window-controls span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .mock-panel-window-controls span:first-child { background: rgba(127, 207, 170, 0.35); }
+  .mock-panel-body {
+    padding: 14px 14px 16px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(127, 207, 170, 0.06), transparent 60%),
+      #fafcfb;
+  }
+
+  /* Orion AI chat */
+  .mock-chat .mock-panel-body {
+    padding: 18px 16px 14px;
+  }
+  .mock-chat-msg {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .mock-chat-msg:last-of-type { margin-bottom: 0; }
+  .mock-chat-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--accent);
+    background: linear-gradient(145deg, #ecf7f2, #fff);
+    border: 1px solid rgba(15, 107, 78, 0.12);
+    box-shadow: 0 2px 8px rgba(15, 107, 78, 0.08);
+  }
+  .mock-chat-bubble {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 14px;
+    border-radius: 12px 12px 12px 4px;
+    background: #fff;
+    border: 1px solid rgba(10, 26, 47, 0.07);
+    box-shadow: 0 2px 10px rgba(10, 26, 47, 0.05);
+    font-size: 13px;
+    line-height: 1.52;
+    color: var(--ink-soft);
+  }
+  .mock-chat-bubble strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .mock-chat-bubble--typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 16px;
+    min-width: 56px;
+  }
+  .mock-chat-bubble--typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.35;
+    animation: chatTyping 1.2s ease-in-out infinite;
+  }
+  .mock-chat-bubble--typing span:nth-child(2) { animation-delay: 0.15s; }
+  .mock-chat-bubble--typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes chatTyping {
+    0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-3px); }
+  }
+  .mock-chat-footer {
+    padding: 0 14px 14px;
+    background: #fafcfb;
+  }
+  .mock-chat-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: #fff;
+    border: 1px solid rgba(10, 26, 47, 0.08);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 4px 14px rgba(10, 26, 47, 0.04);
+  }
+  .mock-chat-input::after {
+    content: '↑';
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    background: linear-gradient(180deg, #fafaf7, #eef2f0);
+    border: 1px solid rgba(10, 26, 47, 0.08);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mock-chat-bubble--typing span { animation: none; opacity: 0.5; }
+  }
+
+  /* Journal entries table */
+  .mock-workflow { max-width: 420px; }
+  .mock-data-card {
+    background: #fff;
+    border: 1px solid rgba(10, 26, 47, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(10, 26, 47, 0.05);
+    overflow: hidden;
+    font-size: 12.5px;
+  }
+  .mock-data-row {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr 88px;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid rgba(10, 26, 47, 0.06);
+  }
+  .mock-data-row:last-child { border-bottom: none; }
+  .mock-data-row--head {
+    background: rgba(10, 26, 47, 0.03);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 9px 14px;
+  }
+  .mock-data-row--head strong {
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  .mock-data-row--head strong:last-child {
+    justify-self: end;
+  }
+  .mock-data-row span:nth-child(2) {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .mock-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    justify-self: end;
+  }
+  .mock-status--ok {
+    background: rgba(15, 107, 78, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(15, 107, 78, 0.18);
+  }
+  .mock-status--warn {
+    background: rgba(196, 154, 75, 0.12);
+    color: #9a7228;
+    border: 1px solid rgba(196, 154, 75, 0.28);
+  }
+  .mock-status--pending {
+    background: rgba(90, 150, 210, 0.1);
+    color: #3d6a9e;
+    border: 1px solid rgba(90, 150, 210, 0.22);
+  }
+
+  /* Close integrity dashboard */
+  .mock-integrity { max-width: 400px; }
+  .mock-stat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mock-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 14px;
+    background: #fff;
+    border: 1px solid rgba(10, 26, 47, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(10, 26, 47, 0.05);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .mock-stat-row span:first-child { line-height: 1.35; }
+  .mock-stat-value {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    color: var(--ink);
+  }
+  .mock-stat-value--ok { color: var(--accent); }
+  .mock-stat-row .mock-status { flex-shrink: 0; }
+
+  /* Knowledge hub — hub & spoke (8 integrations) */
+  .mock-knowledge {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 460px;
+    margin: 0 auto;
+    --spoke-step: 45deg;
+    --spoke-radius: 148px;
+  }
+  .mock-knowledge-spokes {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .mock-knowledge-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    background: #fff;
+    border: 1px solid rgba(10, 15, 12, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 1px 3px rgba(10, 15, 12, 0.06);
+    min-width: 84px;
+    max-width: 96px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(calc(var(--spoke-i) * var(--spoke-step) - 90deg)) translateY(calc(-1 * var(--spoke-radius))) rotate(calc(90deg - var(--spoke-i) * var(--spoke-step)));
+  }
+  .mock-knowledge-orbit[data-spoke-i="0"] { --spoke-i: 0; }
+  .mock-knowledge-orbit[data-spoke-i="1"] { --spoke-i: 1; }
+  .mock-knowledge-orbit[data-spoke-i="2"] { --spoke-i: 2; }
+  .mock-knowledge-orbit[data-spoke-i="3"] { --spoke-i: 3; }
+  .mock-knowledge-orbit[data-spoke-i="4"] { --spoke-i: 4; }
+  .mock-knowledge-orbit[data-spoke-i="5"] { --spoke-i: 5; }
+  .mock-knowledge-orbit[data-spoke-i="6"] { --spoke-i: 6; }
+  .mock-knowledge-orbit[data-spoke-i="7"] { --spoke-i: 7; }
+  .mock-knowledge-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: #fff;
+    border: 1px solid rgba(10, 15, 12, 0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+    box-shadow: 0 4px 16px rgba(10, 15, 12, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+  }
+  .mock-knowledge-center .logo-mark {
+    display: block;
+    height: 22px;
+    width: auto;
+    flex-shrink: 0;
+  }
+  .mock-knowledge-center .logo-word {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    color: var(--ink);
+    line-height: 1;
+  }
+  /* AGENT SUITE + WHY TEAMS CHOOSE */
+  .why-choose {
+    padding: 72px 0 48px;
+    background: #FFFFFF;
+    text-align: center;
+  }
+  .why-choose .section-header-compact {
+    margin-bottom: 28px;
+  }
+  .why-choose-intro {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 52rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .why-choose .hero-ctas {
+    margin-bottom: 0;
+    margin-top: 28px;
+  }
+  .showcase-section + .why-choose {
+    padding-top: 48px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    text-align: left;
+  }
+  .why-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 28px;
+    min-height: 180px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .why-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(15, 107, 78, 0.22);
+  }
+  .why-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.2vw, 26px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .why-card p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* PLATFORM SPOTLIGHT */
+  .why-choose + .platform-spotlight {
+    padding-top: 0;
+  }
+  .platform-spotlight {
+    padding: 0 0 72px;
+    background: #FFFFFF;
+  }
+  .platform-spotlight-inner {
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.22), transparent 55%),
+      radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.14), transparent 52%),
+      linear-gradient(180deg, var(--hero-bg) 65%, var(--hero-deep) 100%);
+    border-radius: 14px;
+    padding: 48px 52px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(10, 26, 47, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .platform-spotlight-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 100% 50%, rgba(90, 150, 210, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .platform-spotlight-copy { position: relative; z-index: 1; }
+  .platform-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--hero-mint);
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+  }
+  .platform-spotlight h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 3.6vw, 42px);
+    color: #FFFFFF;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .platform-highlight {
+    font-style: italic;
+    color: var(--hero-mint);
+  }
+  .platform-spotlight-text {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 460px;
+  }
+  .platform-spotlight .btn-platform {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--ink);
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .platform-spotlight .btn-platform:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .platform-media {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(145deg, #0b1e35 0%, #0a1a2f 45%, #0d2138 100%);
+  }
+  .platform-automation-visual {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .platform-automation-visual svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .platform-automation-visual .flow-line {
+      stroke-dasharray: 6 5;
+      animation: platformFlow 2.4s linear infinite;
+    }
+    .platform-automation-visual .hub-pulse {
+      animation: hubPulse 3s ease-in-out infinite;
+    }
+  }
+  @keyframes platformFlow {
+    to { stroke-dashoffset: -22; }
+  }
+  @keyframes hubPulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.65; transform: scale(1.04); }
+  }
+
+  /* TESTIMONIALS — Maxima-style marquee */
+  .testimonials {
+    padding: 88px 0 96px;
+    background: #FFFFFF;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+  .testimonials-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 52px;
+    padding: 0 32px;
+  }
+  .testimonials-head .section-heading {
+    margin-bottom: 0;
+  }
+  .testimonials-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  }
+  .testimonials-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: testimonials-scroll 50s linear infinite;
+    will-change: transform;
+  }
+  .testimonials-marquee:hover .testimonials-marquee-track {
+    animation-play-state: paused;
+  }
+  .testimonials-marquee-group {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+    flex-shrink: 0;
+  }
+  .feedback-card {
+    flex: 0 0 min(380px, 88vw);
+    background: #F4F6F7;
+    border-radius: 16px;
+    padding: 24px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-height: 0;
+  }
+  .feedback-card-person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .feedback-card-person img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #E6EAED;
+    flex-shrink: 0;
+  }
+  .feedback-card-person strong {
+    display: block;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    line-height: 1.3;
+  }
+  .feedback-card-person span {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    line-height: 1.35;
+  }
+  .feedback-card-quote {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.58;
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  @keyframes testimonials-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .testimonials-marquee-track { animation: none; }
+    .testimonials-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; padding: 0 32px; }
+    .testimonials-marquee-group[aria-hidden="true"] { display: none; }
+  }
+
+  /* CTA */
+  .cta { background: var(--ink); color: var(--bg); text-align: center; padding: 120px 0; }
+  .cta h2 { color: var(--bg); margin: 0 auto 24px; }
+  .cta h2 em { color: var(--gold); }
+  .cta p { color: rgba(250,250,247,0.7); font-size: 18px; max-width: 540px; margin: 0 auto 36px; }
+  .cta .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta .btn-primary:hover { background: var(--gold); color: var(--ink); }
+  .cta .btn-secondary { color: var(--bg); border-color: rgba(255,255,255,0.35); }
+  .cta .btn-secondary::after {
+    content: '→';
+    margin-left: 6px;
+    transition: transform 0.2s;
+  }
+  .cta .btn-secondary:hover { border-color: var(--bg); }
+  .cta .btn-secondary:hover::after { transform: translateX(4px); }
+
+  /* FOOTER — see brand.css for dark footer + logo lockup */
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a {
+    display: block; text-decoration: none;
+    font-size: 14px; padding: 4px 0;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07);
+    font-size: 13px;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .hero { margin-top: 0; padding-top: 56px; padding-bottom: 48px; }
+    .hero-ctas { margin-bottom: 40px; }
+    .showcase-section { padding: 24px 0 56px; }
+    .showcase-row,
+    .showcase-row--reverse {
+      grid-template-columns: 1fr;
+    }
+    .showcase-row--reverse .showcase-card--visual,
+    .showcase-row--reverse .showcase-card--copy { order: unset; }
+    .showcase-card { min-height: 320px; }
+    .showcase-card--copy { padding: 36px 28px; }
+    .showcase-card--visual { padding: 28px 20px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .platform-spotlight-inner {
+      grid-template-columns: 1fr;
+      padding: 36px 28px;
+      gap: 32px;
+    }
+    .platform-spotlight-text { max-width: none; }
+    .why-choose { padding: 64px 0 48px; }
+    .platform-spotlight { padding: 0 0 64px; }
+    .testimonials { padding: 64px 0 72px; }
+    .testimonials-head { margin-bottom: 32px; }
+    .feedback-card { flex: 0 0 min(300px, 88vw); padding: 20px 22px 24px; }
+    .feedback-card-quote { font-size: 15px; line-height: 1.55; }
+    .logos { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .product-showcase__gradient { padding: 12px; border-radius: 14px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ============ DARK HERO THEME ============ */
+  :root {
+    --hero-bg: #0A1A2F;
+    --hero-mint: #7FCFAA;
+  }
+  body { background: var(--bg); }
+  section:not(.hero):not(.statement):not(.cta) { background: var(--bg); }
+  html { background: var(--hero-bg); }
+  .hero {
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+      radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+      linear-gradient(180deg, var(--hero-bg) 70%, #0D2138 100%);
+    color: #FAFAF7;
+    margin-top: 0;
+    padding-top: 72px;
+    padding-bottom: 56px;
+    position: relative;
+  }
+  .hero .eyebrow {
+    background: rgba(127,207,170,0.14);
+    color: var(--hero-mint);
+    border: 1px solid rgba(127,207,170,0.22);
+  }
+  .hero .eyebrow-dot { background: var(--hero-mint); }
+  .hero h1.hero-title { color: #FAFAF7; }
+  .hero h1.hero-title em { color: var(--hero-mint); }
+  .hero .hero-sub { color: rgba(250,250,247,0.72); }
+  .hero .btn-primary { background: #FAFAF7; color: var(--ink); }
+  .hero .btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-1px); }
+  .hero .btn-ghost { color: rgba(250,250,247,0.92); }
+  .hero .btn-ghost:hover { color: #FAFAF7; }
+  .hero .product-showcase__gradient {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 32px 90px rgba(0, 0, 0, 0.45);
+  }
+</style>
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/integration-logos.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Introducing Orion agent suite</div>
+    </div>
+    <h1 class="hero-title reveal">Close the books with <em>quiet confidence</em>, not weekend overtime.</h1>
+    <p class="hero-sub reveal">Seven purpose-built AI agents handle your reconciliation, journal entries, AP, AR, accruals, revenue validation, and close management — continuously, autonomously, and audit-ready from day one.</p>
+    <div class="hero-ctas reveal">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="#product-showcase" class="btn btn-ghost">See automation in action</a>
+    </div>
+
+    <!-- Product demo: replace files in media/ — see media/HOW-TO-REPLACE.txt -->
+    <div class="product-showcase reveal" id="product-showcase">
+      <div class="product-showcase__gradient">
+        <div class="product-showcase__frame">
+          <video
+            id="hero-demo-video"
+            class="product-showcase__media"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+            controlsList="nodownload"
+            preload="metadata"
+            poster="media/hero-demo-poster.png"
+            aria-label="revzio product demo"
+          >
+            <source src="media/hero-demo.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="product-showcase__sound" id="hero-video-sound" aria-pressed="false" aria-label="Unmute video">
+            <span class="product-showcase__sound-icon" aria-hidden="true">🔇</span>
+            <span class="product-showcase__sound-label">Unmute</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="logo-strip" aria-label="Trusted companies">
+  <div class="container">
+    <div class="logo-strip-label">Trusted by finance teams at category-defining companies</div>
+  </div>
+  <div class="logo-marquee">
+    <div class="logo-marquee-track">
+      <div class="logo-marquee-group">
+        <div class="logo-item italic">Cadence</div>
+        <div class="logo-item upper">Veltra</div>
+        <div class="logo-item">Lumière</div>
+        <div class="logo-item upper">Summit Ledger</div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="CoinDCX" width="120" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="Pixis.ai" width="118" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="LimeChat" width="104" height="22" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="Faclon Labs" width="154" height="24" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="logo-marquee-group" aria-hidden="true">
+        <div class="logo-item italic">Cadence</div>
+        <div class="logo-item upper">Veltra</div>
+        <div class="logo-item">Lumière</div>
+        <div class="logo-item upper">Summit Ledger</div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/coindcx.svg" alt="CoinDCX" width="120" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand"><img src="assets/logos/pixis.svg" alt="Pixis.ai" width="118" height="24" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--limechat"><img src="assets/logos/limechat.webp" alt="LimeChat" width="104" height="22" loading="lazy" decoding="async"></div>
+        <div class="logo-item logo-item--brand logo-item--wide"><img src="assets/logos/faclon.svg" alt="Faclon Labs" width="154" height="24" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal section-header-compact">
+      <div class="section-eyebrow">ORION AGENT SUITE</div>
+      <h2 class="section-heading section-heading--single-line">Seven agents. Every finance workflow. One close.</h2>
+      <p class="why-choose-intro section-sub--single-line">Orion agents run continuously across your finance stack — human-in-the-loop, policy-gated, and audit-ready by design. Each agent is purpose-built for its workflow. No generic AI. No black boxes.</p>
+    </div>
+    <div class="why-grid reveal">
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> Reconciliation Agent</h3>
+        <p>Match millions of transactions across bank, GL, and subledger the moment they occur</p>
+        <a href="agent-reconciliation.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> Journal Entry Agent</h3>
+        <p>Generate and post journal entries from source data with 100% traceability, every period</p>
+        <a href="agent-journal-entry.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> AP Agent</h3>
+        <p>Fetch invoices, run 3-way match, eliminate duplicates, and route payments — zero manual touchpoints</p>
+        <a href="agent-ap.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> AR Agent</h3>
+        <p>Apply cash, rank collections by ageing, and reduce DSO by 20+ days on autopilot</p>
+        <a href="agent-ar.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> Accruals Agent</h3>
+        <p>Calculate prepaid amortization and accrual postings automatically, period after period</p>
+        <a href="agent-accruals.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> Revenue Validation Agent</h3>
+        <p>Validate every revenue event against ASC 606, flag billing-ERP gaps before they hit audit</p>
+        <a href="agent-revenue-validation.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+      <article class="why-card">
+        <h3><span class="eyebrow-dot" aria-hidden="true"></span> Close Management Agent</h3>
+        <p>Run the close checklist, route approvals, surface variance summaries, and capture sign-off end-to-end</p>
+        <a href="agent-close-management.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </article>
+    </div>
+    <div class="hero-ctas reveal">
+      <a href="agent-suite.html" class="btn btn-primary">Explore the Orion Suite</a>
+      <a href="how-it-works.html" class="btn btn-ghost">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<section class="showcase-section" id="product">
+  <div class="container">
+    <header class="section-header-compact reveal" id="continuous-close">
+      <p class="intro-eyebrow">THE ORION PLATFORM</p>
+      <h2 class="section-heading section-heading--single-line">AI agents built for the complexity of real finance workflows.</h2>
+      <p class="intro-desc section-sub">Powered by Orion, revzio brings together seven specialized agents, a deep finance knowledge layer, and a governed workflow engine — so every output is explainable, traceable, and reviewer-ready.</p>
+    </header>
+    <div class="showcase-row reveal">
+      <div class="showcase-card showcase-card--visual">
+        <div class="mock-panel mock-chat" aria-hidden="true">
+          <div class="mock-panel-header">
+            <div class="mock-panel-brand">
+              <span class="mock-panel-logo"></span>
+              <div class="mock-panel-title">
+                <span class="mock-panel-name">Orion AI</span>
+                <span class="mock-panel-meta mock-panel-meta--live">Online</span>
+              </div>
+            </div>
+            <div class="mock-panel-window-controls"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-panel-body">
+            <div class="mock-chat-msg">
+              <div class="mock-chat-avatar" aria-hidden="true">◇</div>
+              <div class="mock-chat-bubble">Hi there — what can I help with? Type <strong>/</strong> to tag files, policies, and reconciliations.</div>
+            </div>
+            <div class="mock-chat-msg">
+              <div class="mock-chat-avatar" aria-hidden="true">◇</div>
+              <div class="mock-chat-bubble mock-chat-bubble--typing" aria-label="Thinking"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="mock-chat-footer">
+            <div class="mock-chat-input">Ask Orion anything about your close…</div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-card showcase-card--copy">
+        <p class="showcase-label">Orion AI</p>
+        <h3>Always-on agentic assistant</h3>
+        <p>Orion AI is your newest team member — surfacing answers, spotting patterns, and making sense of your data in seconds.</p>
+        <a href="platform.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="showcase-row showcase-row--reverse reveal">
+      <div class="showcase-card showcase-card--visual">
+        <div class="mock-panel mock-workflow" aria-hidden="true">
+          <div class="mock-panel-header">
+            <div class="mock-panel-brand">
+              <span class="mock-panel-logo"></span>
+              <div class="mock-panel-title">
+                <span class="mock-panel-name">Journal Entries</span>
+                <span class="mock-panel-meta">Orion · Auto-posted</span>
+              </div>
+            </div>
+            <div class="mock-panel-window-controls"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-panel-body">
+            <div class="mock-data-card">
+              <div class="mock-data-row mock-data-row--head"><strong>Account</strong><strong>Debit</strong><strong>Status</strong></div>
+              <div class="mock-data-row"><span>Revenue · Stripe</span><span>$124,800</span><span class="mock-status mock-status--ok">Matched</span></div>
+              <div class="mock-data-row"><span>Deferred revenue</span><span>$18,200</span><span class="mock-status mock-status--warn">Review</span></div>
+              <div class="mock-data-row"><span>AR · NetSuite</span><span>$96,400</span><span class="mock-status mock-status--ok">Matched</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-card showcase-card--copy">
+        <p class="showcase-label">Workflows</p>
+        <h3>Streamlined workflows</h3>
+        <p>AI-powered workflows built for CFOs and firms to automate critical accounting and audit processes.</p>
+        <div class="showcase-links-dual">
+          <a href="solutions.html" class="showcase-link">For Corporate Accounting <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+          <a href="solutions.html" class="showcase-link">For Audit <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-row reveal">
+      <div class="showcase-card showcase-card--visual">
+        <div class="mock-knowledge" aria-hidden="true">
+          <svg class="mock-knowledge-spokes" viewBox="0 0 500 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <circle cx="250" cy="230" r="148" fill="none" stroke="rgba(127, 207, 170, 0.14)" stroke-width="1" stroke-dasharray="4 8"/>
+            <g stroke="rgba(127, 207, 170, 0.28)" stroke-width="1.25" stroke-linecap="round">
+              <line x1="250" y1="230" x2="250.0" y2="82.0"/>
+              <line x1="250" y1="230" x2="354.6" y2="125.4"/>
+              <line x1="250" y1="230" x2="398.0" y2="230.0"/>
+              <line x1="250" y1="230" x2="354.6" y2="334.6"/>
+              <line x1="250" y1="230" x2="250.0" y2="378.0"/>
+              <line x1="250" y1="230" x2="145.4" y2="334.6"/>
+              <line x1="250" y1="230" x2="102.0" y2="230.0"/>
+              <line x1="250" y1="230" x2="145.4" y2="125.4"/>
+            </g>
+          </svg>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="0" aria-label="Salesforce"><img class="int-logo__img" src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="1" aria-label="QuickBooks"><img class="int-logo__img" src="assets/logos/quickbooks.svg" alt="QuickBooks" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="2" aria-label="Stripe"><img class="int-logo__img" src="assets/logos/stripe.svg" alt="Stripe" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="3" aria-label="Razorpay"><img class="int-logo__img" src="assets/logos/razorpay.svg" alt="Razorpay" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="4" aria-label="PayPal"><img class="int-logo__img" src="assets/logos/paypal.svg" alt="PayPal" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="5" aria-label="Xero"><img class="int-logo__img" src="assets/logos/xero.svg" alt="Xero" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="6" aria-label="Zoho"><img class="int-logo__img" src="assets/logos/zoho.svg" alt="Zoho" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="7" aria-label="Oracle"><img class="int-logo__img" src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" decoding="async"></span>
+          <div class="mock-knowledge-center"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></div>
+        </div>
+      </div>
+      <div class="showcase-card showcase-card--copy">
+        <p class="showcase-label">Knowledge</p>
+        <h3>Grounded in data</h3>
+        <p>Unify internal guidelines, external standards, and institutional knowledge into a real-time knowledge layer to power smarter outcomes.</p>
+        <a href="platform.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="showcase-row showcase-row--reverse reveal">
+      <div class="showcase-card showcase-card--visual">
+        <div class="mock-panel mock-integrity" aria-hidden="true">
+          <div class="mock-panel-header">
+            <div class="mock-panel-brand">
+              <span class="mock-panel-logo"></span>
+              <div class="mock-panel-title">
+                <span class="mock-panel-name">Close integrity</span>
+                <span class="mock-panel-meta mock-panel-meta--live">Live</span>
+              </div>
+            </div>
+            <div class="mock-panel-window-controls"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-panel-body">
+            <div class="mock-stat-list">
+              <div class="mock-stat-row"><span>Reconciliations complete</span><span class="mock-stat-value mock-stat-value--ok">98%</span></div>
+              <div class="mock-stat-row"><span>Exceptions with context</span><span class="mock-stat-value">12</span></div>
+              <div class="mock-stat-row"><span>Audit trail events</span><span class="mock-stat-value">4,281</span></div>
+              <div class="mock-stat-row"><span>Controller sign-off</span><span class="mock-status mock-status--pending">Pending</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-card showcase-card--copy">
+        <p class="showcase-label">Financial Integrity</p>
+        <h3>Trust, built in</h3>
+        <p>revzio is built by seasonal finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
+        <a href="book-a-demo.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal section-header-compact">
+      <h2 class="section-heading section-heading--single-line">Why Teams Choose revzio</h2>
+      <p class="why-choose-intro">In an era of generic AI tools and disconnected point solutions, accounting and audit teams need technology they can trust and actually use in practice.</p>
+    </div>
+    <div class="why-grid reveal">
+      <article class="why-card">
+        <h3>Seven Specialized Agents, Not One Generic AI</h3>
+        <p>Each Orion agent is purpose-built for its workflow. Reconciliation logic is different from revenue validation logic. We don't pretend one model handles everything.</p>
+      </article>
+      <article class="why-card">
+        <h3>Live in Under 3 Weeks — Guaranteed</h3>
+        <p>Most platforms take months to implement. Orion agents connect to your existing ERP, billing, and banking stack without an IT project. Your team is running in production in weeks.</p>
+      </article>
+      <article class="why-card">
+        <h3>Audit Trail That Writes Itself</h3>
+        <p>Every agent action is logged with who, what, when, and why — with source evidence attached. When auditors arrive, you hand them context, not a folder of screenshots.</p>
+      </article>
+      <article class="why-card">
+        <h3>Mid-Market Power at a Fraction of Enterprise Cost</h3>
+        <p>Full Orion agent suite — reconciliation through close management — without BlackLine or Bluecopa price tags. Built for growth-stage and mid-market finance teams.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="platform-spotlight">
+  <div class="container reveal">
+    <div class="platform-spotlight-inner" data-nav-theme="dark">
+      <div class="platform-spotlight-copy">
+        <p class="platform-label">The revzio Platform</p>
+        <h2>Built by Industry Leaders, for the <span class="platform-highlight">Future of the Industry</span></h2>
+        <p class="platform-spotlight-text">revzio is built by seasonal finance professionals and shaped by insights from Global CFOs and CPA firms worldwide. We understand the late nights, manual testing, and endless spreadsheets firsthand. We help teams move faster, work smarter, and focus on judgment, not busywork.</p>
+        <a href="book-a-demo.html" class="btn-platform">Book a demo</a>
+      </div>
+      <div class="platform-media">
+        <div class="platform-automation-visual" role="img" aria-label="Finance automation: source systems connect through the Orion AI layer to reconciliation, close, and reporting">
+          <svg viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="plat-bg" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0B1E35"/>
+                <stop offset="1" stop-color="#0A1A2F"/>
+              </linearGradient>
+              <linearGradient id="plat-hub" x1="320" y1="120" x2="320" y2="280" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7FCFAA" stop-opacity="0.35"/>
+                <stop offset="1" stop-color="#5A96D2" stop-opacity="0.12"/>
+              </linearGradient>
+              <filter id="plat-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="12" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="640" height="400" fill="url(#plat-bg)"/>
+            <ellipse class="hub-pulse" cx="320" cy="200" rx="140" ry="100" fill="url(#plat-hub)" filter="url(#plat-glow)"/>
+
+            <!-- Source systems -->
+            <text x="48" y="36" fill="rgba(250,250,247,0.45)" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">SOURCE SYSTEMS</text>
+            <rect x="40" y="52" width="118" height="56" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(127,207,170,0.35)" stroke-width="1"/>
+            <text x="56" y="78" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="13" font-weight="600">ERP</text>
+            <text x="56" y="96" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">NetSuite · SAP</text>
+            <rect x="40" y="124" width="118" height="56" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(90,150,210,0.35)" stroke-width="1"/>
+            <text x="56" y="150" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="13" font-weight="600">Bank</text>
+            <text x="56" y="168" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">Feeds · GL cash</text>
+            <rect x="40" y="196" width="118" height="56" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(127,207,170,0.25)" stroke-width="1"/>
+            <text x="56" y="222" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="13" font-weight="600">Billing</text>
+            <text x="56" y="240" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">Stripe · RevRec</text>
+
+            <!-- Orion AI layer -->
+            <rect x="228" y="118" width="184" height="164" rx="16" fill="rgba(10,26,47,0.85)" stroke="rgba(127,207,170,0.5)" stroke-width="1.5"/>
+            <circle cx="320" cy="168" r="22" fill="rgba(127,207,170,0.2)" stroke="#7FCFAA" stroke-width="1.5"/>
+            <text x="320" y="174" text-anchor="middle" fill="#7FCFAA" font-family="Inter, sans-serif" font-size="14" font-weight="700">◇</text>
+            <text x="320" y="208" text-anchor="middle" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="14" font-weight="600">Orion AI Layer</text>
+            <text x="320" y="228" text-anchor="middle" fill="rgba(250,250,247,0.6)" font-family="Inter, sans-serif" font-size="11">Agents · policies · audit trail</text>
+            <rect x="248" y="244" width="68" height="22" rx="6" fill="rgba(127,207,170,0.15)"/>
+            <text x="282" y="259" text-anchor="middle" fill="#7FCFAA" font-family="Inter, sans-serif" font-size="9" font-weight="600">HUMAN-IN-LOOP</text>
+            <rect x="324" y="244" width="68" height="22" rx="6" fill="rgba(90,150,210,0.15)"/>
+            <text x="358" y="259" text-anchor="middle" fill="rgba(180,210,240,0.9)" font-family="Inter, sans-serif" font-size="9" font-weight="600">AUTO-MATCH</text>
+
+            <!-- Outputs -->
+            <text x="482" y="36" fill="rgba(250,250,247,0.45)" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">CLOSE OUTPUTS</text>
+            <rect x="474" y="52" width="126" height="48" rx="10" fill="rgba(15,107,78,0.25)" stroke="rgba(127,207,170,0.45)" stroke-width="1"/>
+            <text x="490" y="74" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="12" font-weight="600">Reconciliation</text>
+            <text x="490" y="90" fill="#7FCFAA" font-family="Inter, sans-serif" font-size="11">98.4% auto-matched</text>
+            <rect x="474" y="112" width="126" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(127,207,170,0.3)" stroke-width="1"/>
+            <text x="490" y="134" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="12" font-weight="600">Journal entries</text>
+            <text x="490" y="150" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">Posted · traceable</text>
+            <rect x="474" y="172" width="126" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(90,150,210,0.3)" stroke-width="1"/>
+            <text x="490" y="194" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="12" font-weight="600">Close checklist</text>
+            <text x="490" y="210" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">Sign-off ready</text>
+            <rect x="474" y="232" width="126" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(196,154,75,0.35)" stroke-width="1"/>
+            <text x="490" y="254" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="12" font-weight="600">Board reporting</text>
+            <text x="490" y="270" fill="rgba(250,250,247,0.55)" font-family="Inter, sans-serif" font-size="11">Hours, not days</text>
+
+            <!-- Flow lines -->
+            <path class="flow-line" d="M158 80 H228" stroke="#7FCFAA" stroke-width="1.5" stroke-opacity="0.55"/>
+            <path class="flow-line" d="M158 152 H228" stroke="#5A96D2" stroke-width="1.5" stroke-opacity="0.5"/>
+            <path class="flow-line" d="M158 224 H228" stroke="#7FCFAA" stroke-width="1.5" stroke-opacity="0.45"/>
+            <path class="flow-line" d="M412 80 H474" stroke="#7FCFAA" stroke-width="1.5" stroke-opacity="0.55"/>
+            <path class="flow-line" d="M412 136 H474" stroke="#7FCFAA" stroke-width="1.5" stroke-opacity="0.5"/>
+            <path class="flow-line" d="M412 196 H474" stroke="#5A96D2" stroke-width="1.5" stroke-opacity="0.45"/>
+            <path class="flow-line" d="M412 256 H474" stroke="#C49A4B" stroke-width="1.5" stroke-opacity="0.4"/>
+
+            <!-- Status bar -->
+            <rect x="40" y="318" width="560" height="72" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+            <text x="60" y="340" fill="rgba(250,250,247,0.5)" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em">CONTINUOUS CLOSE</text>
+            <g aria-hidden="true">
+              <rect x="494" y="326" width="86" height="24" rx="12" fill="rgba(127,207,170,0.12)" stroke="rgba(127,207,170,0.35)" stroke-width="1"/>
+              <circle cx="508" cy="338" r="4" fill="#7FCFAA"/>
+              <text x="518" y="342" fill="#7FCFAA" font-family="Inter, sans-serif" font-size="11" font-weight="600">Live</text>
+            </g>
+            <text x="60" y="360" fill="#FAFAF7" font-family="Inter, sans-serif" font-size="12">Ingest → reconcile → govern → report</text>
+            <text x="60" y="378" fill="rgba(250,250,247,0.72)" font-family="Inter, sans-serif" font-size="12">One governed automation layer</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS: edit cards in both "testimonials-marquee-group" blocks; images → media/testimonials/ -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-head reveal">
+    <h2 class="section-heading">Don't take our word for it. Take theirs.</h2>
+  </div>
+  <div class="testimonials-marquee" aria-label="Customer testimonials">
+    <div class="testimonials-marquee-track" id="testimonials-track">
+      <div class="testimonials-marquee-group">
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=12" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Tingting Fang</strong>
+              <span>Accountant</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"revzio took a lot of stress out of month-end by automating our most time-consuming workflows like payroll and banking, which has made our team more efficient."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=33" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>David Rich</strong>
+              <span>Senior Manager</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"Our feedback consistently shows up on the roadmap and ships quickly. Adoption was rapid, with month-one active users exceeding our prior tool."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=45" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Mira Reyes</strong>
+              <span>VP Finance</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"We cut our close from twelve days to three. The team got their weekends back, and our auditors stopped asking where the spreadsheets were."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=68" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Devan Romano</strong>
+              <span>Senior Assurance Manager</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"revzio is night and day from a totally manual close — another team member who helps you check the work, not redo it."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=25" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>James Okonkwo</strong>
+              <span>Controller</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"Every variance comes with context your reviewers can trust. One reconciled source of truth across billing, ERP, and CRM."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=47" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Sarah Chen</strong>
+              <span>Director of Accounting</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"The close checklist finally lives in one place. Sign-offs happen in the tool, not over email threads at midnight."</blockquote>
+        </article>
+      </div>
+      <div class="testimonials-marquee-group" aria-hidden="true">
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=12" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Tingting Fang</strong>
+              <span>Accountant</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"revzio took a lot of stress out of month-end by automating our most time-consuming workflows like payroll and banking, which has made our team more efficient."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=33" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>David Rich</strong>
+              <span>Senior Manager</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"Our feedback consistently shows up on the roadmap and ships quickly. Adoption was rapid, with month-one active users exceeding our prior tool."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=45" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Mira Reyes</strong>
+              <span>VP Finance</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"We cut our close from twelve days to three. The team got their weekends back, and our auditors stopped asking where the spreadsheets were."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=68" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Devan Romano</strong>
+              <span>Senior Assurance Manager</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"revzio is night and day from a totally manual close — another team member who helps you check the work, not redo it."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=25" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>James Okonkwo</strong>
+              <span>Controller</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"Every variance comes with context your reviewers can trust. One reconciled source of truth across billing, ERP, and CRM."</blockquote>
+        </article>
+        <article class="feedback-card">
+          <div class="feedback-card-person">
+            <img src="https://i.pravatar.cc/104?img=47" alt="" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <strong>Sarah Chen</strong>
+              <span>Director of Accounting</span>
+            </div>
+          </div>
+          <blockquote class="feedback-card-quote">"The close checklist finally lives in one place. Sign-offs happen in the tool, not over email threads at midnight."</blockquote>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>See your <em>next close</em> in revzio.</h2>
+    <p>A 30-minute walkthrough with someone who's actually closed books. We'll show you what the first three months would look like with your data.</p>
+    <div class="hero-ctas" style="justify-content: center;">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="#product-showcase" class="btn btn-secondary">See automation in action</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="agent-suite.html">Orion Agents</a>
+        <a href="recon-automation.html">Reconciliation</a>
+        <a href="continuous-close.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.product-showcase__media').forEach((video) => {
+    video.play().catch(() => {});
+    videoObserver.observe(video);
+  });
+
+  const heroVideo = document.getElementById('hero-demo-video');
+  const heroSoundBtn = document.getElementById('hero-video-sound');
+  if (heroVideo && heroSoundBtn) {
+    const syncHeroSoundBtn = () => {
+      const muted = heroVideo.muted;
+      heroSoundBtn.setAttribute('aria-pressed', String(!muted));
+      heroSoundBtn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
+      heroSoundBtn.querySelector('.product-showcase__sound-label').textContent = muted ? 'Unmute' : 'Mute';
+      heroSoundBtn.querySelector('.product-showcase__sound-icon').textContent = muted ? '🔇' : '🔊';
+    };
+    heroSoundBtn.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      if (!heroVideo.muted) heroVideo.play().catch(() => {});
+      syncHeroSoundBtn();
+    });
+    heroVideo.addEventListener('volumechange', syncHeroSoundBtn);
+    syncHeroSoundBtn();
+  }
+
+</script>
+
+  <script src="js/nav-theme.js"></script>
+  <script src="js/mobile-nav.js"></script>
+  <script src="js/mega-menu.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/integration-logos.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

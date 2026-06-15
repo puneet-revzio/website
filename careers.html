@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Careers — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .hero-band {
+      padding: 120px 0 72px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+      color: #FAFAF7;
+    }
+    .hero-band h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      max-width: 940px;
+      margin-bottom: 18px;
+    }
+    .hero-band p {
+      color: rgba(250,250,247,0.72);
+      font-size: 18px;
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .pillars {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .pillar {
+      border: 1px solid rgba(250, 250, 247, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 18px 18px;
+      color: rgba(250,250,247,0.82);
+    }
+    .pillar h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #FAFAF7;
+    }
+    .pillar p { margin: 0; font-size: 14.5px; color: rgba(250,250,247,0.72); }
+
+    .role-card {
+      border-radius: 18px;
+      border: 1px solid rgba(127, 207, 170, 0.22);
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(127, 207, 170, 0.12), transparent 55%),
+        linear-gradient(180deg, rgba(10, 26, 47, 0.04), #fff 52%);
+      padding: 22px 22px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .role-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(127, 207, 170, 0.34);
+      box-shadow: var(--shadow);
+    }
+    .role-meta {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+    .tag-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(15, 107, 78, 0.08);
+      color: var(--accent);
+      font-weight: 750;
+      font-size: 12px;
+    }
+    .apply {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .apply:hover { color: var(--ink); }
+
+    .benefits {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .benefit {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 18px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .benefit .icon { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display:flex; align-items:center; justify-content:center; font-size: 18px; flex-shrink:0; }
+    .benefit .icon img { display: block; width: 20px; height: 20px; }
+    .benefit .icon:has(img) { font-size: 0; line-height: 0; }
+    .benefit h4 { font-family:'Fraunces', serif; font-size: 18px; margin-bottom: 6px; }
+    .benefit p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+    @media (max-width: 980px) {
+      .pillars { grid-template-columns: 1fr; }
+      .benefits { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav></nav>
+
+<header class="hero-band" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>JOIN revzio</div>
+    </div>
+    <h1 class="reveal-on-scroll">Build the future of finance automation.</h1>
+    <p class="reveal-on-scroll">We're a small team solving real problems for finance teams. We ship fast, care about craft, and believe AI should make accountants more powerful — not replace them.</p>
+
+    <div class="pillars reveal-on-scroll" aria-label="Mission pillars">
+      <div class="pillar">
+        <h4>Ship fast, learn faster</h4>
+        <p>We iterate in weeks, not quarters. Real customers, real feedback, real product.</p>
+      </div>
+      <div class="pillar">
+        <h4>Finance-first thinking</h4>
+        <p>Half our team has closed the books. We build what we'd want to use.</p>
+      </div>
+      <div class="pillar">
+        <h4>Remote &amp; async</h4>
+        <p>Work from anywhere. We care about output, not office hours.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">OPEN ROLES</div>
+      <h2>Join the team building Orion.</h2>
+      <p class="section-sub">Three roles we’re hiring for right now. If you’re close-adjacent and craft-obsessed, we’ll find a fit.</p>
+    </div>
+
+    <div class="cards reveal-on-scroll" style="grid-template-columns: 1fr; margin-top: 36px;">
+      <div class="role-card">
+        <h4>Senior Full-Stack Engineer</h4>
+        <div class="role-meta">Remote (US/EU) · Full-time</div>
+        <p>Build and scale the Orion agent platform. You'll work across the product stack — from agent orchestration logic to the UI that finance teams use every day.</p>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">LLMs</span>
+        </div>
+        <a class="apply" href="mailto:careers@revzio.com?subject=Senior%20Full-Stack%20Engineer">Apply Now →</a>
+      </div>
+
+      <div class="role-card">
+        <h4>AI/ML Engineer — Finance Agents</h4>
+        <div class="role-meta">Remote (US/EU) · Full-time</div>
+        <p>Design and improve the intelligence layer behind Orion's 7 agents. You'll own model selection, prompt engineering, evaluation pipelines, and accuracy metrics.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">OpenAI</span><span class="tag">RAG</span>
+        </div>
+        <a class="apply" href="mailto:careers@revzio.com?subject=AI/ML%20Engineer%20Finance%20Agents">Apply Now →</a>
+      </div>
+
+      <div class="role-card">
+        <h4>Finance Implementation Specialist</h4>
+        <div class="role-meta">Remote · Full-time</div>
+        <p>Own the 3-week onboarding that turns prospects into power users. You'll map ERP workflows, configure Orion agents, and become the customer's trusted expert.</p>
+        <div class="tag-row">
+          <span class="tag">NetSuite</span><span class="tag">QuickBooks</span><span class="tag">Close Process</span><span class="tag">SaaS</span>
+        </div>
+        <a class="apply" href="mailto:careers@revzio.com?subject=Finance%20Implementation%20Specialist">Apply Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">BENEFITS</div>
+      <h2>Work that compounds.</h2>
+      <p class="section-sub">Remote-first, high-trust, built for people who like shipping.</p>
+    </div>
+
+    <div class="benefits reveal-on-scroll" aria-label="Benefits">
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/globe.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Remote-first</h4><p>Work from anywhere.</p></div></div>
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/wallet.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Competitive equity</h4><p>Own the upside you help create.</p></div></div>
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/heart.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Full health coverage</h4><p>Great coverage for you.</p></div></div>
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/book.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Learning budget</h4><p>$2k/yr for courses and conferences.</p></div></div>
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/rocket.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Early-stage impact</h4><p>Small team, big surface area.</p></div></div>
+      <div class="benefit"><div class="icon"><img src="assets/icons/agent/clock.svg" alt="" width="20" height="20" decoding="async"></div><div><h4>Flexible hours</h4><p>Async by default.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal-on-scroll">
+    <h2>Don't see your role? We want to hear from you.</h2>
+    <p>If you can help finance teams close faster with trustworthy automation, we should talk.</p>
+    <div class="hero-ctas">
+      <a href="mailto:careers@revzio.com" class="btn btn-primary">Send us a note →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
+

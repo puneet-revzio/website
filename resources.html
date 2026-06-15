@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Resources — revzio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #FFFFFF; --bg-alt: #F4F7F5; --ink: #0A0F0C; --ink-soft: #4B5563;
+    --ink-muted: #6B7280; --line: #E6EAED; --accent: #0F6B4E;
+    --accent-soft: #ECF7F2; --gold: #C49A4B;
+    --hero-bg: #0A1A2F; --hero-mint: #7FCFAA;
+    --shadow: 0 1px 2px rgba(10,15,12,0.04), 0 8px 28px rgba(10,15,12,0.07);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: transparent; border-bottom: 1px solid transparent; transition: background 0.35s, border-bottom-color 0.35s; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; color: #FAFAF7; text-decoration: none; transition: color 0.3s; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--hero-mint); transition: background 0.3s; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { color: rgba(250,250,247,0.72); text-decoration: none; font-size: 14.5px; transition: color 0.3s; }
+  .nav-links a:hover { color: #FAFAF7; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; font-size: 14.5px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s ease; }
+  nav .btn-primary { background: #FAFAF7; color: var(--ink); }
+  nav .btn-primary:hover { background: var(--gold); }
+  nav.scrolled {
+    background: rgba(10, 26, 47, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom-color: rgba(250, 250, 247, 0.08);
+  }
+
+  html { background: var(--hero-bg); }
+  .hero {
+    background: var(--hero-bg);
+    background-image: radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%), radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%), linear-gradient(180deg, var(--hero-bg) 70%, #0D2138 100%);
+    color: #FAFAF7; margin-top: -76px; padding: 128px 0 80px; position: relative;
+  }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--hero-mint); font-size: 13px; font-weight: 500; background: rgba(127,207,170,0.14); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; border: 1px solid rgba(127,207,170,0.22); }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--hero-mint); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  h1.hero-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.025em; max-width: 900px; margin-bottom: 28px; }
+  h1.hero-title em { font-style: italic; color: var(--hero-mint); }
+  .hero-sub { font-size: 20px; color: rgba(250,250,247,0.72); max-width: 620px; margin-bottom: 40px; line-height: 1.5; }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; }
+  .hero .btn-primary { background: #FAFAF7; color: var(--ink); }
+  .hero .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: rgba(250,250,247,0.9); padding: 8px 0; }
+  .btn-ghost::after { content: '→'; margin-left: 6px; transition: transform 0.2s; }
+  .btn-ghost:hover { color: #FAFAF7; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  section { padding: 100px 0; }
+  .section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; gap: 40px; flex-wrap: wrap; }
+  .section-eyebrow { color: var(--accent); font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px; max-width: 700px; }
+  h2 em { font-style: italic; color: var(--accent); }
+  .section-sub { font-size: 17px; color: var(--ink-soft); max-width: 540px; line-height: 1.55; }
+
+  /* FEATURED GUIDE */
+  .featured {
+    display: grid; grid-template-columns: 1.05fr 1fr; gap: 0;
+    border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+    background: white; box-shadow: var(--shadow);
+  }
+  .featured-art {
+    background: linear-gradient(135deg, #0A1A2F, #1B3458 70%, #2C5478);
+    position: relative; min-height: 380px;
+    display: flex; align-items: center; justify-content: center;
+    color: #FAFAF7;
+  }
+  .featured-art::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(127,207,170,0.25), transparent 50%);
+  }
+  .featured-art-inner {
+    position: relative; padding: 40px; text-align: center;
+  }
+  .featured-pages {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 88px; line-height: 1; color: var(--hero-mint); margin-bottom: 8px;
+  }
+  .featured-art-label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,250,247,0.65); }
+  .featured-body { padding: 56px 48px; }
+  .featured-tag { display: inline-block; padding: 4px 12px; border-radius: 100px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+  .featured-body h3 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; margin-bottom: 18px; }
+  .featured-body p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+  .read-link { color: var(--accent); font-weight: 500; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .read-link::after { content: '→'; transition: transform 0.2s; }
+  .read-link:hover::after { transform: translateX(4px); }
+
+  /* ARTICLE GRID */
+  .articles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .article {
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    background: white; transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .article:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .article-thumb { aspect-ratio: 16/10; position: relative; overflow: hidden; }
+  .article-thumb-a { background: linear-gradient(135deg, #0F6B4E, #4FA284); }
+  .article-thumb-b { background: linear-gradient(135deg, #0A1A2F, #2C5478); }
+  .article-thumb-c { background: linear-gradient(135deg, #C49A4B, #E0BC75); }
+  .article-thumb-d { background: linear-gradient(135deg, #1B3458, #4FA284); }
+  .article-thumb-e { background: linear-gradient(135deg, #5C4A2C, #C49A4B); }
+  .article-thumb-f { background: linear-gradient(135deg, #2C5478, #7FCFAA); }
+  .article-thumb-glyph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 64px; color: rgba(255,255,255,0.45);
+  }
+  .article-body { padding: 24px 26px 28px; flex: 1; display: flex; flex-direction: column; }
+  .article-meta { font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .article-meta .cat { color: var(--accent); font-weight: 500; }
+  .article h4 { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .article p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; flex: 1; margin-bottom: 16px; }
+  .article .read-link { font-size: 13.5px; }
+
+  /* CUSTOMER STORIES */
+  .stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .story { border: 1px solid var(--line); border-radius: 14px; padding: 36px 32px; background: white; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+  .story:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .story-logo { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 24px; }
+  .story-logo.bold { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+  .story-logo.upper { text-transform: uppercase; font-size: 16px; letter-spacing: 0.16em; font-weight: 500; }
+  .story-stat { font-family: 'Fraunces', serif; font-style: italic; font-size: 48px; color: var(--accent); line-height: 1; letter-spacing: -0.025em; margin-bottom: 8px; }
+  .story-stat-label { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
+  .story-quote { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.4; letter-spacing: -0.005em; color: var(--ink); flex: 1; margin-bottom: 16px; }
+  .story-attr { font-size: 13px; color: var(--ink-muted); }
+
+  .cta-section { background: var(--ink); color: var(--bg); text-align: center; padding: 120px 0; }
+  .cta-section h2 { color: var(--bg); margin: 0 auto 24px; max-width: 700px; }
+  .cta-section h2 em { color: var(--gold); }
+  .cta-section p { color: rgba(250,250,247,0.7); font-size: 18px; max-width: 540px; margin: 0 auto 36px; }
+  .cta-section .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta-section .btn-primary:hover { background: var(--gold); }
+  .cta-section .btn-secondary { background: transparent; color: var(--bg); border: 1px solid rgba(255,255,255,0.35); }
+  .cta-section .btn-secondary:hover { border-color: var(--bg); }
+  .cta-section .hero-ctas { justify-content: center; }
+
+  footer { padding: 60px 0 40px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand p { color: var(--ink-muted); font-size: 14px; max-width: 280px; margin-top: 12px; line-height: 1.5; }
+  .footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a { display: block; color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 4px 0; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 13px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .featured { grid-template-columns: 1fr; }
+    .featured-body { padding: 32px 28px; }
+    .articles, .stories { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+  <link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/mega-menu.css">
+<link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span>RESOURCES</div></div>
+    <h1 class="hero-title reveal">Everything you need to modernize your finance close.</h1>
+    <p class="hero-sub reveal">Guides, customer stories, product tours, and the thinking behind the Orion agent suite.</p>
+    <div class="hero-ctas reveal">
+      <a href="#categories" class="btn btn-primary">Browse resources</a>
+      <a href="#featured" class="btn btn-ghost">Featured content</a>
+    </div>
+  </div>
+</header>
+
+<section id="categories">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">CATEGORIES</div>
+    </div>
+    <div class="articles reveal" style="margin-top: 26px; grid-template-columns: repeat(4, 1fr);">
+      <article class="article">
+        <div class="article-thumb article-thumb-b"><div class="article-thumb-glyph">C</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Category</span></div>
+          <h4>Customer Stories</h4>
+          <p>See how finance teams use Orion to cut close cycles and eliminate audit surprises.</p>
+          <a href="customers.html" class="read-link">Explore</a>
+        </div>
+      </article>
+      <article class="article">
+        <div class="article-thumb article-thumb-a"><div class="article-thumb-glyph">G</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Category</span></div>
+          <h4>Guides &amp; Playbooks</h4>
+          <p>Practical guides on reconciliation automation, close best practices, and AI in finance.</p>
+          <a href="guides.html" class="read-link">Explore</a>
+        </div>
+      </article>
+      <article class="article">
+        <div class="article-thumb article-thumb-f"><div class="article-thumb-glyph">T</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Category</span></div>
+          <h4>Product Tours</h4>
+          <p>Guided walkthroughs of each Orion agent in action.</p>
+          <a href="book-a-demo.html" class="read-link">Explore</a>
+        </div>
+      </article>
+      <article class="article">
+        <div class="article-thumb article-thumb-c"><div class="article-thumb-glyph">B</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Category</span></div>
+          <h4>Blog</h4>
+          <p>Insights on AI-powered accounting, close automation, and finance operations.</p>
+          <a href="blog.html" class="read-link">Explore</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="featured" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">FEATURED CONTENT</div>
+        <h2>Start here.</h2>
+        <p class="section-sub">Three reads that explain the Orion agent approach — and what it changes for your close.</p>
+      </div>
+      <a href="blog.html" class="read-link">View all posts</a>
+    </div>
+
+    <div class="articles reveal">
+      <article class="article">
+        <div class="article-thumb article-thumb-b"><div class="article-thumb-glyph">G</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Guide</span> · 8 min read</div>
+          <h4>Why Your Month-End Close Is Broken (And How AI Agents Fix It)</h4>
+          <p>A practical breakdown of where close cycles slip — and how agent-based preparation changes the workflow.</p>
+          <a href="blog.html" class="read-link">Read more</a>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-thumb article-thumb-a"><div class="article-thumb-glyph">P</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Product</span> · 6 min read</div>
+          <h4>ASC 606 for SaaS: How the Revenue Validation Agent Catches What Spreadsheets Miss</h4>
+          <p>How Orion validates billing events, postings, and performance obligations continuously — before audit.</p>
+          <a href="blog.html" class="read-link">Read more</a>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-thumb article-thumb-f"><div class="article-thumb-glyph">C</div></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Customer Story</span> · 5 min read</div>
+          <h4>From 12 Days to 3: A Controller's Guide to Continuous Close with Orion</h4>
+          <p>How controllers run standardized close playbooks, route approvals, and capture sign-off in-product.</p>
+          <a href="blog.html" class="read-link">Read more</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>About revzio</h2>
+    <p>The company building the AI platform for the next generation of accounting.</p>
+    <div class="hero-ctas">
+      <a href="about.html" class="btn btn-primary">Learn about us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </motion>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+  <script src="js/nav-theme.js"></script>
+  <script src="js/mobile-nav.js"></script>
+  <script src="js/mega-menu.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

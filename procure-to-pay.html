@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Procure to Pay | revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/solution-pages.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .agent-banner {
+      background: var(--accent-soft);
+      border-bottom: 1px solid rgba(15, 107, 78, 0.14);
+      padding: 28px 0;
+    }
+    .agent-banner-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .agent-banner-copy {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .agent-pills {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .agent-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 13.5px;
+    }
+    .agent-pill:hover { border-color: rgba(15, 107, 78, 0.32); }
+    .trust-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      color: rgba(250, 250, 247, 0.78);
+      font-size: 14px;
+    }
+    .trust-row span { display: inline-flex; align-items: center; gap: 10px; }
+    .trust-row span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--hero-mint);
+      box-shadow: 0 0 18px rgba(127, 207, 170, 0.45);
+    }
+    .workflow-diagram {
+      margin-top: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .workflow-caption {
+      margin-top: 10px;
+      color: rgba(250, 250, 247, 0.68);
+      font-size: 13.5px;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .chart-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 22px 20px;
+    }
+    .chart-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .doughnut-wrap { position: relative; height: 260px; }
+    .doughnut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      font-family: 'Fraunces', serif;
+      font-size: 44px;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .chart-caption {
+      margin-top: 16px;
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+    @media (max-width: 980px) {
+      .agent-banner-inner { grid-template-columns: 1fr; }
+      .chart-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body class="solution-page">
+
+<nav></nav>
+
+<header class="hero" data-nav-theme="dark">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>PROCURE TO PAY · POWERED BY ORION</div>
+    </div>
+    <h1 class="hero-title reveal-on-scroll">Maximize cash flow with autonomous AP operations.</h1>
+    <p class="hero-sub reveal-on-scroll">The Orion AP Agent fetches invoices, runs 3-way match, eliminates duplicates, and routes payments automatically — so your AP team focuses on vendor relationships, not data entry.</p>
+    <div class="hero-ctas reveal-on-scroll">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-ap.html" class="btn btn-ghost">See the AP Agent</a>
+    </div>
+    <div class="trust-row reveal-on-scroll" aria-label="Trust signals">
+      <span>90% faster invoice processing</span>
+      <span>Zero duplicate payments</span>
+      <span>Live in under 3 weeks</span>
+    </div>
+
+    <div class="workflow-diagram reveal-on-scroll" aria-label="Procure-to-pay workflow diagram">
+      <svg viewBox="0 0 1520 200" width="100%" height="auto" role="img" aria-label="Procure to Pay branching flow with Orion steps highlighted">
+        <defs>
+          <filter id="p2pGlow" x="-20%" y="-40%" width="140%" height="180%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feColorMatrix in="blur" type="matrix"
+              values="0 0 0 0 0.50  0 0 0 0 0.95  0 0 0 0 0.75  0 0 0 0.55 0" result="glow"/>
+            <feMerge>
+              <feMergeNode in="glow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <linearGradient id="p2pStroke" x1="0" x2="1">
+            <stop offset="0" stop-color="#7FCFAA" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#0F6B4E" stop-opacity="0.9"/>
+          </linearGradient>
+        </defs>
+
+        <!-- connectors -->
+        <g stroke="rgba(250,250,247,0.35)" stroke-width="2" fill="none">
+          <path d="M140 70 H200" />
+          <path d="M340 70 H400" />
+          <path d="M560 70 H620" />
+          <path d="M780 70 H840" />
+          <!-- branch -->
+          <path d="M1000 70 C1040 70 1040 70 1060 70" />
+          <path d="M1060 70 C1100 70 1100 42 1140 42" />
+          <path d="M1060 70 C1100 70 1100 150 1140 150" />
+          <!-- reconverge -->
+          <path d="M1240 42 C1290 42 1290 96 1340 96" />
+          <path d="M1240 150 C1290 150 1290 96 1340 96" />
+        </g>
+        <g fill="rgba(250,250,247,0.55)">
+          <polygon points="200,70 190,64 190,76"/>
+          <polygon points="400,70 390,64 390,76"/>
+          <polygon points="620,70 610,64 610,76"/>
+          <polygon points="840,70 830,64 830,76"/>
+        </g>
+
+        <!-- boxes -->
+        <g font-family="Inter, system-ui, sans-serif" font-size="14" text-anchor="middle">
+          <g>
+            <rect x="20" y="38" rx="12" ry="12" width="120" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="80" y="70" fill="#FAFAF7" font-weight="650">PO Created</text>
+          </g>
+          <g>
+            <rect x="220" y="38" rx="12" ry="12" width="120" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="280" y="70" fill="#FAFAF7" font-weight="650">Goods</text>
+            <text x="280" y="88" fill="rgba(250,250,247,0.74)" font-size="12">Received</text>
+          </g>
+
+          <g filter="url(#p2pGlow)">
+            <rect x="420" y="30" rx="14" ry="14" width="140" height="80" fill="rgba(127,207,170,0.10)" stroke="url(#p2pStroke)" stroke-width="2"/>
+            <text x="490" y="62" fill="#FAFAF7" font-weight="750">ORION AP</text>
+            <text x="490" y="80" fill="rgba(250,250,247,0.74)" font-size="12">Fetch + extract</text>
+          </g>
+
+          <g filter="url(#p2pGlow)">
+            <rect x="640" y="30" rx="14" ry="14" width="140" height="80" fill="rgba(127,207,170,0.10)" stroke="url(#p2pStroke)" stroke-width="2"/>
+            <text x="710" y="62" fill="#FAFAF7" font-weight="750">ORION</text>
+            <text x="710" y="80" fill="rgba(250,250,247,0.74)" font-size="12">3-way match</text>
+          </g>
+
+          <g>
+            <rect x="860" y="38" rx="12" ry="12" width="140" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="930" y="66" fill="#FAFAF7" font-weight="650">Match?</text>
+            <text x="930" y="86" fill="rgba(250,250,247,0.74)" font-size="12">Branching path</text>
+          </g>
+
+          <g>
+            <rect x="1140" y="10" rx="12" ry="12" width="160" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="1220" y="38" fill="#FAFAF7" font-weight="650">Auto-approve</text>
+            <text x="1220" y="58" fill="rgba(250,250,247,0.74)" font-size="12">Post to ERP</text>
+          </g>
+
+          <g>
+            <rect x="1140" y="118" rx="12" ry="12" width="160" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="1220" y="146" fill="#FAFAF7" font-weight="650">Mismatch</text>
+            <text x="1220" y="166" fill="rgba(250,250,247,0.74)" font-size="12">Human review</text>
+          </g>
+
+          <g>
+            <rect x="1340" y="64" rx="12" ry="12" width="160" height="64" fill="rgba(250,250,247,0.10)" stroke="rgba(250,250,247,0.18)"/>
+            <text x="1420" y="92" fill="#FAFAF7" font-weight="650">Payment</text>
+            <text x="1420" y="112" fill="rgba(250,250,247,0.84)" font-size="12">Processed ✓</text>
+          </g>
+        </g>
+      </svg>
+      <div class="workflow-caption">Routine invoices flow straight through. Exceptions branch to human review with full context attached.</div>
+    </div>
+  </div>
+</header>
+
+<section class="agent-banner">
+  <div class="container">
+    <div class="agent-banner-inner reveal-on-scroll">
+      <div>
+        <span class="agent-prepared-badge">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L3 14h7l-1 8 12-16h-7l-1-4z" fill="currentColor"/>
+          </svg>
+          AGENT PREPARED
+        </span>
+      </div>
+      <div>
+        <div class="agent-banner-copy">Orion AP handles the entire invoice lifecycle — from vendor inbox to ERP posting — without human touchpoints on routine invoices.</div>
+        <div class="agent-pills">
+          <a class="agent-pill" href="agent-ap.html">AP Agent →</a>
+          <a class="agent-pill" href="agent-reconciliation.html">Reconciliation Agent →</a>
+          <a class="agent-pill" href="agent-accruals.html">Accruals Agent →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">PAIN POINTS</div>
+      <h2>Where AP breaks down.</h2>
+      <p class="section-sub">Invoices scattered across channels, approvals stuck in queues, and leakage from duplicates and mismatches.</p>
+    </div>
+    <div class="cards reveal-on-scroll">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/mail.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h4>Invoice chaos across channels</h4>
+        <p>Invoices arrive via email, portals, and ERPs in different formats. Manual collection and keying creates errors before processing even starts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/wallet.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h4>Duplicate payments and leakage</h4>
+        <p>Without automated 3-way match, duplicate invoices and overpayments slip through — creating costly vendor disputes and write-offs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"><img src="assets/icons/agent/clock.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h4>Approval bottlenecks</h4>
+        <p>Invoices stuck in approval queues miss early payment discounts and damage vendor relationships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">HOW ORION P2P WORKS</div>
+      <h2>Four steps from inbox to ERP.</h2>
+      <p class="section-sub">Orion prepares the work continuously — extraction, matching, routing — and your team approves exceptions.</p>
+    </div>
+    <div class="steps reveal-on-scroll">
+      <div class="step"><div class="step-num">STEP 01</div><h4>Fetch from anywhere</h4><p>Orion AP collects invoices from email, ERP submissions, vendor portals, and web forms automatically on a continuous schedule.</p></div>
+      <div class="step"><div class="step-num">STEP 02</div><h4>Extract and standardize</h4><p>AI vision models extract line-item data from any invoice format — PDFs, scans, structured files — and map each line to the correct GL account.</p></div>
+      <div class="step"><div class="step-num">STEP 03</div><h4>Run 3-way match</h4><p>PO, GRN, and invoice automatically matched. Discrepancies, duplicates, and outliers flagged instantly with clear explanations.</p></div>
+      <div class="step"><div class="step-num">STEP 04</div><h4>Route and close</h4><p>Valid invoices route to the right approver by amount, vendor, or category. Approved invoices post directly to ERP. Payment scheduled on time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">CHARTS</div>
+      <h2>Automation and cycle-time impact.</h2>
+      <p class="section-sub">Typical results from Orion AP customers.</p>
+    </div>
+    <div class="chart-grid reveal-on-scroll">
+      <div class="chart-card">
+        <div class="chart-title">Invoice Processing Automation Rate</div>
+        <div class="doughnut-wrap">
+          <canvas id="p2pDoughnut" aria-label="Invoice automation rate" role="img"></canvas>
+          <div class="doughnut-center">88%</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Invoice Processing Time (Days)</div>
+        <div style="height: 260px;">
+          <canvas id="p2pBar" aria-label="Invoice processing time" role="img"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="chart-caption reveal-on-scroll">Based on aggregated Orion AP results. Individual results vary.</div>
+  </div>
+</section>
+
+<section class="solution-metrics">
+  <div class="container">
+    <div class="solution-kpis reveal-on-scroll">
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="90" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Faster invoice processing cycle</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="60" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Reduction in payment errors</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value stat-countup" data-target="50" data-suffix="%">0%</div>
+        <div class="solution-kpi-label">Lower AP processing cost vs manual</div>
+      </div>
+      <div class="solution-kpi">
+        <div class="solution-kpi-value">Zero</div>
+        <div class="solution-kpi-label">Duplicate payments processed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">CAPABILITIES</div>
+      <h2>What Orion AP automates.</h2>
+      <p class="section-sub">Six capabilities that eliminate manual touchpoints on routine invoices.</p>
+    </div>
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card reveal-on-scroll"><div class="card-icon">◎</div><h4>Omni-channel Invoice Ingestion</h4><p>Fetch from email, portals, ERPs, and web forms automatically.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">▦</div><h4>AI Vision Extraction</h4><p>Extract structured line-item data from any invoice format including PDFs and scans.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">✓</div><h4>Automated 3-Way Match</h4><p>PO, GRN, and invoice matched with discrepancies flagged instantly.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">⚠</div><h4>Duplicate Detection</h4><p>AI flags potential duplicate payments before they're processed.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">↗</div><h4>Conditional Approval Routing</h4><p>Route by vendor, amount, category, or GL with configurable rules.</p></div>
+      <div class="card reveal-on-scroll"><div class="card-icon">⟲</div><h4>ERP Direct Sync</h4><p>Approved invoices and payments sync directly to your ERP in real time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">INTEGRATIONS</div>
+      <h2>Works with your P2P stack:</h2>
+    </div>
+    <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;" class="reveal-on-scroll" aria-label="Integrations">
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">NetSuite</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">QuickBooks</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Xero</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">SAP</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Coupa</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Gmail</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Outlook</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Vendor portals</span>
+      <span class="int-logo" style="padding: 10px 12px; border-radius: 999px;">Workday</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal-on-scroll">
+    <h2>Ready to automate your procure-to-pay cycle?</h2>
+    <p>See Orion AP running 3-way match and routing approvals — with evidence captured and duplicates blocked by default.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-ap.html" class="btn btn-ghost">See the AP Agent</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  (function initP2PCharts() {
+    if (!window.Chart) return;
+    const doughnutEl = document.getElementById('p2pDoughnut');
+    const barEl = document.getElementById('p2pBar');
+    if (doughnutEl) {
+      new Chart(doughnutEl, {
+        type: 'doughnut',
+        data: {
+          labels: ['Fully automated by Orion', 'Require human review'],
+          datasets: [{
+            data: [88, 12],
+            backgroundColor: ['#10b981', '#1e293b'],
+            borderWidth: 0
+          }]
+        },
+        options: { responsive: true, cutout: '72%', plugins: { legend: { display: false } } }
+      });
+    }
+    if (barEl) {
+      new Chart(barEl, {
+        type: 'bar',
+        data: {
+          labels: ['Manual process', 'With Orion AP'],
+          datasets: [{
+            label: 'Days',
+            data: [8, 0.8],
+            backgroundColor: ['rgba(30,41,59,0.65)', 'rgba(15,107,78,0.9)'],
+            borderRadius: 10,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              grid: { color: 'rgba(10,15,12,0.06)' },
+              ticks: { color: '#4B5563' }
+            },
+            y: {
+              grid: { display: false },
+              ticks: { color: '#0A0F0C', font: { weight: 650 } }
+            }
+          }
+        }
+      });
+    }
+  })();
+</script>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+<script>
+// Fallback CountUp in case animations.js hasn't loaded yet
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-target')) || 0;
+        const suffix = el.getAttribute('data-suffix') || '';
+        const prefix = el.getAttribute('data-prefix') || '';
+        const duration = 1500;
+        const start = performance.now();
+        const isFloat = target % 1 !== 0;
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+          el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
+

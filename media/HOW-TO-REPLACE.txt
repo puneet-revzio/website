@@ -1,0 +1,24 @@
+revzio homepage product demo — replace these files
+==================================================
+
+CURRENT PLACEHOLDER (from maxima.ai — swap before launch):
+  Video:  media/hero-demo.mp4
+  Poster: media/hero-demo-poster.png
+
+TO USE YOUR OWN DEMO:
+  1. Export your screen recording as MP4 (recommended: 1920×1200 or 16:10, under 15 MB).
+  2. Save it as:  media/hero-demo.mp4  (overwrite the placeholder)
+  3. Export a still frame as PNG:  media/hero-demo-poster.png  (shown before video loads)
+  4. Refresh http://localhost:8000/
+
+OPTIONAL — GIF instead of video:
+  In index.html, replace the <video> block with:
+    <img src="media/hero-demo.gif" alt="revzio product demo" class="product-showcase__media">
+
+OPTIONAL — host on CDN instead of local file:
+  Change the <source> src in index.html to your URL, e.g.:
+    <source src="https://your-cdn.com/revzio-demo.mp4" type="video/mp4">
+
+Original Maxima source URLs (for reference only):
+  https://framerusercontent.com/assets/uBaAHsjkRBUtGD2GwdEJX2gOrg8.mp4
+  https://framerusercontent.com/images/rqUyOK5ZzOjnb1hHwtPCjYBbTYc.png

@@ -1,0 +1,63 @@
+/* Brand logos for integration grids and knowledge orbit */
+
+.int-logo.int-logo--brand,
+.mock-knowledge-orbit.int-logo--brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+.int-logo.int-logo--brand .int-logo__img,
+.mock-knowledge-orbit.int-logo--brand .int-logo__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.integration-grid .int-logo.int-logo--brand {
+  min-height: 56px;
+  padding: 14px 16px;
+}
+
+.integration-grid .int-logo.int-logo--brand .int-logo__img {
+  max-height: 26px;
+  max-width: 92%;
+}
+
+.int-logo.int-logo--brand.int-logo--pill {
+  padding: 8px 14px !important;
+  min-height: 0;
+}
+
+.int-logo.int-logo--brand.int-logo--pill .int-logo__img {
+  max-height: 18px;
+  max-width: 110px;
+}
+
+.mock-knowledge-orbit.int-logo--brand {
+  padding: 10px 14px;
+  min-width: 84px;
+  max-width: 96px;
+  min-height: 40px;
+  letter-spacing: 0;
+  background: #fff;
+  border: 1px solid rgba(10, 15, 12, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(10, 15, 12, 0.06);
+}
+
+.mock-knowledge-orbit.int-logo--brand .int-logo__img {
+  max-height: 18px;
+  max-width: 76px;
+}
+
+.mock-knowledge-orbit.int-logo--brand.int-logo--badge .int-logo__img {
+  max-height: 18px;
+  max-width: 48px;
+}

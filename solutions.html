@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Solutions — revzio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #FFFFFF; --bg-alt: #F4F7F5; --ink: #0A0F0C; --ink-soft: #4B5563;
+    --ink-muted: #6B7280; --line: #E6EAED; --accent: #0F6B4E;
+    --accent-soft: #ECF7F2; --gold: #C49A4B;
+    --hero-bg: #0A1A2F; --hero-mint: #7FCFAA;
+    --shadow: 0 1px 2px rgba(10,15,12,0.04), 0 8px 28px rgba(10,15,12,0.07);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: transparent; border-bottom: 1px solid transparent; transition: background 0.35s, border-bottom-color 0.35s; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; color: #FAFAF7; text-decoration: none; transition: color 0.3s; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--hero-mint); transition: background 0.3s; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { color: rgba(250,250,247,0.72); text-decoration: none; font-size: 14.5px; transition: color 0.3s; }
+  .nav-links a:hover { color: #FAFAF7; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; font-size: 14.5px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s ease; }
+  nav .btn-primary { background: #FAFAF7; color: var(--ink); }
+  nav .btn-primary:hover { background: var(--gold); }
+  nav.scrolled {
+    background: rgba(10, 26, 47, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom-color: rgba(250, 250, 247, 0.08);
+  }
+
+  html { background: var(--hero-bg); }
+  .hero {
+    background: var(--hero-bg);
+    background-image: radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%), radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%), linear-gradient(180deg, var(--hero-bg) 70%, #0D2138 100%);
+    color: #FAFAF7; margin-top: -76px; padding: 128px 0 80px; position: relative;
+  }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--hero-mint); font-size: 13px; font-weight: 500; background: rgba(127,207,170,0.14); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; border: 1px solid rgba(127,207,170,0.22); }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--hero-mint); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  h1.hero-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.025em; max-width: 900px; margin-bottom: 28px; }
+  h1.hero-title em { font-style: italic; color: var(--hero-mint); }
+  .hero-sub { font-size: 20px; color: rgba(250,250,247,0.72); max-width: 620px; margin-bottom: 40px; line-height: 1.5; }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; }
+  .hero .btn-primary { background: #FAFAF7; color: var(--ink); }
+  .hero .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: rgba(250,250,247,0.9); padding: 8px 0; }
+  .btn-ghost::after { content: '→'; margin-left: 6px; transition: transform 0.2s; }
+  .btn-ghost:hover { color: #FAFAF7; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  section { padding: 120px 0; }
+  .section-eyebrow { color: var(--accent); font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+  h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 4.5vw, 54px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; max-width: 800px; }
+  h2 em { font-style: italic; color: var(--accent); }
+  .section-sub { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.55; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+  .row.reverse .row-text { order: 2; }
+  .row-text h3 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; margin-bottom: 16px; }
+  .role-tag { display: inline-block; padding: 4px 12px; border-radius: 100px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .row-text > p { color: var(--ink-soft); font-size: 17px; line-height: 1.6; margin-bottom: 8px; }
+  .row-list { margin-top: 28px; }
+  .row-list-item { padding: 16px 0; border-top: 1px solid var(--line); display: flex; gap: 16px; align-items: flex-start; }
+  .row-list-item:last-child { border-bottom: 1px solid var(--line); }
+  .row-list-item .check { width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .row-list-item strong { display: block; font-weight: 500; margin-bottom: 4px; }
+  .row-list-item span { color: var(--ink-soft); font-size: 14.5px; }
+  .row-visual { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 36px; box-shadow: var(--shadow); }
+  .vstat { font-family: 'Fraunces', serif; font-size: 60px; font-weight: 400; letter-spacing: -0.025em; color: var(--accent); margin-bottom: 8px; line-height: 1; }
+  .vstat-label { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
+  .vquote { font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px; }
+  .vquote-attr { font-size: 13px; color: var(--ink-muted); }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+  .card { padding: 32px 28px; border: 1px solid var(--line); border-radius: 14px; background: white; transition: transform 0.25s, box-shadow 0.25s; }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+  .card h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .card p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+
+  .cta-section { background: var(--ink); color: var(--bg); text-align: center; padding: 120px 0; }
+  .cta-section h2 { color: var(--bg); margin: 0 auto 24px; }
+  .cta-section h2 em { color: var(--gold); }
+  .cta-section p { color: rgba(250,250,247,0.7); font-size: 18px; max-width: 540px; margin: 0 auto 36px; }
+  .cta-section .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta-section .btn-primary:hover { background: var(--gold); }
+  .cta-section .btn-secondary { background: transparent; color: var(--bg); border: 1px solid rgba(255,255,255,0.35); }
+  .cta-section .btn-secondary:hover { border-color: var(--bg); }
+  .cta-section .hero-ctas { justify-content: center; }
+
+  footer { padding: 60px 0 40px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand p { color: var(--ink-muted); font-size: 14px; max-width: 280px; margin-top: 12px; line-height: 1.5; }
+  .footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a { display: block; color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 4px 0; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 13px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .row, .row.reverse { grid-template-columns: 1fr; gap: 40px; }
+    .row.reverse .row-text { order: 0; }
+    .cards { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+  <link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/mega-menu.css">
+<link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span>SOLUTIONS</div></div>
+    <h1 class="hero-title reveal">Built for every finance team. Powered by <em>Orion</em>.</h1>
+    <p class="hero-sub reveal">Whether you're a Controller closing the month, a CFO presenting to the board, or a compliance lead preparing for audit — Orion agents surface the right work for the right role.</p>
+    <div class="hero-ctas reveal">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-ghost">Explore the Orion Suite</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">By role</div>
+      <h2>One platform. <em>Three perspectives</em>.</h2>
+      <p class="section-sub">revzio surfaces the right view for the right job — preparation, review, or board narrative.</p>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-text">
+        <div class="role-tag">For Controllers</div>
+        <h3>Close the month, then go home.</h3>
+        <p>Stop spending close week stitching spreadsheets across billing, ERP, and CRM. The Orion Reconciliation Agent handles the matching, the Orion Close Management Agent orchestrates the checklist, and you get a clean queue of exceptions — not a wall of data.</p>
+        <div class="row-list">
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Reconcile in hours, not days</strong><span>Reconcile in hours, not days — Orion auto-matches across bank, GL, and subledger in real time</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Exceptions ranked by impact</strong><span>Exceptions ranked by impact — spend time on the breaks that move the number, not rounding errors</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Standardized close playbooks</strong><span>Standardized close playbooks — the same close, the same way, every cycle, tracked by Orion Close</span></div></div>
+        </div>
+        <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
+          <a class="role-tag" href="agent-reconciliation.html" style="text-decoration:none;">Reconciliation Agent</a>
+          <a class="role-tag" href="agent-close-management.html" style="text-decoration:none;">Close Management Agent</a>
+          <a class="role-tag" href="agent-journal-entry.html" style="text-decoration:none;">Journal Entry Agent</a>
+          <a class="role-tag" href="agent-accruals.html" style="text-decoration:none;">Accruals Agent</a>
+        </div>
+      </div>
+      <div class="row-visual">
+        <div class="vstat">3 days</div>
+        <div class="vstat-label">Average close cycle for Orion customers (down from 12)</div>
+        <div class="vquote">"My team got their evenings back the first month. By month three we were closing on Wednesday."</div>
+        <div class="vquote-attr">— Lina Ortiz, Controller</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="row reverse reveal">
+      <div class="row-text">
+        <div class="role-tag">For VPs of Finance &amp; CFOs</div>
+        <h3>Trust the number you're about to present.</h3>
+        <p>When the board asks how you got to a figure, Orion gives you the lineage behind every metric — from the line item to the dashboard. Revenue Validation Agent flags recognition gaps before audit. Close Management Agent gives you real-time visibility into close status without asking your team.</p>
+        <div class="row-list">
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Drill-through reporting</strong><span>Click any number and trace it back to the source transaction.</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Revenue validated continuously</strong><span>Every dollar checked against ASC 606 before it reaches your deck</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Audit-ready by default</strong><span>The package external auditors need is generated as Orion works</span></div></div>
+        </div>
+        <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
+          <a class="role-tag" href="agent-revenue-validation.html" style="text-decoration:none;">Revenue Validation Agent</a>
+          <a class="role-tag" href="agent-close-management.html" style="text-decoration:none;">Close Management Agent</a>
+          <a class="role-tag" href="agent-ar.html" style="text-decoration:none;">AR Agent</a>
+          <a class="role-tag" href="agent-reconciliation.html" style="text-decoration:none;">Reconciliation Agent</a>
+        </div>
+      </div>
+      <div class="row-visual">
+        <div class="vstat">95%</div>
+        <div class="vstat-label">Less manual work in the first quarter after Orion goes live</div>
+        <div class="vquote">"For the first time, the number I show the board is the same number the team trusts internally."</div>
+        <div class="vquote-attr">— Devon Park, VP Finance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row reveal">
+      <div class="row-text">
+        <div class="role-tag">For Audit &amp; Compliance</div>
+        <h3>An audit trail that actually answers questions.</h3>
+        <p>Every Orion agent action is recorded with who, what, when, and why — source evidence attached. When external auditors arrive, you hand them context, not a folder of screenshots. Orion's audit trail writes itself from day one.</p>
+        <div class="row-list">
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Versioned changes</strong><span>Nothing is truly deleted. Every state is recoverable.</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>Segregation of duties</strong><span>Preparer, reviewer, approver roles enforced by Orion's workflow engine</span></div></div>
+          <div class="row-list-item"><div class="check">✓</div><div><strong>One-click PBC exports</strong><span>The audit package auditors actually want, ready in seconds.</span></div></div>
+        </div>
+        <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
+          <a class="role-tag" href="agent-reconciliation.html" style="text-decoration:none;">Reconciliation Agent</a>
+          <a class="role-tag" href="agent-close-management.html" style="text-decoration:none;">Close Management Agent</a>
+          <a class="role-tag" href="agent-ap.html" style="text-decoration:none;">AP Agent</a>
+          <a class="role-tag" href="agent-revenue-validation.html" style="text-decoration:none;">Revenue Validation Agent</a>
+        </div>
+      </div>
+      <div class="row-visual">
+        <div class="vstat">Zero</div>
+        <div class="vstat-label">Reconciliation findings in SOC 2 audit for Orion customers</div>
+        <div class="vquote">"We replaced four shared spreadsheets and an email thread with one report. The auditors actually thanked us."</div>
+        <div class="vquote-attr">— Priya Anand, Head of Internal Audit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">BY INDUSTRY</div>
+      <h2>Tuned for the way your business recognizes <em>revenue</em>.</h2>
+      <p class="section-sub">Orion is designed for finance reality: the revenue types, policies, and edge cases auditors care about.</p>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="card-icon">◆</div>
+        <h4>SaaS &amp; Subscription</h4>
+        <p>Tiered plans, usage overages, mid-cycle upgrades, deferred revenue, and ASC 606 — Orion handles the patterns auditors expect in subscription businesses.</p>
+        <a href="industry-saas.html" class="btn btn-ghost" style="color: var(--ink);">See SaaS solutions</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">○</div>
+        <h4>Enterprise Finance</h4>
+        <p>Multi-entity, multi-currency, intercompany reconciliation, and board-level reporting — Orion scales to the complexity of enterprise finance without the BlackLine price tag.</p>
+        <a href="industry-enterprise.html" class="btn btn-ghost" style="color: var(--ink);">See Enterprise solutions</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">△</div>
+        <h4>VC-Backed Startups</h4>
+        <p>From Series A to pre-IPO, Orion gives your lean finance team enterprise-grade close automation without a 6-month implementation or an enterprise contract.</p>
+        <a href="industry-startup.html" class="btn btn-ghost" style="color: var(--ink);">See Startup solutions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industry" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">By industry</div>
+      <h2>Tuned for the way <em>your business</em> recognizes revenue.</h2>
+      <p class="section-sub">Orion is tuned for finance reality: subscription revenue, enterprise complexity, and lean teams scaling toward audit readiness. Choose your path and see how the same seven agents adapt to your workflows.</p>
+    </div>
+    <div class="cards reveal">
+      <article>
+        <a href="industry-saas.html" style="text-decoration:none;color:inherit;">
+          <div class="card-icon">◆</div>
+          <h4>SaaS &amp; Subscription</h4>
+          <p>ASC 606, deferred revenue, billing-ERP reconciliation, and usage-based revenue recognition — handled continuously by Orion.</p>
+          <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--accent);">Explore SaaS →</div>
+        </a>
+      </article>
+      <article>
+        <a href="industry-enterprise.html" style="text-decoration:none;color:inherit;">
+          <div class="card-icon">○</div>
+          <h4>Enterprise Finance</h4>
+          <p>Multi-entity reconciliation, intercompany eliminations, BlackLine/FloQast alternative — Orion agent suite, deployed in weeks.</p>
+          <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--accent);">Explore Enterprise →</div>
+        </a>
+      </article>
+      <article>
+        <a href="industry-startup.html" style="text-decoration:none;color:inherit;">
+          <div class="card-icon">△</div>
+          <h4>VC-Backed Startups</h4>
+          <p>Series A to IPO-ready close. Enterprise-grade audit trail and automation for lean finance teams who can't afford to hire their way out of it.</p>
+          <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--accent);">Explore Startups →</div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Tell us how <em>your team</em> works.</h2>
+    <p>A 30-minute conversation with someone who's actually closed books. We'll show you which Orion agents apply to your stack and what the first three months would look like.</p>
+    <div class="hero-ctas">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-secondary">Explore the Orion Suite →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+  <script src="js/nav-theme.js"></script>
+  <script src="js/mobile-nav.js"></script>
+  <script src="js/mega-menu.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

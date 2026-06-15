@@ -1,0 +1,230 @@
+/* Platform tab module (Bluecopa-inspired layout, revzio styling) */
+
+.platform-tabs-band {
+  padding: 96px 0;
+  background: var(--bg-alt);
+}
+
+.platform-tabs-layout {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 360px);
+  gap: 28px;
+  align-items: start;
+}
+
+.platform-tabs {
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 15, 12, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.platform-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.platform-tab:hover {
+  background: rgba(127, 207, 170, 0.14);
+  color: var(--ink);
+}
+
+.platform-tab.is-active {
+  background: var(--hero-bg);
+  color: #fafaf7;
+  border-color: rgba(10, 26, 47, 0.85);
+}
+
+.platform-panels {
+  margin-top: 18px;
+}
+
+.platform-panel[hidden] {
+  display: none !important;
+}
+
+.platform-tile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.platform-tile-grid--cap {
+  grid-template-columns: 1fr;
+}
+
+.platform-tile {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr 24px;
+  gap: 14px;
+  align-items: center;
+  padding: 18px 18px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(10, 15, 12, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.platform-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(15, 107, 78, 0.35);
+}
+
+.platform-tile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(127, 207, 170, 0.18);
+  border: 1px solid rgba(127, 207, 170, 0.35);
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.platform-tile-icon img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.platform-tile-icon:has(img) {
+  font-size: 0;
+  line-height: 0;
+}
+
+.platform-tile-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.platform-tile-arrow {
+  color: rgba(10, 15, 12, 0.55);
+  font-weight: 600;
+}
+
+.platform-tile:hover .platform-tile-arrow {
+  color: var(--accent);
+}
+
+/* Right rail */
+.platform-news-card {
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(10, 15, 12, 0.08);
+  padding: 20px 20px 18px;
+  box-shadow: 0 1px 0 rgba(10, 15, 12, 0.02);
+}
+
+.platform-news-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+}
+
+.platform-news-art {
+  border-radius: 14px;
+  height: 160px;
+  border: 1px solid rgba(10, 15, 12, 0.08);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(127, 207, 170, 0.26), transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(90, 150, 210, 0.18), transparent 52%),
+    linear-gradient(180deg, rgba(10, 26, 47, 0.92), rgba(13, 33, 56, 0.92));
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.platform-news-art-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.platform-news-mark {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: rgba(250, 250, 247, 0.12);
+  border: 1px solid rgba(250, 250, 247, 0.18);
+  transform: rotate(12deg);
+  top: 44px;
+  left: 24px;
+}
+
+.platform-news-mark--mint {
+  background: rgba(127, 207, 170, 0.22);
+  border-color: rgba(127, 207, 170, 0.35);
+  top: 26px;
+  left: 74px;
+  transform: rotate(-10deg);
+}
+
+.platform-news-mark--gold {
+  background: rgba(196, 154, 75, 0.18);
+  border-color: rgba(196, 154, 75, 0.35);
+  top: 74px;
+  left: 118px;
+  transform: rotate(6deg);
+}
+
+.platform-news-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.platform-news-sub {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.platform-news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.platform-news-link:hover {
+  color: var(--hero-bg);
+}
+
+@media (max-width: 900px) {
+  .platform-tabs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-tile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

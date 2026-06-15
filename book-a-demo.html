@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Book a Demo — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+    :root {
+      --hero-bg: #0a1a2f;
+      --hero-deep: #0d2138;
+      --hero-mint: #7fcfaa;
+      --gold: #c49a4b;
+    }
+
+    body {
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.2), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.13), transparent 52%);
+      color: rgba(250,250,247,0.88);
+    }
+
+    .demo-page {
+      padding: 20px 0 48px;
+    }
+
+    .demo-calendly-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Step 1: lead form */
+    .demo-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .demo-card.is-hidden { display: none; }
+
+    .demo-copy {
+      background: #fafaf7;
+      padding: 48px 40px;
+      color: #0a0f0c;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0f6b4e;
+      background: rgba(127, 207, 170, 0.2);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .demo-copy h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .demo-copy h1 em { font-style: italic; color: #0f6b4e; }
+
+    .demo-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .demo-benefits li {
+      display: flex;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.45;
+      color: #4b5563;
+    }
+
+    .demo-benefits li::before {
+      content: '✓';
+      color: #0f6b4e;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .demo-form-panel {
+      background: linear-gradient(165deg, var(--hero-deep) 0%, var(--hero-bg) 100%);
+      padding: 40px 36px;
+    }
+
+    .demo-form-panel form { display: flex; flex-direction: column; gap: 0; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-field { margin-bottom: 14px; }
+
+    .form-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(250,250,247,0.85);
+      margin-bottom: 6px;
+    }
+
+    .form-field .req { color: var(--hero-mint); margin-left: 2px; }
+
+    .form-field input,
+    .form-field select {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #fafaf7;
+      background: rgba(11, 30, 53, 0.85);
+      border: 1px solid rgba(250,250,247,0.18);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-field input::placeholder { color: rgba(250,250,247,0.35); }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      border-color: var(--hero-mint);
+      box-shadow: 0 0 0 3px rgba(127, 207, 170, 0.2);
+    }
+
+    .form-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23fafaf7' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    .form-field select option { background: var(--hero-deep); color: #fff; }
+
+    .form-row .form-field { margin-bottom: 0; }
+
+    .form-field.has-error input,
+    .form-field.has-error select {
+      border-color: #e88b8b;
+      box-shadow: 0 0 0 3px rgba(232, 139, 139, 0.2);
+    }
+
+    .field-error {
+      display: none;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #f5b4b4;
+      line-height: 1.4;
+    }
+
+    .form-field.has-error .field-error { display: block; }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+    }
+
+    .btn-demo-submit {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #0a1a2f;
+      background: var(--hero-mint);
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-demo-submit:hover {
+      background: #9adfc0;
+      transform: translateY(-1px);
+    }
+
+    /* Step 2: Calendly */
+    .schedule-stage[hidden] { display: none !important; }
+
+    .schedule-stage.is-visible { display: block; }
+
+    .schedule-stage-head {
+      margin-bottom: 12px;
+    }
+
+    .schedule-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      color: rgba(250,250,247,0.75);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      cursor: pointer;
+    }
+
+    .schedule-back:hover { color: #fafaf7; border-color: rgba(127,207,170,0.4); }
+
+    .demo-calendar-card {
+      position: relative;
+      background: #f4f7f5;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      min-height: 700px;
+    }
+
+    #calendly-embed {
+      width: 100%;
+      min-height: 700px;
+      background: #f4f7f5;
+    }
+
+    #calendly-embed:empty {
+      min-height: 700px;
+    }
+
+    #calendly-embed iframe {
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+
+    .calendly-placeholder {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      padding: 32px;
+      background: #f4f7f5;
+      border-radius: 16px;
+    }
+
+    .calendly-placeholder.is-hidden {
+      display: none;
+    }
+
+    .calendly-placeholder .cal-icon { opacity: 0.55; display: flex; align-items: center; justify-content: center; }
+    .calendly-placeholder .cal-icon img { display: block; width: 36px; height: 36px; }
+
+    .calendly-placeholder p {
+      font-size: 14px; color: rgba(250,250,247,0.45); line-height: 1.5;
+    }
+
+    .calendly-placeholder a {
+      color: var(--hero-mint); text-decoration: none;
+    }
+
+    .calendly-fallback {
+      display: none;
+      margin-top: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .calendly-fallback.show { display: block; }
+
+    .calendly-fallback a {
+      color: var(--hero-mint);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .calendly-fallback a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .demo-calendly-wrap { padding: 0 16px; }
+      .demo-card { grid-template-columns: 1fr; }
+      .demo-copy { padding: 32px 24px; }
+      .demo-form-panel { padding: 32px 24px; }
+      .form-row, .phone-row { grid-template-columns: 1fr; }
+      #calendly-embed { min-height: 640px; }
+    }
+
+    /* Testimonials band */
+    .demo-testimonials {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 60px 0;
+    }
+
+    .demo-testimonials .container {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+    }
+
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 32px;
+    }
+
+    .testi-card {
+      padding: 28px 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+    }
+
+    .testi-card .quote {
+      font-size: 15px; color: rgba(250,250,247,0.78);
+      line-height: 1.6; margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .testi-card .attribution {
+      font-size: 13px; color: rgba(250,250,247,0.45);
+      font-weight: 500;
+    }
+
+    /* CTA band */
+    .demo-cta-band {
+      text-align: center;
+      padding: 80px 32px;
+    }
+
+    .demo-cta-band h2 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 32px; color: #fafaf7; margin-bottom: 12px;
+    }
+
+    .demo-cta-band p {
+      color: rgba(250,250,247,0.55); font-size: 16px; margin-bottom: 28px;
+    }
+
+    .btn-mint {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 100px;
+      background: var(--hero-mint); color: #0a1a2f;
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-mint:hover { transform: translateY(-2px); background: #9adfc0; }
+
+    footer { background: rgba(0,0,0,0.2) !important; border-top-color: rgba(255,255,255,0.08) !important; }
+    .footer-brand .logo { color: #fafaf7; }
+    .footer-col h5 { color: rgba(250,250,247,0.45); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer-col a { color: rgba(250,250,247,0.55); }
+    .footer-col a:hover { color: #fafaf7; }
+    .footer-bottom { color: rgba(250,250,247,0.3); border-top-color: rgba(255,255,255,0.07) !important; }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+  <nav class="nav--dark-header"></nav>
+
+  <main class="demo-page">
+    <div class="demo-calendly-wrap">
+
+      <!-- Step 1: qualification form -->
+      <div class="demo-card" id="demo-card">
+        <div class="demo-copy">
+          <span class="demo-badge">Book a demo</span>
+          <h1>See Orion close your books with <em>confidence</em>.</h1>
+          <ul class="demo-benefits">
+            <li>30-minute live walkthrough on workflows like yours</li>
+            <li>Reconciliation, JE, AP, and close management</li>
+            <li>No pressure — tailored follow-up within 24 hours</li>
+          </ul>
+        </div>
+
+        <div class="demo-form-panel">
+          <form id="demo-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="first-name">First name<span class="req">*</span></label>
+                <input type="text" id="first-name" name="first_name" required autocomplete="given-name">
+              </div>
+              <div class="form-field">
+                <label for="last-name">Last name<span class="req">*</span></label>
+                <input type="text" id="last-name" name="last_name" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-field" id="field-email">
+              <label for="email">Work email<span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+              <p class="field-error" id="email-error">Please use your company work email (not Gmail, Yahoo, Outlook, etc.).</p>
+            </div>
+
+            <div class="form-field">
+              <label for="company">Company name<span class="req">*</span></label>
+              <input type="text" id="company" name="company" required autocomplete="organization" placeholder="Acme Inc.">
+            </div>
+
+            <div class="form-row">
+              <div class="form-field" id="field-finance-team">
+                <label for="finance-team-size">Finance team size<span class="req">*</span></label>
+                <select id="finance-team-size" name="finance_team_size" required>
+                  <option value="">Select…</option>
+                  <option value="1-5">1–5</option>
+                  <option value="6-10">6–10</option>
+                  <option value="11-25">11–25</option>
+                  <option value="26-50">26–50</option>
+                  <option value="51-100">51–100</option>
+                  <option value="100+">100+</option>
+                </select>
+                <p class="field-error">Please select your finance team size.</p>
+              </div>
+              <div class="form-field" id="field-revenue">
+                <label for="company-revenue">Annual company revenue<span class="req">*</span></label>
+                <select id="company-revenue" name="company_revenue" required>
+                  <option value="">Select…</option>
+                  <option value="Under $10M">Under $10M</option>
+                  <option value="$10M–$50M">$10M–$50M</option>
+                  <option value="$50M–$100M">$50M–$100M</option>
+                  <option value="$100M–$500M">$100M–$500M</option>
+                  <option value="$500M–$1B">$500M–$1B</option>
+                  <option value="$1B+">$1B+</option>
+                </select>
+                <p class="field-error">Please select annual revenue.</p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone number</label>
+              <div class="phone-row">
+                <select name="country_code" id="country-code" aria-label="Country code">
+                  <option value="+1">+1</option>
+                  <option value="+44">+44</option>
+                  <option value="+91" selected>+91</option>
+                  <option value="+61">+61</option>
+                  <option value="+65">+65</option>
+                </select>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Optional">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-demo-submit">Continue to pick a time</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Step 2: Calendly (after form submit) -->
+      <div id="schedule-stage" class="schedule-stage" hidden>
+        <div class="schedule-stage-head">
+          <button type="button" class="schedule-back" id="schedule-back">← Edit your details</button>
+        </div>
+        <div class="demo-calendar-card">
+          <div class="calendly-placeholder" aria-hidden="true">
+            <div class="cal-icon"><img src="assets/icons/agent/calendar.svg" alt="" width="28" height="28" decoding="async"></div>
+            <p>Loading calendar…</p>
+          </div>
+          <div id="calendly-embed" aria-label="Schedule your demo"></div>
+          <div class="calendly-fallback" id="calendly-fallback">
+            <a href="https://calendly.com/contact-revzio/30min" id="calendly-fallback-link" target="_blank" rel="noopener noreferrer">Open scheduling calendar in a new tab</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- TESTIMONIALS -->
+  <section class="demo-testimonials">
+    <div class="container">
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="quote">"The demo showed us things we didn't know we needed. We signed the same week."</div>
+          <div class="attribution">— Controller, Series B SaaS</div>
+        </div>
+        <div class="testi-card">
+          <div class="quote">"No fluff, no slides. They showed our actual close process running through Orion in real time."</div>
+          <div class="attribution">— VP Finance, E-commerce</div>
+        </div>
+        <div class="testi-card">
+          <div class="quote">"Booked at 9am, saw our reconciliation automated by 9:30. We were live in 3 weeks."</div>
+          <div class="attribution">— CFO, Professional Services</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="demo-cta-band">
+    <h2>Not ready for a demo?</h2>
+    <p>Browse the Orion agent suite or explore how revzio compares to your current stack.</p>
+    <a href="agent-suite.html" class="btn-mint">Explore Orion Agents →</a>
+  </div>
+
+  <!-- FOOTER (nav.js injects nav; add a minimal footer) -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+          <p>AI agents for finance teams that need to close fast and audit clean.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Agents</h5>
+          <a href="agent-suite.html">Orion agent suite</a>
+          <a href="agent-reconciliation.html">Reconciliation</a>
+          <a href="agent-close-management.html">Close Management</a>
+        </div>
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="security.html">Security</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="customers.html">Customers</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 revzio, Inc. All rights reserved.</span>
+        <span>SOC 2 Type II · Privacy Policy · Terms</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav-theme.js"></script>
+  <script src="js/mobile-nav.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/demo-config.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="js/demo-form.js"></script>
+  <script>
+    document.getElementById('schedule-back')?.addEventListener('click', function () {
+      document.getElementById('schedule-stage').hidden = true;
+      document.getElementById('schedule-stage').classList.remove('is-visible');
+      document.getElementById('demo-card').classList.remove('is-hidden');
+      const embed = document.getElementById('calendly-embed');
+      if (embed) {
+        embed.innerHTML = '';
+        embed.closest('.demo-calendar-card')?.querySelector('.calendly-placeholder')?.classList.remove('is-hidden');
+      }
+      document.querySelector('.demo-page')?.classList.remove('demo-page--scheduling');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
+

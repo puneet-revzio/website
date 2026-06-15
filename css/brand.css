@@ -1,0 +1,232 @@
+/* revzio brand tokens & shared patterns — import on every page */
+@import url('integration-logos.css');
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f4f7f5;
+  --ink: #0a0f0c;
+  --ink-soft: #4b5563;
+  --ink-muted: #6b7280;
+  --line: #e6eaed;
+  --accent: #0f6b4e;
+  --accent-soft: #ecf7f2;
+  --gold: #c49a4b;
+  --hero-bg: #0a1a2f;
+  --hero-deep: #0d2138;
+  --hero-mint: #7fcfaa;
+  --shadow: 0 1px 2px rgba(10, 15, 12, 0.04), 0 8px 28px rgba(10, 15, 12, 0.07);
+}
+
+/* Standard dark hero background (homepage, platform, blog) */
+.revzio-hero-surface {
+  background: var(--hero-bg);
+  background-image:
+    radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.2), transparent 55%),
+    radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.13), transparent 52%),
+    linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+  color: #fafaf7;
+}
+
+/* Mint eyebrow pill */
+.revzio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--hero-mint);
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(127, 207, 170, 0.14);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(127, 207, 170, 0.22);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.revzio-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hero-mint);
+  flex-shrink: 0;
+}
+
+/* Primary CTA on dark backgrounds */
+.revzio-btn-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 100px;
+  background: #fafaf7;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.revzio-btn-light:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* Company logo — icon + wordmark lockup (Maxima-style proportions) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  display: block;
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.logo-word {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: 1.4375rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  line-height: 1;
+  color: #0a3d32;
+}
+
+/* Keep revzio lowercase inside uppercase labels */
+.revzio-word {
+  text-transform: lowercase;
+}
+
+nav .logo-word,
+.footer-brand .logo-word,
+.nav-drawer-head .logo-word {
+  color: #fafaf7;
+}
+
+/* Footer — dark band; logo lockup matches nav */
+footer {
+  padding: 60px 0 40px;
+  background: var(--hero-bg);
+  background-image: linear-gradient(180deg, var(--hero-deep) 0%, #050e1a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand .logo {
+  text-decoration: none;
+}
+
+.footer-brand p {
+  color: rgba(250, 250, 247, 0.45);
+  font-size: 14px;
+  max-width: 280px;
+  margin-top: 10px;
+  line-height: 1.5;
+  padding-left: calc(28px + 5px);
+}
+
+.footer-col h5 {
+  color: rgba(250, 250, 247, 0.45);
+}
+
+.footer-col a {
+  color: rgba(250, 250, 247, 0.55);
+}
+
+.footer-col a:hover {
+  color: #fafaf7;
+}
+
+.footer-bottom {
+  color: rgba(250, 250, 247, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Legacy full-width logo image (if any page still uses it) */
+.logo-img {
+  display: block;
+  height: 32px;
+  width: auto;
+  max-width: min(138px, 40vw);
+}
+
+nav .logo-img {
+  height: 30px;
+  max-width: min(128px, 38vw);
+}
+
+.footer-brand .logo-img,
+.nav-drawer-head .logo-img {
+  height: 28px;
+  max-width: 120px;
+}
+
+/* Tighter section headers (eyebrow + title + sub) — use on all pages */
+.section-header-compact {
+  text-align: center;
+  margin: 0 auto 36px;
+  max-width: 56rem;
+}
+
+.section-header-compact.text-left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-header-compact .section-eyebrow,
+.section-header-compact .intro-eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-header-compact .section-heading,
+.section-header-compact h2 {
+  margin-bottom: 10px;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header-compact.text-left .section-heading,
+.section-header-compact.text-left h2 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-header-compact .section-sub,
+.section-header-compact .intro-desc,
+.section-header-compact .why-choose-intro {
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 52rem;
+}
+
+.section-header-compact.text-left .section-sub,
+.section-header-compact.text-left .intro-desc,
+.section-header-compact.text-left .why-choose-intro {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 1024px) {
+  .section-header-compact .section-heading--single-line {
+    font-size: clamp(30px, 2.75vw, 42px);
+    max-width: 62rem;
+    line-height: 1.12;
+  }
+
+  .section-header-compact .section-sub--single-line,
+  .section-header-compact .intro-desc {
+    max-width: 62rem;
+    font-size: 16.5px;
+  }
+}

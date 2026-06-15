@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>AP Agent — revzio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #F4F7F5;
+    --ink: #0A0F0C;
+    --ink-soft: #4B5563;
+    --ink-muted: #6B7280;
+    --line: #E6EAED;
+    --accent: #0F6B4E;
+    --accent-soft: #ECF7F2;
+    --gold: #C49A4B;
+    --hero-bg: #0A1A2F;
+    --hero-deep: #0D2138;
+    --hero-mint: #7FCFAA;
+    --shadow: 0 1px 2px rgba(10,15,12,0.04), 0 8px 28px rgba(10,15,12,0.07);
+    --shadow-lg: 0 4px 16px rgba(10,15,12,0.06), 0 28px 64px rgba(10,15,12,0.09);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  nav { position: sticky; top: 0; z-index: 110; background: #0A1A2F; border-bottom: 1px solid rgba(250, 250, 247, 0.1); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 14.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; font-size: 14.5px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s ease; }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); padding: 8px 0; }
+  .btn-ghost::after { content: '→'; margin-left: 6px; transition: transform 0.2s; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  .hero { padding: 72px 0 64px; position: relative; overflow: hidden; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 13px; font-weight: 500; background: var(--accent-soft); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  h1.hero-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6.5vw, 78px); line-height: 1.02; letter-spacing: -0.025em; max-width: 900px; margin-bottom: 22px; }
+  .hero-sub { font-size: 20px; color: var(--ink-soft); max-width: 760px; margin-bottom: 28px; line-height: 1.5; }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; flex-wrap: wrap; }
+
+  section { padding: 120px 0; }
+  .section-eyebrow { color: var(--accent); font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+  h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 4.5vw, 54px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; max-width: 860px; }
+
+  .why-choose { padding: 88px 0 72px; background: #FFFFFF; text-align: center; }
+  .why-choose-intro { font-size: 17px; color: var(--ink-soft); max-width: 760px; margin: 0 auto 48px; line-height: 1.6; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
+  .why-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; padding: 32px 28px; min-height: 180px; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+  .why-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: rgba(15, 107, 78, 0.22); }
+  .why-card h3 { font-family: 'Fraunces', serif; font-size: clamp(22px, 2.2vw, 26px); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--ink); }
+  .why-card p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.55; }
+
+  .stats { padding: 100px 0; background: #FFFFFF; position: relative; overflow: hidden; }
+  .stats::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 0% 50%, rgba(127, 207, 170, 0.09), transparent 55%), radial-gradient(ellipse 50% 40% at 100% 20%, rgba(15, 107, 78, 0.06), transparent 50%); pointer-events: none; }
+  .stats .container { position: relative; z-index: 1; }
+  .stats-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px; align-items: end; margin-bottom: 48px; }
+  .stats-header h2 { margin-bottom: 0; max-width: none; }
+  .stats-intro { font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 520px; justify-self: end; padding-bottom: 6px; }
+  .stats-bento { display: grid; gap: 18px; }
+  .stat-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; padding: 28px 28px 26px; box-shadow: var(--shadow); display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(15, 107, 78, 0.2); }
+  .stat-chip { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; margin-bottom: 20px; background: var(--accent-soft); color: var(--accent); }
+  .stat-value { font-family: 'Fraunces', serif; font-size: clamp(52px, 5.5vw, 76px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .stat-value em { font-style: italic; color: var(--accent); }
+  .stat-desc { font-size: 15px; line-height: 1.55; margin-top: auto; color: var(--ink-soft); }
+
+  .cta { background: var(--ink); color: var(--bg); text-align: center; padding: 120px 0; }
+  .cta h2 { color: var(--bg); margin: 0 auto 24px; }
+  .cta p { color: rgba(250,250,247,0.7); font-size: 18px; max-width: 620px; margin: 0 auto 36px; }
+  .cta .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta .btn-primary:hover { background: var(--gold); color: var(--ink); }
+
+  footer { padding: 60px 0 40px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand p { color: var(--ink-muted); font-size: 14px; max-width: 280px; margin-top: 12px; line-height: 1.5; }
+  .footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a { display: block; color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 4px 0; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 13px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .hero { padding-top: 56px; padding-bottom: 48px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .stats-header { grid-template-columns: 1fr; gap: 16px; }
+    .stats-intro { justify-self: start; max-width: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  html { background: var(--hero-bg); }
+  .hero {
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+      radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+      linear-gradient(180deg, var(--hero-bg) 70%, #0D2138 100%);
+    color: #FAFAF7;
+  }
+  .hero .eyebrow { background: rgba(127,207,170,0.14); color: var(--hero-mint); border: 1px solid rgba(127,207,170,0.22); }
+  .hero .eyebrow-dot { background: var(--hero-mint); }
+  .hero h1.hero-title { color: #FAFAF7; }
+  .hero .hero-sub { color: rgba(250,250,247,0.72); }
+  .hero .btn-primary { background: #FAFAF7; color: var(--ink); }
+  .hero .btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-1px); }
+  .hero .btn-ghost { color: rgba(250,250,247,0.92); }
+  .hero .btn-ghost:hover { color: #FAFAF7; }
+</style>
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/integration-logos.css">
+  <link rel="stylesheet" href="css/dark-global.css">
+  <link rel="stylesheet" href="css/agent-pages.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+    <div class="nav-links">
+      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
+      <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
+      <a href="pricing.html">Pricing</a>
+      <button type="button" class="nav-mega-trigger" data-mega="resources" aria-expanded="false">Resources</button>
+    </div>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>ORION AGENT SUITE</div>
+    </div>
+    <h1 class="hero-title reveal">AP Agent</h1>
+    <p class="hero-sub reveal"><strong>From vendor inbox to ERP — no human touchpoints.</strong><br>Orion AP fetches invoices from any source, extracts line-item data with AI vision, performs 3-way match automatically, and routes payments for approval — so your AP team handles exceptions and relationships, not data entry.</p>
+    <div class="hero-ctas reveal">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+      <a href="agent-suite.html" class="btn btn-ghost">Back to all agents</a>
+    </div>
+  </div>
+</header>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-heading">AP teams shouldn’t spend their days keying invoices, chasing approvals, and cleaning up errors.</h2>
+    </div>
+    <div class="why-grid reveal">
+      <article class="why-card">
+        <h3>Manual invoice grind</h3>
+        <p>Invoice processing eats hours of manual effort — keying data, chasing approvals, correcting mismatches</p>
+      </article>
+      <article class="why-card">
+        <h3>Costly payment errors</h3>
+        <p>Duplicate payments and undetected discrepancies create costly errors that are hard to reverse</p>
+      </article>
+      <article class="why-card">
+        <h3>Low-value work wins</h3>
+        <p>Your AP team is buried in low-value tasks when they should be managing vendor relationships</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-heading">Ingest, extract, match, route — with exceptions surfaced instantly.</h2>
+    </div>
+    <div class="why-grid reveal" style="grid-template-columns: repeat(2, 1fr);">
+      <article class="why-card">
+        <h3>1. Ingest from anywhere</h3>
+        <p>Orion fetches invoices from email, vendor portals, ERP submissions, and web forms automatically. No manual collection.</p>
+      </article>
+      <article class="why-card">
+        <h3>2. Extract and standardize</h3>
+        <p>AI vision models extract line-item data, standardize formats, and map each line to the correct GL account — regardless of invoice layout.</p>
+      </article>
+      <article class="why-card">
+        <h3>3. Run 3-way match</h3>
+        <p>Orion matches PO, GRN, and invoice automatically. Discrepancies and duplicates are flagged instantly with clear explanations.</p>
+      </article>
+      <article class="why-card">
+        <h3>4. Route and pay</h3>
+        <p>Valid invoices route to the right approver based on amount and category. Approved invoices sync to your ERP for on-time payment.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-heading">Designed for omni-channel ingestion, accurate extraction, and controlled approvals.</h2>
+    </div>
+    <div class="why-grid reveal">
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/mail.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>Omni-channel ingestion</h3>
+        <p>Fetch invoices from email, portals, ERPs, WhatsApp, and form submissions</p>
+      </article>
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/eye.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>AI vision extraction</h3>
+        <p>Extract structured line-item data from any invoice format, including PDFs and scans</p>
+      </article>
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/link.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>Automated 3-way match</h3>
+        <p>PO, GRN, and invoice matched with discrepancies flagged instantly</p>
+      </article>
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/copy.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>Duplicate detection</h3>
+        <p>AI flags potential duplicate payments before they're processed</p>
+      </article>
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/compass.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>Conditional approval routing</h3>
+        <p>Route by vendor, amount, category, or GL with configurable rules</p>
+      </article>
+      <article class="why-card why-card--cap">
+        <div class="agent-cap-icon" aria-hidden="true"><img src="assets/icons/agent/refresh.svg" alt="" width="20" height="20" decoding="async"></div>
+        <h3>ERP sync</h3>
+        <p>Approved invoices and payment data sync directly to your ERP in real time</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <header class="stats-header reveal">
+      <div>
+        <div class="section-eyebrow">IMPACT</div>
+        <h2>Outcomes AP teams see</h2>
+      </div>
+      <p class="stats-intro">Faster processing, fewer errors, and lower cost per invoice — with approvals still controlled.</p>
+    </header>
+    <div class="stats-bento reveal" style="grid-template-columns: repeat(3, 1fr);">
+      <article class="stat-card">
+        <span class="stat-chip">Faster processing</span>
+        <div class="stat-value"><em>90%</em></div>
+        <p class="stat-desc">Faster invoice processing</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-chip">Fewer errors</span>
+        <div class="stat-value"><em>60%</em></div>
+        <p class="stat-desc">Reduction in payment errors</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-chip">Lower cost</span>
+        <div class="stat-value"><em>50%</em></div>
+        <p class="stat-desc">Lower AP processing cost</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">INTEGRATIONS</div>
+      <h2 class="section-heading">Works with your existing stack</h2>
+      <p class="why-choose-intro">Orion AP connects where invoices live — and syncs cleanly to your ERP.</p>
+    </div>
+    <div class="reveal integration-grid">
+      <span class="int-logo" data-brand="netsuite" data-label="NetSuite">NetSuite</span>
+      <span class="int-logo" data-brand="quickbooks" data-label="QuickBooks">QuickBooks</span>
+      <span class="int-logo" data-brand="xero" data-label="Xero">Xero</span>
+      <span class="int-logo" data-brand="sap" data-label="SAP">SAP</span>
+      <span class="int-logo" data-brand="coupa" data-label="Coupa">Coupa</span>
+      <span class="int-logo" data-brand="gmail" data-label="Gmail">Gmail</span>
+      <span class="int-logo" data-brand="outlook" data-label="Outlook">Outlook</span>
+      <span class="int-logo int-logo--text">Vendor portals</span>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">TESTIMONIAL</div>
+      <h2 class="section-heading">What teams say</h2>
+      <p class="why-choose-intro">Orion handles the stack; your team handles exceptions.</p>
+    </div>
+    <div class="reveal" style="display:flex; justify-content:center;">
+      <article class="why-card" style="max-width: 860px; width: 100%;">
+        <h3 style="margin-bottom: 10px;">“We cut invoice processing time by 85% in the first month. Orion handles the stack; our team handles the exceptions.”</h3>
+        <p>— Finance Operations Lead, marketplace company</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">RELATED AGENTS</div>
+      <h2 class="section-heading">Connect the workflow</h2>
+      <p class="why-choose-intro">AP becomes fully end-to-end when cash, reconciliation, and accruals run continuously too.</p>
+    </div>
+    <div class="why-grid reveal">
+      <article class="why-card">
+        <h3>AR Agent</h3>
+        <p>Automate cash application and prioritize collections to reduce DSO.</p>
+        <a href="agent-ar.html" class="btn btn-ghost">Learn more</a>
+      </article>
+      <article class="why-card">
+        <h3>Reconciliation Agent</h3>
+        <p>Match transactions across bank, GL, and subledger in real time.</p>
+        <a href="agent-reconciliation.html" class="btn btn-ghost">Learn more</a>
+      </article>
+      <article class="why-card">
+        <h3>Accruals Agent</h3>
+        <p>Calculate prepaid amortization and accrual postings automatically.</p>
+        <a href="agent-accruals.html" class="btn btn-ghost">Learn more</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Ready to automate your accounts payable?</h2>
+    <p>Start with Orion AP or deploy the full suite. Most teams are live in under three weeks.</p>
+    <div class="hero-ctas" style="justify-content: center;">
+      <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+  <script src="js/nav-theme.js"></script>
+  <script src="js/mobile-nav.js"></script>
+  <script src="js/mega-menu.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/integration-logos.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
+

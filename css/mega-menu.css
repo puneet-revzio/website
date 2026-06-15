@@ -1,0 +1,733 @@
+/* Mega menu — Trullion-style dropdowns, revzio theme */
+
+nav.mega-open {
+  z-index: 110;
+}
+nav.mega-open .nav-inner {
+  position: relative;
+  z-index: 2;
+}
+
+nav .nav-inner > .btn-primary,
+nav .nav-inner > a.btn-primary {
+  position: relative;
+  z-index: 3;
+}
+
+/* Dark hero: solid nav bar + light links while mega is open */
+nav:has(~ header.hero).mega-open,
+nav.nav--on-hero.mega-open {
+  background: rgba(10, 26, 47, 0.98) !important;
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(250, 250, 247, 0.1) !important;
+}
+nav:has(~ header.hero).mega-open .logo,
+nav.nav--on-hero.mega-open .logo {
+  color: #FAFAF7 !important;
+}
+nav:has(~ header.hero).mega-open .logo .logo-dot,
+nav.nav--on-hero.mega-open .logo .logo-dot {
+  background: var(--hero-mint, #7FCFAA);
+}
+nav:has(~ header.hero).mega-open .nav-links a,
+nav:has(~ header.hero).mega-open .nav-links .nav-mega-trigger,
+nav.nav--on-hero.mega-open .nav-links a,
+nav.nav--on-hero.mega-open .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.82);
+}
+nav:has(~ header.hero).mega-open .nav-links a:hover,
+nav:has(~ header.hero).mega-open .nav-links .nav-mega-trigger:hover,
+nav:has(~ header.hero).mega-open .nav-links .nav-mega-trigger.is-active,
+nav.nav--on-hero.mega-open .nav-links a:hover,
+nav.nav--on-hero.mega-open .nav-links .nav-mega-trigger:hover,
+nav.nav--on-hero.mega-open .nav-links .nav-mega-trigger.is-active {
+  color: #FAFAF7;
+}
+nav:has(~ header.hero).mega-open .btn-primary,
+nav.nav--on-hero.mega-open .btn-primary {
+  background: #FAFAF7;
+  color: var(--ink, #0A0F0C);
+}
+
+/* Light nav pages: keep bar opaque when mega open */
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom-color: var(--line, #E6EAED);
+  backdrop-filter: blur(12px);
+}
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .logo {
+  color: var(--ink, #0A0F0C);
+}
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .logo .logo-dot {
+  background: var(--accent, #0F6B4E);
+}
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .nav-links a,
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .nav-links .nav-mega-trigger {
+  color: var(--ink-soft, #4B5563);
+}
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .nav-links .nav-mega-trigger.is-active,
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .nav-links a:hover,
+nav.mega-open:not(:has(~ header.hero)):not(.nav--dark-header) .nav-links .nav-mega-trigger:hover {
+  color: var(--ink, #0A0F0C);
+}
+
+/* Book a demo & other pages with homepage-style dark header */
+nav.nav--dark-header.mega-open,
+nav.nav--dark-header {
+  background: rgba(10, 26, 47, 0.98) !important;
+  border-bottom-color: rgba(250, 250, 247, 0.1) !important;
+}
+nav.nav--dark-header .logo,
+nav.nav--dark-header.mega-open .logo {
+  color: #FAFAF7 !important;
+}
+nav.nav--dark-header .logo .logo-dot,
+nav.nav--dark-header.mega-open .logo .logo-dot {
+  background: var(--hero-mint, #7FCFAA);
+}
+nav.nav--dark-header .nav-links a,
+nav.nav--dark-header .nav-links .nav-mega-trigger,
+nav.nav--dark-header.mega-open .nav-links a,
+nav.nav--dark-header.mega-open .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.82);
+}
+nav.nav--dark-header .nav-links a:hover,
+nav.nav--dark-header .nav-links .nav-mega-trigger:hover,
+nav.nav--dark-header .nav-links .nav-mega-trigger.is-active,
+nav.nav--dark-header.mega-open .nav-links a:hover,
+nav.nav--dark-header.mega-open .nav-links .nav-mega-trigger:hover,
+nav.nav--dark-header.mega-open .nav-links .nav-mega-trigger.is-active {
+  color: #FAFAF7;
+}
+
+.nav-mega-trigger {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 14.5px;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+}
+.nav-links .nav-mega-trigger {
+  color: var(--ink-soft, #4B5563);
+  transition: color 0.2s ease;
+}
+.nav-links .nav-mega-trigger:hover {
+  color: var(--ink, #0A0F0C);
+}
+nav:has(~ header.hero) .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.72);
+  transition: color 0.3s ease;
+}
+nav:has(~ header.hero) .nav-links .nav-mega-trigger:hover {
+  color: #FAFAF7;
+}
+nav:has(~ header.hero).scrolled:not(.mega-open) .nav-links .nav-mega-trigger,
+nav:has(~ header.hero).scrolled.nav--over-dark:not(.mega-open) .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.82);
+}
+nav:has(~ header.hero).scrolled:not(.mega-open) .nav-links .nav-mega-trigger:hover,
+nav:has(~ header.hero).scrolled.nav--over-dark:not(.mega-open) .nav-links .nav-mega-trigger:hover {
+  color: #fafaf7;
+}
+nav:has(~ header.hero).scrolled.mega-open .nav-links a,
+nav:has(~ header.hero).scrolled.mega-open .nav-links .nav-mega-trigger {
+  color: rgba(250, 250, 247, 0.82);
+}
+.nav-mega-trigger.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--hero-mint, #7FCFAA);
+  border-radius: 1px;
+}
+nav:has(~ header.hero) .nav-mega-trigger.is-active {
+  color: #FAFAF7;
+}
+nav.scrolled .nav-mega-trigger.is-active::after,
+nav:not(:has(~ header.hero)) .nav-mega-trigger.is-active::after {
+  background: var(--accent, #0F6B4E);
+}
+
+.mega-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(10, 15, 12, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+  border: none;
+  cursor: default;
+}
+.mega-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Desktop: hover-only — backdrop visible but does not trap the pointer */
+@media (min-width: 901px) {
+  .mega-backdrop.is-open {
+    pointer-events: none;
+    background: rgba(10, 15, 12, 0.2);
+  }
+}
+
+@media (max-width: 900px) {
+  .mega-backdrop.is-open {
+    pointer-events: auto;
+    background: rgba(10, 15, 12, 0.45);
+  }
+}
+
+.mega-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 105;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s ease;
+  pointer-events: none;
+  box-shadow: 0 24px 64px rgba(10, 15, 12, 0.12);
+  will-change: opacity, transform;
+}
+
+@media (min-width: 901px) {
+  .mega-panel {
+    transform: none;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+  }
+
+  .mega-panel.is-open {
+    transform: none;
+  }
+}
+
+/* Bridge nav → panel so the pointer does not “fall through” */
+.mega-panel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+.mega-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mega-panel--dark {
+  background: var(--hero-bg, #0A1A2F);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+.mega-panel--light {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line, #E6EAED);
+}
+
+.mega-panel .container {
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+
+.mega-platform-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Platform mega: tabs + tiles (Bluecopa-inspired) */
+.mega-platform-tabs {
+  min-width: 0;
+}
+
+.mega-tabs {
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mega-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+
+.mega-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(127, 207, 170, 0.22);
+}
+
+.mega-tab.is-active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(127, 207, 170, 0.32);
+}
+
+.mega-panels {
+  margin-top: 16px;
+}
+
+.mega-panel-body[hidden] {
+  display: none !important;
+}
+
+.mega-tile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mega-tile-grid--cap {
+  grid-template-columns: 1fr;
+}
+
+.mega-tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14.5px;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.mega-tile:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(127, 207, 170, 0.36);
+  transform: translateY(-1px);
+}
+
+.mega-tile-arrow {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mega-tile:hover .mega-tile-arrow {
+  color: var(--hero-mint, #7fcfaa);
+}
+
+.mega-platform-foot {
+  margin-top: 14px;
+}
+
+.mega-foot-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.mega-foot-link:hover {
+  color: #ffffff;
+}
+
+.mega-links { list-style: none; }
+.mega-links li { margin-bottom: 28px; }
+.mega-links li:last-child { margin-bottom: 0; }
+.mega-links a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.mega-links a:hover .mega-link-title { color: var(--hero-mint, #7FCFAA); }
+.mega-panel--light .mega-links a:hover .mega-link-title { color: var(--accent, #0F6B4E); }
+
+.mega-link-title {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.mega-panel--dark .mega-link-title { color: #FFFFFF; }
+.mega-panel--light .mega-link-title { color: var(--ink, #0A0F0C); }
+
+.mega-link-desc {
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 520px;
+}
+.mega-panel--dark .mega-link-desc { color: rgba(255, 255, 255, 0.55); }
+.mega-panel--light .mega-link-desc { color: var(--ink-soft, #4B5563); }
+
+.mega-feature-col { display: flex; flex-direction: column; gap: 16px; }
+
+.mega-feature-visual {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 40px 28px;
+  text-align: center;
+  border: 3px solid var(--accent, #0F6B4E);
+  border-top-width: 6px;
+  border-left-width: 6px;
+}
+.mega-feature-visual h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #6B2D3E;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.mega-feature-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: background 0.2s, border-color 0.2s;
+}
+.mega-feature-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(127, 207, 170, 0.4);
+}
+.mega-feature-card-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+.mega-feature-card-title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.mega-feature-card-arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #FFFFFF;
+  color: var(--ink, #0A0F0C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.mega-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* Solutions mega: Bluecopa-inspired tiles + what's new */
+.mega-solutions-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: start;
+}
+
+.mega-solutions-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mega-solutions-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mega-solution-tile {
+  display: grid;
+  grid-template-columns: 34px 1fr 18px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  color: #ffffff;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.mega-solution-tile:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(127, 207, 170, 0.36);
+  transform: translateY(-1px);
+}
+
+.mega-solution-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(127, 207, 170, 0.18);
+  border: 1px solid rgba(127, 207, 170, 0.28);
+  color: var(--hero-mint, #7fcfaa);
+  font-size: 16px;
+}
+
+.mega-solution-label {
+  font-weight: 650;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.mega-solution-arrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.mega-solution-tile:hover .mega-solution-arrow {
+  color: var(--hero-mint, #7fcfaa);
+}
+
+.mega-news-card {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 18px 18px 16px;
+}
+
+.mega-news-eyebrow {
+  font-size: 13px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+}
+
+.mega-news-art {
+  border-radius: 12px;
+  height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(127, 207, 170, 0.26), transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(90, 150, 210, 0.18), transparent 52%),
+    linear-gradient(180deg, rgba(10, 26, 47, 0.92), rgba(13, 33, 56, 0.92));
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.mega-news-art-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.mega-news-mark {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  background: rgba(250, 250, 247, 0.12);
+  border: 1px solid rgba(250, 250, 247, 0.18);
+  transform: rotate(12deg);
+  top: 44px;
+  left: 22px;
+}
+
+.mega-news-mark--mint {
+  background: rgba(127, 207, 170, 0.22);
+  border-color: rgba(127, 207, 170, 0.35);
+  top: 26px;
+  left: 70px;
+  transform: rotate(-10deg);
+}
+
+.mega-news-mark--gold {
+  background: rgba(196, 154, 75, 0.18);
+  border-color: rgba(196, 154, 75, 0.35);
+  top: 72px;
+  left: 112px;
+  transform: rotate(6deg);
+}
+
+.mega-news-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.mega-news-sub {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.mega-news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--hero-mint, #7fcfaa);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.mega-news-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .mega-solutions-layout {
+    grid-template-columns: 1fr;
+  }
+  .mega-solutions-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.mega-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line, #E6EAED);
+}
+.mega-panel--light .mega-col h4 { color: var(--ink, #0A0F0C); }
+.mega-panel--dark .mega-col h4 {
+  color: #FFFFFF;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+.mega-col ul { list-style: none; }
+.mega-col li { margin-bottom: 12px; }
+.mega-col a {
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mega-panel--light .mega-col a { color: var(--ink-soft, #4B5563); }
+.mega-panel--light .mega-col a:hover { color: var(--accent, #0F6B4E); }
+.mega-panel--dark .mega-col a { color: rgba(255, 255, 255, 0.62); }
+.mega-panel--dark .mega-col a:hover { color: var(--hero-mint, #7FCFAA); }
+
+.mega-resources-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 56px;
+  align-items: start;
+}
+
+.mega-resource-visual {
+  background: var(--hero-bg, #0A1A2F);
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(127, 207, 170, 0.2), transparent 50%),
+    linear-gradient(145deg, var(--hero-bg, #0A1A2F), var(--hero-deep, #0D2138));
+}
+.mega-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.mega-logo-icon {
+  display: block;
+  height: clamp(36px, 4vw, 44px);
+  width: auto;
+  flex-shrink: 0;
+}
+.mega-logo-text {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: clamp(32px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  color: #FAFAF7;
+  line-height: 1;
+}
+
+.mega-resource-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 16px;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.mega-panel--light .mega-resource-card {
+  border: 1px solid var(--line, #E6EAED);
+  background: #FFFFFF;
+  color: var(--ink, #0A0F0C);
+}
+.mega-panel--light .mega-resource-card:hover {
+  border-color: var(--accent, #0F6B4E);
+  box-shadow: var(--shadow, 0 4px 16px rgba(10, 15, 12, 0.06));
+}
+.mega-panel--dark .mega-resource-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+.mega-panel--dark .mega-resource-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(127, 207, 170, 0.4);
+}
+.mega-resource-card-label {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.mega-panel--light .mega-resource-card-label { color: var(--ink-muted, #6B7280); }
+.mega-panel--dark .mega-resource-card-label { color: rgba(255, 255, 255, 0.5); }
+.mega-resource-card-title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 220px;
+}
+
+@media (max-width: 900px) {
+  .mega-panel { display: none !important; }
+  .mega-backdrop { display: none !important; }
+}

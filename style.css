@@ -1,0 +1,12 @@
+/* Shared site stylesheet (reserved).
+ *
+ * The revzio site primarily uses styles in:
+ * - css/brand.css
+ * - css/subpage.css
+ * - css/mega-menu.css
+ * - css/nav-theme.css
+ *
+ * This file exists to satisfy pages that expect a root-level `style.css`.
+ * Keep it intentionally minimal to avoid changing global styles.
+ */
+

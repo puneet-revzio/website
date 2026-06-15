@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<title>How Orion's Reconciliation Agent closed 95% of items without human touch — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/brand.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/mega-menu.css">
+  <link rel="stylesheet" href="../css/nav-theme.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dark-global.css">
+  <style>
+    .article-hero {
+      padding: 120px 0 56px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.18), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.12), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+    }
+    .article-meta {
+      display: flex; flex-wrap: wrap; gap: 10px 14px;
+      color: rgba(250,250,247,0.55);
+      font-size: 13.5px;
+      margin-top: 10px;
+    }
+    .tag-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(127,207,170,0.22);
+      background: rgba(127,207,170,0.12);
+      color: #7fcfaa;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+    .prose {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .prose p { margin: 14px 0; }
+    .prose h2 { margin-top: 34px; }
+    .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
+    .backlink:hover { color: #fafaf7; }
+    .cta {
+      margin-top: 42px;
+      padding: 22px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(127,207,170,0.18);
+      background: rgba(127,207,170,0.07);
+    }
+    .cta a { color: #0a1a2f; background: #7fcfaa; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 800; display: inline-flex; margin-top: 12px; }
+    .cta a:hover { background: #9adfc0; }
+  </style>
+</head>
+<body>
+
+<nav></nav>
+
+<header class="article-hero" data-nav-theme="dark">
+  <div class="container">
+    <a class="backlink reveal" href="../blog.html">← Back to blog</a>
+    <div class="tag-pill reveal" style="margin-top: 18px;">AGENT DEEP-DIVE</div>
+    <h1 class="hero-title reveal" style="max-width: 980px;">How Orion's Reconciliation Agent closed 95% of items without human touch</h1>
+    <div class="article-meta reveal">
+      <span>revzio Team</span><span>·</span><span>May 2026</span><span>·</span><span>8 min read</span>
+    </div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <article class="prose reveal">
+      <p>Most reconciliation tools are built for totals. They tell you whether two balances tie out, not whether each line item is correct. Finance teams feel this gap every month: a bank balance matches, but the details don’t; a subledger agrees, but there are stale items hiding in the noise; a payout total ties, but the underlying remittance mapping is a maze.</p>
+
+      <p>Orion’s Reconciliation Agent was designed for the real problem: <strong>line-level matching across multiple sources</strong> that arrive at different times, with different identifiers, and with different representations of the same event. When it closes 95% of items without human touch, it’s not “autopilot” in the reckless sense — it’s governed automation that prepares work continuously and routes only true exceptions to reviewers.</p>
+
+      <h2>The matching problem: why totals aren’t enough</h2>
+      <p>Totals-based recon is fragile. If a single transaction is duplicated, misclassified, or delayed by a day, totals can still tie while the underlying ledger is wrong. Line-level recon is harder because identifiers don’t line up: the bank references a batch, the ERP references an invoice, and the processor references a payout. Human recon teams bridge those gaps with context and pattern recognition — but doing that manually is slow, inconsistent, and difficult to audit.</p>
+
+      <h2>How Orion’s matching engine works</h2>
+      <p>Orion reconciles continuously. Instead of waiting for month-end exports, it ingests events as they land (bank, billing, ERP, subledger) and normalizes them into a common model. Then it applies a matching engine that supports one-to-one, one-to-many, and many-to-many relationships.</p>
+
+      <p>Where rules are deterministic (exact invoice number, exact amount, exact date window), Orion uses them. Where reality gets messy (split payments, partial refunds, timing differences, fee netting), Orion learns patterns from your business logic and applies them consistently. The key is not “AI magic” — it’s <strong>repeatable matching behavior</strong> with evidence attached.</p>
+
+      <h2>What “plain-English exceptions” actually means</h2>
+      <p>Exceptions aren’t just “unmatched.” Orion flags an exception with a reason and next best action: “Amount differs by $0.37 due to processing fee,” “Possible duplicate: same vendor, same amount, same day,” or “Likely timing difference: expected settlement in 2 business days.” That context cuts review time dramatically because reviewers spend their time deciding, not hunting.</p>
+
+      <h2>The 95% stat, with context</h2>
+      <p>Teams that hit 95% aren’t ignoring edge cases — they’re surfacing them earlier. Continuous matching reduces the pile-up effect where issues are discovered late and fixed under deadline pressure. With Orion running daily (or more often), the remaining 5% becomes a steady stream of high-signal items: true breaks, policy questions, and anomalies worth attention.</p>
+
+      <h2>What your team does with the remaining 5%</h2>
+      <p>Finance still owns judgment. Orion routes exceptions into reviewer queues with evidence, suggested matches, and policy gates. Your team approves overrides, validates unusual cases, and signs off. Every decision is captured in the audit trail — so close week is confirmation, not reconstruction.</p>
+
+      <div class="cta">
+        <h2 style="margin-top: 0;">Ready to see Orion in action?</h2>
+        <p>Book a demo and we’ll walk through a reconciliation workflow on a stack like yours — including how exceptions are explained and approved.</p>
+        <a href="../book-a-demo.html">Book a demo →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="revzio home"><img src="../assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>AI agents for finance teams that need to close fast and audit clean.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Agents</h5>
+        <a href="../agent-suite.html">Orion agent suite</a>
+        <a href="../agent-reconciliation.html">Reconciliation</a>
+        <a href="../agent-close-management.html">Close Management</a>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="../how-it-works.html">How It Works</a>
+        <a href="../integrations.html">Integrations</a>
+        <a href="../security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="../about.html">About</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="../blog.html">Blog</a>
+        <a href="../guides.html">Guides</a>
+        <a href="../glossary.html">Glossary</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 revzio. All rights reserved.</span>
+      <span>Built for finance teams who'd rather be home by six.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/nav-theme.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/mega-menu.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>
+

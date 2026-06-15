@@ -1,0 +1,282 @@
+/* revzio — Global dark theme override
+   Must load AFTER subpage.css on every page */
+
+body {
+  background: #0a1a2f !important;
+  color: rgba(250, 250, 247, 0.88);
+}
+
+/* Subtle banding across sections (homepage-like mix) */
+section {
+  background: rgba(255,255,255,0.015);
+}
+section + section {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.bg-alt { background: rgba(255,255,255,0.04) !important; }
+.bg-alt { border-top-color: rgba(255,255,255,0.06); }
+
+/* Override common hardcoded white bands (seen on some pages) */
+.logo-strip,
+.showcase-section,
+.section-header-compact,
+.solution-section[style*="background"],
+section[style*="background: #fff"],
+section[style*="background:#fff"],
+section[style*="background: #ffffff"],
+section[style*="background:#ffffff"],
+section[style*="background: #FFFFFF"],
+section[style*="background:#FFFFFF"] {
+  background: rgba(255,255,255,0.015) !important;
+  border-top-color: rgba(255,255,255,0.06) !important;
+  border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Darken showcase cards that are hardcoded white in some pages */
+.showcase-card--copy,
+.showcase-card--visual {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+
+/* Solution metrics (use case / pricing KPI bands) */
+.solution-metrics {
+  background: transparent !important;
+  border-bottom-color: rgba(255,255,255,0.08) !important;
+}
+.solution-kpi {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+.solution-kpi-label { color: rgba(250,250,247,0.65) !important; }
+
+/* Solution tabs / panels (Ingest · Consolidate · Govern · Insights) */
+.solution-tabs {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+.solution-tab { color: rgba(250,250,247,0.70) !important; }
+.solution-tab:hover { color: #fafaf7 !important; }
+.solution-tab.is-active {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.14) !important;
+  color: #fafaf7 !important;
+}
+
+.solution-panel,
+.solution-impact {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  box-shadow: none !important;
+}
+.solution-panel-copy h3,
+.solution-impact-head h3 { color: #fafaf7 !important; }
+.solution-panel-copy p,
+.solution-impact-head p { color: rgba(250,250,247,0.65) !important; }
+.solution-bullets { border-top-color: rgba(255,255,255,0.10) !important; }
+.solution-bullet { border-bottom-color: rgba(255,255,255,0.08) !important; }
+.solution-bullet strong { color: rgba(250,250,247,0.88) !important; }
+.solution-bullet span { color: rgba(250,250,247,0.65) !important; }
+.solution-check {
+  background: rgba(127,207,170,0.14) !important;
+  color: #7fcfaa !important;
+}
+
+.solution-panel-visual {
+  background: rgba(255,255,255,0.02) !important;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+.solution-visual-card {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+.solution-visual-stat { color: #fafaf7 !important; }
+.solution-visual-sub { color: rgba(250,250,247,0.55) !important; }
+.solution-visual-quote { color: rgba(250,250,247,0.82) !important; }
+.solution-visual-attr { color: rgba(250,250,247,0.55) !important; }
+
+.solution-impact-table th { background: rgba(255,255,255,0.04) !important; }
+.solution-impact-table th,
+.solution-impact-table td { border-color: rgba(255,255,255,0.10) !important; }
+
+/* Agent pages: override hardcoded white sections/cards */
+.why-choose,
+.stats {
+  background: rgba(255,255,255,0.015) !important;
+}
+.why-card,
+.stat-card {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  box-shadow: none !important;
+}
+.why-card h3,
+.stat-card h3,
+.stats-header h2,
+.section-heading {
+  color: #fafaf7 !important;
+}
+.why-card p,
+.why-choose-intro,
+.stats-intro,
+.stat-desc {
+  color: rgba(250,250,247,0.65) !important;
+}
+.stat-chip {
+  background: rgba(127,207,170,0.12) !important;
+  color: #7fcfaa !important;
+  border: 1px solid rgba(127,207,170,0.20) !important;
+}
+.stat-value { color: #fafaf7 !important; }
+.stat-value em { color: #7fcfaa !important; }
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.card h4 { color: #fafaf7; }
+.card p { color: rgba(250,250,247,0.65); }
+.card-icon { background: rgba(127,207,170,0.15) !important; color: #7fcfaa !important; }
+
+/* Steps */
+.step { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; }
+.step h4 { color: #fafaf7; }
+.step p { color: rgba(250,250,247,0.65); }
+.step-num { color: #7fcfaa !important; }
+
+/* Headings & text */
+h2, h3 { color: #fafaf7; }
+h4, h5, h6 { color: rgba(250,250,247,0.92); }
+.section-sub { color: rgba(250,250,247,0.65) !important; }
+.section-eyebrow { color: #7fcfaa !important; }
+p { color: rgba(250,250,247,0.75); }
+
+/* Trust, contact, job, changelog cards */
+.trust-card, .contact-card {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.trust-card h4, .contact-card h4 { color: #fafaf7; }
+.trust-card p, .contact-card p { color: rgba(250,250,247,0.65); }
+
+.job-list { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.1) !important; }
+.job-row { border-bottom-color: rgba(255,255,255,0.08) !important; color: rgba(250,250,247,0.88); }
+.job-row:hover { background: rgba(255,255,255,0.08) !important; }
+.job-row h4 { color: #fafaf7; }
+.job-row span { color: rgba(250,250,247,0.55); }
+
+.int-logo { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.1) !important; color: rgba(250,250,247,0.75); }
+
+.article-card { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; }
+.article-card h4 { color: #fafaf7; }
+.article-card p { color: rgba(250,250,247,0.65); }
+.article-card .body { background: transparent; }
+
+.changelog-item { border-bottom-color: rgba(255,255,255,0.1) !important; }
+.changelog-item h4 { color: #fafaf7; }
+.changelog-item p { color: rgba(250,250,247,0.65); }
+.changelog-date { color: #7fcfaa !important; }
+
+/* Split & check-list */
+.split h3 { color: #fafaf7; }
+.split p { color: rgba(250,250,247,0.65); }
+.check-list li { color: rgba(250,250,247,0.7); }
+.check-list li::before { color: #7fcfaa; }
+
+/* Logo strip */
+.logo-strip span { color: rgba(250,250,247,0.45); }
+
+/* Prose */
+.prose h2 { color: #fafaf7; }
+.prose p, .prose li { color: rgba(250,250,247,0.7); }
+
+/* Lines */
+hr { border-color: rgba(255,255,255,0.08); }
+
+/* CTA section — centered dark band (Book a demo style) */
+.cta-section,
+section.cta {
+  text-align: center;
+  padding: 92px 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: var(--hero-bg) !important;
+  background-image:
+    radial-gradient(ellipse at 50% -30%, rgba(196,154,75,0.18), transparent 56%),
+    radial-gradient(ellipse at 16% 0%, rgba(90,150,210,0.16), transparent 55%),
+    radial-gradient(ellipse at 88% 22%, rgba(127,207,170,0.12), transparent 52%),
+    linear-gradient(180deg, rgba(10,26,47,0.0) 0%, rgba(10,26,47,0.85) 52%, rgba(5,14,26,0.85) 100%);
+}
+.cta-section .container,
+section.cta .container { max-width: 980px; }
+.cta-section h2,
+section.cta h2 { color: #fafaf7 !important; max-width: none !important; margin-left: auto; margin-right: auto; }
+.cta-section h2 em,
+section.cta h2 em { color: var(--gold) !important; }
+.cta-section p,
+section.cta p { color: rgba(250,250,247,0.55) !important; max-width: 640px; margin-left: auto; margin-right: auto; }
+.cta-section .hero-ctas,
+section.cta .hero-ctas { justify-content: center !important; }
+.cta-section .btn-primary,
+section.cta .btn-primary {
+  background: #fafaf7 !important;
+  color: #0a1a2f !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(250,250,247,0.12) !important;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+}
+.cta-section .btn-primary:hover,
+section.cta .btn-primary:hover { background: var(--gold) !important; transform: translateY(-1px); }
+.cta-section .btn-secondary,
+section.cta .btn-secondary {
+  background: rgba(255,255,255,0.03) !important;
+  color: rgba(250,250,247,0.82) !important;
+  border: 1px solid rgba(250,250,247,0.18) !important;
+  border-radius: 999px !important;
+}
+.cta-section .btn-secondary:hover,
+section.cta .btn-secondary:hover { background: rgba(255,255,255,0.06) !important; border-color: rgba(250,250,247,0.28) !important; transform: translateY(-1px); }
+
+/* Footer */
+footer {
+  background: rgba(5,14,26,0.6) !important;
+  border-top-color: rgba(255,255,255,0.08) !important;
+}
+.footer-brand .logo { color: #fafaf7; }
+.footer-brand .logo-word { color: #fafaf7; }
+.footer-brand p { color: rgba(250,250,247,0.45); }
+.footer-col h5 { color: rgba(250,250,247,0.4); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; }
+.footer-col a { color: rgba(250,250,247,0.55); }
+.footer-col a:hover { color: #fafaf7; }
+.footer-bottom { color: rgba(250,250,247,0.3) !important; border-top-color: rgba(255,255,255,0.07) !important; }
+
+/* Form inputs on dark bg */
+input, textarea, select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fafaf7;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+input::placeholder, textarea::placeholder { color: rgba(250,250,247,0.35); }
+label { color: rgba(250,250,247,0.75); }
+
+/* Tables on dark bg */
+table { border-color: rgba(255,255,255,0.1); }
+th { color: #fafaf7; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+td { color: rgba(250,250,247,0.75); border-color: rgba(255,255,255,0.08); }
+
+/* Comparison tables */
+.comparison-table th, .compare-table th { background: rgba(127,207,170,0.1); color: #fafaf7; }
+.comparison-table td, .compare-table td { color: rgba(250,250,247,0.75); }
+
+/* Nav scrolled */
+nav.scrolled, nav.is-scrolled {
+  background: rgba(10,26,47,0.96) !important;
+  border-bottom-color: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(12px);
+}
+

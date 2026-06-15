@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<title>Revenue recognition at scale: why spreadsheets break at Series B — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/brand.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/mega-menu.css">
+  <link rel="stylesheet" href="../css/nav-theme.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/dark-global.css">
+  <style>
+    .article-hero {
+      padding: 120px 0 56px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.18), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.12), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+    }
+    .tag-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(127,207,170,0.22);
+      background: rgba(127,207,170,0.12);
+      color: #7fcfaa;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+    .article-meta { color: rgba(250,250,247,0.55); font-size: 13.5px; margin-top: 10px; }
+    .prose { max-width: 860px; margin: 0 auto; }
+    .prose p { margin: 14px 0; }
+    .prose h2 { margin-top: 34px; }
+    .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
+    .backlink:hover { color: #fafaf7; }
+    .cta {
+      margin-top: 42px;
+      padding: 22px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(127,207,170,0.18);
+      background: rgba(127,207,170,0.07);
+    }
+    .cta a { color: #0a1a2f; background: #7fcfaa; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 800; display: inline-flex; margin-top: 12px; }
+    .cta a:hover { background: #9adfc0; }
+  </style>
+</head>
+<body>
+<nav></nav>
+
+<header class="article-hero" data-nav-theme="dark">
+  <div class="container">
+    <a class="backlink reveal" href="../blog.html">← Back to blog</a>
+    <div class="tag-pill reveal" style="margin-top: 18px;">ASC 606</div>
+    <h1 class="hero-title reveal" style="max-width: 980px;">Revenue recognition at scale: why spreadsheets break at Series B</h1>
+    <div class="article-meta reveal">revzio Team · May 2026 · 7 min read</div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <article class="prose reveal">
+      <p>Series B is where revenue recognition stops being “a spreadsheet problem” and becomes a systems problem. The numbers don’t just get bigger — the <em>shape</em> of revenue changes. Contracts multiply, pricing becomes more complex, product expands, and finance inherits a flood of edge cases that don’t fit the neat rows you built at Series A.</p>
+
+      <h2>The Series B inflection point: 50 contracts becomes 500</h2>
+      <p>At 50 contracts, you can manually review each one. At 500, you can’t. You start sampling, which is where risk creeps in. Meanwhile, your billing system evolves: upgrades, downgrades, credits, usage overages, annual prepay, multiple performance obligations — and every change creates a recognition event.</p>
+
+      <h2>Why Excel breaks (even with great spreadsheets)</h2>
+      <p>Excel breaks because it wasn’t built to be a controlled system of record. Spreadsheets struggle with:</p>
+      <ul>
+        <li><strong>Manual schedules:</strong> they rely on humans to interpret contract events consistently.</li>
+        <li><strong>No audit trail:</strong> version control is often “who saved the file last.”</li>
+        <li><strong>Rework loops:</strong> when numbers change, your deck, schedules, and ERP entries all drift.</li>
+        <li><strong>Hidden logic:</strong> formulas are easy to copy incorrectly and hard to validate.</li>
+      </ul>
+
+      <h2>The ASC 606 complexity that compounds it</h2>
+      <p>ASC 606 is not just a standard — it’s a compounding system. Performance obligations, allocation, timing, contract modifications, and distinct goods/services all introduce branching logic. When those branches are implemented manually, consistency becomes impossible at scale.</p>
+
+      <h2>How the Revenue Validation Agent handles recognition at scale</h2>
+      <p>Orion’s Revenue Validation Agent continuously validates billing events against ERP recognition. It doesn’t wait for audit season. It runs as contracts change. It flags recognition gaps early, generates deferred revenue schedules, and attaches evidence so reviewers can validate the output.</p>
+
+      <p>Most importantly, it operates in a human-in-the-loop model. Orion prepares and explains; finance reviews and approves; the audit trail is captured automatically. That’s how you scale compliance without hiring your way out of complexity.</p>
+
+      <div class="cta">
+        <h2 style="margin-top: 0;">Ready to see Orion in action?</h2>
+        <p>Book a demo and we’ll show how Revenue Validation works end-to-end — from billing events to audit-ready support.</p>
+        <a href="../book-a-demo.html">Book a demo →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="revzio home"><img src="../assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>AI agents for finance teams that need to close fast and audit clean.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Agents</h5>
+        <a href="../agent-suite.html">Orion agent suite</a>
+        <a href="../agent-revenue-validation.html">Revenue Validation</a>
+        <a href="../agent-reconciliation.html">Reconciliation</a>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="../how-it-works.html">How It Works</a>
+        <a href="../trust-center.html">Controls</a>
+        <a href="../security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="../about.html">About</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="../blog.html">Blog</a>
+        <a href="../guides.html">Guides</a>
+        <a href="../glossary.html">Glossary</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 revzio. All rights reserved.</span>
+      <span>Built for finance teams who'd rather be home by six.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/nav-theme.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/mega-menu.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>
+

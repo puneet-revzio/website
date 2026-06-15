@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<title>Glossary — revzio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/brand.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <link rel="stylesheet" href="css/mega-menu.css">
+  <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .hero-band {
+      padding: 120px 0 72px;
+      background: var(--hero-bg);
+      background-image:
+        radial-gradient(ellipse at 12% -8%, rgba(90,150,210,0.20), transparent 55%),
+        radial-gradient(ellipse at 88% 12%, rgba(127,207,170,0.13), transparent 52%),
+        linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+      color: #FAFAF7;
+    }
+    .hero-band h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(42px, 5.8vw, 72px);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      max-width: 980px;
+      margin-bottom: 14px;
+    }
+    .hero-band p {
+      color: rgba(250,250,247,0.72);
+      font-size: 18px;
+      max-width: 760px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .jump {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .jump a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(250,250,247,0.14);
+      color: rgba(250,250,247,0.78);
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 13px;
+    }
+    .jump a:hover {
+      color: #FAFAF7;
+      border-color: rgba(127, 207, 170, 0.32);
+    }
+    .letter {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .letter-badge {
+      width: 88px;
+      height: 88px;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 107, 78, 0.18);
+      background: rgba(15, 107, 78, 0.06);
+      color: var(--accent);
+      font-family: 'Fraunces', serif;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: -0.03em;
+    }
+    .term-list {
+      display: grid;
+      gap: 14px;
+    }
+    .term {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 18px 18px;
+    }
+    .term .name {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .term .name em { font-style: italic; color: var(--accent); }
+    .term p { margin: 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
+    .term .note { margin-top: 10px; font-size: 13.5px; color: var(--ink-muted); }
+    .term .note a { color: var(--accent); text-decoration: none; font-weight: 750; }
+    .term .note a:hover { color: var(--ink); }
+
+    @media (max-width: 980px) {
+      .letter { grid-template-columns: 1fr; }
+      .letter-badge { width: 72px; height: 72px; font-size: 40px; }
+    }
+  </style>
+  <link rel="stylesheet" href="css/dark-global.css">
+</head>
+<body>
+
+<nav></nav>
+
+<header class="hero-band" data-nav-theme="dark">
+  <div class="container">
+    <h1 class="reveal-on-scroll">Finance Automation Glossary</h1>
+    <p class="reveal-on-scroll">Plain-English definitions for CFOs, controllers, and finance teams navigating AI-powered workflows.</p>
+    <div class="jump reveal-on-scroll" aria-label="Jump links">
+      <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a><a href="#L">L</a><a href="#M">M</a><a href="#O">O</a><a href="#P">P</a><a href="#R">R</a>
+    </div>
+  </div>
+</header>
+
+<section class="bg-alt">
+  <div class="container">
+    <div class="reveal-on-scroll">
+      <div class="section-eyebrow">GLOSSARY</div>
+      <h2>Definitions A–R.</h2>
+      <p class="section-sub">When terms map directly to Orion, we call it out and link the relevant agent page.</p>
+    </div>
+
+    <!-- A -->
+    <div class="letter reveal-on-scroll" id="A">
+      <div class="letter-badge">A</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Accrual Automation</em></div><p>Automating period-end accrual calculations and postings (e.g., payroll, commissions, prepaid amortization) from source data rather than spreadsheets. The goal is consistent schedules, fewer errors, and an audit-ready trail each close.</p><div class="note">(→ Orion handles this) <a href="agent-accruals.html">Accruals Agent</a></div></div>
+        <div class="term"><div class="name"><em>Agent Orchestration</em></div><p>The coordination layer that runs multiple specialized agents across a workflow, routes exceptions, and enforces approval steps. In finance, orchestration also means controls: policy gates, RBAC, and immutable audit logging.</p><div class="note">(→ Orion handles this) <a href="how-it-works.html">How Orion Works</a></div></div>
+        <div class="term"><div class="name"><em>AP Automation</em></div><p>Automating invoice ingestion, extraction, approvals, and posting to ERP. Strong AP automation includes 3-way match, duplicate detection, and exception routing with context.</p><div class="note">(→ Orion handles this) <a href="agent-ap.html">AP Agent</a></div></div>
+        <div class="term"><div class="name"><em>AR Automation</em></div><p>Automating cash application, collections prioritization, and dispute handling. The outcomes are lower DSO, less unapplied cash, and more predictable cash forecasting.</p><div class="note">(→ Orion handles this) <a href="agent-ar.html">AR Agent</a></div></div>
+        <div class="term"><div class="name"><em>ASC 606</em></div><p>The revenue recognition standard for contracts with customers (US GAAP). It requires performance obligations, allocation, and timing rules that are hard to scale with spreadsheets as revenue complexity grows.</p><div class="note">(→ Orion handles this) <a href="agent-revenue-validation.html">Revenue Validation Agent</a></div></div>
+        <div class="term"><div class="name"><em>Audit Trail</em></div><p>A record of who did what, when, and why — with supporting evidence. In modern finance automation, the audit trail is produced continuously as work is prepared and approved, not retroactively during PBC.</p><div class="note">(→ Orion handles this) <a href="controls-and-audit-trails.html">Controls &amp; Audit Trails</a></div></div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="letter reveal-on-scroll" id="B">
+      <div class="letter-badge">B</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Balance Sheet Reconciliation</em></div><p>The process of tying balance sheet accounts to subledgers, bank statements, and supporting schedules. Continuous balance sheet recon reduces late-cycle surprises and improves audit readiness.</p><div class="note">(→ Orion handles this) <a href="agent-reconciliation.html">Reconciliation Agent</a></div></div>
+        <div class="term"><div class="name"><em>Bank Reconciliation</em></div><p>Matching bank transactions to GL postings to ensure completeness and accuracy. Modern recon goes beyond totals to line-item and multi-source matching with explainable exceptions.</p><div class="note">(→ Orion handles this) <a href="agent-reconciliation.html">Reconciliation Agent</a></div></div>
+        <div class="term"><div class="name"><em>BPO (Business Process Outsourcing)</em></div><p>Outsourcing accounting operations to an external provider. BPO can reduce workload, but it often still relies on manual processes and doesn’t provide the continuous, in-product audit trail automation requires.</p></div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="letter reveal-on-scroll" id="C">
+      <div class="letter-badge">C</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Cash Application</em></div><p>Matching incoming payments to open invoices using remittance details and bank references. High automation reduces unapplied cash and improves DSO.</p><div class="note">(→ Orion handles this) <a href="agent-ar.html">AR Agent</a></div></div>
+        <div class="term"><div class="name"><em>Close Calendar</em></div><p>The schedule of tasks, owners, and dependencies required to close the books. A strong close calendar tracks progress, routes approvals, and ties tasks to evidence.</p><div class="note">(→ Orion handles this) <a href="agent-close-management.html">Close Management Agent</a></div></div>
+        <div class="term"><div class="name"><em>Close Management Agent (Orion)</em></div><p>A specialized agent that orchestrates your close checklist, approvals, and variance summaries, capturing sign-off and evidence end-to-end. It replaces spreadsheets and “is this done?” threads with a governed workflow.</p><div class="note">(→ Orion handles this) <a href="agent-close-management.html">Close Management Agent</a></div></div>
+        <div class="term"><div class="name"><em>Continuous Close</em></div><p>A close model where reconciliation and prep work happen continuously, so month-end becomes confirmation instead of a scramble. Teams close faster because exceptions surface in hours, not week three.</p><div class="note">(→ Orion handles this) <a href="continuous-close.html">Continuous Close</a></div></div>
+        <div class="term"><div class="name"><em>Controller</em></div><p>The finance leader responsible for accounting operations, controls, and the financial close. Controllers typically own reconciliation, journal entry review, and audit readiness.</p></div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="letter reveal-on-scroll" id="D">
+      <div class="letter-badge">D</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>DSO (Days Sales Outstanding)</em></div><p>A metric for how long it takes to collect revenue after a sale. AR automation improves DSO by matching cash faster and prioritizing collections by risk and value.</p><div class="note">(→ Orion handles this) <a href="agent-ar.html">AR Agent</a></div></div>
+        <div class="term"><div class="name"><em>Data Ingestion Layer</em></div><p>The unified data layer that connects ERP, billing, banking, payroll, CRM, and warehouses and normalizes records into a single model. It’s the foundation every agent relies on for consistent outputs.</p><div class="note">(→ Orion handles this) <a href="data-ingestion.html">Orion Data Layer</a></div></div>
+        <div class="term"><div class="name"><em>Deferred Revenue</em></div><p>Revenue collected but not yet earned. Deferred revenue schedules can become complex with upgrades, credits, and usage billing — and need accurate posting and audit-ready schedules.</p><div class="note">(→ Orion handles this) <a href="agent-revenue-validation.html">Revenue Validation Agent</a></div></div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="letter reveal-on-scroll" id="E">
+      <div class="letter-badge">E</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>ERP (Enterprise Resource Planning)</em></div><p>A core system of record for accounting, finance, and operations (e.g., NetSuite, SAP). Orion integrates with ERPs to pull data and push outputs with governed approvals.</p><div class="note">(→ Orion handles this) <a href="integrations.html">Integrations</a></div></div>
+        <div class="term"><div class="name"><em>Exception Management</em></div><p>The process of triaging breaks, variances, and mismatches that automation can’t resolve. Good exception management includes ranking by impact, routing to the right owner, and capturing evidence and outcomes.</p><div class="note">(→ Orion handles this) <a href="agent-reconciliation.html">Reconciliation Agent</a></div></div>
+      </div>
+    </div>
+
+    <!-- F -->
+    <div class="letter reveal-on-scroll" id="F">
+      <div class="letter-badge">F</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Financial Close</em></div><p>The recurring process of finalizing financial statements for a period. It includes reconciliation, journal entries, accruals, approvals, and reporting.</p><div class="note">(→ Orion handles this) <a href="agent-close-management.html">Close Management Agent</a></div></div>
+        <div class="term"><div class="name"><em>Flux Analysis</em></div><p>Variance analysis that explains why balances changed between periods. In Orion, variance summaries can be drafted with source evidence and reviewer sign-off captured.</p><div class="note">(→ Orion handles this) <a href="agent-close-management.html">Close Management Agent</a></div></div>
+        <div class="term"><div class="name"><em>Three-Way Match (3-way match)</em></div><p>Validating an invoice by matching it to the purchase order (PO) and goods receipt (GRN). Automation reduces leakage by flagging duplicates and discrepancies immediately.</p><div class="note">(→ Orion handles this) <a href="agent-ap.html">AP Agent</a></div></div>
+      </div>
+    </div>
+
+    <!-- G -->
+    <div class="letter reveal-on-scroll" id="G">
+      <div class="letter-badge">G</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>General Ledger (GL)</em></div><p>The accounting ledger where all transactions and adjustments are recorded. Reconciliation and journal automation ensure the GL reflects accurate, explainable activity.</p></div>
+        <div class="term"><div class="name"><em>Governance Controls</em></div><p>Policies, approvals, RBAC, and audit logging that ensure automation is safe and compliant. In finance-grade automation, controls are part of the workflow — not a manual afterthought.</p><div class="note">(→ Orion handles this) <a href="controls-and-audit-trails.html">Audit &amp; Controls</a></div></div>
+      </div>
+    </div>
+
+    <!-- H -->
+    <div class="letter reveal-on-scroll" id="H">
+      <div class="letter-badge">H</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Human-in-the-Loop (HITL)</em></div><p>A workflow design where automation prepares the work, but humans review and approve critical actions (like posting to ERP). HITL keeps judgment and accountability with finance teams.</p><div class="note">(→ Orion handles this) <a href="how-it-works.html">How Orion Works</a></div></div>
+      </div>
+    </div>
+
+    <!-- I -->
+    <div class="letter reveal-on-scroll" id="I">
+      <div class="letter-badge">I</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Invoice Processing</em></div><p>The end-to-end workflow for receiving, validating, approving, and posting invoices. Modern systems include extraction, 3-way match, duplicate detection, and routing.</p><div class="note">(→ Orion handles this) <a href="agent-ap.html">AP Agent</a></div></div>
+        <div class="term"><div class="name"><em>Intercompany Reconciliation</em></div><p>Reconciling transactions between entities within the same company. It often requires multi-entity matching and consistent policies across ledgers and subledgers.</p><div class="note">(→ Orion handles this) <a href="agent-reconciliation.html">Reconciliation Agent</a></div></div>
+      </div>
+    </div>
+
+    <!-- J -->
+    <div class="letter reveal-on-scroll" id="J">
+      <div class="letter-badge">J</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Journal Entry Automation</em></div><p>Generating and posting journal entries from source data automatically with validation and approvals. Strong automation includes lineage so auditors can trace every entry to evidence.</p><div class="note">(→ Orion handles this) <a href="agent-journal-entry.html">Journal Entry Agent</a></div></div>
+        <div class="term"><div class="name"><em>Journal Entry Agent (Orion)</em></div><p>A specialized agent that pulls from payroll, billing, banking, and ERP sources to generate journal entries, validate them against your chart of accounts, and route them to reviewers before posting.</p><div class="note">(→ Orion handles this) <a href="agent-journal-entry.html">Journal Entry Agent</a></div></div>
+      </div>
+    </div>
+
+    <!-- L -->
+    <div class="letter reveal-on-scroll" id="L">
+      <div class="letter-badge">L</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>LLM (Large Language Model) in Finance</em></div><p>A model that can generate and interpret language — used in finance to draft explanations, summarize exceptions, and translate messy operational data into reviewer-friendly context. In finance automation, LLM outputs must be governed, traceable, and reviewable.</p><div class="note">(→ Orion handles this) <a href="how-it-works.html">How Orion Works</a></div></div>
+      </div>
+    </div>
+
+    <!-- M -->
+    <div class="letter reveal-on-scroll" id="M">
+      <div class="letter-badge">M</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Month-End Close</em></div><p>The monthly cycle to finalize financial statements. Orion shifts the work earlier by running agents continuously and routing exceptions as they occur.</p></div>
+        <div class="term"><div class="name"><em>Multi-Entity Consolidation</em></div><p>Combining financials across subsidiaries or business units into consolidated statements. This requires consistent mappings, FX conversion, and intercompany reconciliation.</p></div>
+      </div>
+    </div>
+
+    <!-- O -->
+    <div class="letter reveal-on-scroll" id="O">
+      <div class="letter-badge">O</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Orion Agent Suite</em></div><p>revzio’s suite of seven specialized finance agents that automate reconciliation, journal entries, AP, AR, accruals, revenue validation, and close management. Agents share a unified data layer and governed workflows.</p><div class="note">(→ Orion handles this) <a href="agent-suite.html">Orion agent suite</a></div></div>
+        <div class="term"><div class="name"><em>Order-to-Cash (O2C)</em></div><p>The end-to-end process from invoice creation to cash collection and posting. In practice, it includes cash application, collections prioritization, and dispute routing.</p><div class="note">(→ Orion handles this) <a href="order-to-cash.html">Order to Cash</a></div></div>
+      </div>
+    </div>
+
+    <!-- P -->
+    <div class="letter reveal-on-scroll" id="P">
+      <div class="letter-badge">P</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Prepaid Amortization</em></div><p>Expensing prepaid assets over time according to an amortization schedule. Automation reduces spreadsheet work and makes schedules audit-ready by default.</p><div class="note">(→ Orion handles this) <a href="agent-accruals.html">Accruals Agent</a></div></div>
+        <div class="term"><div class="name"><em>Procure-to-Pay (P2P)</em></div><p>The workflow from purchase order to invoice to payment. It includes 3-way match, approvals, duplicate detection, and ERP posting.</p><div class="note">(→ Orion handles this) <a href="procure-to-pay.html">Procure to Pay</a></div></div>
+        <div class="term"><div class="name"><em>Policy-Gated Automation</em></div><p>Automation that runs within defined thresholds and routes exceptions to humans. This approach keeps finance in control while still capturing the bulk of the prep work automatically.</p><div class="note">(→ Orion handles this) <a href="how-it-works.html">How Orion Works</a></div></div>
+      </div>
+    </div>
+
+    <!-- R -->
+    <div class="letter reveal-on-scroll" id="R">
+      <div class="letter-badge">R</div>
+      <div class="term-list">
+        <div class="term"><div class="name"><em>Reconciliation Agent (Orion)</em></div><p>A specialized agent that matches transactions across bank, GL, and subledger using scalable rules, flags breaks with explanations, and logs evidence for audit. It supports one-to-one, one-to-many, and many-to-many matching.</p><div class="note">(→ Orion handles this) <a href="agent-reconciliation.html">Reconciliation Agent</a></div></div>
+        <div class="term"><div class="name"><em>Record-to-Report (R2R)</em></div><p>The accounting cycle that turns raw transactions into closed books and reports: reconciliation, journal entries, accruals, review, and sign-off.</p><div class="note">(→ Orion handles this) <a href="record-to-report.html">Record to Report</a></div></div>
+        <div class="term"><div class="name"><em>Revenue Recognition</em></div><p>Determining when and how revenue is recognized in financial statements, often governed by ASC 606 for customer contracts. Complex billing models increase the chance of drift between billing and ERP without continuous validation.</p><div class="note">(→ Orion handles this) <a href="agent-revenue-validation.html">Revenue Validation Agent</a></div></div>
+        <div class="term"><div class="name"><em>RBAC (Role-Based Access Control)</em></div><p>A security model where permissions are assigned by role (e.g., preparer, reviewer, approver). RBAC supports segregation of duties and makes approvals enforceable by the system.</p><div class="note">(→ Orion handles this) <a href="security.html">Security</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="revzio home"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="reconciliation.html">Reconciliation</a>
+        <a href="close-workflow.html">Close workflow</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="integrations.html">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Blog</a>
+        <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust-center.html">Trust center</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 revzio. All rights reserved.</div>
+      <div>Made for finance teams who'd rather be home by six.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-theme.js"></script>
+<script src="js/mobile-nav.js"></script>
+<script src="js/mega-menu.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
+
