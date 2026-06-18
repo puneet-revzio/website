@@ -373,12 +373,18 @@
     min-height: 400px;
     overflow: hidden;
   }
+  .showcase-card:has(.mock-knowledge) {
+    overflow: visible;
+  }
   .showcase-card--visual {
     background: #E8EFEB;
     padding: 36px 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .showcase-card--visual:has(.mock-knowledge) {
+    overflow: visible;
   }
   .showcase-card--copy {
     background: #FFFFFF;

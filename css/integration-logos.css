@@ -1,7 +1,6 @@
 /* Brand logos for integration grids and knowledge orbit */
 
-.int-logo.int-logo--brand,
-.mock-knowledge-orbit.int-logo--brand {
+.int-logo.int-logo--brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +9,7 @@
   color: transparent;
 }
 
-.int-logo.int-logo--brand .int-logo__img,
-.mock-knowledge-orbit.int-logo--brand .int-logo__img {
+.int-logo.int-logo--brand .int-logo__img {
   display: block;
   width: auto;
   height: auto;
@@ -51,11 +49,10 @@
   box-sizing: border-box;
   padding: 0;
   width: auto;
-  min-width: 0;
+  min-width: 64px;
   max-width: 112px;
   height: auto;
-  min-height: 0;
-  max-height: none;
+  min-height: 28px;
   letter-spacing: 0;
   background: transparent;
   border: none;
@@ -65,52 +62,52 @@
 
 .mock-knowledge-orbit.int-logo--brand .int-logo__img {
   display: block;
+  height: 26px;
   width: auto;
-  height: auto;
-  max-height: 26px;
   max-width: 100px;
   margin: 0 auto;
   object-fit: contain;
   object-position: center center;
+  flex-shrink: 0;
 }
 
 .mock-knowledge-orbit[data-brand="salesforce"] .int-logo__img {
-  max-height: 28px;
+  height: 28px;
   max-width: 108px;
 }
 
 .mock-knowledge-orbit[data-brand="quickbooks"] .int-logo__img {
-  max-height: 26px;
+  height: 26px;
   max-width: 96px;
 }
 
 .mock-knowledge-orbit[data-brand="stripe"] .int-logo__img {
-  max-height: 28px;
+  height: 28px;
   max-width: 72px;
 }
 
 .mock-knowledge-orbit[data-brand="razorpay"] .int-logo__img {
-  max-height: 22px;
+  height: 22px;
   max-width: 92px;
 }
 
 .mock-knowledge-orbit[data-brand="paypal"] .int-logo__img {
-  max-height: 24px;
+  height: 24px;
   max-width: 72px;
 }
 
 .mock-knowledge-orbit[data-brand="xero"] .int-logo__img {
-  max-height: 24px;
+  height: 24px;
   max-width: 56px;
 }
 
 .mock-knowledge-orbit[data-brand="zoho"] .int-logo__img {
-  max-height: 22px;
+  height: 22px;
   max-width: 64px;
 }
 
 .mock-knowledge-orbit[data-brand="oracle"] .int-logo__img {
-  max-height: 20px;
+  height: 20px;
   max-width: 80px;
 }
 
