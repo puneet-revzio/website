@@ -1,5 +1,6 @@
 /* revzio — Global dark theme override
    Must load AFTER subpage.css on every page */
+@import url('cta-band.css');
 
 body {
   background: #0a1a2f !important;
@@ -194,51 +195,6 @@ p { color: rgba(250,250,247,0.75); }
 
 /* Lines */
 hr { border-color: rgba(255,255,255,0.08); }
-
-/* CTA section — centered dark band (Book a demo style) */
-.cta-section,
-section.cta {
-  text-align: center;
-  padding: 92px 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  background: var(--hero-bg) !important;
-  background-image:
-    radial-gradient(ellipse at 50% -30%, rgba(196,154,75,0.18), transparent 56%),
-    radial-gradient(ellipse at 16% 0%, rgba(90,150,210,0.16), transparent 55%),
-    radial-gradient(ellipse at 88% 22%, rgba(127,207,170,0.12), transparent 52%),
-    linear-gradient(180deg, rgba(10,26,47,0.0) 0%, rgba(10,26,47,0.85) 52%, rgba(5,14,26,0.85) 100%);
-}
-.cta-section .container,
-section.cta .container { max-width: 980px; }
-.cta-section h2,
-section.cta h2 { color: #fafaf7 !important; max-width: none !important; margin-left: auto; margin-right: auto; }
-.cta-section h2 em,
-section.cta h2 em { color: var(--gold) !important; }
-.cta-section p,
-section.cta p { color: rgba(250,250,247,0.55) !important; max-width: 640px; margin-left: auto; margin-right: auto; }
-.cta-section .hero-ctas,
-section.cta .hero-ctas { justify-content: center !important; }
-.cta-section .btn-primary,
-section.cta .btn-primary {
-  background: #fafaf7 !important;
-  color: #0a1a2f !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(250,250,247,0.12) !important;
-  box-shadow: 0 18px 60px rgba(0,0,0,0.25);
-}
-.cta-section .btn-primary:hover,
-section.cta .btn-primary:hover { background: var(--gold) !important; transform: translateY(-1px); }
-.cta-section .btn-secondary,
-section.cta .btn-secondary {
-  background: rgba(255,255,255,0.03) !important;
-  color: rgba(250,250,247,0.82) !important;
-  border: 1px solid rgba(250,250,247,0.18) !important;
-  border-radius: 999px !important;
-}
-.cta-section .btn-secondary:hover,
-section.cta .btn-secondary:hover { background: rgba(255,255,255,0.06) !important; border-color: rgba(250,250,247,0.28) !important; transform: translateY(-1px); }
 
 /* Footer */
 footer {

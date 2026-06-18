@@ -91,18 +91,17 @@ section.why-choose .why-card .btn-ghost:hover {
 }
 
 section.cta h2 {
-  font-size: clamp(1.5rem, 2.8vw, 2rem) !important;
-  line-height: 1.2 !important;
-  margin-bottom: 16px !important;
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  line-height: 1.15 !important;
 }
 
 section.cta {
-  padding: 72px 0 !important;
+  padding: 120px 0 !important;
 }
 
 section.cta p {
-  font-size: 1rem !important;
-  margin-bottom: 28px !important;
+  font-size: 18px !important;
+  margin-bottom: 36px !important;
 }
 
 @media (max-width: 900px) {
