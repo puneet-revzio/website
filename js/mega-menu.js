@@ -170,7 +170,7 @@
           </a>
         </li>
         <li>
-          <a href="index.html#product-showcase">
+          <a href="/#product-showcase">
             <span class="mega-link-title">Product Tours</span>
             <span class="mega-link-desc">Explore the platform with guided product demos</span>
           </a>

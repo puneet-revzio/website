@@ -46,7 +46,7 @@
     const head = document.createElement('div');
     head.className = 'nav-drawer-head';
     head.innerHTML =
-      '<a href="' + root + 'index.html" class="logo" aria-label="revzio home">' +
+      '<a href="/" class="logo" aria-label="revzio home">' +
       '<img src="' + root + 'assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true">' +
       '<span class="logo-word">revzio</span>' +
       '</a>' +
@@ -62,7 +62,7 @@
     navLinks.querySelectorAll('.nav-mega-trigger').forEach((btn) => {
       const id = btn.getAttribute('data-mega');
       const a = document.createElement('a');
-      a.href = MEGA_PAGES[id] || 'index.html';
+      a.href = MEGA_PAGES[id] || '/';
       a.textContent = btn.textContent.trim();
       a.className = 'nav-drawer-link';
       drawerLinks.appendChild(a);

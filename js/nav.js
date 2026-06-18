@@ -24,7 +24,7 @@
     if (link === false) {
       return '<div class="logo" aria-label="revzio">' + inner + '</div>';
     }
-    return '<a href="' + root + 'index.html" class="logo" aria-label="revzio home">' + inner + '</a>';
+    return '<a href="/" class="logo" aria-label="revzio home">' + inner + '</a>';
   }
 
   function injectNav() {

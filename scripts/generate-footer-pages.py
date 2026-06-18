@@ -8,7 +8,7 @@ FOOTER = """
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><span class="logo-dot"></span>revzio</a>
+        <a href="/" class="logo"><span class="logo-dot"></span>revzio</a>
         <p>The reconciled source of truth for modern finance teams.</p>
       </div>
       <div class="footer-col">
