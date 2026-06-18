@@ -109,6 +109,9 @@
     el.textContent = '';
     el.appendChild(img);
     el.classList.add('int-logo--brand');
+    if (slug) {
+      el.setAttribute('data-brand', slug);
+    }
     if (el.classList.contains('int-logo') && el.style.borderRadius) {
       el.classList.add('int-logo--pill');
     }

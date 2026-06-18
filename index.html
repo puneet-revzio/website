@@ -762,14 +762,17 @@
     background: #fff;
     border: 1px solid rgba(10, 15, 12, 0.08);
     border-radius: 10px;
-    padding: 10px 14px;
+    padding: 10px 12px;
     box-shadow: 0 1px 3px rgba(10, 15, 12, 0.06);
-    min-width: 84px;
-    max-width: 96px;
-    min-height: 40px;
-    display: inline-flex;
+    width: 112px;
+    min-width: 112px;
+    max-width: 112px;
+    height: 52px;
+    min-height: 52px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     transform: translate(-50%, -50%) rotate(calc(var(--spoke-i) * var(--spoke-step) - 90deg)) translateY(calc(-1 * var(--spoke-radius))) rotate(calc(90deg - var(--spoke-i) * var(--spoke-step)));
   }
   .mock-knowledge-orbit[data-spoke-i="0"] { --spoke-i: 0; }
@@ -1483,14 +1486,14 @@
               <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 145.4 125.4 L 250 230" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></circle>
             </g>
           </svg>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="0" aria-label="Salesforce"><img class="int-logo__img" src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="1" aria-label="QuickBooks"><img class="int-logo__img" src="assets/logos/quickbooks.svg" alt="QuickBooks" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="2" aria-label="Stripe"><img class="int-logo__img" src="assets/logos/stripe.svg" alt="Stripe" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="3" aria-label="Razorpay"><img class="int-logo__img" src="assets/logos/razorpay.svg" alt="Razorpay" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="4" aria-label="PayPal"><img class="int-logo__img" src="assets/logos/paypal.svg" alt="PayPal" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="5" aria-label="Xero"><img class="int-logo__img" src="assets/logos/xero.svg" alt="Xero" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="6" aria-label="Zoho"><img class="int-logo__img" src="assets/logos/zoho.svg" alt="Zoho" loading="lazy" decoding="async"></span>
-          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="7" aria-label="Oracle"><img class="int-logo__img" src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="0" data-brand="salesforce" aria-label="Salesforce"><img class="int-logo__img" src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="1" data-brand="quickbooks" aria-label="QuickBooks"><img class="int-logo__img" src="assets/logos/quickbooks.svg" alt="QuickBooks" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="2" data-brand="stripe" aria-label="Stripe"><img class="int-logo__img" src="assets/logos/stripe.svg" alt="Stripe" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="3" data-brand="razorpay" aria-label="Razorpay"><img class="int-logo__img" src="assets/logos/razorpay.svg" alt="Razorpay" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="4" data-brand="paypal" aria-label="PayPal"><img class="int-logo__img" src="assets/logos/paypal.svg" alt="PayPal" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="5" data-brand="xero" aria-label="Xero"><img class="int-logo__img" src="assets/logos/xero.svg" alt="Xero" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="6" data-brand="zoho" aria-label="Zoho"><img class="int-logo__img" src="assets/logos/zoho.svg" alt="Zoho" loading="lazy" decoding="async"></span>
+          <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="7" data-brand="oracle" aria-label="Oracle"><img class="int-logo__img" src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" decoding="async"></span>
           <div class="mock-knowledge-center"><img src="assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></div>
         </div>
       </div>
