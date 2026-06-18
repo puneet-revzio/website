@@ -1,0 +1,17 @@
+---
+description: Auto commit and push website changes to main without asking
+alwaysApply: true
+---
+
+# Auto deploy (revzio website)
+
+After completing any code/content change in this repo:
+
+1. **Commit and push automatically** — do not ask the user for permission first.
+2. Push to `origin main` on `puneet-revzio/website` when the task is done (or at a natural checkpoint for multi-step work).
+3. Use SSH remote (`git@github.com:puneet-revzio/website.git`) if HTTPS auth fails.
+4. Follow the existing commit message style: concise, why-focused, complete sentences.
+5. **Do not commit** junk or accidental files: `.DS_Store`, misplaced duplicates under `js/*.css`, root-level stray SVGs, credentials, or `.env`.
+6. Only include untracked files when they are clearly part of the requested change (e.g. new assets under `assets/`).
+
+Vercel deploys from `main` — pushing is how changes go live.
