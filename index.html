@@ -218,12 +218,20 @@
     line-height: 0;
   }
   .product-showcase__sound-icon svg {
-    display: block;
     width: 18px;
     height: 18px;
   }
-  .product-showcase__sound-icon svg[hidden] {
+  .product-showcase__sound.is-muted .product-showcase__sound-svg--off {
+    display: block;
+  }
+  .product-showcase__sound.is-muted .product-showcase__sound-svg--on {
     display: none;
+  }
+  .product-showcase__sound.is-unmuted .product-showcase__sound-svg--off {
+    display: none;
+  }
+  .product-showcase__sound.is-unmuted .product-showcase__sound-svg--on {
+    display: block;
   }
 
   /* LOGO STRIP */
@@ -1233,10 +1241,10 @@
           >
             <source src="media/hero-demo.mp4" type="video/mp4">
           </video>
-          <button type="button" class="product-showcase__sound" id="hero-video-sound" aria-pressed="false" aria-label="Unmute video">
+          <button type="button" class="product-showcase__sound is-muted" id="hero-video-sound" aria-pressed="false" aria-label="Unmute video">
             <span class="product-showcase__sound-icon" aria-hidden="true">
               <svg class="product-showcase__sound-svg product-showcase__sound-svg--off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
-              <svg class="product-showcase__sound-svg product-showcase__sound-svg--on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              <svg class="product-showcase__sound-svg product-showcase__sound-svg--on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
             </span>
           </button>
         </div>
@@ -1811,17 +1819,26 @@
   const heroVideo = document.getElementById('hero-demo-video');
   const heroSoundBtn = document.getElementById('hero-video-sound');
   if (heroVideo && heroSoundBtn) {
+    const setHeroMuted = (muted) => {
+      heroVideo.muted = muted;
+      if (muted) {
+        heroVideo.setAttribute('muted', '');
+      } else {
+        heroVideo.removeAttribute('muted');
+        heroVideo.volume = 1;
+      }
+    };
     const syncHeroSoundBtn = () => {
       const muted = heroVideo.muted;
+      heroSoundBtn.classList.toggle('is-muted', muted);
+      heroSoundBtn.classList.toggle('is-unmuted', !muted);
       heroSoundBtn.setAttribute('aria-pressed', String(!muted));
       heroSoundBtn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
-      const offIcon = heroSoundBtn.querySelector('.product-showcase__sound-svg--off');
-      const onIcon = heroSoundBtn.querySelector('.product-showcase__sound-svg--on');
-      if (offIcon) offIcon.hidden = !muted;
-      if (onIcon) onIcon.hidden = muted;
     };
-    heroSoundBtn.addEventListener('click', () => {
-      heroVideo.muted = !heroVideo.muted;
+    heroSoundBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setHeroMuted(!heroVideo.muted);
       if (!heroVideo.muted) heroVideo.play().catch(() => {});
       syncHeroSoundBtn();
     });
