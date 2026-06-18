@@ -1,0 +1,174 @@
+/* Why Teams Choose revzio — editorial benefit list */
+
+.why-choose--benefits {
+  padding: 72px 0 64px;
+  text-align: center;
+}
+
+.why-choose--benefits .section-header-compact {
+  margin-bottom: 40px;
+}
+
+.why-benefits {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 820px;
+  text-align: left;
+  position: relative;
+}
+
+.why-benefits::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(127, 207, 170, 0.55) 0%,
+    rgba(127, 207, 170, 0.28) 55%,
+    rgba(90, 150, 210, 0.18) 100%
+  );
+  border-radius: 2px;
+}
+
+.why-choose--benefits .why-benefits-header .section-heading,
+.why-choose--benefits .why-benefits-header .why-choose-intro {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.why-choose--benefits.is-active .why-benefits-header .section-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-choose--benefits.is-active .why-benefits-header .why-choose-intro {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.why-benefit {
+  --i: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 20px;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.why-benefit:last-child {
+  padding-bottom: 0;
+}
+
+.why-choose--benefits.is-active .why-benefit {
+  animation: whyBenefitIn 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.1s * var(--i) + 0.12s);
+}
+
+.why-benefit__marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.why-benefit__marker::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hero-mint);
+  box-shadow: 0 0 0 4px rgba(127, 207, 170, 0.18);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.why-benefit__content {
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.25s ease;
+}
+
+.why-benefit:last-child .why-benefit__content {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.why-benefit__content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 10px;
+  transition: color 0.25s ease;
+}
+
+.why-benefit__content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 680px;
+}
+
+.why-benefit:hover .why-benefit__marker::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(127, 207, 170, 0.22);
+}
+
+.why-benefit:hover .why-benefit__content h3 {
+  color: var(--accent);
+}
+
+.why-benefit:hover .why-benefit__content {
+  border-bottom-color: rgba(127, 207, 170, 0.35);
+}
+
+.why-benefit:last-child:hover .why-benefit__content {
+  border-bottom-color: transparent;
+}
+
+@keyframes whyBenefitIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .why-benefits::before {
+    left: 14px;
+  }
+
+  .why-benefit {
+    grid-template-columns: 30px 1fr;
+    gap: 0 14px;
+  }
+
+  .why-benefit__content h3 {
+    font-size: 1.125rem;
+  }
+
+  .why-benefit__content p {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-benefit {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

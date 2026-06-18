@@ -795,6 +795,17 @@
     align-items: center;
     gap: 5px;
     line-height: 1;
+    overflow: visible;
+  }
+  .mock-knowledge-center::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 18px;
+    border: 1px solid rgba(127, 207, 170, 0.22);
+    opacity: 0;
+    transform: scale(0.92);
+    pointer-events: none;
   }
   .mock-knowledge-center .logo-mark {
     display: block;
@@ -1192,6 +1203,9 @@
   <link rel="stylesheet" href="css/integration-logos.css">
   <link rel="stylesheet" href="css/mega-menu.css">
   <link rel="stylesheet" href="css/nav-theme.css">
+  <link rel="stylesheet" href="css/orion-suite.css">
+  <link rel="stylesheet" href="css/platform-showcase.css">
+  <link rel="stylesheet" href="css/why-benefits.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -1287,65 +1301,82 @@
   </div>
 </section>
 
-<section class="why-choose">
+<section class="why-choose orion-suite" id="orion-agent-suite">
+  <div class="orion-suite__ambient" aria-hidden="true"></div>
   <div class="container">
-    <div class="reveal section-header-compact">
+    <div class="orion-suite__header section-header-compact">
       <div class="section-eyebrow">ORION AGENT SUITE</div>
       <h2 class="section-heading section-heading--single-line">Seven agents. Every finance workflow. One close.</h2>
       <p class="why-choose-intro section-sub--single-line">Orion agents run continuously across your finance stack — human-in-the-loop, policy-gated, and audit-ready by design. Each agent is purpose-built for its workflow. No generic AI. No black boxes.</p>
     </div>
-    <div class="why-grid reveal">
-      <article class="why-card">
+    <div class="orion-suite__stage">
+      <svg class="orion-suite__flow" aria-hidden="true">
+        <path class="orion-suite__flow-path" d=""></path>
+        <circle class="orion-suite__flow-dot" r="5" cx="0" cy="0"></circle>
+      </svg>
+      <div class="why-grid orion-suite__grid">
+      <article class="why-card orion-card" style="--i: 0">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> Reconciliation Agent</h3>
         <p>Match millions of transactions across bank, GL, and subledger the moment they occur</p>
         <a href="agent-reconciliation.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 1">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> Journal Entry Agent</h3>
         <p>Generate and post journal entries from source data with 100% traceability, every period</p>
         <a href="agent-journal-entry.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 2">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> AP Agent</h3>
         <p>Fetch invoices, run 3-way match, eliminate duplicates, and route payments — zero manual touchpoints</p>
         <a href="agent-ap.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 3">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> AR Agent</h3>
         <p>Apply cash, rank collections by ageing, and reduce DSO by 20+ days on autopilot</p>
         <a href="agent-ar.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 4">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> Accruals Agent</h3>
         <p>Calculate prepaid amortization and accrual postings automatically, period after period</p>
         <a href="agent-accruals.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 5">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> Revenue Validation Agent</h3>
         <p>Validate every revenue event against ASC 606, flag billing-ERP gaps before they hit audit</p>
         <a href="agent-revenue-validation.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
-      <article class="why-card">
+      <article class="why-card orion-card" style="--i: 6">
         <h3><span class="eyebrow-dot" aria-hidden="true"></span> Close Management Agent</h3>
         <p>Run the close checklist, route approvals, surface variance summaries, and capture sign-off end-to-end</p>
         <a href="agent-close-management.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </article>
+      </div>
     </div>
-    <div class="hero-ctas reveal">
+    <div class="hero-ctas orion-suite__cta">
       <a href="agent-suite.html" class="btn btn-primary">Explore the Orion Suite</a>
       <a href="how-it-works.html" class="btn btn-ghost">See how it works</a>
     </div>
   </div>
 </section>
 
-<section class="showcase-section" id="product">
+<section class="showcase-section platform-showcase" id="product">
+  <div class="platform-showcase__ambient" aria-hidden="true"></div>
   <div class="container">
-    <header class="section-header-compact reveal" id="continuous-close">
+    <header class="platform-showcase__header section-header-compact" id="continuous-close">
       <p class="intro-eyebrow">THE ORION PLATFORM</p>
       <h2 class="section-heading section-heading--single-line">AI agents built for the complexity of real finance workflows.</h2>
       <p class="intro-desc section-sub">Powered by Orion, revzio brings together seven specialized agents, a deep finance knowledge layer, and a governed workflow engine — so every output is explainable, traceable, and reviewer-ready.</p>
     </header>
-    <div class="showcase-row reveal">
+
+    <nav class="platform-showcase__nav" aria-label="Platform pillars">
+      <a href="#pillar-orion-ai" class="platform-showcase__nav-btn is-active" data-pillar="orion-ai">Orion AI</a>
+      <a href="#pillar-workflows" class="platform-showcase__nav-btn" data-pillar="workflows">Workflows</a>
+      <a href="#pillar-knowledge" class="platform-showcase__nav-btn" data-pillar="knowledge">Knowledge</a>
+      <a href="#pillar-trust" class="platform-showcase__nav-btn" data-pillar="trust">Trust</a>
+    </nav>
+
+    <div class="platform-showcase__stack">
+    <div class="showcase-row platform-showcase__row" id="pillar-orion-ai" data-pillar="orion-ai" style="--row-i: 0">
       <div class="showcase-card showcase-card--visual">
         <div class="mock-panel mock-chat" aria-hidden="true">
           <div class="mock-panel-header">
@@ -1359,17 +1390,26 @@
             <div class="mock-panel-window-controls"><span></span><span></span><span></span></div>
           </div>
           <div class="mock-panel-body">
-            <div class="mock-chat-msg">
+            <div class="mock-chat-msg mock-chat-msg--orion chat-demo-step is-shown" data-chat-step="0">
               <div class="mock-chat-avatar" aria-hidden="true">◇</div>
               <div class="mock-chat-bubble">Hi there — what can I help with? Type <strong>/</strong> to tag files, policies, and reconciliations.</div>
             </div>
-            <div class="mock-chat-msg">
+            <div class="mock-chat-msg mock-chat-msg--user chat-demo-step" data-chat-step="1">
+              <div class="mock-chat-bubble mock-chat-bubble--user">Why did deferred revenue move $18K this period?</div>
+            </div>
+            <div class="mock-chat-msg mock-chat-msg--orion chat-demo-step" data-chat-step="2">
               <div class="mock-chat-avatar" aria-hidden="true">◇</div>
               <div class="mock-chat-bubble mock-chat-bubble--typing" aria-label="Thinking"><span></span><span></span><span></span></div>
             </div>
+            <div class="mock-chat-msg mock-chat-msg--orion chat-demo-step" data-chat-step="3">
+              <div class="mock-chat-avatar" aria-hidden="true">◇</div>
+              <div class="mock-chat-bubble mock-chat-bubble--answer">Three new annual contracts hit deferred revenue. Stripe events are fully <strong>matched to ASC 606 schedules</strong> — review packet is ready for sign-off.</div>
+            </div>
           </div>
           <div class="mock-chat-footer">
-            <div class="mock-chat-input">Ask Orion anything about your close…</div>
+            <div class="mock-chat-input">
+              <span class="mock-chat-input-text">Ask Orion anything about your close…</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1381,7 +1421,7 @@
       </div>
     </div>
 
-    <div class="showcase-row showcase-row--reverse reveal">
+    <div class="showcase-row showcase-row--reverse platform-showcase__row" id="pillar-workflows" data-pillar="workflows" style="--row-i: 1">
       <div class="showcase-card showcase-card--visual">
         <div class="mock-panel mock-workflow" aria-hidden="true">
           <div class="mock-panel-header">
@@ -1415,20 +1455,56 @@
       </div>
     </div>
 
-    <div class="showcase-row reveal">
+    <div class="showcase-row platform-showcase__row" id="pillar-knowledge" data-pillar="knowledge" style="--row-i: 2">
       <div class="showcase-card showcase-card--visual">
         <div class="mock-knowledge" aria-hidden="true">
           <svg class="mock-knowledge-spokes" viewBox="0 0 500 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <circle cx="250" cy="230" r="148" fill="none" stroke="rgba(127, 207, 170, 0.14)" stroke-width="1" stroke-dasharray="4 8"/>
-            <g stroke="rgba(127, 207, 170, 0.28)" stroke-width="1.25" stroke-linecap="round">
-              <line x1="250" y1="230" x2="250.0" y2="82.0"/>
-              <line x1="250" y1="230" x2="354.6" y2="125.4"/>
-              <line x1="250" y1="230" x2="398.0" y2="230.0"/>
-              <line x1="250" y1="230" x2="354.6" y2="334.6"/>
-              <line x1="250" y1="230" x2="250.0" y2="378.0"/>
-              <line x1="250" y1="230" x2="145.4" y2="334.6"/>
-              <line x1="250" y1="230" x2="102.0" y2="230.0"/>
-              <line x1="250" y1="230" x2="145.4" y2="125.4"/>
+            <defs>
+              <filter id="knowledge-glow" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur stdDeviation="2.2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <circle class="mock-knowledge-orbit-ring" cx="250" cy="230" r="148" fill="none" stroke="rgba(127, 207, 170, 0.14)" stroke-width="1" stroke-dasharray="4 8"/>
+            <g class="mock-knowledge-spoke" data-spoke-i="0">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="250" y2="82"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="250" y2="82"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 250 82 L 250 230" dur="2.2s" begin="0s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="1">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="354.6" y2="125.4"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="354.6" y2="125.4"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 354.6 125.4 L 250 230" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="2">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="398" y2="230"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="398" y2="230"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 398 230 L 250 230" dur="2.1s" begin="0.55s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="3">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="354.6" y2="334.6"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="354.6" y2="334.6"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 354.6 334.6 L 250 230" dur="2.5s" begin="0.8s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="4">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="250" y2="378"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="250" y2="378"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 250 378 L 250 230" dur="2.3s" begin="1.05s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="5">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="145.4" y2="334.6"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="145.4" y2="334.6"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 145.4 334.6 L 250 230" dur="2.6s" begin="1.3s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="6">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="102" y2="230"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="102" y2="230"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 102 230 L 250 230" dur="2.2s" begin="1.55s" repeatCount="indefinite"/></circle>
+            </g>
+            <g class="mock-knowledge-spoke" data-spoke-i="7">
+              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="145.4" y2="125.4"/>
+              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="145.4" y2="125.4"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 145.4 125.4 L 250 230" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></circle>
             </g>
           </svg>
           <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="0" aria-label="Salesforce"><img class="int-logo__img" src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" decoding="async"></span>
@@ -1450,7 +1526,7 @@
       </div>
     </div>
 
-    <div class="showcase-row showcase-row--reverse reveal">
+    <div class="showcase-row showcase-row--reverse platform-showcase__row" id="pillar-trust" data-pillar="trust" style="--row-i: 3">
       <div class="showcase-card showcase-card--visual">
         <div class="mock-panel mock-integrity" aria-hidden="true">
           <div class="mock-panel-header">
@@ -1480,33 +1556,46 @@
         <a href="book-a-demo.html" class="showcase-link">Learn more <span class="showcase-link-icon" aria-hidden="true">→</span></a>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
-<section class="why-choose">
+<section class="why-choose why-choose--benefits" id="why-revzio">
   <div class="container">
-    <div class="reveal section-header-compact">
+    <div class="why-benefits-header section-header-compact">
       <h2 class="section-heading section-heading--single-line">Why Teams Choose revzio</h2>
       <p class="why-choose-intro">In an era of generic AI tools and disconnected point solutions, accounting and audit teams need technology they can trust and actually use in practice.</p>
     </div>
-    <div class="why-grid reveal">
-      <article class="why-card">
-        <h3>Seven Specialized Agents, Not One Generic AI</h3>
-        <p>Each Orion agent is purpose-built for its workflow. Reconciliation logic is different from revenue validation logic. We don't pretend one model handles everything.</p>
-      </article>
-      <article class="why-card">
-        <h3>Live in Under 3 Weeks — Guaranteed</h3>
-        <p>Most platforms take months to implement. Orion agents connect to your existing ERP, billing, and banking stack without an IT project. Your team is running in production in weeks.</p>
-      </article>
-      <article class="why-card">
-        <h3>Audit Trail That Writes Itself</h3>
-        <p>Every agent action is logged with who, what, when, and why — with source evidence attached. When auditors arrive, you hand them context, not a folder of screenshots.</p>
-      </article>
-      <article class="why-card">
-        <h3>Mid-Market Power at a Fraction of Enterprise Cost</h3>
-        <p>Full Orion agent suite — reconciliation through close management — without BlackLine or Bluecopa price tags. Built for growth-stage and mid-market finance teams.</p>
-      </article>
-    </div>
+    <ul class="why-benefits" role="list">
+      <li class="why-benefit" style="--i: 0">
+        <span class="why-benefit__marker" aria-hidden="true"></span>
+        <div class="why-benefit__content">
+          <h3>Seven Specialized Agents, Not One Generic AI</h3>
+          <p>Each Orion agent is purpose-built for its workflow. Reconciliation logic is different from revenue validation logic. We don't pretend one model handles everything.</p>
+        </div>
+      </li>
+      <li class="why-benefit" style="--i: 1">
+        <span class="why-benefit__marker" aria-hidden="true"></span>
+        <div class="why-benefit__content">
+          <h3>Live in Under 3 Weeks — Guaranteed</h3>
+          <p>Most platforms take months to implement. Orion connects to your ERP, billing, and banking stack — production-ready in under three weeks, no IT project required.</p>
+        </div>
+      </li>
+      <li class="why-benefit" style="--i: 2">
+        <span class="why-benefit__marker" aria-hidden="true"></span>
+        <div class="why-benefit__content">
+          <h3>Audit Trail That Writes Itself</h3>
+          <p>Every agent action is logged with who, what, when, and why — with source evidence attached. When auditors arrive, you hand them context, not a folder of screenshots.</p>
+        </div>
+      </li>
+      <li class="why-benefit" style="--i: 3">
+        <span class="why-benefit__marker" aria-hidden="true"></span>
+        <div class="why-benefit__content">
+          <h3>Mid-Market Power at a Fraction of Enterprise Cost</h3>
+          <p>Full Orion agent suite — reconciliation through close management — without the cost or complexity of legacy close platforms. Built for growth-stage and mid-market finance teams.</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 

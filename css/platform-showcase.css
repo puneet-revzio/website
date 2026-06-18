@@ -1,0 +1,512 @@
+/* Homepage — Orion Platform showcase */
+
+.platform-showcase {
+  position: relative;
+  overflow: clip;
+}
+
+.platform-showcase__ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 85% 12%, rgba(127, 207, 170, 0.07), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 10% 88%, rgba(90, 150, 210, 0.06), transparent 50%);
+}
+
+.platform-showcase__header .intro-eyebrow,
+.platform-showcase__header .section-heading,
+.platform-showcase__header .intro-desc {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-showcase__header .section-heading {
+  clip-path: inset(0 0 100% 0);
+}
+
+.platform-showcase.is-active .platform-showcase__header .intro-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-showcase.is-active .platform-showcase__header .section-heading {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0 0 0 0);
+  transition-delay: 0.08s;
+}
+
+.platform-showcase.is-active .platform-showcase__header .intro-desc {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.18s;
+}
+
+.platform-showcase__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 28px;
+  padding: 10px 12px;
+  max-width: 720px;
+  position: sticky;
+  top: 68px;
+  z-index: 20;
+  background: rgba(10, 26, 47, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  box-shadow: 0 10px 36px rgba(10, 26, 47, 0.28);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease 0.25s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+.platform-showcase.is-active .platform-showcase__nav {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-showcase__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(250, 250, 247, 0.72);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-showcase__nav-btn::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(127, 207, 170, 0.35);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.platform-showcase__nav-btn:hover {
+  color: #fafaf7;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.platform-showcase__nav-btn.is-active {
+  color: #fafaf7;
+  background: rgba(127, 207, 170, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(127, 207, 170, 0.38);
+}
+
+.platform-showcase__nav-btn.is-active::before {
+  background: var(--hero-mint);
+  box-shadow: 0 0 0 3px rgba(127, 207, 170, 0.2);
+  transform: scale(1.15);
+}
+
+.platform-showcase__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.platform-showcase__stack .showcase-row {
+  margin-bottom: 0;
+}
+
+.mock-chat-input-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platform-showcase__row {
+  --row-i: 0;
+  scroll-margin-top: 140px;
+}
+
+.platform-showcase__row .showcase-card--visual,
+.platform-showcase__row .showcase-card--copy {
+  opacity: 0;
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.platform-showcase__row .showcase-card--visual {
+  transform: translateX(-28px) scale(0.98);
+}
+
+.platform-showcase__row .showcase-card--copy {
+  transform: translateX(28px);
+}
+
+.platform-showcase__row.showcase-row--reverse .showcase-card--visual {
+  transform: translateX(28px) scale(0.98);
+}
+
+.platform-showcase__row.showcase-row--reverse .showcase-card--copy {
+  transform: translateX(-28px);
+}
+
+.platform-showcase__row.is-visible .showcase-card--visual {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0.05s;
+}
+
+.platform-showcase__row.is-visible .showcase-card--copy {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.14s;
+}
+
+.platform-showcase__row.is-visible .showcase-card--visual .mock-panel,
+.platform-showcase__row.is-visible .showcase-card--visual .mock-knowledge {
+  animation: platformPanelFloat 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--row-i) * 0.4s);
+}
+
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-label,
+.platform-showcase__row.is-visible .showcase-card--copy h3,
+.platform-showcase__row.is-visible .showcase-card--copy > p,
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-link,
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-links-dual {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: platformCopyReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-label { animation-delay: 0.12s; }
+.platform-showcase__row.is-visible .showcase-card--copy h3 { animation-delay: 0.22s; }
+.platform-showcase__row.is-visible .showcase-card--copy > p { animation-delay: 0.32s; }
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-link,
+.platform-showcase__row.is-visible .showcase-card--copy .showcase-links-dual { animation-delay: 0.42s; }
+
+.platform-showcase__row.is-visible:hover .showcase-card--visual,
+.platform-showcase__row.is-focused .showcase-card--visual {
+  box-shadow: inset 0 0 0 1px rgba(127, 207, 170, 0.22);
+}
+
+/* Live chat demo */
+.mock-chat-msg--user {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.mock-chat-bubble--user {
+  flex: 0 1 auto;
+  max-width: 92%;
+  background: var(--hero-bg);
+  color: rgba(250, 250, 247, 0.92);
+  border: 1px solid rgba(127, 207, 170, 0.22);
+  border-radius: 12px 12px 4px 12px;
+  box-shadow: 0 8px 24px rgba(10, 26, 47, 0.14);
+}
+
+.mock-chat-bubble--answer strong {
+  color: var(--hero-mint);
+}
+
+.chat-demo-step {
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    max-height 0.5s ease,
+    margin 0.45s ease;
+}
+
+.chat-demo-step.is-shown {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 160px;
+  margin-bottom: 12px !important;
+  pointer-events: auto;
+}
+
+.mock-chat-input.is-typing .mock-chat-input-text {
+  color: var(--ink);
+}
+
+.mock-chat-input.is-typing::after {
+  background: var(--hero-mint);
+  color: var(--hero-bg);
+}
+
+/* Workflow table stagger */
+.mock-data-row {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.platform-showcase__row.is-visible .mock-data-row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.platform-showcase__row.is-visible .mock-data-row:nth-child(1) { transition-delay: 0.25s; }
+.platform-showcase__row.is-visible .mock-data-row:nth-child(2) { transition-delay: 0.38s; }
+.platform-showcase__row.is-visible .mock-data-row:nth-child(3) { transition-delay: 0.51s; }
+.platform-showcase__row.is-visible .mock-data-row:nth-child(4) { transition-delay: 0.64s; }
+
+/* Knowledge hub pulse */
+/* Knowledge hub — animated data flow into revzio */
+.mock-knowledge-orbit-ring {
+  transform-origin: 250px 230px;
+}
+
+.mock-knowledge-spoke__track {
+  stroke: rgba(127, 207, 170, 0.16);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+}
+
+.mock-knowledge-spoke__flow {
+  stroke: rgba(127, 207, 170, 0.55);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 5 16;
+  opacity: 0;
+}
+
+.mock-knowledge-spoke__dot {
+  opacity: 0;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke__flow {
+  opacity: 1;
+  animation: knowledgeSpokeFlow 1.7s linear infinite;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke__dot {
+  opacity: 1;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="0"] .mock-knowledge-spoke__flow { animation-delay: 0s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="1"] .mock-knowledge-spoke__flow { animation-delay: 0.22s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="2"] .mock-knowledge-spoke__flow { animation-delay: 0.44s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="3"] .mock-knowledge-spoke__flow { animation-delay: 0.66s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="4"] .mock-knowledge-spoke__flow { animation-delay: 0.88s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="5"] .mock-knowledge-spoke__flow { animation-delay: 1.1s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="6"] .mock-knowledge-spoke__flow { animation-delay: 1.32s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="7"] .mock-knowledge-spoke__flow { animation-delay: 1.54s; }
+
+.platform-showcase__row.is-visible .mock-knowledge-orbit-ring {
+  animation: knowledgeRingSpin 48s linear infinite;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-center::before {
+  animation: knowledgeHubPulse 2.8s ease-out infinite;
+}
+
+@keyframes knowledgeSpokeFlow {
+  to { stroke-dashoffset: 42; }
+}
+
+@keyframes knowledgeRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes knowledgeHubPulse {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.92);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+.mock-knowledge-spokes line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke__track {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  transition: stroke 0.4s ease;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke__track {
+  animation: knowledgeTrackIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="0"] .mock-knowledge-spoke__track { animation-delay: 0.05s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="1"] .mock-knowledge-spoke__track { animation-delay: 0.12s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="2"] .mock-knowledge-spoke__track { animation-delay: 0.19s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="3"] .mock-knowledge-spoke__track { animation-delay: 0.26s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="4"] .mock-knowledge-spoke__track { animation-delay: 0.33s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="5"] .mock-knowledge-spoke__track { animation-delay: 0.4s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="6"] .mock-knowledge-spoke__track { animation-delay: 0.47s; }
+.platform-showcase__row.is-visible .mock-knowledge-spoke[data-spoke-i="7"] .mock-knowledge-spoke__track { animation-delay: 0.54s; }
+
+@keyframes knowledgeTrackIn {
+  from {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    opacity: 0.2;
+  }
+  to {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.mock-knowledge-orbit {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(calc(var(--spoke-i) * var(--spoke-step) - 90deg)) translateY(calc(-1 * var(--spoke-radius))) rotate(calc(90deg - var(--spoke-i) * var(--spoke-step))) scale(0.85);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-orbit {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(calc(var(--spoke-i) * var(--spoke-step) - 90deg)) translateY(calc(-1 * var(--spoke-radius))) rotate(calc(90deg - var(--spoke-i) * var(--spoke-step))) scale(1);
+}
+
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="0"] { transition-delay: 0.2s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="1"] { transition-delay: 0.28s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="2"] { transition-delay: 0.36s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="3"] { transition-delay: 0.44s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="4"] { transition-delay: 0.52s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="5"] { transition-delay: 0.6s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="6"] { transition-delay: 0.68s; }
+.platform-showcase__row.is-visible .mock-knowledge-orbit[data-spoke-i="7"] { transition-delay: 0.76s; }
+
+.platform-showcase__row.is-visible .mock-knowledge-center {
+  animation: platformHubPulse 2.8s ease-in-out infinite;
+}
+
+.mock-stat-row {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.platform-showcase__row.is-visible .mock-stat-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-showcase__row.is-visible .mock-stat-row:nth-child(1) { transition-delay: 0.2s; }
+.platform-showcase__row.is-visible .mock-stat-row:nth-child(2) { transition-delay: 0.32s; }
+.platform-showcase__row.is-visible .mock-stat-row:nth-child(3) { transition-delay: 0.44s; }
+.platform-showcase__row.is-visible .mock-stat-row:nth-child(4) { transition-delay: 0.56s; }
+
+@keyframes platformPanelFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes platformCopyReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes platformHubPulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(10, 15, 12, 0.08); }
+  50% { box-shadow: 0 8px 28px rgba(127, 207, 170, 0.22); }
+}
+
+@media (max-width: 900px) {
+  .platform-showcase__nav {
+    top: 56px;
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  .platform-showcase__nav-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .platform-showcase__row .showcase-card--visual,
+  .platform-showcase__row .showcase-card--copy,
+  .platform-showcase__row.showcase-row--reverse .showcase-card--visual,
+  .platform-showcase__row.showcase-row--reverse .showcase-card--copy {
+    transform: translateY(20px);
+  }
+
+  .platform-showcase__row.is-visible .showcase-card--visual,
+  .platform-showcase__row.is-visible .showcase-card--copy {
+    transform: translateY(0);
+  }
+
+  .platform-showcase__row.is-visible .showcase-card--visual .mock-panel,
+  .platform-showcase__row.is-visible .showcase-card--visual .mock-knowledge {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-showcase__header *,
+  .platform-showcase__nav,
+  .platform-showcase__row .showcase-card--visual,
+  .platform-showcase__row .showcase-card--copy,
+  .platform-showcase__row.is-visible .showcase-card--copy *,
+  .chat-demo-step,
+  .mock-data-row,
+  .mock-knowledge-orbit,
+  .mock-knowledge-spoke__flow,
+  .mock-knowledge-spoke__dot,
+  .mock-knowledge-orbit-ring,
+  .mock-knowledge-center::before {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .platform-showcase__row.is-visible .mock-knowledge-spoke__track {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .mock-knowledge-spoke__dot {
+    display: none;
+  }
+
+  .mock-stat-row {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    max-height: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .chat-demo-step.is-shown {
+    margin-bottom: 12px !important;
+  }
+}
