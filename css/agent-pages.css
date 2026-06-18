@@ -76,6 +76,20 @@ section.why-choose .why-card p {
   line-height: 1.55;
 }
 
+/* Related agent cards — Learn more links on dark surfaces */
+section.why-choose .why-card .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  color: var(--hero-mint, #7fcfaa) !important;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+section.why-choose .why-card .btn-ghost:hover {
+  color: #fafaf7 !important;
+}
+
 section.cta h2 {
   font-size: clamp(1.5rem, 2.8vw, 2rem) !important;
   line-height: 1.2 !important;
