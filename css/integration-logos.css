@@ -49,56 +49,69 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 10px 12px;
-  width: 112px;
-  min-width: 112px;
+  padding: 0;
+  width: auto;
+  min-width: 0;
   max-width: 112px;
-  height: 52px;
-  min-height: 52px;
-  max-height: 52px;
+  height: auto;
+  min-height: 0;
+  max-height: none;
   letter-spacing: 0;
-  background: #fff;
-  border: 1px solid rgba(10, 15, 12, 0.08);
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(10, 15, 12, 0.06);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .mock-knowledge-orbit.int-logo--brand .int-logo__img {
   display: block;
   width: auto;
   height: auto;
-  max-height: 28px;
-  max-width: 100%;
+  max-height: 26px;
+  max-width: 100px;
   margin: 0 auto;
   object-fit: contain;
   object-position: center center;
 }
 
-/* Wide wordmarks need more horizontal room */
-.mock-knowledge-orbit[data-brand="salesforce"] .int-logo__img,
-.mock-knowledge-orbit[data-brand="stripe"] .int-logo__img,
-.mock-knowledge-orbit[data-brand="quickbooks"] .int-logo__img {
-  max-height: 26px;
-  max-width: 100%;
+.mock-knowledge-orbit[data-brand="salesforce"] .int-logo__img {
+  max-height: 28px;
+  max-width: 108px;
 }
 
-.mock-knowledge-orbit[data-brand="salesforce"] .int-logo__img {
-  max-height: 30px;
+.mock-knowledge-orbit[data-brand="quickbooks"] .int-logo__img {
+  max-height: 26px;
+  max-width: 96px;
 }
 
 .mock-knowledge-orbit[data-brand="stripe"] .int-logo__img {
-  max-height: 24px;
+  max-height: 28px;
+  max-width: 72px;
 }
 
-.mock-knowledge-orbit[data-brand="xero"] .int-logo__img,
-.mock-knowledge-orbit[data-brand="zoho"] .int-logo__img,
-.mock-knowledge-orbit[data-brand="oracle"] .int-logo__img {
+.mock-knowledge-orbit[data-brand="razorpay"] .int-logo__img {
   max-height: 22px;
+  max-width: 92px;
 }
 
-.mock-knowledge-orbit[data-brand="razorpay"] .int-logo__img,
 .mock-knowledge-orbit[data-brand="paypal"] .int-logo__img {
   max-height: 24px;
+  max-width: 72px;
+}
+
+.mock-knowledge-orbit[data-brand="xero"] .int-logo__img {
+  max-height: 24px;
+  max-width: 56px;
+}
+
+.mock-knowledge-orbit[data-brand="zoho"] .int-logo__img {
+  max-height: 22px;
+  max-width: 64px;
+}
+
+.mock-knowledge-orbit[data-brand="oracle"] .int-logo__img {
+  max-height: 20px;
+  max-width: 80px;
 }
 
 .mock-knowledge-orbit.int-logo--brand.int-logo--badge .int-logo__img {

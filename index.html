@@ -740,11 +740,11 @@
   .mock-knowledge {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    height: 460px;
+    max-width: 560px;
+    height: 540px;
     margin: 0 auto;
     --spoke-step: 45deg;
-    --spoke-radius: 148px;
+    --spoke-radius: 188px;
   }
   .mock-knowledge-spokes {
     position: absolute;
@@ -759,20 +759,16 @@
     left: 50%;
     top: 50%;
     z-index: 1;
-    background: #fff;
-    border: 1px solid rgba(10, 15, 12, 0.08);
-    border-radius: 10px;
-    padding: 10px 12px;
-    box-shadow: 0 1px 3px rgba(10, 15, 12, 0.06);
-    width: 112px;
-    min-width: 112px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    width: auto;
     max-width: 112px;
-    height: 52px;
-    min-height: 52px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
     transform: translate(-50%, -50%) rotate(calc(var(--spoke-i) * var(--spoke-step) - 90deg)) translateY(calc(-1 * var(--spoke-radius))) rotate(calc(90deg - var(--spoke-i) * var(--spoke-step)));
   }
   .mock-knowledge-orbit[data-spoke-i="0"] { --spoke-i: 0; }
@@ -789,14 +785,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    background: #fff;
-    border: 1px solid rgba(10, 15, 12, 0.08);
-    border-radius: 12px;
-    padding: 14px 20px;
-    box-shadow: 0 4px 16px rgba(10, 15, 12, 0.08);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     line-height: 1;
     overflow: visible;
   }
@@ -812,13 +808,13 @@
   }
   .mock-knowledge-center .logo-mark {
     display: block;
-    height: 22px;
+    height: 28px;
     width: auto;
     flex-shrink: 0;
   }
   .mock-knowledge-center .logo-word {
     font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: -0.04em;
     text-transform: lowercase;
@@ -1437,53 +1433,53 @@
     <div class="showcase-row platform-showcase__row" id="pillar-knowledge" data-pillar="knowledge" style="--row-i: 2">
       <div class="showcase-card showcase-card--visual">
         <div class="mock-knowledge" aria-hidden="true">
-          <svg class="mock-knowledge-spokes" viewBox="0 0 500 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <svg class="mock-knowledge-spokes" viewBox="0 0 560 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <defs>
               <filter id="knowledge-glow" x="-80%" y="-80%" width="260%" height="260%">
                 <feGaussianBlur stdDeviation="2.2" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <circle class="mock-knowledge-orbit-ring" cx="250" cy="230" r="148" fill="none" stroke="rgba(127, 207, 170, 0.14)" stroke-width="1" stroke-dasharray="4 8"/>
+            <circle class="mock-knowledge-orbit-ring" cx="280" cy="270" r="188" fill="none" stroke="rgba(127, 207, 170, 0.14)" stroke-width="1" stroke-dasharray="4 8"/>
             <g class="mock-knowledge-spoke" data-spoke-i="0">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="250" y2="82"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="250" y2="82"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 250 82 L 250 230" dur="2.2s" begin="0s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="280" y2="82"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="280" y2="82"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 280 82 L 280 270" dur="2.2s" begin="0s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="1">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="354.6" y2="125.4"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="354.6" y2="125.4"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 354.6 125.4 L 250 230" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="413" y2="137"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="413" y2="137"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 413 137 L 280 270" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="2">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="398" y2="230"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="398" y2="230"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 398 230 L 250 230" dur="2.1s" begin="0.55s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="468" y2="270"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="468" y2="270"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 468 270 L 280 270" dur="2.1s" begin="0.55s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="3">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="354.6" y2="334.6"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="354.6" y2="334.6"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 354.6 334.6 L 250 230" dur="2.5s" begin="0.8s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="413" y2="403"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="413" y2="403"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 413 403 L 280 270" dur="2.5s" begin="0.8s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="4">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="250" y2="378"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="250" y2="378"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 250 378 L 250 230" dur="2.3s" begin="1.05s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="280" y2="458"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="280" y2="458"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 280 458 L 280 270" dur="2.3s" begin="1.05s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="5">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="145.4" y2="334.6"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="145.4" y2="334.6"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 145.4 334.6 L 250 230" dur="2.6s" begin="1.3s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="147" y2="403"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="147" y2="403"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 147 403 L 280 270" dur="2.6s" begin="1.3s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="6">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="102" y2="230"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="102" y2="230"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 102 230 L 250 230" dur="2.2s" begin="1.55s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="92" y2="270"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="92" y2="270"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 92 270 L 280 270" dur="2.2s" begin="1.55s" repeatCount="indefinite"/></circle>
             </g>
             <g class="mock-knowledge-spoke" data-spoke-i="7">
-              <line class="mock-knowledge-spoke__track" x1="250" y1="230" x2="145.4" y2="125.4"/>
-              <line class="mock-knowledge-spoke__flow" x1="250" y1="230" x2="145.4" y2="125.4"/>
-              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 145.4 125.4 L 250 230" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></circle>
+              <line class="mock-knowledge-spoke__track" x1="280" y1="270" x2="147" y2="137"/>
+              <line class="mock-knowledge-spoke__flow" x1="280" y1="270" x2="147" y2="137"/>
+              <circle class="mock-knowledge-spoke__dot" r="3.5" fill="#7FCFAA" filter="url(#knowledge-glow)"><animateMotion path="M 147 137 L 280 270" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></circle>
             </g>
           </svg>
           <span class="mock-knowledge-orbit int-logo--brand" data-spoke-i="0" data-brand="salesforce" aria-label="Salesforce"><img class="int-logo__img" src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" decoding="async"></span>
