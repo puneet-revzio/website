@@ -42,7 +42,6 @@ FOOTER = """
     </div>
     <div class="footer-bottom">
       <motion>© 2026 revzio. All rights reserved.</div>
-      <div>Made for finance teams who'd rather be home by six.</div>
     </div>
   </div>
 </footer>
