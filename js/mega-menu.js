@@ -8,10 +8,10 @@
       <div class="mega-col">
         <ul>
           <li>
-            <a href="agent-suite.html">Orion agent suite</a>
+            <a href="/agent-suite">Orion agent suite</a>
           </li>
           <li style="margin-top: 18px;">
-            <a href="how-it-works.html">How Orion Works</a>
+            <a href="/how-it-works">How Orion Works</a>
           </li>
         </ul>
       </div>
@@ -19,13 +19,13 @@
       <div class="mega-col">
         <h4>Orion Agents</h4>
         <ul>
-          <li><a href="agent-reconciliation.html">Reconciliation Agent</a></li>
-          <li><a href="agent-journal-entry.html">Journal Entry Agent</a></li>
-          <li><a href="agent-ap.html">AP Agent</a></li>
-          <li><a href="agent-ar.html">AR Agent</a></li>
-          <li><a href="agent-accruals.html">Accruals Agent</a></li>
-          <li><a href="agent-revenue-validation.html">Revenue Validation Agent</a></li>
-          <li><a href="agent-close-management.html">Close Management Agent</a></li>
+          <li><a href="/agent-reconciliation">Reconciliation Agent</a></li>
+          <li><a href="/agent-journal-entry">Journal Entry Agent</a></li>
+          <li><a href="/agent-ap">AP Agent</a></li>
+          <li><a href="/agent-ar">AR Agent</a></li>
+          <li><a href="/agent-accruals">Accruals Agent</a></li>
+          <li><a href="/agent-revenue-validation">Revenue Validation Agent</a></li>
+          <li><a href="/agent-close-management">Close Management Agent</a></li>
         </ul>
       </div>
 
@@ -34,7 +34,7 @@
           <div class="mega-news-eyebrow">NEW</div>
           <div class="mega-news-title">Meet Orion agent suite</div>
           <div class="mega-news-sub">Seven purpose-built agents for finance close. Human-in-the-loop. Audit-ready from day one.</div>
-          <a class="mega-news-link" href="agent-suite.html">Explore Orion <span aria-hidden="true">→</span></a>
+          <a class="mega-news-link" href="/agent-suite">Explore Orion <span aria-hidden="true">→</span></a>
         </div>
       </aside>
     </div>
@@ -53,26 +53,26 @@
         <div class="mega-panels">
           <div class="mega-panel-body is-active" data-mega-panel="process" role="tabpanel">
             <div class="mega-tile-grid">
-              <a class="mega-tile" href="order-to-cash.html"><span>Order to Cash</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="record-to-report.html"><span>Record to Report</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="procure-to-pay.html"><span>Procure to Pay</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="trust-center.html"><span>Data Governance &amp; Controls</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="reporting.html"><span>Management Reporting</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/order-to-cash"><span>Order to Cash</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/record-to-report"><span>Record to Report</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/procure-to-pay"><span>Procure to Pay</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/trust-center"><span>Data Governance &amp; Controls</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/reporting"><span>Management Reporting</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
             </div>
             <div class="mega-platform-foot">
-              <a class="mega-foot-link" href="platform.html">Explore the platform <span aria-hidden="true">→</span></a>
+              <a class="mega-foot-link" href="/platform">Explore the platform <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
           <div class="mega-panel-body" data-mega-panel="capabilities" role="tabpanel" hidden>
             <div class="mega-tile-grid mega-tile-grid--cap">
-              <a class="mega-tile" href="integrations.html"><span>Integrations</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="security.html"><span>Security</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="how-it-works.html#auditable-ai"><span>Auditable AI</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
-              <a class="mega-tile" href="how-it-works.html"><span>How It Works</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/integrations"><span>Integrations</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/security"><span>Security</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/how-it-works#auditable-ai"><span>Auditable AI</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
+              <a class="mega-tile" href="/how-it-works"><span>How It Works</span><span class="mega-tile-arrow" aria-hidden="true">→</span></a>
             </div>
             <div class="mega-platform-foot">
-              <a class="mega-foot-link" href="how-it-works.html">See how Orion works <span aria-hidden="true">→</span></a>
+              <a class="mega-foot-link" href="/how-it-works">See how Orion works <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
         <div class="mega-feature-visual" aria-hidden="true">
           <h3>Auditable AI</h3>
         </div>
-        <a href="resources.html" class="mega-feature-card">
+        <a href="/resources" class="mega-feature-card">
           <div>
             <div class="mega-feature-card-label">Featured release</div>
             <div class="mega-feature-card-title">Why Accounting Needs Auditable AI</div>
@@ -99,33 +99,33 @@
       <div class="mega-solutions-left">
         <div class="mega-solutions-title">By use case</div>
         <div class="mega-solutions-tiles">
-          <a class="mega-solution-tile" href="data-ingestion.html">
+          <a class="mega-solution-tile" href="/data-ingestion">
             <span class="mega-solution-icon" aria-hidden="true">⛓</span>
             <span class="mega-solution-label">Data ingestion</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-solution-tile" href="recon-automation.html">
+          <a class="mega-solution-tile" href="/recon-automation">
             <span class="mega-solution-icon" aria-hidden="true">≋</span>
             <span class="mega-solution-label">Recon automation</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-solution-tile" href="continuous-close.html">
+          <a class="mega-solution-tile" href="/continuous-close">
             <span class="mega-solution-icon" aria-hidden="true">⟲</span>
             <span class="mega-solution-label">Continuous close</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
           </a>
 
-          <a class="mega-solution-tile" href="automated-workflows.html">
+          <a class="mega-solution-tile" href="/automated-workflows">
             <span class="mega-solution-icon" aria-hidden="true">▦</span>
             <span class="mega-solution-label">Automated workflows</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-solution-tile" href="controls-and-audit-trails.html">
+          <a class="mega-solution-tile" href="/controls-and-audit-trails">
             <span class="mega-solution-icon" aria-hidden="true">✓</span>
             <span class="mega-solution-label">Controls &amp; audit trails</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-solution-tile" href="accelerate-reporting-cycles.html">
+          <a class="mega-solution-tile" href="/accelerate-reporting-cycles">
             <span class="mega-solution-icon" aria-hidden="true">▤</span>
             <span class="mega-solution-label">Accelerate reporting cycles</span>
             <span class="mega-solution-arrow" aria-hidden="true">→</span>
@@ -137,9 +137,9 @@
         <div class="mega-col">
           <h4>By Industry</h4>
           <ul>
-            <li><a href="industry-saas.html">SaaS &amp; Subscription</a></li>
-            <li><a href="industry-enterprise.html">Enterprise Finance</a></li>
-            <li><a href="industry-startup.html">VC-Backed Startups</a></li>
+            <li><a href="/industry-saas">SaaS &amp; Subscription</a></li>
+            <li><a href="/industry-enterprise">Enterprise Finance</a></li>
+            <li><a href="/industry-startup">VC-Backed Startups</a></li>
           </ul>
         </div>
       </aside>
@@ -152,19 +152,19 @@
     <div class="mega-resources-grid">
       <ul class="mega-links">
         <li>
-          <a href="about.html">
+          <a href="/about">
             <span class="mega-link-title">About revzio</span>
             <span class="mega-link-desc">The company building the AI platform for the next generation of accounting</span>
           </a>
         </li>
         <li>
-          <a href="how-it-works.html">
+          <a href="/how-it-works">
             <span class="mega-link-title">How It Works</span>
             <span class="mega-link-desc">The technical story behind Orion agents</span>
           </a>
         </li>
         <li>
-          <a href="blog.html">
+          <a href="/blog">
             <span class="mega-link-title">Blog</span>
             <span class="mega-link-desc">Insights on AI-powered accounting</span>
           </a>
@@ -176,19 +176,19 @@
           </a>
         </li>
         <li>
-          <a href="resources.html">
+          <a href="/resources">
             <span class="mega-link-title">Customer Stories</span>
             <span class="mega-link-desc">Stories from teams transforming operations with revzio</span>
           </a>
         </li>
         <li>
-          <a href="resources.html">
+          <a href="/resources">
             <span class="mega-link-title">Industry Guides</span>
             <span class="mega-link-desc">SaaS, Enterprise, and Startup finance guides</span>
           </a>
         </li>
         <li>
-          <a href="glossary.html">
+          <a href="/glossary">
             <span class="mega-link-title">Glossary</span>
             <span class="mega-link-desc">Compliance, accounting, and audit terms explained</span>
           </a>
@@ -201,7 +201,7 @@
             <span class="mega-logo-text">revzio</span>
           </span>
         </div>
-        <a href="resources.html" class="mega-resource-card">
+        <a href="/resources" class="mega-resource-card">
           <div>
             <div class="mega-resource-card-label">eBook</div>
             <div class="mega-resource-card-title">From Pencils to Agents: Audit AI Readiness Assessment</div>

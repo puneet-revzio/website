@@ -1,8 +1,8 @@
 (function () {
   const MEGA_PAGES = {
-    platform: 'platform.html',
-    solutions: 'solutions.html',
-    resources: 'resources.html',
+    platform: '/platform',
+    solutions: '/solutions',
+    resources: '/resources',
   };
 
   function init() {
@@ -81,7 +81,7 @@
       drawerCta.appendChild(headerCta.cloneNode(true));
     } else {
       const fallback = document.createElement('a');
-      fallback.href = 'book-a-demo.html';
+      fallback.href = '/book-a-demo';
       fallback.className = 'btn btn-primary';
       fallback.textContent = 'Book a demo';
       drawerCta.appendChild(fallback);

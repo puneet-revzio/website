@@ -41,9 +41,9 @@
       <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
       <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
       <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
-      <a href="pricing.html" data-nav-link="pricing">Pricing</a>
+      <a href="/pricing" data-nav-link="pricing">Pricing</a>
     </div>
-    <a href="book-a-demo.html" class="btn btn-primary">Book a demo</a>
+    <a href="/book-a-demo" class="btn btn-primary">Book a demo</a>
   </div>
 `;
 
@@ -60,10 +60,10 @@
       <div class="mega-col">
         <ul>
           <li>
-            <a href="agent-suite.html">Orion agent suite</a>
+            <a href="/agent-suite">Orion agent suite</a>
           </li>
           <li style="margin-top: 18px;">
-            <a href="how-it-works.html">How Orion Works</a>
+            <a href="/how-it-works">How Orion Works</a>
           </li>
         </ul>
       </div>
@@ -71,13 +71,13 @@
       <div class="mega-col">
         <h4>Orion Agents</h4>
         <ul>
-          <li><a href="agent-reconciliation.html">Reconciliation Agent</a></li>
-          <li><a href="agent-journal-entry.html">Journal Entry Agent</a></li>
-          <li><a href="agent-ap.html">AP Agent</a></li>
-          <li><a href="agent-ar.html">AR Agent</a></li>
-          <li><a href="agent-accruals.html">Accruals Agent</a></li>
-          <li><a href="agent-revenue-validation.html">Revenue Validation Agent</a></li>
-          <li><a href="agent-close-management.html">Close Management Agent</a></li>
+          <li><a href="/agent-reconciliation">Reconciliation Agent</a></li>
+          <li><a href="/agent-journal-entry">Journal Entry Agent</a></li>
+          <li><a href="/agent-ap">AP Agent</a></li>
+          <li><a href="/agent-ar">AR Agent</a></li>
+          <li><a href="/agent-accruals">Accruals Agent</a></li>
+          <li><a href="/agent-revenue-validation">Revenue Validation Agent</a></li>
+          <li><a href="/agent-close-management">Close Management Agent</a></li>
         </ul>
       </div>
 
@@ -86,7 +86,7 @@
           <div class="mega-news-eyebrow">NEW</div>
           <div class="mega-news-title">Meet Orion agent suite</div>
           <div class="mega-news-sub">Seven agents. Every finance workflow. One close.</div>
-          <a class="mega-news-link" href="agent-suite.html">Explore <span aria-hidden="true">→</span></a>
+          <a class="mega-news-link" href="/agent-suite">Explore <span aria-hidden="true">→</span></a>
         </div>
       </aside>
     </div>
@@ -99,20 +99,20 @@
       <div class="mega-col">
         <h4>BY PROCESS</h4>
         <ul>
-          <li><a href="order-to-cash.html">Order to Cash</a></li>
-          <li><a href="record-to-report.html">Record to Report</a></li>
-          <li><a href="procure-to-pay.html">Procure to Pay</a></li>
-          <li><a href="trust-center.html">Data Governance &amp; Controls</a></li>
-          <li><a href="reporting.html">Management Reporting</a></li>
+          <li><a href="/order-to-cash">Order to Cash</a></li>
+          <li><a href="/record-to-report">Record to Report</a></li>
+          <li><a href="/procure-to-pay">Procure to Pay</a></li>
+          <li><a href="/trust-center">Data Governance &amp; Controls</a></li>
+          <li><a href="/reporting">Management Reporting</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <h4>CAPABILITIES</h4>
         <ul>
-          <li><a href="integrations.html">Integrations</a></li>
-          <li><a href="security.html">Security</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="platform.html">Platform Overview</a></li>
+          <li><a href="/integrations">Integrations</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/platform">Platform Overview</a></li>
         </ul>
       </div>
     </div>
@@ -125,27 +125,27 @@
       <div class="mega-col">
         <h4>BY USE CASE</h4>
         <ul>
-          <li><a href="data-ingestion.html">Data Ingestion</a></li>
-          <li><a href="recon-automation.html">Recon Automation</a></li>
-          <li><a href="continuous-close.html">Continuous Close</a></li>
-          <li><a href="automated-workflows.html">Automated Workflows</a></li>
-          <li><a href="controls-and-audit-trails.html">Controls &amp; Audit Trails</a></li>
-          <li><a href="accelerate-reporting-cycles.html">Accelerate Reporting</a></li>
+          <li><a href="/data-ingestion">Data Ingestion</a></li>
+          <li><a href="/recon-automation">Recon Automation</a></li>
+          <li><a href="/continuous-close">Continuous Close</a></li>
+          <li><a href="/automated-workflows">Automated Workflows</a></li>
+          <li><a href="/controls-and-audit-trails">Controls &amp; Audit Trails</a></li>
+          <li><a href="/accelerate-reporting-cycles">Accelerate Reporting</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <h4>BY INDUSTRY</h4>
         <ul>
-          <li><a href="industry-saas.html">SaaS &amp; Subscription</a></li>
-          <li><a href="industry-enterprise.html">Enterprise Finance</a></li>
-          <li><a href="industry-startup.html">VC-Backed Startups</a></li>
+          <li><a href="/industry-saas">SaaS &amp; Subscription</a></li>
+          <li><a href="/industry-enterprise">Enterprise Finance</a></li>
+          <li><a href="/industry-startup">VC-Backed Startups</a></li>
         </ul>
         <div style="margin-top:32px;">
           <h4>COMPANY</h4>
           <ul>
-            <li><a href="about.html">About revzio</a></li>
-            <li><a href="customers.html">Customer Stories</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="/about">About revzio</a></li>
+            <li><a href="/customers">Customer Stories</a></li>
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
       </div>
@@ -168,7 +168,8 @@
 
   function setActiveNav(nav) {
     const path = window.location.pathname.replace(/\/+$/, '');
-    const file = (path.split('/').pop() || 'index.html') || 'index.html';
+    const segment = path.split('/').filter(Boolean).pop() || '';
+    const page = segment.replace(/\.html$/, '');
     const onBlog = /\/blog\//.test(window.location.pathname);
 
     function setActive(el) {
@@ -182,11 +183,11 @@
     const solutionsTrigger = nav.querySelector('.nav-mega-trigger[data-mega="solutions"]');
     const orionTrigger = nav.querySelector('.nav-mega-trigger[data-mega="orion"]');
 
-    if (file === 'pricing.html') setActive(pricing);
-    else if (/^(platform\.html|integrations\.html|security\.html|how-it-works\.html|order-to-cash\.html|record-to-report\.html|procure-to-pay\.html|reporting\.html|trust-center\.html)$/.test(file)) setActive(platformTrigger);
-    else if (/^(solutions\.html|data-ingestion\.html|recon-automation\.html|continuous-close\.html|automated-workflows\.html|controls-and-audit-trails\.html|accelerate-reporting-cycles\.html|industry-saas\.html|industry-enterprise\.html|industry-startup\.html)$/.test(file)) setActive(solutionsTrigger);
-    else if (/^(agent-suite\.html|agent-reconciliation\.html|agent-journal-entry\.html|agent-ap\.html|agent-ar\.html|agent-accruals\.html|agent-revenue-validation\.html|agent-close-management\.html)$/.test(file)) setActive(orionTrigger);
-    else if (onBlog || file === 'blog.html' || file === 'resources.html' || file === 'guides.html' || file === 'glossary.html' || file === 'customers.html' || file === 'about.html') {
+    if (page === 'pricing') setActive(pricing);
+    else if (/^(platform|integrations|security|how-it-works|order-to-cash|record-to-report|procure-to-pay|reporting|trust-center)$/.test(page)) setActive(platformTrigger);
+    else if (/^(solutions|data-ingestion|recon-automation|continuous-close|automated-workflows|controls-and-audit-trails|accelerate-reporting-cycles|industry-saas|industry-enterprise|industry-startup)$/.test(page)) setActive(solutionsTrigger);
+    else if (/^(agent-suite|agent-reconciliation|agent-journal-entry|agent-ap|agent-ar|agent-accruals|agent-revenue-validation|agent-close-management)$/.test(page)) setActive(orionTrigger);
+    else if (onBlog || page === 'blog' || page === 'resources' || page === 'guides' || page === 'glossary' || page === 'customers' || page === 'about') {
       // Keep it simple: resources grouping is still discoverable via mega menu; we don't highlight it as a top-level item.
     }
   }
