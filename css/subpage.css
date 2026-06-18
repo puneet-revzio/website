@@ -786,7 +786,7 @@ body {
 }
 
 /* Section backgrounds */
-section {
+section:not(.cta-section):not(.cta) {
   background: transparent;
 }
 

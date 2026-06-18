@@ -31,7 +31,8 @@ section.cta h2 {
 
 .cta-section h2 em,
 section.cta h2 em {
-  color: var(--gold) !important;
+  color: #c49a4b !important;
+  color: var(--gold, #c49a4b) !important;
   font-style: italic;
 }
 
@@ -54,7 +55,9 @@ section.cta .hero-ctas {
 }
 
 .cta-section .btn-primary,
-section.cta .btn-primary {
+section.cta .btn-primary,
+.cta-section a.btn-primary,
+section.cta a.btn-primary {
   background: #fafaf7 !important;
   color: #0a0f0c !important;
   border: none !important;

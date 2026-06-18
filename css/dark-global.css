@@ -1,6 +1,5 @@
 /* revzio — Global dark theme override
    Must load AFTER subpage.css on every page */
-@import url('cta-band.css');
 
 body {
   background: #0a1a2f !important;
@@ -8,11 +7,15 @@ body {
 }
 
 /* Subtle banding across sections (homepage-like mix) */
-section {
+section:not(.cta-section):not(.cta) {
   background: rgba(255,255,255,0.015);
 }
 section + section {
   border-top: 1px solid rgba(255,255,255,0.06);
+}
+section.cta-section,
+section.cta {
+  border-top: none !important;
 }
 
 .bg-alt { background: rgba(255,255,255,0.04) !important; }
