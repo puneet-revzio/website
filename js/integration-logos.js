@@ -46,8 +46,6 @@
     'coin dcx': 'coindcx',
     pixis: 'pixis',
     'pixis.ai': 'pixis',
-    limechat: 'limechat',
-    'lime chat': 'limechat',
     faclon: 'faclon',
     'faclon labs': 'faclon',
     'falcon labs': 'faclon',
