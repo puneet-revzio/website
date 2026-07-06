@@ -195,6 +195,18 @@ h1.hero-title em {
   transform: translateY(-1px);
 }
 
+.hero .btn-secondary {
+  background: transparent;
+  color: #fafaf7;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hero .btn-secondary:hover {
+  border-color: #fafaf7;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
 .btn-ghost {
   background: transparent;
   color: rgba(250, 250, 247, 0.9);
