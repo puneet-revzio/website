@@ -101,8 +101,6 @@ strong[style*="color:var(--ink)"] {
 .process-copy,
 .compare-row,
 .compare-row strong,
-.agent-pill,
-.role-tag,
 .vquote,
 .story-logo,
 .story-quote,
@@ -132,17 +130,70 @@ strong[style*="color:var(--ink)"] {
   color: var(--hero-mint, #7fcfaa) !important;
 }
 
+/* Agent link pills — dark mint chips (never light fill + light text) */
+.agent-banner {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+.agent-banner-copy {
+  color: rgba(250, 250, 247, 0.72) !important;
+}
+.agent-pill {
+  background: rgba(127, 207, 170, 0.12) !important;
+  border: 1px solid rgba(127, 207, 170, 0.38) !important;
+  color: #fafaf7 !important;
+}
+.agent-pill:hover {
+  background: rgba(127, 207, 170, 0.2) !important;
+  border-color: rgba(127, 207, 170, 0.55) !important;
+  color: #fafaf7 !important;
+}
+.agent-prepared-badge {
+  background: rgba(10, 26, 47, 0.95) !important;
+  border: 1px solid rgba(127, 207, 170, 0.35) !important;
+  color: #fafaf7 !important;
+}
+.role-tag {
+  background: rgba(127, 207, 170, 0.14) !important;
+  color: var(--hero-mint, #7fcfaa) !important;
+}
+a.role-tag {
+  border: 1px solid rgba(127, 207, 170, 0.28);
+}
+
+/* Secondary buttons on dark pages (outside CTA/hero white pills) */
+.btn-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(250, 250, 247, 0.35) !important;
+  color: #fafaf7 !important;
+}
+.btn-secondary:hover {
+  border-color: rgba(127, 207, 170, 0.55) !important;
+  color: #fafaf7 !important;
+}
+nav .btn-primary,
+.hero .btn-primary,
+.cta .btn-primary,
+.cta-section .btn-primary {
+  color: #0a0f0c !important;
+}
+
 /* Solution tabs / panels (Ingest · Consolidate · Govern · Insights) */
-.solution-tabs {
+.solution-tabs,
+.tabs {
   background: rgba(255,255,255,0.04) !important;
   border-color: rgba(255,255,255,0.10) !important;
 }
-.solution-tab { color: rgba(250,250,247,0.70) !important; }
-.solution-tab:hover { color: #fafaf7 !important; }
-.solution-tab.is-active {
+.solution-tab,
+.tab { color: rgba(250,250,247,0.70) !important; }
+.solution-tab:hover,
+.tab:hover { color: #fafaf7 !important; }
+.solution-tab.is-active,
+.tab.is-active {
   background: rgba(255,255,255,0.08) !important;
   border-color: rgba(255,255,255,0.14) !important;
   color: #fafaf7 !important;
+  box-shadow: none !important;
 }
 
 .solution-panel,
