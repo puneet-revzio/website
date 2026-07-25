@@ -87,15 +87,15 @@
 
 @media (min-width: 900px) {
   .agents-rail::before {
-    left: 47px;
+    left: calc(52px + 28px + 36px);
   }
 }
 
 .agent-row {
   position: relative;
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 20px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 18px;
   align-items: start;
   padding: 28px 0;
   scroll-margin-top: 100px;
@@ -109,41 +109,41 @@
 
 @media (min-width: 900px) {
   .agent-row {
-    grid-template-columns: 96px 88px minmax(0, 1fr);
-    gap: 28px 36px;
-    padding: 36px 24px 36px 0;
-    border-radius: 20px;
+    grid-template-columns: 52px 72px minmax(0, 640px);
+    column-gap: 28px;
+    padding: 32px 20px;
+    border-radius: 16px;
     border-bottom: none;
   }
 
   .agent-row + .agent-row {
-    margin-top: 8px;
+    margin-top: 4px;
   }
 
   .agent-row:hover {
     background: rgba(255, 255, 255, 0.03);
   }
-
-  .agent-row:nth-child(even) {
-    padding-left: 48px;
-  }
 }
 
 .agent-row__index {
   display: none;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--hero-mint, #7FCFAA);
-  padding-top: 22px;
-  opacity: 0.85;
+  opacity: 0.9;
+  height: 72px;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 @media (min-width: 900px) {
   .agent-row__index {
-    display: block;
-    text-align: right;
+    display: flex;
   }
 }
 
@@ -196,16 +196,13 @@
 
 .agent-row__body {
   min-width: 0;
-  padding-top: 4px;
+  /* Align first title line with the vertical center of the icon */
+  padding-top: 14px;
 }
 
 @media (min-width: 900px) {
   .agent-row__body {
-    display: grid;
-    grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
-    gap: 24px 40px;
-    align-items: start;
-    padding-top: 10px;
+    padding-top: 20px;
   }
 }
 
@@ -216,21 +213,15 @@
   letter-spacing: -0.015em;
   color: #FAFAF7 !important;
   margin: 0 0 10px;
-  line-height: 1.2;
-}
-
-@media (min-width: 900px) {
-  .agent-row h3 {
-    margin: 0;
-  }
+  line-height: 1.25;
 }
 
 .agent-row p {
   font-size: 15.5px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: rgba(250, 250, 247, 0.64) !important;
   margin: 0;
-  max-width: 560px;
+  max-width: 58ch;
 }
 
 .agent-row:hover p {
