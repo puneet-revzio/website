@@ -1015,6 +1015,40 @@ footer {
   color: rgba(250, 250, 247, 0.35);
 }
 
+/* Ghost CTAs + leftover light-theme ink on dark pages */
+.btn-ghost {
+  color: rgba(250, 250, 247, 0.88) !important;
+}
+.btn-ghost:hover {
+  color: #fafaf7 !important;
+}
+nav .btn-primary,
+.hero .btn-primary {
+  color: #0a0f0c !important;
+}
+.solution-kpi-label {
+  color: rgba(250, 250, 247, 0.65) !important;
+}
+.solution-kpi-label strong {
+  color: #fafaf7 !important;
+}
+[style*="color: var(--ink)"],
+[style*="color:var(--ink)"],
+[style*="color: #0a0f0c"],
+[style*="color:#0a0f0c"],
+[style*="color: #0A0F0C"],
+[style*="color:#0A0F0C"] {
+  color: #fafaf7 !important;
+}
+[style*="color: var(--ink-soft)"],
+[style*="color:var(--ink-soft)"] {
+  color: rgba(250, 250, 247, 0.68) !important;
+}
+[style*="color: var(--ink-muted)"],
+[style*="color:var(--ink-muted)"] {
+  color: rgba(250, 250, 247, 0.55) !important;
+}
+
 /* Scrolled nav theme stays dark */
 nav.scrolled {
   background: rgba(10, 26, 47, 0.95) !important;
