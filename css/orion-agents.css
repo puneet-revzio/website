@@ -1,0 +1,290 @@
+/* Orion Agents — single-page card grid + animated icon badges */
+
+.agents-page {
+  background: var(--bg-alt, #F4F7F5);
+  padding: 72px 0 100px;
+}
+
+.agents-page__intro {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.agents-page__intro .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent, #0F6B4E);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.agents-page__intro h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink, #0A0F0C);
+  margin: 0 0 14px;
+  max-width: none;
+}
+
+.agents-page__intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft, #4B5563);
+  margin: 0;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 960px) {
+  .agents-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .agents-grid { grid-template-columns: 1fr; }
+  .agents-page { padding: 56px 0 72px; }
+}
+
+.agent-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line, #E6EAED);
+  border-radius: 16px;
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scroll-margin-top: 96px;
+  box-shadow: 0 1px 2px rgba(10, 15, 12, 0.04), 0 8px 28px rgba(10, 15, 12, 0.06);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agent-card:hover {
+  border-color: rgba(15, 107, 78, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(10, 15, 12, 0.06), 0 20px 48px rgba(10, 15, 12, 0.08);
+}
+
+.agent-card h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink, #0A0F0C);
+  margin: 0;
+}
+
+.agent-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft, #4B5563);
+  margin: 0;
+}
+
+/* Icon badge */
+.agent-icon-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--accent-soft, #ECF7F2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agent-icon-badge svg {
+  width: 38px;
+  height: 38px;
+  overflow: visible;
+}
+
+/* Shared SVG strokes — Revzio ink + accent */
+.agent-icon-badge .s {
+  fill: none;
+  stroke: var(--ink, #0A0F0C);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.agent-icon-badge .a {
+  stroke: var(--accent, #0F6B4E);
+}
+
+.agent-icon-badge .af {
+  fill: var(--accent, #0F6B4E);
+  stroke: none;
+}
+
+.agent-icon-badge .soft {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-icon-badge svg * {
+    animation: none !important;
+  }
+}
+
+/* ---- Reconciliation ---- */
+.recon .dot {
+  animation: reconPulse 3s ease-in-out infinite;
+  transform-origin: center;
+}
+.recon .dot:nth-child(1) { animation-delay: 0s; }
+.recon .dot:nth-child(2) { animation-delay: 0.6s; }
+.recon .dot:nth-child(3) { animation-delay: 1.2s; }
+@keyframes reconPulse {
+  0%, 20%, 100% { opacity: 0; transform: scale(0.3); }
+  35%, 55% { opacity: 1; transform: scale(1); }
+  70% { opacity: 0; transform: scale(0.6); }
+}
+
+/* ---- Journal entry ---- */
+.je .line {
+  stroke-dasharray: 22;
+  animation: jeDraw 3s ease-in-out infinite;
+}
+.je .line1 { animation-delay: 0s; }
+.je .line2 { animation-delay: 0.3s; }
+.je .line3 { animation-delay: 0.6s; }
+@keyframes jeDraw {
+  0% { stroke-dashoffset: 22; }
+  30%, 80% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 22; }
+}
+.je .stamp {
+  animation: jeStamp 3s ease-in-out infinite;
+  transform-origin: 58px 58px;
+}
+@keyframes jeStamp {
+  0%, 60% { opacity: 0; transform: scale(0.4); }
+  75%, 90% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.4); }
+}
+
+/* ---- Accounts payable ---- */
+.ap .scan {
+  animation: apScan 2.8s ease-in-out infinite;
+}
+@keyframes apScan {
+  0% { transform: translateY(-16px); opacity: 0; }
+  10% { opacity: 1; }
+  45% { transform: translateY(16px); opacity: 1; }
+  55% { opacity: 0; }
+  100% { opacity: 0; transform: translateY(-16px); }
+}
+.ap .chk {
+  animation: apChk 2.8s ease-in-out infinite;
+  transform-origin: center;
+}
+.ap .chk1 { animation-delay: 1.4s; }
+.ap .chk2 { animation-delay: 1.65s; }
+.ap .chk3 { animation-delay: 1.9s; }
+@keyframes apChk {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  15%, 45% { opacity: 1; transform: scale(1); }
+  60% { opacity: 0.25; transform: scale(0.7); }
+}
+
+/* ---- Accounts receivable ---- */
+.ar .bar {
+  animation: arBar 2.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+.ar .bar1 { animation-delay: 0s; }
+.ar .bar2 { animation-delay: 0.25s; }
+.ar .bar3 { animation-delay: 0.5s; }
+@keyframes arBar {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.55); }
+}
+.ar .coin {
+  animation: arCoin 2.6s ease-in infinite;
+}
+@keyframes arCoin {
+  0% { transform: translateY(6px); opacity: 0; }
+  15% { opacity: 1; }
+  50% { transform: translateY(-14px); opacity: 0; }
+  100% { opacity: 0; transform: translateY(6px); }
+}
+
+/* ---- Accruals ---- */
+.acc .ring {
+  stroke-dasharray: 88;
+  stroke-dashoffset: 88;
+  animation: accRing 3.2s ease-in-out infinite;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+@keyframes accRing {
+  0% { stroke-dashoffset: 88; }
+  70%, 100% { stroke-dashoffset: 0; }
+}
+.acc .tick {
+  animation: accTick 3.2s steps(1) infinite;
+}
+@keyframes accTick {
+  0%, 60% { opacity: 0; }
+  70%, 100% { opacity: 1; }
+}
+
+/* ---- Revenue validation ---- */
+.rv .chk {
+  animation: rvChk 3s ease-in-out infinite;
+  transform-origin: center;
+}
+.rv .chk1 { animation-delay: 0s; }
+.rv .chk2 { animation-delay: 0.4s; }
+.rv .chk3 { animation-delay: 0.8s; }
+@keyframes rvChk {
+  0%, 10% { opacity: 0; transform: scale(0.5); }
+  25%, 75% { opacity: 1; transform: scale(1); }
+  90%, 100% { opacity: 0; transform: scale(0.5); }
+}
+.rv .badge {
+  animation: rvBadge 3s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes rvBadge {
+  0%, 80% { opacity: 0.3; transform: scale(0.85); }
+  90% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 0.3; transform: scale(0.85); }
+}
+
+/* ---- Close management ---- */
+.cm .link {
+  stroke-dasharray: 16;
+  animation: cmLink 3.2s ease-in-out infinite;
+}
+.cm .link1 { animation-delay: 0s; }
+.cm .link2 { animation-delay: 0.35s; }
+.cm .link3 { animation-delay: 0.7s; }
+@keyframes cmLink {
+  0% { stroke-dashoffset: 16; }
+  25%, 90% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 16; }
+}
+.cm .node {
+  animation: cmNode 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+.cm .node1 { animation-delay: 0s; }
+.cm .node2 { animation-delay: 0.35s; }
+.cm .node3 { animation-delay: 0.7s; }
+.cm .node4 { animation-delay: 1.05s; }
+@keyframes cmNode {
+  0%, 100% { fill: var(--accent-soft, #ECF7F2); }
+  50% { fill: var(--accent, #0F6B4E); }
+}

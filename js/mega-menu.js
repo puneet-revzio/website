@@ -19,13 +19,13 @@
       <div class="mega-col">
         <h4>Orion Agents</h4>
         <ul>
-          <li><a href="/agent-reconciliation">Reconciliation Agent</a></li>
-          <li><a href="/agent-journal-entry">Journal Entry Agent</a></li>
-          <li><a href="/agent-ap">AP Agent</a></li>
-          <li><a href="/agent-ar">AR Agent</a></li>
-          <li><a href="/agent-accruals">Accruals Agent</a></li>
-          <li><a href="/agent-revenue-validation">Revenue Validation Agent</a></li>
-          <li><a href="/agent-close-management">Close Management Agent</a></li>
+          <li><a href="/agent-suite#reconciliation">Reconciliation Agent</a></li>
+          <li><a href="/agent-suite#journal-entry">Journal Entry Agent</a></li>
+          <li><a href="/agent-suite#accounts-payable">AP Agent</a></li>
+          <li><a href="/agent-suite#accounts-receivable">AR Agent</a></li>
+          <li><a href="/agent-suite#accruals">Accruals Agent</a></li>
+          <li><a href="/agent-suite#revenue-validation">Revenue Validation Agent</a></li>
+          <li><a href="/agent-suite#close-management">Close Management Agent</a></li>
         </ul>
       </div>
 

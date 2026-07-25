@@ -6,6 +6,41 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/agent-reconciliation",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-journal-entry",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-ap",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-ar",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-accruals",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-revenue-validation",
+      "destination": "/agent-suite",
+      "permanent": true
+    },
+    {
+      "source": "/agent-close-management",
+      "destination": "/agent-suite",
+      "permanent": true
     }
   ]
 }

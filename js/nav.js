@@ -71,13 +71,13 @@
       <div class="mega-col">
         <h4>Orion Agents</h4>
         <ul>
-          <li><a href="/agent-reconciliation">Reconciliation Agent</a></li>
-          <li><a href="/agent-journal-entry">Journal Entry Agent</a></li>
-          <li><a href="/agent-ap">AP Agent</a></li>
-          <li><a href="/agent-ar">AR Agent</a></li>
-          <li><a href="/agent-accruals">Accruals Agent</a></li>
-          <li><a href="/agent-revenue-validation">Revenue Validation Agent</a></li>
-          <li><a href="/agent-close-management">Close Management Agent</a></li>
+          <li><a href="/agent-suite#reconciliation">Reconciliation Agent</a></li>
+          <li><a href="/agent-suite#journal-entry">Journal Entry Agent</a></li>
+          <li><a href="/agent-suite#accounts-payable">AP Agent</a></li>
+          <li><a href="/agent-suite#accounts-receivable">AR Agent</a></li>
+          <li><a href="/agent-suite#accruals">Accruals Agent</a></li>
+          <li><a href="/agent-suite#revenue-validation">Revenue Validation Agent</a></li>
+          <li><a href="/agent-suite#close-management">Close Management Agent</a></li>
         </ul>
       </div>
 
@@ -186,7 +186,7 @@
     if (page === 'pricing') setActive(pricing);
     else if (/^(platform|integrations|security|how-it-works|order-to-cash|record-to-report|procure-to-pay|reporting|trust-center)$/.test(page)) setActive(platformTrigger);
     else if (/^(solutions|data-ingestion|recon-automation|continuous-close|automated-workflows|controls-and-audit-trails|accelerate-reporting-cycles|industry-saas|industry-enterprise|industry-startup)$/.test(page)) setActive(solutionsTrigger);
-    else if (/^(agent-suite|agent-reconciliation|agent-journal-entry|agent-ap|agent-ar|agent-accruals|agent-revenue-validation|agent-close-management)$/.test(page)) setActive(orionTrigger);
+    else if (/^agent-suite$/.test(page)) setActive(orionTrigger);
     else if (onBlog || page === 'blog' || page === 'resources' || page === 'guides' || page === 'glossary' || page === 'customers' || page === 'about') {
       // Keep it simple: resources grouping is still discoverable via mega menu; we don't highlight it as a top-level item.
     }
