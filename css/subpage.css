@@ -845,8 +845,8 @@ section:not(.cta-section):not(.cta) {
 }
 
 /* Headings */
-h2, h3 {
-  color: #fafaf7;
+h1, h2, h3 {
+  color: #fafaf7 !important;
 }
 
 h4, h5, h6 {

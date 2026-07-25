@@ -45,7 +45,8 @@
   font-size: clamp(30px, 4.2vw, 44px);
   line-height: 1.12;
   letter-spacing: -0.025em;
-  color: #FAFAF7 !important;
+  color: #fafaf7 !important;
+  -webkit-text-fill-color: #fafaf7 !important;
   margin: 0 0 10px !important;
   max-width: none;
 }
