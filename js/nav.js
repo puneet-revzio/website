@@ -38,7 +38,7 @@
   <div class="container nav-inner">
     ${logoMarkup(true)}
     <div class="nav-links">
-      <button type="button" class="nav-mega-trigger" data-mega="orion" aria-expanded="false">Orion Agents</button>
+      <a href="/agent-suite" data-nav-link="orion">Orion Agents</a>
       <button type="button" class="nav-mega-trigger" data-mega="platform" aria-expanded="false">Platform</button>
       <button type="button" class="nav-mega-trigger" data-mega="solutions" aria-expanded="false">Solutions</button>
       <a href="/pricing" data-nav-link="pricing">Pricing</a>
@@ -53,45 +53,6 @@
     // Mega menus injected adjacent to nav (so they're fixed-position siblings).
     const MEGA = `
 <button type="button" class="mega-backdrop" id="mega-backdrop" aria-label="Close menu"></button>
-
-<div class="mega-panel mega-panel--dark" id="mega-orion" role="dialog" aria-label="Orion Agents menu" aria-hidden="true">
-  <div class="container">
-    <div class="mega-solutions-grid">
-      <div class="mega-col">
-        <ul>
-          <li>
-            <a href="/agent-suite">Orion agent suite</a>
-          </li>
-          <li style="margin-top: 18px;">
-            <a href="/how-it-works">How Orion Works</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="mega-col">
-        <h4>Orion Agents</h4>
-        <ul>
-          <li><a href="/agent-suite#reconciliation">Reconciliation Agent</a></li>
-          <li><a href="/agent-suite#journal-entry">Journal Entry Agent</a></li>
-          <li><a href="/agent-suite#accounts-payable">AP Agent</a></li>
-          <li><a href="/agent-suite#accounts-receivable">AR Agent</a></li>
-          <li><a href="/agent-suite#accruals">Accruals Agent</a></li>
-          <li><a href="/agent-suite#revenue-validation">Revenue Validation Agent</a></li>
-          <li><a href="/agent-suite#close-management">Close Management Agent</a></li>
-        </ul>
-      </div>
-
-      <aside aria-label="Featured">
-        <div class="mega-news-card" style="border-color: rgba(127, 207, 170, 0.32);">
-          <div class="mega-news-eyebrow">NEW</div>
-          <div class="mega-news-title">Meet Orion agent suite</div>
-          <div class="mega-news-sub">Seven agents. Every finance workflow. One close.</div>
-          <a class="mega-news-link" href="/agent-suite">Explore <span aria-hidden="true">→</span></a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
 
 <div class="mega-panel mega-panel--dark" id="mega-platform" role="dialog" aria-label="Platform menu" aria-hidden="true">
   <div class="container">
@@ -179,14 +140,14 @@
     }
 
     const pricing = nav.querySelector('[data-nav-link="pricing"]');
+    const orion = nav.querySelector('[data-nav-link="orion"]');
     const platformTrigger = nav.querySelector('.nav-mega-trigger[data-mega="platform"]');
     const solutionsTrigger = nav.querySelector('.nav-mega-trigger[data-mega="solutions"]');
-    const orionTrigger = nav.querySelector('.nav-mega-trigger[data-mega="orion"]');
 
     if (page === 'pricing') setActive(pricing);
     else if (/^(platform|integrations|security|how-it-works|order-to-cash|record-to-report|procure-to-pay|reporting|trust-center)$/.test(page)) setActive(platformTrigger);
     else if (/^(solutions|data-ingestion|recon-automation|continuous-close|automated-workflows|controls-and-audit-trails|accelerate-reporting-cycles|industry-saas|industry-enterprise|industry-startup)$/.test(page)) setActive(solutionsTrigger);
-    else if (/^agent-suite$/.test(page)) setActive(orionTrigger);
+    else if (/^agent-suite$/.test(page)) setActive(orion);
     else if (onBlog || page === 'blog' || page === 'resources' || page === 'guides' || page === 'glossary' || page === 'customers' || page === 'about') {
       // Keep it simple: resources grouping is still discoverable via mega menu; we don't highlight it as a top-level item.
     }
@@ -195,7 +156,6 @@
   function initMegaBehavior(nav) {
     const backdrop = document.getElementById('mega-backdrop');
     const panels = {
-      orion: document.getElementById('mega-orion'),
       platform: document.getElementById('mega-platform'),
       solutions: document.getElementById('mega-solutions'),
     };

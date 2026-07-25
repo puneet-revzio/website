@@ -2,45 +2,6 @@
   const MEGA_HTML = `
 <button type="button" class="mega-backdrop" id="mega-backdrop" aria-label="Close menu"></button>
 
-<div class="mega-panel mega-panel--dark" id="mega-orion" role="dialog" aria-label="Orion Agents menu" aria-hidden="true">
-  <div class="container">
-    <div class="mega-solutions-grid">
-      <div class="mega-col">
-        <ul>
-          <li>
-            <a href="/agent-suite">Orion agent suite</a>
-          </li>
-          <li style="margin-top: 18px;">
-            <a href="/how-it-works">How Orion Works</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="mega-col">
-        <h4>Orion Agents</h4>
-        <ul>
-          <li><a href="/agent-suite#reconciliation">Reconciliation Agent</a></li>
-          <li><a href="/agent-suite#journal-entry">Journal Entry Agent</a></li>
-          <li><a href="/agent-suite#accounts-payable">AP Agent</a></li>
-          <li><a href="/agent-suite#accounts-receivable">AR Agent</a></li>
-          <li><a href="/agent-suite#accruals">Accruals Agent</a></li>
-          <li><a href="/agent-suite#revenue-validation">Revenue Validation Agent</a></li>
-          <li><a href="/agent-suite#close-management">Close Management Agent</a></li>
-        </ul>
-      </div>
-
-      <aside aria-label="Featured">
-        <div class="mega-news-card">
-          <div class="mega-news-eyebrow">NEW</div>
-          <div class="mega-news-title">Meet Orion agent suite</div>
-          <div class="mega-news-sub">Seven purpose-built agents for finance close. Human-in-the-loop. Audit-ready from day one.</div>
-          <a class="mega-news-link" href="/agent-suite">Explore Orion <span aria-hidden="true">→</span></a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
-
 <div class="mega-panel mega-panel--dark" id="mega-platform" role="dialog" aria-label="Platform menu" aria-hidden="true">
   <div class="container">
     <div class="mega-platform-grid">
@@ -269,7 +230,6 @@
 
     const backdrop = document.getElementById('mega-backdrop');
     const panels = {
-      orion: document.getElementById('mega-orion'),
       platform: document.getElementById('mega-platform'),
       solutions: document.getElementById('mega-solutions'),
       resources: document.getElementById('mega-resources'),
