@@ -3,7 +3,7 @@
 .agents-page {
   position: relative;
   background: transparent;
-  padding: 48px 0 88px;
+  padding: 56px 0 88px;
   overflow: hidden;
 }
 
@@ -39,7 +39,7 @@
   margin-bottom: 10px;
 }
 
-.agents-page__intro h2 {
+.agents-page__intro h1 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 400;
   font-size: clamp(30px, 4.2vw, 44px);
