@@ -27,16 +27,8 @@
   margin-bottom: 40px;
 }
 
-.agents-page__intro .section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--hero-mint, #7FCFAA) !important;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+.agents-page__intro .eyebrow {
+  margin-bottom: 14px;
 }
 
 .agents-page__intro h1 {
