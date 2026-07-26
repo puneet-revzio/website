@@ -18,11 +18,18 @@
   object-fit: contain;
 }
 
+.integration-grid .int-logo {
+  background: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #0a0f0c !important;
+}
+
 .integration-grid .int-logo.int-logo--brand {
   min-height: 56px;
   padding: 14px 16px;
   background: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: transparent !important;
 }
 
 .integration-grid .int-logo.int-logo--brand .int-logo__img {
