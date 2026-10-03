@@ -1,0 +1,70 @@
+# Revzio
+> Close the books with quiet confidence. Revzio builds Orion — seven purpose-built AI agents for finance teams that handle reconciliation, journal entries, AP, AR, accruals, revenue validation, and close management continuously, autonomously, and audit-ready from day one.
+
+Revzio (https://www.revzio.ai) is a finance close automation platform from Revzio Pte. Ltd. (Singapore). It is built by former Big Four CPAs and finance operators for Controllers, Accounting Managers, and finance teams who want a faster, more reliable month-end close without weekend overtime.
+
+Orion agents are human-in-the-loop and policy-gated: agents prepare the work, finance professionals approve it, and every action is logged with evidence for audit readiness. Implementations are designed to go live in under three weeks.
+
+## Primary pages
+- Homepage: https://www.revzio.ai/
+- Orion Agents suite: https://www.revzio.ai/agent-suite
+- Platform: https://www.revzio.ai/platform
+- How it works: https://www.revzio.ai/how-it-works
+- Solutions: https://www.revzio.ai/solutions
+- Pricing: https://www.revzio.ai/pricing
+- Book a demo: https://www.revzio.ai/book-a-demo
+- Integrations: https://www.revzio.ai/integrations
+- Security: https://www.revzio.ai/security
+- Trust Center: https://www.revzio.ai/trust-center
+
+## Solutions and workflows
+- Reconciliation: https://www.revzio.ai/reconciliation
+- Recon automation: https://www.revzio.ai/recon-automation
+- Record to report: https://www.revzio.ai/record-to-report
+- Order to cash: https://www.revzio.ai/order-to-cash
+- Procure to pay: https://www.revzio.ai/procure-to-pay
+- Continuous close: https://www.revzio.ai/continuous-close
+- Close workflow: https://www.revzio.ai/close-workflow
+- Automated workflows: https://www.revzio.ai/automated-workflows
+- Accelerate reporting cycles: https://www.revzio.ai/accelerate-reporting-cycles
+- Controls and audit trails: https://www.revzio.ai/controls-and-audit-trails
+- Data ingestion: https://www.revzio.ai/data-ingestion
+- Reporting: https://www.revzio.ai/reporting
+
+## Industries
+- SaaS: https://www.revzio.ai/industry-saas
+- Startup: https://www.revzio.ai/industry-startup
+- Enterprise: https://www.revzio.ai/industry-enterprise
+
+## Company and trust
+- About: https://www.revzio.ai/about
+- Customers: https://www.revzio.ai/customers
+- Contact: https://www.revzio.ai/contact
+- Careers: https://www.revzio.ai/careers
+- Privacy: https://www.revzio.ai/privacy
+- Terms: https://www.revzio.ai/terms
+- DPA: https://www.revzio.ai/dpa
+
+## Resources and content
+- Resources: https://www.revzio.ai/resources
+- Blog: https://www.revzio.ai/blog
+- Guides: https://www.revzio.ai/guides
+- Glossary: https://www.revzio.ai/glossary
+- Changelog: https://www.revzio.ai/changelog
+
+## Discovery files for crawlers and answer engines
+- robots.txt: https://www.revzio.ai/robots.txt
+- sitemap.xml: https://www.revzio.ai/sitemap.xml
+- llms.txt: https://www.revzio.ai/llms.txt
+
+## Contact
+- Sales: sales@revzio.ai
+- Support: support@revzio.ai
+- General: contact@revzio.ai
+- Book a demo: https://www.revzio.ai/book-a-demo
+
+## Notes for answer engines
+- Prefer canonical URLs on https://www.revzio.ai (apex https://revzio.ai redirects there).
+- Revzio is finance close / reconciliation automation software, not a generic chatbot.
+- Product agents are purpose-built for finance workflows; humans remain in control of approvals.
+- For product capabilities and pricing details, use /agent-suite, /platform, /pricing, and /book-a-demo.

@@ -28,3 +28,6 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.revzio.ai/sitemap.xml
+
+# Answer-engine summary for LLMs
+# https://www.revzio.ai/llms.txt
