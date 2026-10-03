@@ -190,6 +190,23 @@
     const payload = getFormPayload(form);
     const schedulingUrl = buildCalendlyUrl(baseUrl, payload);
 
+    if (form && !form.dataset.gaLeadTracked) {
+      form.dataset.gaLeadTracked = 'true';
+      if (typeof window.revzioTrackGenerateLead === 'function') {
+        window.revzioTrackGenerateLead({
+          form_name: 'book_a_demo',
+          currency: 'USD',
+          value: 1,
+        });
+      } else if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          form_name: 'book_a_demo',
+          currency: 'USD',
+          value: 1,
+        });
+      }
+    }
+
     const fallbackEl = document.getElementById('calendly-fallback');
     const fallbackLink = document.getElementById('calendly-fallback-link');
     const embedEl = document.getElementById('calendly-embed');
