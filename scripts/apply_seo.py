@@ -252,11 +252,21 @@ MONTHS = {
 }
 
 
-def validate(path: str, title: str, desc: str) -> None:
-    if len(title) > 60:
-        raise SystemExit(f"TITLE too long ({len(title)}): {path!r} -> {title!r}")
-    if not title.endswith("| Revzio"):
-        raise SystemExit(f"TITLE must end with | Revzio: {path!r}")
+def validate(path: str, title: str, desc: str, *, blog: bool = False) -> None:
+    if blog:
+        if "…" in title or "..." in title:
+            raise SystemExit(f"TITLE truncated: {path!r} -> {title!r}")
+        if len(title) > 65 and title.endswith("| Revzio"):
+            raise SystemExit(f"TITLE over 65 with suffix: {path!r} -> {title!r}")
+        if len(title) <= 65 and not title.endswith("| Revzio"):
+            # Prefer suffix when it fits
+            if len(f"{title} | Revzio") <= 65:
+                raise SystemExit(f"TITLE missing suffix though it fits: {path!r}")
+    else:
+        if len(title) > 60:
+            raise SystemExit(f"TITLE too long ({len(title)}): {path!r} -> {title!r}")
+        if not title.endswith("| Revzio"):
+            raise SystemExit(f"TITLE must end with | Revzio: {path!r}")
     if "revzio" in title.replace("Revzio", ""):
         raise SystemExit(f"TITLE has lowercase brand: {path!r}")
     if not (140 <= len(desc) <= 160):
@@ -437,17 +447,12 @@ def parse_blog_meta(html: str) -> tuple[str, str, str]:
 
 
 def blog_title(headline: str) -> str:
-    # Prefer full headline if fits, else truncate before | Revzio
-    suffix = " | Revzio"
-    max_core = 60 - len(suffix)
+    """Full headline + ' | Revzio'. If over ~65 chars, drop the suffix instead of truncating."""
     core = re.sub(r"\brevzio\b", "Revzio", headline, flags=re.I)
-    if len(core) > max_core:
-        core = core[: max_core - 1].rstrip(" ,:-") + "…"
-    title = f"{core}{suffix}"
-    if len(title) > 60:
-        core = core[: max_core - 1].rstrip(" ,:-") + "…"
-        title = f"{core}{suffix}"
-    return title
+    with_suffix = f"{core} | Revzio"
+    if len(with_suffix) <= 65:
+        return with_suffix
+    return core
 
 
 def fit_desc(text: str) -> str:
@@ -510,7 +515,7 @@ def process_blog_posts() -> list[str]:
             if len(desc) < 140:
                 desc = fit_desc(desc + " Practical guidance for controllers and CFOs using Revzio.")
             desc = fit_desc(desc)
-        validate(path, title, desc)
+        validate(path, title, desc, blog=True)
         url = canonical_url(path)
         block = seo_block(
             title=title,
