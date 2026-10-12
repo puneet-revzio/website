@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/js/analytics.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Setup Reconciliation Agent Guide | Revzio</title>
+<meta name="description" content="Set up Revzio’s Reconciliation Agent in under an hour — connect bank feeds, configure match rules, and run your first automated reconciliation with audit trail.">
+<link rel="canonical" href="https://www.revzio.ai/guides/setup-reconciliation-agent">
+<meta property="og:title" content="Setup Reconciliation Agent Guide | Revzio">
+<meta property="og:description" content="Set up Revzio’s Reconciliation Agent in under an hour — connect bank feeds, configure match rules, and run your first automated reconciliation with audit trail.">
+<meta property="og:url" content="https://www.revzio.ai/guides/setup-reconciliation-agent">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.revzio.ai/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Setup Reconciliation Agent Guide | Revzio">
+<meta name="twitter:description" content="Set up Revzio’s Reconciliation Agent in under an hour — connect bank feeds, configure match rules, and run your first automated reconciliation with audit trail.">
+<meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.revzio.ai/guides"},{"@type":"ListItem","position":3,"name":"Reconciliation setup","item":"https://www.revzio.ai/guides/setup-reconciliation-agent"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../css/brand.css">
+<link rel="stylesheet" href="../css/subpage.css">
+<link rel="stylesheet" href="../css/mega-menu.css">
+<link rel="stylesheet" href="../css/nav-theme.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/dark-global.css">
+<link rel="stylesheet" href="../css/cta-band.css">
+<style>
+  .article-hero {
+    padding: 120px 0 56px;
+    background: var(--hero-bg);
+    background-image:
+      radial-gradient(ellipse at 12% -8%, rgba(90, 150, 210, 0.18), transparent 55%),
+      radial-gradient(ellipse at 88% 12%, rgba(127, 207, 170, 0.12), transparent 52%),
+      linear-gradient(180deg, var(--hero-bg) 70%, var(--hero-deep) 100%);
+  }
+  .article-meta { color: rgba(250,250,247,0.55); font-size: 13.5px; margin-top: 10px; }
+  .tag-pill {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
+    border-radius: 999px; border: 1px solid rgba(127,207,170,0.22);
+    background: rgba(127,207,170,0.12); color: #7fcfaa; font-weight: 800;
+    letter-spacing: 0.10em; text-transform: uppercase; font-size: 12px;
+    width: fit-content; margin-bottom: 18px;
+  }
+  .prose { max-width: 860px; margin: 0 auto; }
+  .prose p { margin: 14px 0; }
+  .prose h2 { margin-top: 34px; }
+  .prose ul { margin: 12px 0 12px 1.2em; }
+  .prose li { margin: 6px 0; }
+  .prose a { color: var(--accent); }
+  .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
+  .backlink:hover { color: #fafaf7; }
+  .related-box {
+    margin: 36px 0 8px; padding: 20px 22px; border-radius: 16px;
+    border: 1px solid rgba(15,107,78,0.18); background: rgba(15,107,78,0.04);
+  }
+  .related-box h3 { margin: 0 0 10px; font-size: 16px; }
+  .related-box ul { margin: 0; padding-left: 1.1em; }
+  .related-box li { margin: 6px 0; }
+</style>
+</head>
+<body>
+<nav></nav>
+
+<header class="article-hero" data-nav-theme="dark">
+  <div class="container">
+    <a class="backlink reveal" href="/guides">← All guides</a>
+    <div class="tag-pill reveal" style="margin-top: 18px;">GETTING STARTED</div>
+    <h1 class="hero-title reveal" style="max-width: 980px;">Setting up your first Reconciliation Agent</h1>
+    <div class="article-meta reveal">Revzio Editorial · Guide · 8–12 min read</div>
+  </div>
+</header>
+<section class="bg-alt">
+  <div class="container">
+    <article class="prose reveal">
+
+      <p>This guide walks a controller or finance ops lead through the first productive hour with Orion’s <a href="/agent-suite-reconciliation">Reconciliation Agent</a>. By the end you will have sources connected, match policy set, and a first continuous run producing exceptions you can review in product.</p>
+      <h2>Before you start</h2>
+      <p>Have read access (or a service user) for at least one bank or processor feed and your ERP or subledger. Decide which entities and accounts are in scope for week one — start narrow (cash and one billing processor) so exception volume stays manageable while you tune rules.</p>
+      <ul>
+        <li>Confirm who can approve overrides and who owns unmatched items.</li>
+        <li>List known timing differences (payout delays, FX, batch settlement) so they become policy, not noise.</li>
+        <li>Skim the <a href="/blog/reconciliation-agent-deep-dive">Reconciliation Agent deep dive</a> if your team needs line-level context before go-live.</li>
+      </ul>
+      <h2>Step 1 — Connect sources</h2>
+      <p>In Revzio, open Integrations and connect the bank/processor and ERP connectors for your pilot entity. Validate that recent transactions land with source IDs intact. If you use NetSuite, follow the field-mapping checks in the <a href="/guides/netsuite-integration">NetSuite integration guide</a>.</p>
+      <h2>Step 2 — Configure matching rules</h2>
+      <p>Start with high-confidence exact matches on amount + date window + reference. Add fuzzy rules only where your identifiers routinely diverge (for example remittance batch vs invoice). Set tolerances for cents and FX. Anything outside policy should route as an exception with explainability — see <a href="/blog/exception-explainability">exception explainability</a>.</p>
+      <h2>Step 3 — Run the first reconciliation</h2>
+      <p>Trigger a historical window (often 30–60 days) so the agent builds a baseline. Review auto-matched items sample for correctness, then work the exception queue. Assign owners and due dates so breaks do not pile up into month-end.</p>
+      <h2>Step 4 — Sign-off and audit trail</h2>
+      <p>Approve matches and overrides in product. Confirm each decision stores who, when, and why. That trail feeds SOX and external audit without a separate evidence hunt — covered further in <a href="/guides/audit-trail-soc2">audit trail and SOC 2 readiness</a>.</p>
+      <h2>What “done” looks like after week one</h2>
+      <p>Daily matching is running, exception owners are clear, and your team is resolving breaks while context is fresh. Next, expand accounts and tighten auto-match rates. Pair with <a href="/reconciliation">continuous reconciliation</a> and the <a href="/guides/3-day-close-guide">3-day close guide</a> when you are ready to pull prep into every day of the month.</p>
+      <div class="related-box">
+        <h3>Related</h3>
+        <ul>
+          <li><a href="/agent-suite-reconciliation">Reconciliation Agent overview</a></li>
+          <li><a href="/blog/manual-recon-cost">The cost of manual reconciliation</a></li>
+          <li><a href="/integrations">Integrations</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </div>
+</section>
+<section class="cta-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>See revzio with <em>your data</em>.</h2>
+    <p>Book a 30-minute walkthrough on your billing and ERP stack.</p>
+    <div class="hero-ctas"><a href="/book-a-demo" class="btn btn-primary">Book a demo</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label="revzio home"><img src="../assets/logos/revzio-icon.png" alt="" class="logo-mark" width="367" height="367" decoding="async" aria-hidden="true"><span class="logo-word">revzio</span></a>
+        <p>The reconciled source of truth for modern finance teams.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="/reconciliation">Reconciliation</a>
+        <a href="/close-workflow">Close workflow</a>
+        <a href="/agent-suite">Orion agents</a>
+        <a href="/integrations">Integrations</a>
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="/about">About</a>
+        <a href="/customers">Customers</a>
+        <a href="/careers">Careers</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="/blog">Blog</a>
+        <a href="/guides">Guides</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/changelog">Changelog</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/security">Security</a>
+        <a href="/dpa">DPA</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 revzio. All rights reserved.</div></div>
+  </div>
+</footer>
+
+  <script src="../js/subpage.js"></script>
+  <script src="../js/nav-theme.js"></script>
+  <script src="../js/mobile-nav.js"></script>
+  <script src="../js/mega-menu.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+
+</body>
+</html>

@@ -1,14 +1,19 @@
 (function () {
+  document.documentElement.classList.add('js');
   function injectGlobalStyles() {
     if (document.getElementById('revzio-anim-styles')) return;
     const style = document.createElement('style');
     style.id = 'revzio-anim-styles';
     style.textContent = `
       .reveal-on-scroll {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.65s ease, transform 0.65s ease;
         will-change: opacity, transform;
+      }
+      html.js .reveal-on-scroll:not(.is-visible):not(.in):not(.visible) {
+        opacity: 0;
+        transform: translateY(20px);
       }
       .reveal-on-scroll.is-visible {
         opacity: 1;

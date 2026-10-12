@@ -193,6 +193,84 @@ PAGES: dict[str, dict] = {
         "description": "Practical Revzio guides on month-end close, reconciliation, and AI for finance — frameworks controllers can use to shorten close without sacrificing control.",
         "type": "website",
     },
+    "guides/setup-reconciliation-agent": {
+        "title": "Setup Reconciliation Agent Guide | Revzio",
+        "description": "Set up Revzio’s Reconciliation Agent in under an hour — connect bank feeds, configure match rules, and run your first automated reconciliation with audit trail.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("Reconciliation setup", None)],
+    },
+    "guides/automate-journal-entries": {
+        "title": "Automate Journal Entries Guide | Revzio",
+        "description": "Configure Revzio’s Journal Entry Agent end-to-end — accrual logic, chart-of-accounts mapping, ERP posting, and reviewer gates that keep journals audit-ready.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("Journal entries", None)],
+    },
+    "guides/3-day-close-guide": {
+        "title": "3-Day Close with Orion Guide | Revzio",
+        "description": "Week-by-week guide to running a 3-day close with Revzio Orion — continuous recon, prepared journals, checklist ownership, and controller sign-off.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("3-day close", None)],
+    },
+    "guides/netsuite-integration": {
+        "title": "Connect Revzio to NetSuite | Revzio",
+        "description": "Step-by-step Revzio–NetSuite integration: OAuth setup, field mapping, entity scope, and validating your first sync for continuous reconciliation and close.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("NetSuite", None)],
+    },
+    "guides/asc606-revenue-agent": {
+        "title": "ASC 606 Revenue Agent Guide | Revzio",
+        "description": "Configure Revzio’s Revenue Validation Agent for ASC 606 — recognition rules, contract modifications, billing-to-ERP checks, and audit-ready revenue output.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("ASC 606", None)],
+    },
+    "guides/audit-trail-soc2": {
+        "title": "Audit Trail & SOC 2 Guide | Revzio",
+        "description": "Configure Revzio audit trails for SOC 2 readiness — RBAC, immutable logs, reviewer sign-off, and evidence workflows that satisfy auditors year-round.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Guides", "/guides"), ("Audit trail", None)],
+    },
+    "agent-suite-reconciliation": {
+        "title": "AI Reconciliation Agent | Revzio",
+        "description": "Revzio’s Reconciliation Agent matches bank, billing, and ERP transactions continuously — explainable exceptions and audit trails for faster month-end close.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Reconciliation", None)],
+    },
+    "agent-suite-journal-entry": {
+        "title": "AI Journal Entry Agent | Revzio",
+        "description": "Revzio’s Journal Entry Agent generates validated journals from source data — mappings, gates, and ERP posting so accountants review instead of rebuild.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Journal entry", None)],
+    },
+    "agent-suite-ap": {
+        "title": "AI Accounts Payable Agent | Revzio",
+        "description": "Revzio’s AP Agent extracts invoices, runs 3-way match, and routes approvals — so payables teams clear exceptions instead of keying data every day.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Accounts payable", None)],
+    },
+    "agent-suite-ar": {
+        "title": "AI Accounts Receivable Agent | Revzio",
+        "description": "Revzio’s AR Agent automates cash application and collections priority — apply payments faster, reduce DSO, and keep receivables continuous through close.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Accounts receivable", None)],
+    },
+    "agent-suite-accruals": {
+        "title": "AI Accruals Agent | Revzio",
+        "description": "Revzio’s Accruals Agent calculates prepaid amortization and period-end accruals from source data — schedules, postings, and evidence auditors can follow.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Accruals", None)],
+    },
+    "agent-suite-revenue-validation": {
+        "title": "AI Revenue Validation Agent | Revzio",
+        "description": "Revzio’s Revenue Validation Agent checks billing and ERP against ASC 606 rules — flag contract and recognition gaps before they hit your next audit.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Revenue validation", None)],
+    },
+    "agent-suite-close-management": {
+        "title": "AI Close Management Agent | Revzio",
+        "description": "Revzio’s Close Management Agent orchestrates month-end — checklists, owners, dependencies, approvals, and variance status in one audit-ready workflow.",
+        "type": "website",
+        "crumbs": [("Home", "/"), ("Orion agents", "/agent-suite"), ("Close management", None)],
+    },
     "glossary": {
         "title": "Finance Close Glossary | Revzio",
         "description": "A clear glossary of financial close terms — reconciliation, continuous close, accruals, cash application, and more — plus how Revzio Orion agents relate.",
@@ -276,9 +354,42 @@ def validate(path: str, title: str, desc: str, *, blog: bool = False) -> None:
 def path_to_file(path: str) -> Path:
     if path == "":
         return ROOT / "index.html"
-    if path.startswith("blog/"):
+    if path.startswith("blog/") or path.startswith("guides/"):
         return ROOT / f"{path}.html"
     return ROOT / f"{path}.html"
+
+
+def breadcrumb_ld(crumbs: list[tuple[str, str | None]], page_url: str) -> dict:
+    elements = []
+    for i, (name, href) in enumerate(crumbs, start=1):
+        item: dict = {
+            "@type": "ListItem",
+            "position": i,
+            "name": name,
+        }
+        if href:
+            item["item"] = f"{SITE}{href}" if href.startswith("/") else href
+        else:
+            item["item"] = page_url
+        elements.append(item)
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": elements,
+    }
+
+
+def default_crumbs(path: str, title: str) -> list[tuple[str, str | None]]:
+    label = title.replace(" | Revzio", "").strip()
+    if path.startswith("blog/"):
+        return [("Home", "/"), ("Blog", "/blog"), (label, None)]
+    if path.startswith("guides/"):
+        return [("Home", "/"), ("Guides", "/guides"), (label, None)]
+    if path.startswith("agent-suite-"):
+        return [("Home", "/"), ("Orion agents", "/agent-suite"), (label, None)]
+    if path in {"", "agent-suite"}:
+        return [("Home", "/")] if path == "" else [("Home", "/"), ("Orion agents", None)]
+    return [("Home", "/"), (label, None)]
 
 
 def canonical_url(path: str) -> str:
@@ -322,24 +433,30 @@ def faq_ld(faqs: list[tuple[str, str]]) -> dict:
     }
 
 
-def blog_ld(headline: str, description: str, url: str, date_published: str, author: str) -> dict:
-    return {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": headline,
-        "description": description,
-        "datePublished": date_published,
-        "author": {"@type": "Organization", "name": author},
-        "publisher": {
-            "@type": "Organization",
-            "name": "Revzio",
-            "legalName": "Revzio Pte. Ltd.",
-            "logo": {"@type": "ImageObject", "url": LOGO},
+def blog_ld(headline: str, description: str, url: str, date_published: str, author: str) -> list[dict]:
+    author_name = author.replace("revzio", "Revzio").strip() or "Revzio Editorial"
+    if author_name.lower() in {"revzio team", "revzio editorial", "revzio"}:
+        author_name = "Revzio Editorial"
+    return [
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": headline,
+            "description": description,
+            "datePublished": date_published,
+            "author": {"@type": "Organization", "name": author_name},
+            "publisher": {
+                "@type": "Organization",
+                "name": "Revzio",
+                "legalName": "Revzio Pte. Ltd.",
+                "logo": {"@type": "ImageObject", "url": LOGO},
+            },
+            "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+            "image": OG_IMAGE,
+            "url": url,
         },
-        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-        "image": OG_IMAGE,
-        "url": url,
-    }
+        breadcrumb_ld([("Home", "/"), ("Blog", "/blog"), (headline, None)], url),
+    ]
 
 
 def seo_block(
@@ -481,18 +598,20 @@ def process_marketing_pages() -> list[str]:
             raise SystemExit(f"Missing file for {path}: {file}")
         html = file.read_text(encoding="utf-8")
         url = canonical_url(path)
-        ld: list[dict] | dict | None = None
+        ld: list[dict] = []
         if cfg.get("home"):
-            ld = org_software_ld()
+            ld.extend(org_software_ld())
         if cfg.get("faq"):
-            faq = faq_ld(cfg["faq"])
-            ld = (ld or []) + [faq] if isinstance(ld, list) else faq
+            ld.append(faq_ld(cfg["faq"]))
+        crumbs = cfg.get("crumbs") or default_crumbs(path, cfg["title"])
+        if path != "":
+            ld.append(breadcrumb_ld(crumbs, url))
         block = seo_block(
             title=cfg["title"],
             description=cfg["description"],
             url=url,
             og_type=cfg.get("type", "website"),
-            json_ld=ld,
+            json_ld=ld or None,
         )
         new_html = apply_to_html(html, block)
         file.write_text(new_html, encoding="utf-8")
@@ -531,12 +650,8 @@ def process_blog_posts() -> list[str]:
 
 
 def write_sitemap(paths: list[str]) -> None:
-    # Include llms.txt as before; HTML paths from SEO set + blogs
-    entries = []
-    # priority/changefreq from old sitemap defaults
     meta = {
         "/": ("weekly", "1.0"),
-        "/llms.txt": ("monthly", "0.4"),
         "/agent-suite": ("weekly", "0.9"),
         "/pricing": ("weekly", "0.9"),
         "/book-a-demo": ("weekly", "0.9"),
@@ -545,9 +660,11 @@ def write_sitemap(paths: list[str]) -> None:
     def prio(p: str) -> tuple[str, str]:
         if p in meta:
             return meta[p]
-        if p.startswith("/blog/"):
+        if p.startswith("/blog/") or p.startswith("/guides/"):
             return ("monthly", "0.6")
-        if p in {"/blog", "/resources"}:
+        if p.startswith("/agent-suite-"):
+            return ("monthly", "0.8")
+        if p in {"/blog", "/resources", "/guides"}:
             return ("weekly", "0.7")
         if p in {"/privacy", "/terms", "/dpa"}:
             return ("yearly", "0.3")
@@ -558,13 +675,9 @@ def write_sitemap(paths: list[str]) -> None:
         return ("monthly", "0.7")
 
     all_paths = ["/"] + [f"/{p}" for p in paths if p != "/"]
-    # ensure llms.txt
-    if "/llms.txt" not in all_paths:
-        all_paths.insert(1, "/llms.txt")
-    # stable unique order: home, llms, then alpha but keep known priorities
     seen = []
     for p in all_paths:
-        if p not in seen:
+        if p not in seen and p != "/llms.txt":
             seen.append(p)
 
     lines = [
@@ -574,12 +687,9 @@ def write_sitemap(paths: list[str]) -> None:
     for p in seen:
         cf, pr = prio(p)
         loc = f"{SITE}{p}" if p != "/" else f"{SITE}/"
-        # file mtime for lastmod when possible
-        if p == "/llms.txt":
-            f = ROOT / "llms.txt"
-        elif p == "/":
+        if p == "/":
             f = ROOT / "index.html"
-        elif p.startswith("/blog/"):
+        elif p.startswith("/blog/") or p.startswith("/guides/"):
             f = ROOT / f"{p[1:]}.html"
         else:
             f = ROOT / f"{p[1:]}.html"

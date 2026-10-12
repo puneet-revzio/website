@@ -9,37 +9,37 @@
     },
     {
       "source": "/agent-reconciliation",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-reconciliation",
       "permanent": true
     },
     {
       "source": "/agent-journal-entry",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-journal-entry",
       "permanent": true
     },
     {
       "source": "/agent-ap",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-ap",
       "permanent": true
     },
     {
       "source": "/agent-ar",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-ar",
       "permanent": true
     },
     {
       "source": "/agent-accruals",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-accruals",
       "permanent": true
     },
     {
       "source": "/agent-revenue-validation",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-revenue-validation",
       "permanent": true
     },
     {
       "source": "/agent-close-management",
-      "destination": "/agent-suite",
+      "destination": "/agent-suite-close-management",
       "permanent": true
     }
   ]

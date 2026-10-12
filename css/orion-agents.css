@@ -221,16 +221,20 @@
   color: rgba(250, 250, 247, 0.78) !important;
 }
 
-/* Reveal motion */
+/* Reveal motion — visible by default for crawlers / no-JS */
 .agent-row.reveal {
-  opacity: 0;
-  transform: translateY(22px);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.35s ease;
 }
 
+html.js .agent-row.reveal:not(.in) {
+  opacity: 0;
+  transform: translateY(22px);
+}
 .agent-row.reveal.in {
   opacity: 1;
   transform: none;
