@@ -70,7 +70,7 @@
     }
     .checklist li { margin: 10px 0; }
   </style>
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.prose a,.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 <nav></nav>
@@ -108,18 +108,40 @@
 
       <h2>Why this model fits SOX and audit</h2>
       <p>Human-in-the-loop isn’t a buzzword — it’s a control design. It enforces segregation of duties, makes approvals explicit, and creates the audit trail automatically. Orion logs who reviewed what, when, and what evidence they saw. That’s how you scale automation without sacrificing governance.</p>
-
-    
-      <aside class="related-box">
-        <h3>Related reading</h3>
-        <ul>
-          <li><a href="/controls-and-audit-trails">Controls and audit trails</a></li>
-          <li><a href="/blog/ai-agency-in-finance">AI agency in finance</a></li>
-          <li><a href="/security">Security</a></li>
-        </ul>
-      </aside>
-
 </article>
+  </div>
+</section>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/blog/ai-agency-in-finance">
+        <div class="related-content__media related-content__media--gold" aria-hidden="true">
+          <span class="related-content__media-label">AI agency</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">AI</span></div>
+        <h3 class="related-content__title">AI in accounting: agency over automation</h3>
+        <p class="related-content__excerpt">Why finance AI needs agency — Orion prepares work while humans keep judgment…</p>
+      </a>
+      <a class="related-content__card" href="/security">
+        <div class="related-content__media related-content__media--slate" aria-hidden="true">
+          <span class="related-content__media-label">Security</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Product</span><span class="related-content__tag">Security</span></div>
+        <h3 class="related-content__title">Security & data protection</h3>
+        <p class="related-content__excerpt">Enterprise controls, access management, and practices for audit-ready teams…</p>
+      </a>
+      <a class="related-content__card" href="/guides/audit-trail-soc2">
+        <div class="related-content__media related-content__media--navy" aria-hidden="true">
+          <span class="related-content__media-label">Audit trail</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Guide</span><span class="related-content__tag">Security</span></div>
+        <h3 class="related-content__title">Audit trail setup and SOC 2 readiness</h3>
+        <p class="related-content__excerpt">RBAC, immutable logs, and reviewer sign-off workflows for your next audit…</p>
+      </a>
+    </div>
   </div>
 </section>
 

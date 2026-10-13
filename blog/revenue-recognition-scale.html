@@ -62,7 +62,7 @@
     .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
     .backlink:hover { color: #fafaf7; }
   </style>
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.prose a,.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 <nav></nav>
@@ -100,18 +100,40 @@
       <p>Orion’s Revenue Validation Agent continuously validates billing events against ERP recognition. It doesn’t wait for audit season. It runs as contracts change. It flags recognition gaps early, generates deferred revenue schedules, and attaches evidence so reviewers can validate the output.</p>
 
       <p>Most importantly, it operates in a human-in-the-loop model. Orion prepares and explains; finance reviews and approves; the audit trail is captured automatically. That’s how you scale compliance without hiring your way out of complexity.</p>
-
-    
-      <aside class="related-box">
-        <h3>Related reading</h3>
-        <ul>
-          <li><a href="/blog/revenue-integrity-playbook">Revenue integrity playbook</a></li>
-          <li><a href="/guides/asc606-revenue-agent">ASC 606 guide</a></li>
-          <li><a href="/industry-saas">SaaS close</a></li>
-        </ul>
-      </aside>
-
 </article>
+  </div>
+</section>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/blog/revenue-integrity-playbook">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">Revenue</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">Revenue</span></div>
+        <h3 class="related-content__title">The controller's guide to revenue integrity</h3>
+        <p class="related-content__excerpt">Validate billing, recognition, and recon signals so revenue stays trustworthy through close…</p>
+      </a>
+      <a class="related-content__card" href="/guides/asc606-revenue-agent">
+        <div class="related-content__media related-content__media--gold" aria-hidden="true">
+          <span class="related-content__media-label">ASC 606</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Guide</span><span class="related-content__tag">ASC 606</span></div>
+        <h3 class="related-content__title">ASC 606 with the Revenue Validation Agent</h3>
+        <p class="related-content__excerpt">Recognition rules, contract modifications, and audit-ready revenue output…</p>
+      </a>
+      <a class="related-content__card" href="/industry-saas">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">SaaS close</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Solution</span><span class="related-content__tag">SaaS</span></div>
+        <h3 class="related-content__title">Financial close for SaaS</h3>
+        <p class="related-content__excerpt">Automate reconciliation, revenue validation, and month-end for subscription finance…</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -135,8 +157,8 @@
       <div class="footer-col">
         <h5>Agents</h5>
         <a href="/agent-suite">Orion agent suite</a>
-        <a href="/agent-suite#revenue-validation">Revenue Validation</a>
-        <a href="/agent-suite#reconciliation">Reconciliation</a>
+        <a href="/agent-suite-revenue-validation">Revenue Validation</a>
+        <a href="/agent-suite-reconciliation">Reconciliation</a>
       </div>
       <div class="footer-col">
         <h5>Platform</h5>

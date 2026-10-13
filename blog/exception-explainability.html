@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/dark-global.css">
   <link rel="stylesheet" href="../css/cta-band.css">
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.blog-article ul{margin:12px 0 12px 1.2em}.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 
@@ -91,17 +91,41 @@
       <p>Book a 30-minute demo with your billing and ERP data.</p>
       <a href="/book-a-demo" class="btn-primary">Book a demo</a>
     </div>
-    <aside class="related-box" style="margin-top:32px;">
-      <h3>Keep reading</h3>
-      <ul>
-        <li><a href="/blog/manual-recon-cost">The hidden cost of manual reconciliation</a></li>
-        <li><a href="/blog/continuous-close-readiness">Continuous close readiness</a></li>
-        <li><a href="/blog/cutting-close-three-days">Cutting close by three days</a></li>
-      </ul>
-    </aside>
-
-  </div>
+</div>
 </article>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/blog/manual-recon-cost">
+        <div class="related-content__media related-content__media--slate" aria-hidden="true">
+          <span class="related-content__media-label">Manual recon</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">CFO</span></div>
+        <h3 class="related-content__title">The hidden cost of manual reconciliation</h3>
+        <p class="related-content__excerpt">Time, errors, and delayed close — and how automation changes the economics…</p>
+      </a>
+      <a class="related-content__card" href="/blog/continuous-close-readiness">
+        <div class="related-content__media related-content__media--sage" aria-hidden="true">
+          <span class="related-content__media-label">Continuous close</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">Recon</span></div>
+        <h3 class="related-content__title">Why periodic reconciliation is costing you days every month</h3>
+        <p class="related-content__excerpt">Stop starting from zero at month-end — continuous close readiness for finance teams…</p>
+      </a>
+      <a class="related-content__card" href="/blog/cutting-close-three-days">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">Faster close</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">Close</span></div>
+        <h3 class="related-content__title">Cutting close by three days at scale</h3>
+        <p class="related-content__excerpt">Continuous reconciliation, prepared journals, and exception workflows that keep auditors satisfied…</p>
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="container">

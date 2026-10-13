@@ -62,7 +62,7 @@
     .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
     .backlink:hover { color: #fafaf7; }
   </style>
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.prose a,.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 <nav></nav>
@@ -101,18 +101,40 @@
 
       <h2>What 88% automation actually means</h2>
       <p>When teams see 88% automated processing, it doesn’t mean “88% paid with no review.” It means 88% of invoices are ingested, extracted, and matched without manual touchpoints. Humans focus on the 12% that matter: true discrepancies, policy decisions, and high-risk vendors.</p>
-
-    
-      <aside class="related-box">
-        <h3>Related reading</h3>
-        <ul>
-          <li><a href="/agent-suite-ap">Accounts Payable Agent</a></li>
-          <li><a href="/procure-to-pay">Procure-to-pay automation</a></li>
-          <li><a href="/blog/human-in-the-loop-finance">Human-in-the-loop finance</a></li>
-        </ul>
-      </aside>
-
 </article>
+  </div>
+</section>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/agent-suite-ap">
+        <div class="related-content__media related-content__media--gold" aria-hidden="true">
+          <span class="related-content__media-label">AP agent</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Agent</span><span class="related-content__tag">AP</span></div>
+        <h3 class="related-content__title">Accounts Payable Agent</h3>
+        <p class="related-content__excerpt">Invoice extraction, 3-way match, and approval routing for AP teams…</p>
+      </a>
+      <a class="related-content__card" href="/procure-to-pay">
+        <div class="related-content__media related-content__media--navy" aria-hidden="true">
+          <span class="related-content__media-label">Procure-to-pay</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Product</span><span class="related-content__tag">AP</span></div>
+        <h3 class="related-content__title">AP automation software</h3>
+        <p class="related-content__excerpt">Invoice matching, exceptions, and controls that cut manual AP work…</p>
+      </a>
+      <a class="related-content__card" href="/blog/human-in-the-loop-finance">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">HITL</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">AI</span></div>
+        <h3 class="related-content__title">What human-in-the-loop actually means for finance teams</h3>
+        <p class="related-content__excerpt">Approvals, materiality thresholds, and keeping controllers in control of the close…</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -136,8 +158,8 @@
       <div class="footer-col">
         <h5>Agents</h5>
         <a href="/agent-suite">Orion agent suite</a>
-        <a href="/agent-suite#accounts-payable">AP Agent</a>
-        <a href="/agent-suite#reconciliation">Reconciliation</a>
+        <a href="/agent-suite-ap">AP Agent</a>
+        <a href="/agent-suite-reconciliation">Reconciliation</a>
       </div>
       <div class="footer-col">
         <h5>Platform</h5>

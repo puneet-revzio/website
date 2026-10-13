@@ -70,7 +70,7 @@
     }
     .week h3 { margin: 0 0 8px; }
   </style>
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.prose a,.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 <nav></nav>
@@ -114,18 +114,40 @@
 
       <h2>Why it’s fast</h2>
       <p>Speed comes from design choices: pre-built connectors, a unified data model, and workflows that assume governance (RBAC, audit trail, reviewer approvals) from day one. You’re not standing up a custom data warehouse or a brittle rules engine. You’re turning on agents that already understand finance’s constraints.</p>
-
-    
-      <aside class="related-box">
-        <h3>Related reading</h3>
-        <ul>
-          <li><a href="/guides/setup-reconciliation-agent">Set up Reconciliation Agent</a></li>
-          <li><a href="/guides/netsuite-integration">Connect NetSuite</a></li>
-          <li><a href="/how-it-works">How Orion works</a></li>
-        </ul>
-      </aside>
-
 </article>
+  </div>
+</section>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/guides/setup-reconciliation-agent">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">Setup recon</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Guide</span><span class="related-content__tag">Recon</span></div>
+        <h3 class="related-content__title">Setting up your first Reconciliation Agent</h3>
+        <p class="related-content__excerpt">Connect feeds, configure match rules, and run your first automated reconciliation…</p>
+      </a>
+      <a class="related-content__card" href="/guides/netsuite-integration">
+        <div class="related-content__media related-content__media--slate" aria-hidden="true">
+          <span class="related-content__media-label">NetSuite</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Guide</span><span class="related-content__tag">Integration</span></div>
+        <h3 class="related-content__title">Connecting revzio to NetSuite</h3>
+        <p class="related-content__excerpt">OAuth, field mapping, entity scope, and validating your first data sync…</p>
+      </a>
+      <a class="related-content__card" href="/how-it-works">
+        <div class="related-content__media related-content__media--gold" aria-hidden="true">
+          <span class="related-content__media-label">How it works</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Product</span><span class="related-content__tag">Platform</span></div>
+        <h3 class="related-content__title">How Orion AI close works</h3>
+        <p class="related-content__excerpt">Agents prepare continuously so your team reviews exceptions and closes with confidence…</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -149,8 +171,8 @@
       <div class="footer-col">
         <h5>Agents</h5>
         <a href="/agent-suite">Orion agent suite</a>
-        <a href="/agent-suite#reconciliation">Reconciliation</a>
-        <a href="/agent-suite#journal-entry">Journal Entries</a>
+        <a href="/agent-suite-reconciliation">Reconciliation</a>
+        <a href="/agent-suite-journal-entry">Journal Entries</a>
       </div>
       <div class="footer-col">
         <h5>Platform</h5>

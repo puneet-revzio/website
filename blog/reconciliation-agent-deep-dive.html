@@ -70,7 +70,7 @@
     .backlink { color: #7fcfaa; text-decoration: none; font-weight: 750; }
     .backlink:hover { color: #fafaf7; }
   </style>
-<style>.related-box{margin:36px 0 8px;padding:20px 22px;border-radius:16px;border:1px solid rgba(15,107,78,0.18);background:rgba(15,107,78,0.04)}.related-box h3{margin:0 0 10px;font-size:16px}.related-box ul{margin:0;padding-left:1.1em}.related-box li{margin:6px 0}.prose a,.blog-article a{color:var(--accent)}</style>
+<link rel="stylesheet" href="../css/related-content.css">
 </head>
 <body>
 
@@ -110,18 +110,40 @@
 
       <h2>What your team does with the remaining 5%</h2>
       <p>Finance still owns judgment. Orion routes exceptions into reviewer queues with evidence, suggested matches, and policy gates. Your team approves overrides, validates unusual cases, and signs off. Every decision is captured in the audit trail — so close week is confirmation, not reconstruction.</p>
-
-    
-      <aside class="related-box">
-        <h3>Related reading</h3>
-        <ul>
-          <li><a href="/guides/setup-reconciliation-agent">Setup guide</a></li>
-          <li><a href="/agent-suite-reconciliation">Reconciliation Agent</a></li>
-          <li><a href="/blog/exception-explainability">Exception explainability</a></li>
-        </ul>
-      </aside>
-
 </article>
+  </div>
+</section>
+
+
+<section class="related-content" aria-labelledby="related-content-heading">
+  <div class="container">
+    <h2 id="related-content-heading" class="related-content__heading">Related content</h2>
+    <div class="related-content__grid">
+      <a class="related-content__card" href="/guides/setup-reconciliation-agent">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">Setup recon</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Guide</span><span class="related-content__tag">Recon</span></div>
+        <h3 class="related-content__title">Setting up your first Reconciliation Agent</h3>
+        <p class="related-content__excerpt">Connect feeds, configure match rules, and run your first automated reconciliation…</p>
+      </a>
+      <a class="related-content__card" href="/agent-suite-reconciliation">
+        <div class="related-content__media related-content__media--mint" aria-hidden="true">
+          <span class="related-content__media-label">Recon agent</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Agent</span><span class="related-content__tag">Recon</span></div>
+        <h3 class="related-content__title">Reconciliation Agent</h3>
+        <p class="related-content__excerpt">Line-level matching across bank, billing, and ERP — with explainable exceptions…</p>
+      </a>
+      <a class="related-content__card" href="/blog/exception-explainability">
+        <div class="related-content__media related-content__media--gold" aria-hidden="true">
+          <span class="related-content__media-label">Explainability</span>
+        </div>
+        <div class="related-content__tags"><span class="related-content__tag">Article</span><span class="related-content__tag">Product</span></div>
+        <h3 class="related-content__title">Introducing exception explainability</h3>
+        <p class="related-content__excerpt">Clearer break reasons so accountants resolve recon items instead of reverse-engineering matches…</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -145,8 +167,8 @@
       <div class="footer-col">
         <h5>Agents</h5>
         <a href="/agent-suite">Orion agent suite</a>
-        <a href="/agent-suite#reconciliation">Reconciliation</a>
-        <a href="/agent-suite#close-management">Close Management</a>
+        <a href="/agent-suite-reconciliation">Reconciliation</a>
+        <a href="/agent-suite-close-management">Close Management</a>
       </div>
       <div class="footer-col">
         <h5>Platform</h5>
