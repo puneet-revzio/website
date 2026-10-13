@@ -122,11 +122,34 @@ strong[style*="color:var(--ink)"] {
 .card h4 {
   color: #fafaf7 !important;
 }
+
+/* Glossary cards were white with light text forced above — unreadable */
+.term {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.term .name {
+  color: #fafaf7 !important;
+}
+.term .name em {
+  color: var(--hero-mint, #7fcfaa) !important;
+}
+.term p {
+  color: rgba(250, 250, 247, 0.78) !important;
+}
 .term .note,
 .term .note a {
   color: rgba(250, 250, 247, 0.55) !important;
 }
+.term .note a {
+  color: var(--hero-mint, #7fcfaa) !important;
+}
 .term .note a:hover {
+  color: #fafaf7 !important;
+}
+.letter-badge {
+  background: rgba(127, 207, 170, 0.12) !important;
+  border-color: rgba(127, 207, 170, 0.28) !important;
   color: var(--hero-mint, #7fcfaa) !important;
 }
 
