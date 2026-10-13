@@ -69,9 +69,26 @@
   .logo {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.35em;
     text-decoration: none;
     line-height: 1;
+    font-size: 1.4375rem;
+  }
+  .logo-mark {
+    display: block;
+    height: 1em;
+    width: auto;
+    flex-shrink: 0;
+    transform: translateY(0.03em);
+  }
+  .logo-word {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    line-height: 1;
+    color: #fafaf7;
   }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a {
@@ -802,7 +819,8 @@
     box-shadow: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 0.35em;
+    font-size: 1.25rem;
     line-height: 1;
     overflow: visible;
   }
@@ -818,13 +836,14 @@
   }
   .mock-knowledge-center .logo-mark {
     display: block;
-    height: 28px;
+    height: 1em;
     width: auto;
     flex-shrink: 0;
+    transform: translateY(0.03em);
   }
   .mock-knowledge-center .logo-word {
     font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1em;
     font-weight: 700;
     letter-spacing: -0.04em;
     text-transform: lowercase;

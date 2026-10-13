@@ -60,7 +60,7 @@ nav {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.4em;
   text-decoration: none;
   line-height: 1;
   flex-shrink: 0;

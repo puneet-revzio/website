@@ -1,8 +1,15 @@
 /* Extractable blocks for AI citation / answer engines */
 .cite-section {
   padding: 56px 0 64px;
-  background: rgba(255, 255, 255, 0.02) !important;
+  /* Solid dark band — light cream text fails on the homepage’s light body */
+  background: var(--hero-bg, #0a1a2f) !important;
+  background-image: linear-gradient(
+    180deg,
+    var(--hero-bg, #0a1a2f) 0%,
+    var(--hero-deep, #0d2138) 100%
+  ) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fafaf7;
 }
 
 .cite-section .container > h2 {

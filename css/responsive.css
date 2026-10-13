@@ -503,16 +503,12 @@ body.nav-open {
     padding-right: 16px;
   }
 
-  .logo-mark {
-    height: 26px;
-  }
-
-  .logo-word {
-    font-size: 1.3125rem !important;
+  .logo {
+    font-size: 1.3125rem;
   }
 
   .footer-brand .logo + p {
-    padding-left: calc(26px + 5px);
+    padding-left: calc(1em + 0.35em);
   }
 
   section {
