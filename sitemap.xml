@@ -139,12 +139,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.revzio.ai/data-ingestion</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.revzio.ai/reporting</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>

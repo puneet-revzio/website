@@ -8,6 +8,16 @@
       "permanent": true
     },
     {
+      "source": "/data-ingestion",
+      "destination": "/integrations",
+      "permanent": true
+    },
+    {
+      "source": "/data-ingestion.html",
+      "destination": "/integrations",
+      "permanent": true
+    },
+    {
       "source": "/agent-reconciliation",
       "destination": "/agent-suite-reconciliation",
       "permanent": true

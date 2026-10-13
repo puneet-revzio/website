@@ -60,11 +60,6 @@
       <div class="mega-solutions-left">
         <div class="mega-solutions-title">By use case</div>
         <div class="mega-solutions-tiles">
-          <a class="mega-solution-tile" href="/data-ingestion">
-            <span class="mega-solution-icon" aria-hidden="true">⛓</span>
-            <span class="mega-solution-label">Data ingestion</span>
-            <span class="mega-solution-arrow" aria-hidden="true">→</span>
-          </a>
           <a class="mega-solution-tile" href="/recon-automation">
             <span class="mega-solution-icon" aria-hidden="true">≋</span>
             <span class="mega-solution-label">Recon automation</span>

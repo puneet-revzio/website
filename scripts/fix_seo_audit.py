@@ -271,7 +271,7 @@ GUIDES = [
       <h2>Validate the first sync</h2>
       <p>Compare record counts and sample line items against NetSuite UI or saved searches. Run a short reconciliation window with the <a href="/guides/setup-reconciliation-agent">Reconciliation Agent setup guide</a>. Investigate gaps before enabling auto-post of journals.</p>
       <h2>Ongoing operations</h2>
-      <p>Monitor sync health, schema drift, and permission changes after NetSuite upgrades. Pair with <a href="/data-ingestion">data ingestion</a> practices so bank and billing feeds stay aligned with ERP truth.</p>
+      <p>Monitor sync health, schema drift, and permission changes after NetSuite upgrades. Pair with solid <a href="/integrations">integration</a> practices so bank and billing feeds stay aligned with ERP truth.</p>
       <div class="related-box">
         <h3>Related</h3>
         <ul>

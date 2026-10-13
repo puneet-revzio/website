@@ -28,7 +28,6 @@ Orion agents are human-in-the-loop and policy-gated: agents prepare the work, fi
 - Automated workflows: https://www.revzio.ai/automated-workflows
 - Accelerate reporting cycles: https://www.revzio.ai/accelerate-reporting-cycles
 - Controls and audit trails: https://www.revzio.ai/controls-and-audit-trails
-- Data ingestion: https://www.revzio.ai/data-ingestion
 - Reporting: https://www.revzio.ai/reporting
 
 ## Industries

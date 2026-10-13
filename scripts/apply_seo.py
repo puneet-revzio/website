@@ -148,11 +148,6 @@ PAGES: dict[str, dict] = {
         "description": "Strengthen SOX controls and audit trails with Revzio — every match, journal, and approval captured automatically for auditors without month-end evidence hunts.",
         "type": "website",
     },
-    "data-ingestion": {
-        "title": "Finance Data Ingestion Platform | Revzio",
-        "description": "Ingest ERP, bank, billing, and warehouse data into Revzio so Orion agents reconcile and prepare close work from trusted sources instead of manual exports.",
-        "type": "website",
-    },
     "reporting": {
         "title": "Financial Close Reporting | Revzio",
         "description": "Close reporting with Revzio gives finance leaders live status, exception trends, and audit-ready evidence — so cycles stop waiting on spreadsheet cleanup.",

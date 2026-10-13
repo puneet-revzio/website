@@ -86,7 +86,6 @@
       <div class="mega-col">
         <h4>BY USE CASE</h4>
         <ul>
-          <li><a href="/data-ingestion">Data Ingestion</a></li>
           <li><a href="/recon-automation">Recon Automation</a></li>
           <li><a href="/continuous-close">Continuous Close</a></li>
           <li><a href="/automated-workflows">Automated Workflows</a></li>
@@ -146,7 +145,7 @@
 
     if (page === 'pricing') setActive(pricing);
     else if (/^(platform|integrations|security|how-it-works|order-to-cash|record-to-report|procure-to-pay|reporting|trust-center)$/.test(page)) setActive(platformTrigger);
-    else if (/^(solutions|data-ingestion|recon-automation|continuous-close|automated-workflows|controls-and-audit-trails|accelerate-reporting-cycles|industry-saas|industry-enterprise|industry-startup)$/.test(page)) setActive(solutionsTrigger);
+    else if (/^(solutions|recon-automation|continuous-close|automated-workflows|controls-and-audit-trails|accelerate-reporting-cycles|industry-saas|industry-enterprise|industry-startup)$/.test(page)) setActive(solutionsTrigger);
     else if (/^agent-suite$/.test(page)) setActive(orion);
     else if (onBlog || page === 'blog' || page === 'resources' || page === 'guides' || page === 'glossary' || page === 'customers' || page === 'about') {
       // Keep it simple: resources grouping is still discoverable via mega menu; we don't highlight it as a top-level item.
