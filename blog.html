@@ -208,11 +208,17 @@
     .newsletter-form {
       margin-top: 18px;
       display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 640px;
+    }
+    .newsletter-form-row {
+      display: flex;
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
     }
-    .newsletter-form input {
+    .newsletter-form input[type="email"] {
       flex: 1;
       min-width: 260px;
       padding: 12px 14px;
@@ -233,7 +239,69 @@
       transition: background 0.2s ease, transform 0.15s ease;
     }
     .newsletter-form button:hover { background: var(--gold); transform: translateY(-1px); }
-    .newsletter-small { margin-top: 10px; color: rgba(250,250,247,0.62); font-size: 13px; }
+    .newsletter-form button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .newsletter-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(250,250,247,0.62);
+    }
+    .newsletter-consent input {
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--hero-mint, #7fcfaa);
+    }
+    .newsletter-consent a {
+      color: #7fcfaa;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .newsletter-consent a:hover { color: #fafaf7; }
+    .newsletter-error {
+      display: none;
+      color: #f5a8a8;
+      font-size: 13px;
+      margin: 0;
+    }
+    .newsletter-error.is-visible { display: block; }
+    .newsletter-small { margin-top: 4px; color: rgba(250,250,247,0.62); font-size: 13px; }
+
+    .newsletter-success {
+      display: none;
+      margin-top: 22px;
+      max-width: 640px;
+      padding: 28px 28px 30px;
+      border-radius: 16px;
+      background: #e8edf4;
+      color: #0a1a2f;
+    }
+    .newsletter-success.is-visible { display: block; }
+    .newsletter-success h3 {
+      margin: 0 0 8px;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0a1a2f;
+      line-height: 1.25;
+    }
+    .newsletter-success p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a2438;
+      max-width: none;
+    }
+    .newsletter.is-subscribed .newsletter-signup { display: none; }
+    .newsletter.is-subscribed .newsletter-success { display: block; }
 
     @media (max-width: 980px) {
       .insights-hero { padding: 106px 0 64px; }
@@ -332,17 +400,30 @@
   </div>
 </section>
 
-<section class="newsletter" data-nav-theme="dark">
+<section class="newsletter" id="newsletter" data-nav-theme="dark">
   <div class="container">
     <div class="reveal-on-scroll">
-      <div class="section-eyebrow" style="color: rgba(250,250,247,0.72);">NEWSLETTER</div>
-      <h2>Get finance automation insights in your inbox.</h2>
-      <p>No fluff. One email per week. Unsubscribe anytime.</p>
-      <form class="newsletter-form" action="#" method="POST">
-        <input type="email" placeholder="Work email" aria-label="Email" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <div class="newsletter-small">Join 1,200+ finance leaders</div>
+      <div class="newsletter-signup">
+        <div class="section-eyebrow" style="color: rgba(250,250,247,0.72);">NEWSLETTER</div>
+        <h2>Get finance automation insights in your inbox.</h2>
+        <p>No fluff. One email per week. Unsubscribe anytime.</p>
+        <form class="newsletter-form" id="newsletter-form" action="#" method="POST" novalidate>
+          <div class="newsletter-form-row">
+            <input id="newsletter-email" type="email" name="email" placeholder="Work email" aria-label="Email" required autocomplete="email" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="newsletter-consent">
+            <input id="newsletter-consent" type="checkbox" name="consent" required />
+            <span>I consent to the collection &amp; use of my information as per the <a href="/privacy">privacy policy</a>. I can access, update, or delete my data at any time.</span>
+          </label>
+          <p class="newsletter-error" id="newsletter-error" role="alert"></p>
+        </form>
+        <div class="newsletter-small">Join 1,200+ finance leaders</div>
+      </div>
+      <div class="newsletter-success" id="newsletter-success" role="status" aria-live="polite">
+        <h3>Get the latest financial insights</h3>
+        <p>Thanks for signing up! Stay tuned!</p>
+      </div>
     </div>
   </div>
 </section>
@@ -391,6 +472,7 @@
 <script src="js/mega-menu.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/newsletter.js"></script>
 </body>
 </html>
 
