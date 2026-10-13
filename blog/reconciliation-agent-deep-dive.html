@@ -18,6 +18,7 @@
 <meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Orion's Reconciliation Agent closed 95% of items without human touch","description":"A deep dive into Orion\u2019s Reconciliation Agent \u2014 how high auto-match rates happen, when humans step in, and what audit trail evidence looks like.","datePublished":"2026-05-01","author":{"@type":"Organization","name":"Revzio Editorial"},"publisher":{"@type":"Organization","name":"Revzio","legalName":"Revzio Pte. Ltd.","logo":{"@type":"ImageObject","url":"https://www.revzio.ai/assets/logos/revzio-logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.revzio.ai/blog/reconciliation-agent-deep-dive"},"image":"https://www.revzio.ai/assets/og-default.png","url":"https://www.revzio.ai/blog/reconciliation-agent-deep-dive"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.revzio.ai/blog"},{"@type":"ListItem","position":3,"name":"How Orion's Reconciliation Agent closed 95% of items without human touch","item":"https://www.revzio.ai/blog/reconciliation-agent-deep-dive"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What\u2019s the difference between 95% auto-match and \u201cset and forget\u201d recon?","acceptedAnswer":{"@type":"Answer","text":"95% auto-match under policy still routes the material and ambiguous 5% to humans with explainability. Set-and-forget without gates is how you automate mistakes at scale."}},{"@type":"Question","name":"How do you explain a many-to-many payout match to an auditor in one sentence?","acceptedAnswer":{"@type":"Answer","text":"One processor batch settled multiple invoices; the agent linked each invoice line to the batch with tolerance rules, and a reviewer approved the residual timing difference with a reason code."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
@@ -71,6 +72,7 @@
     .backlink:hover { color: #fafaf7; }
   </style>
 <link rel="stylesheet" href="../css/related-content.css">
+<link rel="stylesheet" href="../css/ai-cite.css">
 </head>
 <body>
 
@@ -113,7 +115,22 @@
 </article>
   </div>
 </section>
-
+<section class="cite-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Expert questions AI can’t answer from a generic playbook</h2>
+    <p class="cite-lead">These are the situation-specific questions controllers ask in real closes — the kind that earn citations because the model has to pull a source.</p>
+    <div class="cite-faq" id="expert-faq">
+      <details>
+        <summary>What’s the difference between 95% auto-match and “set and forget” recon?</summary>
+        <p>95% auto-match under policy still routes the material and ambiguous 5% to humans with explainability. Set-and-forget without gates is how you automate mistakes at scale.</p>
+      </details>
+      <details>
+        <summary>How do you explain a many-to-many payout match to an auditor in one sentence?</summary>
+        <p>One processor batch settled multiple invoices; the agent linked each invoice line to the batch with tolerance rules, and a reviewer approved the residual timing difference with a reason code.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
 <section class="related-content" aria-labelledby="related-content-heading">
   <div class="container">

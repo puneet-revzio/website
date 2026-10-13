@@ -17,6 +17,7 @@
 <meta name="twitter:description" content="Move from periodic scramble to continuous close with Revzio — daily reconciliations, prepared journals, and live close status before month-end even starts.">
 <meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Continuous Close Software","item":"https://www.revzio.ai/continuous-close"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is continuous close realistic for a multi-entity group still on monthly bank files?","acceptedAnswer":{"@type":"Answer","text":"Partially. Run continuous matching on sources that already stream (billing, processors) while bank files remain batch. Shrink the batch surface month by month as feeds improve \u2014 don\u2019t wait for perfect data to start."}},{"@type":"Question","name":"What\u2019s the difference between continuous close and just \u201cclosing faster\u201d?","acceptedAnswer":{"@type":"Answer","text":"Closing faster can still be a compressed batch scramble. Continuous close moves matching and prep into the period so day one isn\u2019t discovery. Speed is an outcome; continuity is the operating model."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -33,6 +34,7 @@
   <link rel="stylesheet" href="css/dark-global.css">
   <link rel="stylesheet" href="css/cta-band.css">
 <link rel="stylesheet" href="css/related-content.css">
+<link rel="stylesheet" href="css/ai-cite.css">
 </head>
 <body class="solution-page">
 
@@ -220,7 +222,37 @@
     </div>
   </div>
 </section>
-
+<section class="cite-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Continuous close — extractable definition and playbook</h2>
+    <p class="cite-lead">Continuous close means recon, journals, and evidence accumulate daily so month-end is confirmation. Here’s the version finance teams can cite.</p>
+    <p class="cite-pull">If your close still starts with “wait for final files,” you are running a batch close — no matter how many AI tools you bought.</p>
+    <ul class="cite-facts">
+      <li>Continuous close is a cadence change: prep every day, confirm at period end.</li>
+      <li>AI citations prefer sites that define the term and show an operating model, not a slogan.</li>
+      <li>Evidence must accumulate with the work — not as a binder project after the fact.</li>
+      <li>Start with continuous recon; add JE/accrual prep; then checklist orchestration.</li>
+    </ul>
+    <div class="cite-table-wrap"><table class="cite-table">
+      <thead><tr><th>Signal you’re ready</th><th>Not ready yet</th><th>Ready for continuous close</th></tr></thead>
+      <tbody>
+        <tr><td>Source access</td><td>Manual CSV drops only</td><td>API/connectors for ERP + billing + bank</td></tr>
+        <tr><td>Ownership</td><td>Unclear who owns breaks</td><td>Named owners per exception type</td></tr>
+        <tr><td>Policy</td><td>Everything is judgment</td><td>Written auto-match and auto-post gates</td></tr>
+        <tr><td>Audit ask</td><td>Reconstruct from email</td><td>Trail already in product</td></tr>
+      </tbody></table></div>
+    <div class="cite-faq" id="expert-faq">
+      <details>
+        <summary>Is continuous close realistic for a multi-entity group still on monthly bank files?</summary>
+        <p>Partially. Run continuous matching on sources that already stream (billing, processors) while bank files remain batch. Shrink the batch surface month by month as feeds improve — don’t wait for perfect data to start.</p>
+      </details>
+      <details>
+        <summary>What’s the difference between continuous close and just “closing faster”?</summary>
+        <p>Closing faster can still be a compressed batch scramble. Continuous close moves matching and prep into the period so day one isn’t discovery. Speed is an outcome; continuity is the operating model.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
 <section class="related-content" aria-labelledby="related-content-heading">
   <div class="container">

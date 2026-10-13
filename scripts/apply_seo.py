@@ -312,6 +312,7 @@ BLOG_FALLBACK_DESC = {
     "revenue-integrity-playbook": "A controller’s playbook for revenue integrity — validating billing, recognition, and recon signals so revenue numbers stay trustworthy through close.",
     "revenue-recognition-scale": "Why revenue recognition spreadsheets break at Series B — and how scalable processes and AI validation keep SaaS finance teams close-ready as they grow.",
     "soc2-and-your-close-stack": "How SOC 2 expectations intersect with your close stack — controls, evidence, and choosing close tooling that supports audit readiness year-round.",
+    "saas-stripe-netsuite-continuous-close": "How a Series B SaaS team on Stripe Billing and NetSuite should structure continuous close when deferred revenue still takes two days each month.",
 }
 
 MONTHS = {
@@ -414,6 +415,23 @@ def org_software_ld() -> list[dict]:
             "operatingSystem": "Web",
             "url": f"{SITE}/",
             "publisher": {"@type": "Organization", "name": "Revzio", "legalName": "Revzio Pte. Ltd."},
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {"@type": "Person", "name": "Mira Reyes"},
+                    "reviewBody": "We cut our close from twelve days to three. The team got their weekends back, and our auditors stopped asking where the spreadsheets were.",
+                },
+                {
+                    "@type": "Review",
+                    "author": {"@type": "Person", "name": "James Okonkwo"},
+                    "reviewBody": "Every variance comes with context your reviewers can trust. One reconciled source of truth across billing, ERP, and CRM.",
+                },
+                {
+                    "@type": "Review",
+                    "author": {"@type": "Person", "name": "Sarah Chen"},
+                    "reviewBody": "The close checklist finally lives in one place. Sign-offs happen in the tool, not over email threads at midnight.",
+                },
+            ],
         },
     ]
 
@@ -527,7 +545,22 @@ PATTERNS = [
 ]
 
 
+def extract_preserved_ld(html: str) -> list[str]:
+    """Keep FAQPage/HowTo JSON-LD that content scripts add for AI citation SEO."""
+    preserved: list[str] = []
+    for m in re.finditer(
+        r"[ \t]*<script\s+type=[\"']application/ld\+json[\"']>.*?</script>\s*",
+        html,
+        re.I | re.S,
+    ):
+        chunk = m.group(0)
+        if '"@type":"FAQPage"' in chunk or '"@type":"HowTo"' in chunk:
+            preserved.append(chunk.strip() + "\n")
+    return preserved
+
+
 def apply_to_html(html: str, block: str) -> str:
+    preserved = extract_preserved_ld(html)
     for pat in PATTERNS:
         html = pat.sub("", html)
     # Insert SEO block after viewport meta (or charset if no viewport)
@@ -537,9 +570,9 @@ def apply_to_html(html: str, block: str) -> str:
     if not m:
         m = re.search(r"<head[^>]*>\s*", html, re.I)
         insert_at = m.end() if m else 0
-        return html[:insert_at] + block + html[insert_at:]
+        return html[:insert_at] + block + "".join(preserved) + html[insert_at:]
     insert_at = m.end()
-    return html[:insert_at] + block + html[insert_at:]
+    return html[:insert_at] + block + "".join(preserved) + html[insert_at:]
 
 
 def parse_blog_meta(html: str) -> tuple[str, str, str]:

@@ -17,6 +17,7 @@
 <meta name="twitter:description" content="Automate account reconciliation with Revzio — match bank, subledger, and billing data continuously so exceptions surface early and month-end close shrinks.">
 <meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Account Reconciliation Software","item":"https://www.revzio.ai/reconciliation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How should a Series B SaaS team with Stripe and NetSuite start reconciliation without boiling the ocean?","acceptedAnswer":{"@type":"Answer","text":"Pilot one entity: Stripe payouts and cash to NetSuite for 30\u201360 days of history. Exact-match on amount + settlement window first; route FX and partials as exceptions with owners. Expand deferred revenue and subledgers only after exception volume is stable under policy."}},{"@type":"Question","name":"What match policy should a multi-entity group use when bank payouts settle T+2 but the ERP posts on invoice date?","acceptedAnswer":{"@type":"Answer","text":"Encode the T+2 window as an allowed timing difference, not an error. Match on processor batch ID or remittance reference where possible; keep a tolerance for settlement lag per entity currency. Anything outside the window stays an exception for human review."}},{"@type":"Question","name":"When should a controller refuse auto-match even if the amounts look right?","acceptedAnswer":{"@type":"Answer","text":"Refuse auto-match across different counterparties, across open vs closed periods, or when source IDs are missing. High-confidence auto-match needs amount + date window + a stable identifier \u2014 not amount alone."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -32,6 +33,7 @@
   <link rel="stylesheet" href="css/dark-global.css">
   <link rel="stylesheet" href="css/cta-band.css">
 <link rel="stylesheet" href="css/related-content.css">
+<link rel="stylesheet" href="css/ai-cite.css">
 </head>
 <body>
 
@@ -169,7 +171,41 @@
     </div>
 </div>
 </section>
-
+<section class="cite-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>What continuous reconciliation actually changes</h2>
+    <p class="cite-lead">Controllers don’t need another essay on “automation.” They need liftable facts about how recon work moves from month-end to every day.</p>
+    <p class="cite-pull">A close stays long when matching waits for “final” files. Continuous recon means exceptions show up while the deal owner still remembers the story.</p>
+    <ul class="cite-facts">
+      <li>Line-level matching beats totals: a balance can tie while duplicates and misclasses hide underneath.</li>
+      <li>Exceptions need owners and due dates the day they appear — not a Slack scramble on day five.</li>
+      <li>Every override should store who, when, and why so SOX sampling doesn’t become archaeology.</li>
+      <li>Start narrow: cash + one billing processor for one entity before you expand the chart.</li>
+    </ul>
+    <div class="cite-table-wrap"><table class="cite-table">
+      <thead><tr><th>Close day pattern</th><th>Batch recon (typical)</th><th>Continuous recon with Revzio</th></tr></thead>
+      <tbody>
+        <tr><td>When breaks appear</td><td>Days 3–6 of close</td><td>Same day or next business day</td></tr>
+        <tr><td>What reviewers see</td><td>Unmatched amounts in a CSV</td><td>Summary, likely cause, linked source lines</td></tr>
+        <tr><td>Audit evidence</td><td>Rebuilt from exports + email</td><td>Immutable match + approval trail in product</td></tr>
+        <tr><td>Best first scope</td><td>Entire GL at once</td><td>Cash + one processor, one entity</td></tr>
+      </tbody></table></div>
+    <div class="cite-faq" id="expert-faq">
+      <details>
+        <summary>How should a Series B SaaS team with Stripe and NetSuite start reconciliation without boiling the ocean?</summary>
+        <p>Pilot one entity: Stripe payouts and cash to NetSuite for 30–60 days of history. Exact-match on amount + settlement window first; route FX and partials as exceptions with owners. Expand deferred revenue and subledgers only after exception volume is stable under policy.</p>
+      </details>
+      <details>
+        <summary>What match policy should a multi-entity group use when bank payouts settle T+2 but the ERP posts on invoice date?</summary>
+        <p>Encode the T+2 window as an allowed timing difference, not an error. Match on processor batch ID or remittance reference where possible; keep a tolerance for settlement lag per entity currency. Anything outside the window stays an exception for human review.</p>
+      </details>
+      <details>
+        <summary>When should a controller refuse auto-match even if the amounts look right?</summary>
+        <p>Refuse auto-match across different counterparties, across open vs closed periods, or when source IDs are missing. High-confidence auto-match needs amount + date window + a stable identifier — not amount alone.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
 <section class="related-content" aria-labelledby="related-content-heading">
   <div class="container">

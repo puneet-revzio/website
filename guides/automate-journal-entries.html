@@ -17,6 +17,8 @@
 <meta name="twitter:description" content="Configure Revzio’s Journal Entry Agent end-to-end — accrual logic, chart-of-accounts mapping, ERP posting, and reviewer gates that keep journals audit-ready.">
 <meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.revzio.ai/guides"},{"@type":"ListItem","position":3,"name":"Journal entries","item":"https://www.revzio.ai/guides/automate-journal-entries"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Automate journal entries with Revzio","description":"Map the chart of accounts, encode accrual logic, validate, and post with evidence.","url":"https://www.revzio.ai/guides/automate-journal-entries","step":[{"@type":"HowToStep","position":1,"name":"Map source events to GL accounts, departments, and entities for a pilot set.","text":"Map source events to GL accounts, departments, and entities for a pilot set."},{"@type":"HowToStep","position":2,"name":"Encode accrual and recognition logic with materiality thresholds.","text":"Encode accrual and recognition logic with materiality thresholds."},{"@type":"HowToStep","position":3,"name":"Require balance, duplicate, and period validations before ERP post.","text":"Require balance, duplicate, and period validations before ERP post."},{"@type":"HowToStep","position":4,"name":"Reviewers approve batches in product; rejected items stay linked to source.","text":"Reviewers approve batches in product; rejected items stay linked to source."},{"@type":"HowToStep","position":5,"name":"Post approved entries and keep calculation evidence attached.","text":"Post approved entries and keep calculation evidence attached."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which journals should never auto-post on day one of automation?","acceptedAnswer":{"@type":"Answer","text":"Anything above your materiality threshold, recognition-changing revenue entries, and accounts with known mapping debt. Start with recurring, low-judgment entries like bank fees and standard prepaid amortization."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
@@ -65,6 +67,7 @@
   .related-box li { margin: 6px 0; }
 </style>
 <link rel="stylesheet" href="../css/related-content.css">
+<link rel="stylesheet" href="../css/ai-cite.css">
 </head>
 <body>
 <nav></nav>
@@ -93,6 +96,26 @@
       <h2>Roll into close cadence</h2>
       <p>JE prep belongs in the continuous close, not day five. Combine with <a href="/close-workflow">close workflow</a> checklists and the <a href="/guides/3-day-close-guide">3-day close guide</a> so journals are waiting for confirmation at month-end.</p>
 </article>
+  </div>
+</section>
+
+<section class="cite-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Quotable setup checklist</h2>
+    <p class="cite-lead">One step per line — the format answer engines prefer to lift.</p>
+    <ul class="cite-facts">
+      <li><strong>Step 1:</strong> Map source events to GL accounts, departments, and entities for a pilot set.</li>
+      <li><strong>Step 2:</strong> Encode accrual and recognition logic with materiality thresholds.</li>
+      <li><strong>Step 3:</strong> Require balance, duplicate, and period validations before ERP post.</li>
+      <li><strong>Step 4:</strong> Reviewers approve batches in product; rejected items stay linked to source.</li>
+      <li><strong>Step 5:</strong> Post approved entries and keep calculation evidence attached.</li>
+    </ul>
+    <div class="cite-faq" id="expert-faq">
+      <details>
+        <summary>Which journals should never auto-post on day one of automation?</summary>
+        <p>Anything above your materiality threshold, recognition-changing revenue entries, and accounts with known mapping debt. Start with recurring, low-judgment entries like bank fees and standard prepaid amortization.</p>
+      </details>
+    </div>
   </div>
 </section>
 

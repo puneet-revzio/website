@@ -17,6 +17,7 @@
 <meta name="twitter:description" content="Revzio’s Reconciliation Agent matches bank, billing, and ERP transactions continuously — explainable exceptions and audit trails for faster month-end close.">
 <meta name="twitter:image" content="https://www.revzio.ai/assets/og-default.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.revzio.ai/"},{"@type":"ListItem","position":2,"name":"Orion agents","item":"https://www.revzio.ai/agent-suite"},{"@type":"ListItem","position":3,"name":"Reconciliation","item":"https://www.revzio.ai/agent-suite-reconciliation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does a Reconciliation Agent still need a human in the loop?","acceptedAnswer":{"@type":"Answer","text":"Whenever identifiers conflict, materiality is exceeded, periods disagree, or the break implies a process failure upstream. The agent prepares the investigation; the controller keeps judgment."}},{"@type":"Question","name":"How do you keep 95% auto-match from becoming reckless autopilot?","acceptedAnswer":{"@type":"Answer","text":"Separate high-confidence exact matches from fuzzy rules. Never auto-match on amount alone. Sample early cycles aggressively, then widen auto-match only where false-positive rate stays near zero."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -65,6 +66,7 @@
   .related-box li { margin: 6px 0; }
 </style>
 <link rel="stylesheet" href="css/related-content.css">
+<link rel="stylesheet" href="css/ai-cite.css">
 </head>
 <body>
 <nav></nav>
@@ -93,6 +95,29 @@
       <p>See all agents on the <a href="/agent-suite-reconciliation">Orion agent suite</a>.</p>
 
     </article>
+  </div>
+</section>
+<section class="cite-section" data-nav-theme="dark">
+  <div class="container reveal">
+    <h2>Reconciliation Agent — facts worth citing</h2>
+    <p class="cite-lead">Purpose-built for line-level matching across bank, billing, and ERP — not a generic chatbot on top of spreadsheets.</p>
+    <p class="cite-pull">High auto-match rates only count when policy gates and audit trails travel with every match.</p>
+    <ul class="cite-facts">
+      <li>Supports one-to-one, one-to-many, and many-to-many matching under your tolerances.</li>
+      <li>Exceptions include summary, likely cause, and links to supporting transactions.</li>
+      <li>Overrides are versioned with identity and reason codes for audit.</li>
+      <li>Best paired with continuous close checklist ownership so recon status is visible.</li>
+    </ul>
+    <div class="cite-faq" id="expert-faq">
+      <details>
+        <summary>When does a Reconciliation Agent still need a human in the loop?</summary>
+        <p>Whenever identifiers conflict, materiality is exceeded, periods disagree, or the break implies a process failure upstream. The agent prepares the investigation; the controller keeps judgment.</p>
+      </details>
+      <details>
+        <summary>How do you keep 95% auto-match from becoming reckless autopilot?</summary>
+        <p>Separate high-confidence exact matches from fuzzy rules. Never auto-match on amount alone. Sample early cycles aggressively, then widen auto-match only where false-positive rate stays near zero.</p>
+      </details>
+    </div>
   </div>
 </section>
 
